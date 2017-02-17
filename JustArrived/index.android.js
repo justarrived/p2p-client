@@ -17,12 +17,13 @@ export default class JustArrived extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to our new app!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          This is going to be awesome!
         </Text>
         <Text style={styles.instructions}>
+          To get started, edit index.android.js{'\n'}
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
