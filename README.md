@@ -22,7 +22,7 @@ To setup your development environment run the following commands in the terminal
 ```
 $ git clone https://github.com/justarrived/p2p-client.git
 
-$ cd p2p-client/JustArrived/
+$ cd p2p-client/
 
 $ npm install
 
