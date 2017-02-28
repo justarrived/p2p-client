@@ -1,22 +1,31 @@
-import React from "react";
+
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import configureStore from "./store/configureStore";
-import IndexScene from './index.scene';
 import App from './app';
+import configureStore from './store/configureStore';
 
-const store = configureStore();
+function setup():React.Component {
+  class Root extends Component {
 
-class Setup extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        isLoading: false,
+        store: configureStore(() => this.setState({ isLoading: false })),
+      };
+    }
 
-
-  render() {
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
+    render() {
+      return (
+        <Provider store={this.state.store}>
+          <App />
+        </Provider>
+      );
+    }
   }
+
+  return Root;
 }
 
-export default Setup;
+export default setup;
