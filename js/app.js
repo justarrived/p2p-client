@@ -5,7 +5,6 @@ import { StyleSheet } from 'react-native';
 import { Container, Content, Text, View } from 'native-base';
 
 import AppNavigator from './appNavigator';
-var Navigator = require('./appNavigator');
 
 class App extends Component {
 
