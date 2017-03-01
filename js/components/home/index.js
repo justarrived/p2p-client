@@ -19,7 +19,7 @@ class Home extends Component {
     }),
   }
 
-    pushRoute(route, index) {
+    pushRoute(route) {
       this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
     }
 
@@ -39,7 +39,7 @@ class Home extends Component {
               <Button active>
                 <Text>Home</Text>
               </Button>
-              <Button onPress={() => this.pushRoute('dev', 1)}>
+              <Button onPress={() => this.pushRoute('dev')}>
                 <Text>Dev</Text>
               </Button>
             </FooterTab>

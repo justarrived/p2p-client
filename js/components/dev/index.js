@@ -26,7 +26,7 @@ class Dev extends Component {
     this.props.reset(this.props.navigation.key);
   }
 
-  pushRoute(route, index) {
+  pushRoute(route) {
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
@@ -39,7 +39,7 @@ class Dev extends Component {
 
           <Content>
             <Text>I Dev</Text>
-            <Button onPress={() => this.pushRoute('login', 1)}>
+            <Button onPress={() => this.pushRoute('login')}>
               <Text>Login</Text>
             </Button>
             <Text>

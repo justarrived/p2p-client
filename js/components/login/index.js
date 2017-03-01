@@ -29,7 +29,7 @@ class Login extends Component {
       this.props.popRoute(this.props.navigation.key);
     }
 
-    pushRoute(route, index) {
+    pushRoute(route) {
       this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
     }
 
