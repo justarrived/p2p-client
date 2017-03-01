@@ -3,7 +3,6 @@ import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content,Footer, FooterTab, Text, Button, Icon } from 'native-base';
-//import { setIndex } from '../../actions/list';
 
 const {
   popRoute,
@@ -14,7 +13,6 @@ const {
 class Login extends Component {
 
   static propTypes = {
-    name: React.PropTypes.string,
     pushRoute: React.PropTypes.func,
     reset: React.PropTypes.func,
     popRoute: React.PropTypes.func,
@@ -67,17 +65,13 @@ class Login extends Component {
 function bindAction(dispatch) {
   return {
     popRoute: key => dispatch(popRoute(key)),
-    //setIndex: index => dispatch(setIndex(index)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     reset: key => dispatch(reset([{ key: 'home' }], key, 0)),
   };
 }
 
 const mapStateToProps = state => ({
-
-  //list: state.list.list,
   navigation: state.cardNavigation,
-
 });
 
 export default connect(mapStateToProps, bindAction)(Login);

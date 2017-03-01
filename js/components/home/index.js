@@ -12,8 +12,6 @@ const {
 class Home extends Component {
 
   static propTypes = {
-    name: React.PropTypes.string,
-    list: React.PropTypes.arrayOf(React.PropTypes.string),
     pushRoute: React.PropTypes.func,
     reset: React.PropTypes.func,
     navigation: React.PropTypes.shape({
@@ -53,14 +51,12 @@ class Home extends Component {
 
 function bindAction(dispatch) {
   return {
-  //  setIndex: index => dispatch(setIndex(index)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     reset: key => dispatch(reset([{ key: 'home' }], key, 0)),
   };
 }
 
 const mapStateToProps = state => ({
-  //list: state.list.list,
   navigation: state.cardNavigation,
 
 });

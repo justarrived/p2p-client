@@ -65,14 +65,12 @@ class Dev extends Component {
 function bindAction(dispatch) {
   return {
     popRoute: key => dispatch(popRoute(key)),
-    //setIndex: index => dispatch(setIndex(index)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     reset: key => dispatch(reset([{ key: 'home' }], key, 0)),
   };
 }
 
 const mapStateToProps = state => ({
-
   navigation: state.cardNavigation,
 });
 
