@@ -5,7 +5,6 @@ import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content,Footer, FooterTab, Text, Button, Icon } from 'native-base';
 
 
-import { setIndex } from '../../actions/list';
 
 const {
   reset,
@@ -15,7 +14,6 @@ const {
 class Dev extends Component {
 
   static propTypes = {
-      setIndex: React.PropTypes.func,
       pushRoute: React.PropTypes.func,
       reset: React.PropTypes.func,
       popRoute: React.PropTypes.func,
@@ -29,7 +27,6 @@ class Dev extends Component {
   }
 
   pushRoute(route, index) {
-    this.props.setIndex(index);
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
@@ -68,7 +65,7 @@ class Dev extends Component {
 function bindAction(dispatch) {
   return {
     popRoute: key => dispatch(popRoute(key)),
-    setIndex: index => dispatch(setIndex(index)),
+    //setIndex: index => dispatch(setIndex(index)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     reset: key => dispatch(reset([{ key: 'home' }], key, 0)),
   };
