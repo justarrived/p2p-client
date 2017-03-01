@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-
-
 import Home from './components/home/';
-import IndexScene from './index.scene';
+
+
 import Dev from './components/dev/';
 import Login from './components/login/';
 
@@ -53,8 +52,6 @@ class AppNavigator extends Component {
         return <Home />;
      case 'dev':
         return <Dev />;
-      case 'index':
-        return <IndexScene />;
       case 'login':
         return <Login />;
       default :
