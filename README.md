@@ -1,4 +1,5 @@
-# p2p-client
+# p2p-client [![Dependency Status][david-badge]][david-badge-url] [![devDependency Status][david-dev-badge]][david-dev-badge-url]
+
 P2P cross platform mobile app created in colaboration between Just Arrived and Chalmers as a Bachelor thesis project.
 
 * [Built with](#built-with)
@@ -41,3 +42,9 @@ This is an open source project and contributions will be very welcome in the fut
 ## License
 
 This project is open source and licensed under [MIT](LICENSE).
+
+
+[david-badge]: https://david-dm.org/justarrived/p2p-client.svg
+[david-badge-url]: https://david-dm.org/justarrived/p2p-client
+[david-dev-badge]: https://david-dm.org/justarrived/p2p-client/dev-status.svg
+[david-dev-badge-url]: https://david-dm.org/justarrived/p2p-client?type=dev
