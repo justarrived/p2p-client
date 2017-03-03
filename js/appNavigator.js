@@ -1,85 +1,39 @@
+import {StackNavigator, TabNavigator} from 'react-navigation';
 
-import React, { Component } from 'react';
-import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import Home from './components/home/';
+import DeveloperScreen from './components/developer/developer-screen';
+import HomeScreen from './components/home/home-screen';
+import SampleScreen from './components/developer/sample-screen';
 
-
-import Dev from './components/dev/';
-import Login from './components/login/';
-
-
-const {
-  popRoute,
-} = actions;
-
-const {
-  CardStack: NavigationCardStack,
-} = NavigationExperimental;
-
-class AppNavigator extends Component {
-
-  static propTypes = {
-    popRoute: React.PropTypes.func,
-    navigation: React.PropTypes.shape({
-      key: React.PropTypes.string,
-      routes: React.PropTypes.array,
-    }),
-  }
-
-  componentDidMount() {
-    BackAndroid.addEventListener('hardwareBackPress', () => {
-      const routes = this.props.navigation.routes;
-
-      if (routes[routes.length - 1].key === 'home') {
-        return false;
-      }
-
-      this.props.popRoute(this.props.navigation.key);
-      return true;
-    });
-  }
-
-
-  popRoute() {
-    this.props.popRoute();
-  }
-
-  _renderScene(props) { // eslint-disable-line class-methods-use-this
-    switch (props.scene.route.key) {
-      case 'home':
-        return <Home />;
-     case 'dev':
-        return <Dev />;
-      case 'login':
-        return <Login />;
-      default :
-        return <Home />;
-    }
-  }
-
-  render() {
-
-    return (
-        <NavigationCardStack
-          navigationState={this.props.navigation}
-          renderOverlay={this._renderOverlay}
-          renderScene={this._renderScene}
-        />
-
-    );
-  }
-}
-
-function bindAction(dispatch) {
-  return {
-    popRoute: key => dispatch(popRoute(key)),
-  };
-}
-
-const mapStateToProps = state => ({
-  navigation: state.cardNavigation,
+// The home tab holding screens in a stack.
+const HomeTab = StackNavigator({
+	HomeScreen: {
+		screen: HomeScreen
+	}
 });
 
-export default connect(mapStateToProps, bindAction)(AppNavigator);
+// The developer tab holding screens in a stack.
+const DeveloperTab = StackNavigator({
+	DeveloperScreen: {
+		screen: DeveloperScreen
+	},
+	SampleScreen: {
+		screen: SampleScreen
+	}
+});
+
+// Main navigation. Contains different tabs.
+const AppNavigator = TabNavigator({
+	HomeTab: {
+		screen: HomeTab
+	},
+	DeveloperTab: {
+		screen: DeveloperTab
+	}
+}, {
+	tabBarPosition: 'bottom',
+	tabBarOptions: {
+		activeTintColor: '#e91e63'
+	}
+});
+
+export default AppNavigator;
