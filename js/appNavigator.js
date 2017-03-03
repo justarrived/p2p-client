@@ -1,8 +1,8 @@
 import {StackNavigator, TabNavigator} from 'react-navigation';
 
-import DeveloperScreen from './components/developer';
-import HomeScreen from './components/home';
-import SampleScreen from './components/sample';
+import DeveloperScreen from './components/developer/developer-screen';
+import HomeScreen from './components/home/home-screen';
+import SampleScreen from './components/developer/sample-screen';
 
 // The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
