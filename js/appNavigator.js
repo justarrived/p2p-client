@@ -6,12 +6,14 @@ import DeveloperScreen from './components/developer';
 import HomeScreen from './components/home';
 import SampleScreen from './components/sample';
 
+// The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
 	HomeScreen: {
 		screen: HomeScreen
 	}
 });
 
+// The developer tab holding screens in a stack.
 const DeveloperTab = StackNavigator({
 	DeveloperScreen: {
 		screen: DeveloperScreen
@@ -21,6 +23,7 @@ const DeveloperTab = StackNavigator({
 	}
 });
 
+// Main navigation. Contains different tabs.
 const AppNavigator = TabNavigator({
 	HomeTab: {
 		screen: HomeTab
