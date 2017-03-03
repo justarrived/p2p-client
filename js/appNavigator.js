@@ -1,5 +1,3 @@
-import React from 'react';
-import {AppRegistry} from 'react-native';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 
 import DeveloperScreen from './components/developer';

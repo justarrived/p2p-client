@@ -1,23 +1,16 @@
-
-import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-
-import { Container, Content, Text, View } from 'native-base';
-
+import React, {Component} from 'react';
 import AppNavigator from './appNavigator';
 
 class App extends Component {
 
-  constructor(props) {
-      super(props);
-    }
-  /*
-  This is the place for CodePush and similar modules
-  */
-  render(){
-    return <AppNavigator />;
-  }
+	constructor(props) {
+		super(props);
+	}
 
+	// This is the place for CodePush and similar modules
+	render() {
+		return <AppNavigator/>;
+	}
 
 }
 
