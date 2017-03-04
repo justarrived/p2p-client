@@ -9,36 +9,36 @@ P2P cross platform mobile app created in colaboration between Just Arrived and C
 * [License](#license)
 
 ## Built with
-* [React Native](https://facebook.github.io/react-native/)
+* **[React Native](https://facebook.github.io/react-native/)**
 
     > Open source project that lets developers build native Android and iOS apps using JavaScript and React.
 
-* [Native Base](http://nativebase.io/)
+* **[Native Base](http://nativebase.io/)**
 
     > Cross-platform UI components for React Native.
 
-* [Redux](http://redux.js.org/)<br/>
+* **[Redux](http://redux.js.org/)**
 
     > A predictable state container for JavaScript apps.
 
-* [Atom](https://atom.io/)<br/>
+* **[Atom](https://atom.io/)**
 
     > A hackable text editor for the 21st Century.
 
 ###Suggested Atom packages
-* [react](https://atom.io/packages/react) (by [orktes](https://atom.io/users/orktes))
+* **[react](https://atom.io/packages/react)** (by [orktes](https://atom.io/users/orktes))
 
     > React.js (JSX) language support, indentation, snippets, auto completion, reformatting.
 
-* [nuclide](https://atom.io/packages/nuclide) (by [facebook](https://atom.io/users/facebook))
+* **[nuclide](https://atom.io/packages/nuclide)** (by [facebook](https://atom.io/users/facebook))
 
     > A unified developer experience for web and mobile development, built as a suite of features on top of Atom to provide hackability and the support of an active community.
 
-* [linter](https://atom.io/packages/linter) (by [steelbrain](https://atom.io/users/steelbrain))
+* **[linter](https://atom.io/packages/linter)** (by [steelbrain](https://atom.io/users/steelbrain))
 
     > A Base Linter with Cow Powers.
 
-* [linter-eslint](https://atom.io/packages/linter-eslint) (by [AtomLinter](https://atom.io/users/AtomLinter))
+* **[linter-eslint](https://atom.io/packages/linter-eslint)** (by [AtomLinter](https://atom.io/users/AtomLinter))
 
     > Lint JavaScript on the fly, using ESLint.
 
@@ -47,7 +47,7 @@ P2P cross platform mobile app created in colaboration between Just Arrived and C
 "linter-eslint":
   fixOnSave: true
 ```
-* [atom-beautify](https://atom.io/packages/atom-beautify) (by [Glavin001](https://atom.io/users/Glavin001))
+* **[atom-beautify](https://atom.io/packages/atom-beautify)** (by [Glavin001](https://atom.io/users/Glavin001))
 
     > Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom.
 
