@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, ListView } from 'react-native';
-import { Container, Content, Spinner } from 'native-base';
+import { View, Text, Image, ListView } from 'react-native';
+import { Spinner } from 'native-base';
+import movieStyles from './movieStyles';
 
-// URL JSON data if fetched from
+// URL JSON data is fetched from
 const REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 
 // Modified component based on react-native 0.19 tutorial
@@ -27,14 +28,14 @@ export default class MovieExample extends Component {
       () => {
         this.fetchData();
       },
-      1000
+      1000,
     );
   }
 
   // Fetch data from REQUEST_URL and update state
   fetchData() {
     fetch(REQUEST_URL)
-      .then((response) => response.json())
+      .then(response => response.json())
       .then((responseData) => {
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
@@ -44,67 +45,35 @@ export default class MovieExample extends Component {
       .done();
   }
 
+// Render information about one movie
+  renderMovie(movie) {
+    return (
+      <View style={movieStyles.container}>
+        <Image
+          source={{ uri: movie.posters.thumbnail }}
+          style={movieStyles.thumbnail}
+        />
+        <View style={movieStyles.rightContainer}>
+          <Text style={movieStyles.title}>{movie.title}</Text>
+          <Text style={movieStyles.year}>{movie.year}</Text>
+        </View>
+      </View>
+    );
+  }
+
   // Render the component
   render() {
     if (!this.state.loaded) {
-      return this.renderLoadingView();
+      return (
+        <Spinner color="blue" />
+      );
     }
     return (
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderMovie}
-        style={styles.listView}
+        style={movieStyles.listView}
       />
     );
   }
-
-  // Render loading screen
-  renderLoadingView() {
-    return ( <Spinner color='blue' /> );
-  }
-
-  // Render information about one movie
-  renderMovie(movie) {
-    return (
-      <View style={styles.container}>
-        <Image
-          source={{uri: movie.posters.thumbnail}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.year}>{movie.year}</Text>
-        </View>
-      </View>
-    );
-  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  thumbnail: {
-    width: 53,
-    height: 81,
-  },
-  rightContainer: {
-   flex: 1,
-  },
-  title: {
-    fontSize: 20,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  year: {
-    textAlign: 'center',
-  },
-  listView: {
-   paddingTop: 20,
-   backgroundColor: '#F5FCFF',
- },
-});
