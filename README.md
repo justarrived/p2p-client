@@ -51,7 +51,7 @@ P2P cross platform mobile app created in colaboration between Just Arrived and C
 
     > Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom.
 
-**Settings**
+#####**Settings**
 ```json
 "atom-beautify":
   js:
