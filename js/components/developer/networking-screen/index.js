@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, ListView } from 'react-native';
+import { Container, Content, Spinner } from 'native-base';
 
 const REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 
@@ -28,7 +29,13 @@ export default class MovieExample extends Component {
 
   // Called once component has been mounted
   componentDidMount() {
-    this.fetchData();
+    // Setting a delay so there is always time to see the loading screen. Do NOT do this!
+    setTimeout(
+      () => {
+        this.fetchData();
+      },
+      1000
+    );
   }
 
   // Fetch data from REQUEST_URL and update state
@@ -61,11 +68,11 @@ export default class MovieExample extends Component {
   // Render loading screen
   renderLoadingView() {
     return (
-      <View style={styles.container}>
-        <Text>
-          Loading movies...
-        </Text>
-      </View>
+      <Container>
+        <Content>
+          <Spinner color='blue' />
+        </Content>
+      </Container>
     );
   }
 
