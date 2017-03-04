@@ -1,11 +1,10 @@
-
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
 import App from './app';
 import configureStore from './store/configureStore';
 
-function setup():React.Component {
+function setup() : React.Component {
   class Root extends Component {
 
     constructor() {

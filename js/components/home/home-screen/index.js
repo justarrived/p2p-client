@@ -1,15 +1,15 @@
 import React from 'react';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 
 export default class HomeScreen extends React.Component {
-	static navigationOptions = {
-		tabBar: {
-			label: 'Home'
-		},
-		title: 'Home'
-	};
+  static navigationOptions = {
+    tabBar: {
+      label: 'Home',
+    },
+    title: 'Home',
+  };
 
-	render() {
-		return <Text>This is the home screen!</Text>;
-	}
+  render() {
+    return <Text>This is the home screen!</Text>;
+  }
 }
