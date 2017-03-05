@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, ListView } from 'react-native';
 import { Spinner } from 'native-base';
-import movieStyles from './movieStyles';
+import MovieStyles from './movieStyles';
 
 // URL JSON data is fetched from
 const REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
@@ -45,17 +45,17 @@ export default class MovieExample extends Component {
       .done();
   }
 
-// Render information about one movie
+  // Render information about one movie
   renderMovie(movie) {
     return (
-      <View style={movieStyles.container}>
+      <View style={MovieStyles.container}>
         <Image
           source={{ uri: movie.posters.thumbnail }}
-          style={movieStyles.thumbnail}
+          style={MovieStyles.thumbnail}
         />
-        <View style={movieStyles.rightContainer}>
-          <Text style={movieStyles.title}>{movie.title}</Text>
-          <Text style={movieStyles.year}>{movie.year}</Text>
+        <View style={MovieStyles.rightContainer}>
+          <Text style={MovieStyles.title}>{movie.title}</Text>
+          <Text style={MovieStyles.year}>{movie.year}</Text>
         </View>
       </View>
     );
@@ -72,7 +72,7 @@ export default class MovieExample extends Component {
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderMovie}
-        style={movieStyles.listView}
+        style={MovieStyles.listView}
       />
     );
   }

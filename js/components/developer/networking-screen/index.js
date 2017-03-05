@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
 import { Tab, Tabs } from 'native-base';
+
 import MovieExample from './movieExample';
+import WebAppJobs from './webAppJobs';
 
 export default class NetworkingScreen extends Component {
 
@@ -17,10 +18,10 @@ export default class NetworkingScreen extends Component {
   render() {
     return (
       <Tabs>
-        <Tab heading="Some Tab">
-          <Text>Tab awaiting new content</Text>
+        <Tab heading="Just Arrived Jobs">
+          <WebAppJobs />
         </Tab>
-        <Tab heading="Movies">
+        <Tab heading="Static Movies">
           <MovieExample />
         </Tab>
       </Tabs>
