@@ -12,6 +12,10 @@ const webAppStyles = StyleSheet.create({
     paddingBottom: 10,
     color: TITLE_COLOR,
   },
+  textCompany: {
+    fontWeight: 'bold',
+    color: MAIN_CERISE,
+  },
   textContent: {
     paddingBottom: 10,
     color: TITLE_COLOR,

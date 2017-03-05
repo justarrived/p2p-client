@@ -3,6 +3,7 @@ import { ListView, Text } from 'react-native';
 import { Spinner, Card, CardItem, Body, Left, Right } from 'native-base';
 import webAppStyles from './webAppStyles';
 import WebAppHourlyWage from './webAppHourlyWage';
+import WebAppCompany from './webAppCompany';
 
 // URL JSON data is fetched from
 const REQUEST_URL = 'https://api.justarrived.se/api/v1/jobs/';
@@ -76,10 +77,15 @@ export default class WebAppJobs extends Component {
             <CardItem bordered="true">
               <Body >
                 <Text style={webAppStyles.textTitle}>{rowData.attributes.name}</Text>
+                <WebAppCompany
+                  url={rowData.relationships.company.links.self}
+                  city={rowData.attributes.city}
+                />
                 <Text style={webAppStyles.textContent}>{rowData.attributes['short-description']}</Text>
                 <Text >
                   <Text style={webAppStyles.textMoney}>{rowData.attributes.amount}</Text>
                   <Text style={webAppStyles.textCurrency}> {rowData.attributes.currency}</Text>
+                  <Text style={webAppStyles.textLeft}> BRUTTOLÖN</Text>
                 </Text>
               </Body>
             </CardItem>
