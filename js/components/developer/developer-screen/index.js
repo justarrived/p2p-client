@@ -18,7 +18,7 @@ export default class DeveloperScreen extends React.Component {
     return (
       <View>
         <Button onPress={() => navigate('SampleScreen')} title="Go to the sample screen" />
-        <Button onPress={() => navigate('NetworkingScreen')} title="Go to the networking screen" />
+        <Button onPress={() => navigate('NetworkingScreen')} title="Get JSON data examples" />
       </View>
     );
   }

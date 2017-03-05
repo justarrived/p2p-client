@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { ListView, Text } from 'react-native';
 import { Spinner, Card, CardItem, Body, Left, Right } from 'native-base';
 import webAppStyles from './webAppStyles';
+import WebAppHourlyWage from './webAppHourlyWage';
 
 // URL JSON data is fetched from
 const REQUEST_URL = 'https://api.justarrived.se/api/v1/jobs/';
 
-// Modified component based on react-native 0.19 tutorial
-// http://facebook.github.io/react-native/releases/0.19/docs/tutorial.html
 export default class WebAppJobs extends Component {
 
   // Constructor setting intitial state
@@ -17,29 +16,41 @@ export default class WebAppJobs extends Component {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
-      loaded: false,
+      loading: true,
+      error: false,
     };
   }
 
-  // Called once component has been mounted
+  // Called once component has been mounted for the first time
   componentDidMount() {
     // Setting a delay so there is always time to see the loading screen. Do NOT do this!
     setTimeout(
       () => {
         this.fetchData();
       },
-      1000,
+      500,
     );
   }
 
   // Fetch data from REQUEST_URL and update state
   fetchData() {
     fetch(REQUEST_URL)
-      .then(response => response.json())
-      .then((responseData) => {
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        }
+        throw new Error('Response was not 200 OK!');
+      })
+      .then((responseJson) => {
         this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(responseData.data),
-          loaded: true,
+          dataSource: this.state.dataSource.cloneWithRows(responseJson.data),
+          loading: false,
+        });
+      }).catch((error) => {
+        console.warn(error);
+        this.setState({
+          loading: false,
+          error: true,
         });
       })
       .done();
@@ -47,9 +58,14 @@ export default class WebAppJobs extends Component {
 
   // Render the component
   render() {
-    if (!this.state.loaded) {
+    if (this.state.loading) {
       return (
         <Spinner color="blue" />
+      );
+    }
+    if (this.state.error) {
+      return (
+        <Text >Failed to load {REQUEST_URL}</Text>
       );
     }
     return (
@@ -72,7 +88,7 @@ export default class WebAppJobs extends Component {
                 <Text style={webAppStyles.textLeft}>{rowData.attributes.hours} TIMMAR</Text>
               </Left>
               <Right >
-                <Text style={webAppStyles.textRight}>XXX {rowData.attributes.currency}/TIMME</Text>
+                <WebAppHourlyWage url={rowData.relationships['hourly-pay'].links.self} />
               </Right>
             </CardItem>
           </Card>
