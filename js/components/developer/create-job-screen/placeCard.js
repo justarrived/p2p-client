@@ -1,16 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Grid,
-  Col,
-  Form,
-  Item,
-  Label,
-  Input,
-  Card,
-  CardItem,
-  Left,
-  Body,
-} from 'native-base';
+import { Grid, Col, Form, Item, Label, Input, Card, CardItem } from 'native-base';
 
 import CardHeader from './cardHeader';
 
@@ -25,32 +14,26 @@ export default class PlaceCard extends Component {
     return (
       <Card>
         <CardHeader icon="pin" title="Plats" subtitle="Var ska uppdraget utföras?" />
-        <CardItem cardBody>
-          <Left>
-            <Body>
-              <Form>
-                <Item floatingLabel>
-                  <Label>{ADDRESS_STRING}</Label>
-                  <Input />
-                </Item>
-                <Grid>
-                  <Col>
-                    <Item floatingLabel>
-                      <Label>{CITY_STRING}</Label>
-                      <Input />
-                    </Item>
-                  </Col>
-                  <Col>
-                    <Item floatingLabel>
-                      <Label>{ZIP_CODE_STRING}</Label>
-                      <Input />
-                    </Item>
-                  </Col>
-                </Grid>
-              </Form>
-            </Body>
-          </Left>
-        </CardItem>
+        <Form>
+          <Item floatingLabel>
+            <Label>{ADDRESS_STRING}</Label>
+            <Input />
+          </Item>
+          <Grid>
+            <Col>
+              <Item floatingLabel>
+                <Label>{CITY_STRING}</Label>
+                <Input />
+              </Item>
+            </Col>
+            <Col>
+              <Item floatingLabel>
+                <Label>{ZIP_CODE_STRING}</Label>
+                <Input />
+              </Item>
+            </Col>
+          </Grid>
+        </Form>
         <CardItem footer />
       </Card>
     );

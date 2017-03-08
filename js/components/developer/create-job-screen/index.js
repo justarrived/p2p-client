@@ -4,8 +4,10 @@ import { Container, Content } from 'native-base';
 import PlaceCard from './placeCard';
 import TimeCard from './timeCard';
 import CalendarCard from './calendarCard';
+import CreateJobStyles from './createJobStyles';
 
-export default class CreateJob extends Component {
+export default class CreateJobScreen extends Component {
+
   static navigationOptions = {
     tabBar: {
       label: 'Developer',
@@ -16,7 +18,7 @@ export default class CreateJob extends Component {
   render() {
     return (
       <Container>
-        <Content>
+        <Content contentContainerStyle={CreateJobStyles.padder}>
           <TimeCard />
           <PlaceCard />
           <CalendarCard />

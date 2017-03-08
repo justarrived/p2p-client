@@ -1,16 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Grid,
-  Col,
-  Form,
-  Item,
-  Label,
-  Input,
-  Card,
-  CardItem,
-  Left,
-  Body,
-} from 'native-base';
+import { Grid, Col, Form, Item, Label, Input, Card, CardItem } from 'native-base';
 
 import CardHeader from './cardHeader';
 
@@ -24,28 +13,22 @@ export default class CalendarCard extends Component {
     return (
       <Card>
         <CardHeader icon="calendar" title="Datum" subtitle="När ska uppdraget utföras?" />
-        <CardItem cardBody>
-          <Left>
-            <Body>
-              <Form >
-                <Grid>
-                  <Col>
-                    <Item floatingLabel>
-                      <Label>{DATE_STRING}</Label>
-                      <Input />
-                    </Item>
-                  </Col>
-                  <Col>
-                    <Item floatingLabel>
-                      <Label>{TIME_STRING}</Label>
-                      <Input />
-                    </Item>
-                  </Col>
-                </Grid>
-              </Form>
-            </Body>
-          </Left>
-        </CardItem>
+        <Form >
+          <Grid>
+            <Col>
+              <Item floatingLabel>
+                <Label>{DATE_STRING}</Label>
+                <Input />
+              </Item>
+            </Col>
+            <Col>
+              <Item floatingLabel>
+                <Label>{TIME_STRING}</Label>
+                <Input />
+              </Item>
+            </Col>
+          </Grid>
+        </Form>
         <CardItem footer />
       </Card>
     );

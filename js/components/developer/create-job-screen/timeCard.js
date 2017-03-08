@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardItem, Left, Body } from 'native-base';
+import { Card, CardItem } from 'native-base';
 import CardHeader from './cardHeader';
 import RadioWithNote from './radioWithNote';
 
@@ -17,15 +17,9 @@ export default class TimeCard extends Component {
     return (
       <Card>
         <CardHeader icon="time" title="Tid" subtitle="Hur lång tid tar uppdraget?" />
-        <CardItem cardBody>
-          <Left>
-            <Body>
-              <RadioWithNote selected title={SMALL_JOB_DESC} note={SMALL_JOB_COST} />
-              <RadioWithNote selected={false} title={MEDIUM_JOB_DESC} note={MEDIUM_JOB_COST} />
-              <RadioWithNote selected={false} title={BIG_JOB_DESC} note={BIG_JOB_COST} />
-            </Body>
-          </Left>
-        </CardItem>
+        <RadioWithNote selected title={SMALL_JOB_DESC} note={SMALL_JOB_COST} />
+        <RadioWithNote selected={false} title={MEDIUM_JOB_DESC} note={MEDIUM_JOB_COST} />
+        <RadioWithNote selected={false} title={BIG_JOB_DESC} note={BIG_JOB_COST} />
         <CardItem footer />
       </Card>
     );
