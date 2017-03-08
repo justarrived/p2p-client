@@ -1,34 +1,44 @@
 import { StyleSheet } from 'react-native';
 
+const PADDING = 10;
+
 const loginScreenStyles = StyleSheet.create({
-  container: {
+  padder: {
+    padding: PADDING,
+  },
+
+  logoContainer: {
     flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'flex-end',
   },
 
   logo: {
-    width: 150,
-    height: 150,
-    flex: 1,
-    justifyContent: 'center',
+    width: 140,
+    height: 140,
+    borderRadius: 70,
+    alignItems: 'center',
+    margin: PADDING * 2,
   },
 
-  bottomForm: {
+  cardForm: {
     flex: 0,
-    alignSelf: 'stretch',
+    paddingTop: PADDING,
+    paddingBottom: PADDING,
   },
 
-  loginButton: {
-    marginLeft: 15,
-    marginRight: 15,
-    marginBottom: 12,
-    marginTop: 10,
+  buttonContainer: {
+    flex: 0,
+    paddingTop: PADDING * 2,
+    padding: PADDING,
   },
 
-  createAccountNote: {
-    alignSelf: 'center',
-    marginBottom: 12,
+  secondaryButtonsContainer: {
+    marginTop: PADDING * 2,
+  },
+
+  secondaryButtonSpacing: {
+    marginRight: PADDING,
   },
 });
 
