@@ -1,13 +1,12 @@
-export type Action =
-  { type: 'PUSH_NEW_ROUTE', route: string }
-    | { type: 'POP_ROUTE' }
-    | { type: 'POP_TO_ROUTE', route: string }
-    | { type: 'REPLACE_ROUTE', route: string }
-    | { type: 'REPLACE_OR_PUSH_ROUTE', route: string }
-    | { type: 'CHANGE_NAME', route: string }
-    | { type: 'DECREASE_AGE' }
-    | { type: 'INCREASE_AGE' }
+export type Action = {
+  type: 'CHANGE_NAME',
+  route: string
+} | {
+  type: 'DECREASE_AGE'
+} | {
+  type: 'INCREASE_AGE'
+}
 
-export type Dispatch = (action:Action | Array<Action>) => any;
+export type Dispatch = (action : Action | Array < Action >) => any;
 export type GetState = () => Object;
-export type PromiseAction = Promise<Action>;
+export type PromiseAction = Promise < Action >;

@@ -6,21 +6,21 @@ Developer screen.
 Provides access to components during development.
 */
 export default class DeveloperScreen extends React.Component {
-	static navigationOptions = {
-		tabBar: {
-			label: 'Developer'
-		},
-		title: 'Developer'
-	};
+  static navigationOptions = {
+    tabBar: {
+      label: 'Developer'
+    },
+    title: 'Developer'
+  };
 
-	render() {
-		const {navigate} = this.props.navigation;
-		return (
-			<View>
-				<Button onPress={() => navigate('SampleScreen')} title="Go to the sample screen"/>
-				<Button onPress={() => navigate('ReduxSampleScreen')} title="Go to the redux sample screen"/>
+  render() {
+    const {navigate} = this.props.navigation;
+    return (
+      <View>
+        <Button onPress={() => navigate('SampleScreen')} title="Go to the sample screen"/>
+        <Button onPress={() => navigate('ReduxSampleScreen')} title="Go to the redux sample screen"/>
 
-			</View>
-		);
-	}
+      </View>
+    );
+  }
 }

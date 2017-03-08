@@ -1,8 +1,4 @@
-var { combineReducers } = require('redux');
-import cardNavigation from './cardNavigation';
+var {combineReducers} = require('redux');
 import person from './person';
 
-export default combineReducers({
-  cardNavigation,
-  person,
-});
+export default combineReducers({person});
