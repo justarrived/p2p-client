@@ -9,6 +9,7 @@ import {
   Text,
   Body,
 } from 'native-base';
+
 import ChooseJobTypeStyles from './chooseJobTypeStyles';
 
 export default class JobTypeCard extends Component {
@@ -27,19 +28,17 @@ export default class JobTypeCard extends Component {
   render() {
     return (
       <Card>
+        {/* Card image header */}
         <CardItem cardBody onPress={this.pressCard}>
           <Thumbnail
-            source={{
-              uri: `${this.props.cover}`,
-            }} square resizeMode="cover" style={StyleSheet.flatten(ChooseJobTypeStyles.coverPhoto)}
+            square resizeMode="cover" style={StyleSheet.flatten(ChooseJobTypeStyles.coverPhoto)}
+            source={{ uri: `${this.props.cover}` }}
           >
-            <Thumbnail
-              source={{
-                uri: `${this.props.icon}`,
-              }}
-            />
+            <Thumbnail source={{ uri: `${this.props.icon}` }} />
           </Thumbnail>
         </CardItem>
+
+        {/* Card body */}
         <CardItem onPress={this.pressCard}>
           <Body>
             <Text>{this.props.title}</Text>
