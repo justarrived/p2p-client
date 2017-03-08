@@ -4,6 +4,16 @@ import { ListItem, Radio, Left, Right, Text } from 'native-base';
 // Radio button list item with title and note.
 export default class RadioWithNote extends Component {
 
+  static propTypes = {
+    title: React.PropTypes.string.isRequired,
+    note: React.PropTypes.string.isRequired,
+    selected: React.PropTypes.bool,
+  };
+
+  static defaultProps = {
+    selected: true,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -31,13 +41,3 @@ export default class RadioWithNote extends Component {
     );
   }
 }
-
-RadioWithNote.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  note: React.PropTypes.string.isRequired,
-  selected: React.PropTypes.bool,
-};
-
-RadioWithNote.defaultProps = {
-  selected: true,
-};
