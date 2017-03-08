@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Dimensions, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import {
   Container,
   Content,
@@ -17,7 +17,6 @@ import {
 import LoginScreenStyles from './loginScreenStyles';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
-const HEADER_AND_FOOTER_HEIGHT_SUM = 130; // The sum of the heights of the header and the footer.
 const EMAIL_STRING = 'E-post';
 const PASSWORD_STRING = 'Lösenord';
 const REMEMBER_ME_STRING = 'Kom ihåg mig';
@@ -36,38 +35,24 @@ export default class LoginScreen extends Component {
   constructor() {
     super();
 
+    /*
+      Used to set minHeight of Content (which is a scroll view).
+      This mimics the behaviour of flex: 1 in a scroll view,
+      but in addition preserves the the ability to scroll if needed.
+    */
     this.state = {
-      width: Dimensions.get('window').width,
-      height: Dimensions.get('window').height,
+      minContentHeight: 0,  //This is instantly updated upon mount/render.
     };
-
-    this.onLayout = this.onLayout.bind(this);
-  }
-
-  /*
-    This function is run upon rotating the device.
-    It updates the state with the current device dimensions.
-    We later use this to set the minHeight of the scroll view in the login screen.
-  */
-  onLayout() {
-    this.setState({ width: Dimensions.get('window').width, height: Dimensions.get('window').height });
   }
 
   render() {
     return (
       <Container>
-        {/*
-          About contentContainerStyle and setting minHeight:
-          Content is a scroll view.
-          Using minHeight and the device height,
-          we can mimic the behaviour of a flex-box in a scroll view.
-          This allows us to have a footer in a scroll view, and dynamically sized content.
-          If the content does not fit, we still have the ability to scroll.
-        */}
         <Content
-          onLayout={this.onLayout} contentContainerStyle={{
-            minHeight: this.state.height - HEADER_AND_FOOTER_HEIGHT_SUM,
-          }}
+          onLayout={(event) => { // Invoked on mount and device orientation change.
+            const { height } = event.nativeEvent.layout;  // The height of the Content component.
+            this.setState({ minContentHeight: height });
+          }} contentContainerStyle={{ minHeight: this.state.minContentHeight }}
         >
           <View style={LoginScreenStyles.container}>
             <Thumbnail
