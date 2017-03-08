@@ -3,6 +3,11 @@ import { Icon, CardItem, Text, Body } from 'native-base';
 
 // Card header with icon, title and subtitle.
 export default class CardHeader extends Component {
+  static propTypes = {
+    title: React.PropTypes.string.isRequired,
+    subtitle: React.PropTypes.string.isRequired,
+    icon: React.PropTypes.string.isRequired,
+  };
 
   render() {
     return (
@@ -16,9 +21,3 @@ export default class CardHeader extends Component {
     );
   }
 }
-
-CardHeader.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  subtitle: React.PropTypes.string.isRequired,
-  icon: React.PropTypes.string.isRequired,
-};
