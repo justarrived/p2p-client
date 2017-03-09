@@ -5,6 +5,7 @@ import HomeScreen from './components/home/home-screen';
 import SampleScreen from './components/developer/sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
 import MakePaymentScreen from './components/developer/make-payment-screen';
+import CreateAccountScreen from './components/developer/create-account-screen';
 
 // The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
@@ -26,6 +27,9 @@ const DeveloperTab = StackNavigator({
   },
   MakePaymentScreen: {
     screen: MakePaymentScreen,
+  },
+  CreateAccountScreen: {
+    screen: CreateAccountScreen,
   },
 });
 
