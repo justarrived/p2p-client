@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import {
-  Container,
-  Content,
-  CheckBox,
-  Form,
-  Item,
-  Thumbnail,
-  Card,
-  Input,
-  ListItem,
-  Button,
-  Body,
-  Col,
-  Grid,
-  Text,
-} from 'native-base';
+import { Container, Content, CheckBox, Form, Item, Thumbnail, Card, Input, ListItem, Button, Body, Col, Grid, Text } from 'native-base';
 import LoginScreenStyles from './loginScreenStyles';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
