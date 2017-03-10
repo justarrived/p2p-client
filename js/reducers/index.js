@@ -1,4 +1,5 @@
-var {combineReducers} = require('redux');
 import person from './person';
 
-export default combineReducers({person});
+const { combineReducers } = require('redux');
+
+export default combineReducers({ person });
