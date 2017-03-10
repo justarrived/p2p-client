@@ -15,18 +15,27 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     borderBottomWidth: 1,
   },
+  bottomContainer: {
+    marginTop: 20,
+    marginBottom: 40,
+    marginRight: 20,
+    marginLeft: 20,
+  },
+
   nameText: {
     fontSize: 24,
     alignSelf: 'center',
     color: '#000',
   },
-  input: {},
+  input: {
+    marginRight: 20,
+  },
   logo: {
     width: 140,
     height: 140,
     borderRadius: 70,
     alignItems: 'center',
-    margin: 10 * 2,
+    margin: 20,
   },
   logoContainer: {
     flex: 1,
