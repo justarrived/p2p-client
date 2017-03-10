@@ -5,7 +5,7 @@ import HomeScreen from './components/home/home-screen';
 import SampleScreen from './components/developer/sample-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
-import MakePaymentScreen from './components/developer/make-payment-screen';
+import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 
 // The home tab holding screens in a stack.
@@ -26,8 +26,8 @@ const DeveloperTab = StackNavigator({
   NetworkingScreen: {
     screen: NetworkingScreen,
   },
-  MakePaymentScreen: {
-    screen: MakePaymentScreen,
+  MyProfileScreen: {
+    screen: MyProfileScreen,
   },
   ChooseJobTypeScreen: {
     screen: ChooseJobTypeScreen,
