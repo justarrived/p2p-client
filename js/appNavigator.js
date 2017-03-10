@@ -3,6 +3,8 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import DeveloperScreen from './components/developer/developer-screen';
 import HomeScreen from './components/home/home-screen';
 import SampleScreen from './components/developer/sample-screen';
+import ReduxSampleScreen from './components/developer/redux-sample-screen';
+import NetworkingScreen from './components/developer/networking-screen';
 import MakePaymentScreen from './components/developer/make-payment-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 
@@ -21,11 +23,17 @@ const DeveloperTab = StackNavigator({
   SampleScreen: {
     screen: SampleScreen,
   },
+  NetworkingScreen: {
+    screen: NetworkingScreen,
+  },
   MakePaymentScreen: {
     screen: MakePaymentScreen,
   },
   ChooseJobTypeScreen: {
     screen: ChooseJobTypeScreen,
+  },
+  ReduxSampleScreen: {
+    screen: ReduxSampleScreen,
   },
 });
 
