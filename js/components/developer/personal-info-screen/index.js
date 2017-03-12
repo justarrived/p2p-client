@@ -4,25 +4,26 @@ import {
   Container,
   Content,
   Form,
-  Item,
-  Input,
-  Label,
   Col,
-  Row,
   Grid,
   Button,
-  Picker,
   Thumbnail,
 } from 'native-base';
 import styles from './style';
+import PostCodeInput from '../../common/post-code-input';
+import EmailInput from '../../common/email-input';
+import PasswordInput from '../../common/password-input';
+import TextInputter from '../../common/text-input';
+import PhoneInput from '../../common/numeric-input';
+
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
-export default class PersonalInfoScreen extends React.Component {
 
+export default class PersonalInfoScreen extends React.Component {
   render() {
     return (
       <Container>
-        <Content>
+        <Content padder>
           <View style={StyleSheet.flatten(styles.topContainer)}>
             <View style={styles.logoContainer}>
               <Thumbnail
@@ -36,42 +37,18 @@ export default class PersonalInfoScreen extends React.Component {
             </Text>
           </View>
           <Form style={StyleSheet.flatten(styles.container)}>
+            <TextInputter title={'Adress'} />
             <Grid>
-
-              <Item stackedLabel style={StyleSheet.flatten(styles.input)}>
-                <Label>Adress</Label>
-                <Input returnKeyType={'next'} placeholder="Ringvägen 49" />
-              </Item>
-
-              <Row>
-                <Col>
-                  <Item stackedLabel style={StyleSheet.flatten(styles.input)}>
-                    <Label>Postkod</Label>
-                    <Input keyboardType="numeric" maxLength={5} returnKeyType={'next'} placeholder="12345" />
-                  </Item>
-                </Col>
-                <Col>
-                  <Item stackedLabel last style={StyleSheet.flatten(styles.input)}>
-                    <Label>Ort</Label>
-                    <Input returnKeyType={'next'} placeholder="Göteborg" />
-                  </Item>
-                </Col>
-              </Row>
-
+              <Col>
+                <PostCodeInput title={'Postnummer'} />
+              </Col>
+              <Col>
+                <TextInputter title={'Ort'} />
+              </Col>
             </Grid>
-            <Item stackedLabel style={StyleSheet.flatten(styles.input)}>
-              <Label>Telefon</Label>
-              <Input keyboardType="numeric" returnKeyType={'next'} placeholder="647445114" />
-            </Item>
-            <Item stackedLabel style={StyleSheet.flatten(styles.input)}>
-              <Label>E-Post</Label>
-              <Input keyboardType="email-address" />
-            </Item>
-            <Item stackedLabel style={StyleSheet.flatten(styles.input)}>
-              <Label>Lösenord</Label>
-              <Input placeholder="asdasdasd" secureTextEntry />
-            </Item>
-
+            <PhoneInput title={'Telefonnummer'} />
+            <EmailInput title={'E-Post'} />
+            <PasswordInput title={'Lösenord'} />
           </Form>
           <View style={StyleSheet.flatten(styles.bottomContainer)}>
             <Button full info rounded>

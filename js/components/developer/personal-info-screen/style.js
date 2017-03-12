@@ -2,10 +2,6 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
-    marginBottom: 40,
-    marginRight: 20,
-    marginLeft: 20,
   },
   topContainer: {
     marginTop: 20,
@@ -16,7 +12,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   bottomContainer: {
-    marginTop: 20,
+    marginTop: 40,
     marginBottom: 40,
     marginRight: 20,
     marginLeft: 20,

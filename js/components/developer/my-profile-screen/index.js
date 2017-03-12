@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
 
-import { Text } from 'react-native';
-
-import { Container, Content, Tab, Tabs, Header } from 'native-base';
+import { Container, Tab, Tabs } from 'native-base';
 import MakePaymentScreen from '../make-payment-screen';
 import PersonalInfoScreen from '../personal-info-screen';
 
 export default class MyProfileScreen extends Component {
+  static navigationOptions = {
+    tabBar: {
+      label: 'Developer',
+    },
+    title: 'My Profile',
+  };
   render() {
     return (
       <Container>
-        <Content>
-          <Header hasTabs />
-          <Tabs>
-            <Tab heading="PERSONUPPGIFTER" >
-              <PersonalInfoScreen />
-            </Tab>
-            <Tab heading="BETALUPPGIFTER">
-              <MakePaymentScreen />
-            </Tab>
-          </Tabs>
-        </Content>
+        <Tabs>
+          <Tab heading="PERSONUPPGIFTER" >
+            <PersonalInfoScreen />
+          </Tab>
+          <Tab heading="BETALUPPGIFTER">
+            <MakePaymentScreen />
+          </Tab>
+        </Tabs>
       </Container>
     );
   }
 }
-/*
-
-*/
