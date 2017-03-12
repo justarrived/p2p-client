@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import { Modal } from 'react-native';
+import { Modal, StyleSheet } from 'react-native';
 import { Content, Card, CardItem, Button, Text, Body, List, Right, Radio, Item, Input } from 'native-base';
 import KnownLanguages from './knownLanguages';
+import languagePickerStyles from './languagePickerStyles';
 
 // Temporary array with languages
-const LANGUAGES = [{ name: 'Swedish', id: 1 }, { name: 'English', id: 2 },
-  { name: 'Portuguese', id: 3 }, { name: 'Dutch', id: 4 },
-  { name: 'Swahili', id: 5 }, { name: 'Norwegian', id: 6 },
-  { name: 'German', id: 7 }, { name: 'Danish', id: 8 },
-  { name: 'Finish', id: 9 }];
+const LANGUAGES = [{ name: 'Abkhaz', id: 1 }, { name: 'Adyghe', id: 2 },
+  { name: 'Afrikaans', id: 3 }, { name: 'Akan', id: 4 },
+  { name: 'Albanian', id: 5 }, { name: 'Amharic', id: 6 },
+  { name: 'Arabic', id: 7 }, { name: 'Aragonese', id: 8 },
+  { name: 'Aramaic', id: 9 }, { name: 'Armenian', id: 10 },
+  { name: 'Aymara', id: 11 }, { name: 'French', id: 12 },
+  { name: 'German', id: 13 }, { name: 'Japanese', id: 14 },
+  { name: 'Mandarin', id: 15 }, { name: 'Swahili', id: 16 },
+  { name: 'Swedish', id: 17 }, { name: 'Tagalog', id: 18 }];
 
 // Returns all elements in languageArray that match the query
 function arraySearchFilter(languageArray, query) {
@@ -94,8 +99,8 @@ export default class LanguagePicker extends Component {
           transparent
           onRequestClose={() => { this.setModalVisible(false); }}
         >
-          <Card bordered="true">
-            <CardItem bordered="false">
+          <Card bordered>
+            <CardItem >
               <Item rounded>
                 <Input
                   placeholder=" Search..."
@@ -103,10 +108,7 @@ export default class LanguagePicker extends Component {
                 />
               </Item>
             </CardItem>
-            <CardItem
-              bordered="false"
-              style={{ flex: 1, alignItems: 'flex-start' }}
-            >
+            <CardItem style={StyleSheet.flatten(languagePickerStyles.flexList)}>
               <List
                 dataArray={this.state.listLanguages}
                 renderRow={rowData =>
@@ -124,7 +126,7 @@ export default class LanguagePicker extends Component {
                     }
               />
             </CardItem>
-            <CardItem bordered="false">
+            <CardItem >
               <Body >
                 <Button block onPress={() => this.setModalVisible(false)}>
                   <Text >Done</Text>
@@ -134,9 +136,9 @@ export default class LanguagePicker extends Component {
           </Card>
         </Modal>
 
-        <Card bordered="true">
+        <Card bordered>
           <CardItem
-            bordered="true"
+            bordered
             onPress={() => this.setModalVisible(true)}
           >
             <Body >
