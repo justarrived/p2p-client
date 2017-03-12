@@ -34,13 +34,18 @@ export default class LanguagePicker extends Component {
   setModalVisible(visible) {
     this.setState({
       modalVisible: visible,
-      myLanguages: [1, 6],
     });
   }
 
   // Add or remove language as a known language
   languageSelection(language) {
-    alert(`Language: ${language.name}`);
+    const index = this.state.myLanguages.indexOf(language.id);
+    if (index >= 0) {
+      this.state.myLanguages.splice(index, 1);
+    } else {
+      this.state.myLanguages.push(language.id);
+    }
+    this.forceUpdate();
   }
 
   // Render the component
