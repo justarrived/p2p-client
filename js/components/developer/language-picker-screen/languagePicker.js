@@ -10,12 +10,20 @@ const LANGUAGES = [{ name: 'Swedish', id: 1 }, { name: 'English', id: 2 },
   { name: 'German', id: 7 }, { name: 'Danish', id: 8 },
   { name: 'Finish', id: 9 }];
 
+// Returns all elements in languageArray that match the query
+function arraySearchFilter(languageArray, query) {
+  return languageArray.filter(languageObject =>
+        languageObject.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
+}
+
 export default class LanguagePicker extends Component {
 
   // Constructor setting intitial state
   constructor(props) {
     super(props);
     this.state = {
+      previousQuery: '',
+      listLanguages: LANGUAGES,
       modalVisible: false,
       myLanguages: [],
     };
@@ -34,12 +42,35 @@ export default class LanguagePicker extends Component {
   setModalVisible(visible) {
     this.setState({
       modalVisible: visible,
+      previousQuery: '',
+      listLanguages: LANGUAGES,
     });
   }
 
   // Search for a specific language
   search(query) {
-    alert(`Search query: ${query}`);
+    if (this.state.listLanguages.length > 0
+      || query.length < this.state.previousQuery.length) {
+      if (query.length === 0) {
+        // Display all languages
+        this.setState({
+          previousQuery: query,
+          listLanguages: LANGUAGES,
+        });
+      } else if (query.length > this.state.previousQuery.length) {
+        this.setState({
+          // Filer the currently displayed languages
+          previousQuery: query,
+          listLanguages: arraySearchFilter(this.state.listLanguages, query),
+        });
+      } else {
+        // Filter all languages
+        this.setState({
+          previousQuery: query,
+          listLanguages: arraySearchFilter(LANGUAGES, query),
+        });
+      }
+    }
   }
 
   // Add or remove language as a known language
@@ -77,7 +108,7 @@ export default class LanguagePicker extends Component {
               style={{ flex: 1, alignItems: 'flex-start' }}
             >
               <List
-                dataArray={LANGUAGES}
+                dataArray={this.state.listLanguages}
                 renderRow={rowData =>
                   <Card bordered="true">
                     <CardItem bordered="true" >
