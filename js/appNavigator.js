@@ -8,6 +8,7 @@ import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
+import LanguagePickerScreen from './components/developer/language-picker-screen';
 
 // The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
@@ -38,6 +39,9 @@ const DeveloperTab = StackNavigator({
   },
   ReduxSampleScreen: {
     screen: ReduxSampleScreen,
+  },
+  LanguagePickerScreen: {
+    screen: LanguagePickerScreen,
   },
 });
 
