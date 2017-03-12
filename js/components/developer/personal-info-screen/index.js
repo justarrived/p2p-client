@@ -36,7 +36,7 @@ export default class PersonalInfoScreen extends React.Component {
               John Doe
             </Text>
           </View>
-          <Form style={StyleSheet.flatten(styles.container)}>
+          <Form style={StyleSheet.flatten(styles.fromContainer)}>
             <TextInputter title={'Adress'} />
             <Grid>
               <Col>
@@ -47,16 +47,15 @@ export default class PersonalInfoScreen extends React.Component {
               </Col>
             </Grid>
             <PhoneInput title={'Telefonnummer'} />
-            <EmailInput title={'E-Post'} />
+            <EmailInput title={'E-Post'} stacked />
             <PasswordInput title={'Lösenord'} />
           </Form>
-          <View style={StyleSheet.flatten(styles.bottomContainer)}>
+          <View style={StyleSheet.flatten(styles.buttonContainer)}>
             <Button full info rounded>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
                 ÄNDRA
               </Text>
             </Button>
-
           </View>
         </Content>
       </Container>

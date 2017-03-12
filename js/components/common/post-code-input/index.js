@@ -11,7 +11,7 @@ export default class PostCodeInput extends Component {
     return (
       <Item stackedLabel>
         <Label>{this.props.title}</Label>
-        <Input keyboardType="numeric" maxLength={5} returnKeyType={'next'} />
+        <Input keyboardType="numeric" maxLength={5} returnKeyType={'next'} defaultValue={''} />
       </Item>
     );
   }

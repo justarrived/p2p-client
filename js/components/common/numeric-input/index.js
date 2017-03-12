@@ -10,7 +10,7 @@ export default class EmailInput extends Component {
     return (
       <Item stackedLabel>
         <Label>{this.props.title}</Label>
-        <Input keyboardType="numeric" returnKeyType={'next'} />
+        <Input keyboardType="numeric" returnKeyType={'next'} defaultValue={''} />
       </Item>
     );
   }

@@ -11,7 +11,7 @@ export default class TextInput extends Component {
     return (
       <Item stackedLabel>
         <Label>{this.props.title}</Label>
-        <Input returnKeyType={'next'} />
+        <Input returnKeyType={'next'} defaultValue={''} />
       </Item>
     );
   }

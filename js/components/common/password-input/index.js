@@ -12,7 +12,7 @@ export default class PasswordInput extends Component {
     return (
       <Item stackedLabel>
         <Label>{this.props.title}</Label>
-        <Input secureTextEntry />
+        <Input secureTextEntry defaultValue={''} />
       </Item>
     );
   }
