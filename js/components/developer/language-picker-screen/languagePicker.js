@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Content, Card, CardItem, Body } from 'native-base';
+import { Modal } from 'react-native';
+import { Content, Card, CardItem, Button, Text, Body } from 'native-base';
 import KnownLanguages from './knownLanguages';
 
 // Temporary array with languages
@@ -15,7 +16,8 @@ export default class LanguagePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      myLanguages: [1, 6],
+      modalVisible: false,
+      myLanguages: [],
     };
   }
 
@@ -28,12 +30,40 @@ export default class LanguagePicker extends Component {
       languageObject => languageObject.name);
   }
 
+  // Display the modal
+  setModalVisible(visible) {
+    this.setState({
+      modalVisible: visible,
+      myLanguages: [1, 6],
+    });
+  }
+
   // Render the component
   render() {
     return (
       <Content>
+        <Modal
+          visible={this.state.modalVisible}
+          animationType={'fade'}
+          transparent
+          onRequestClose={() => { this.setModalVisible(false); }}
+        >
+          <Card bordered="true">
+            <CardItem bordered="false">
+              <Body >
+                <Button block onPress={() => this.setModalVisible(false)}>
+                  <Text >Done</Text>
+                </Button>
+              </Body>
+            </CardItem>
+          </Card>
+        </Modal>
+
         <Card bordered="true">
-          <CardItem bordered="true" >
+          <CardItem
+            bordered="true"
+            onPress={() => this.setModalVisible(true)}
+          >
             <Body >
               <KnownLanguages languages={this.getMyLanguageNames()} />
             </Body>
