@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-native';
-import { Content, Card, CardItem, Button, Text, Body, List, Right, Radio } from 'native-base';
+import { Content, Card, CardItem, Button, Text, Body, List, Right, Radio, Item, Input } from 'native-base';
 import KnownLanguages from './knownLanguages';
 
 // Temporary array with languages
@@ -37,6 +37,11 @@ export default class LanguagePicker extends Component {
     });
   }
 
+  // Search for a specific language
+  search(query) {
+    alert(`Search query: ${query}`);
+  }
+
   // Add or remove language as a known language
   languageSelection(language) {
     const index = this.state.myLanguages.indexOf(language.id);
@@ -59,6 +64,14 @@ export default class LanguagePicker extends Component {
           onRequestClose={() => { this.setModalVisible(false); }}
         >
           <Card bordered="true">
+            <CardItem bordered="false">
+              <Item rounded>
+                <Input
+                  placeholder=" Search..."
+                  onChangeText={query => this.search(query)}
+                />
+              </Item>
+            </CardItem>
             <CardItem
               bordered="false"
               style={{ flex: 1, alignItems: 'flex-start' }}
