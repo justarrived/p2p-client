@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-native';
-import { Content, Card, CardItem, Button, Text, Body } from 'native-base';
+import { Content, Card, CardItem, Button, Text, Body, List, Right, Radio } from 'native-base';
 import KnownLanguages from './knownLanguages';
 
 // Temporary array with languages
@@ -38,6 +38,11 @@ export default class LanguagePicker extends Component {
     });
   }
 
+  // Add or remove language as a known language
+  languageSelection(language) {
+    alert(`Language: ${language.name}`);
+  }
+
   // Render the component
   render() {
     return (
@@ -49,6 +54,27 @@ export default class LanguagePicker extends Component {
           onRequestClose={() => { this.setModalVisible(false); }}
         >
           <Card bordered="true">
+            <CardItem
+              bordered="false"
+              style={{ flex: 1, alignItems: 'flex-start' }}
+            >
+              <List
+                dataArray={LANGUAGES}
+                renderRow={rowData =>
+                  <Card bordered="true">
+                    <CardItem bordered="true" >
+                      <Text>{rowData.name}</Text>
+                      <Right>
+                        <Radio
+                          selected={this.state.myLanguages.includes(rowData.id)}
+                          onPress={() => this.languageSelection(rowData)}
+                        />
+                      </Right>
+                    </CardItem>
+                  </Card>
+                    }
+              />
+            </CardItem>
             <CardItem bordered="false">
               <Body >
                 <Button block onPress={() => this.setModalVisible(false)}>
