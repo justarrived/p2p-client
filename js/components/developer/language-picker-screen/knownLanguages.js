@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import { Content, Text, List } from 'native-base';
+import { Text, View } from 'react-native';
+import { Content, List } from 'native-base';
+import languagePickerStyles from './languagePickerStyles';
 
 export default class KnownLanguages extends Component {
   static propTypes = {
-    languages: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    // languages: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    languages: React.PropTypes.arrayOf(React.PropTypes.shape({
+      name: React.PropTypes.string.isRequired,
+      id: React.PropTypes.number.isRequired,
+    })).isRequired,
   }
 
   // Render the component
   render() {
     if (this.props.languages.length === 0) {
       return (
-        <Text >Select languages you know!</Text>
+        <Text style={languagePickerStyles.myLanguagesEmptyTitle}>Select your languages!</Text>
       );
     }
     if (this.props.languages.length > 0) {
       return (
         <Content >
-          <Text >Languages you know:</Text>
+          <Text style={languagePickerStyles.myLanguagesTitle}>My Languages:</Text>
           <List
-            dataArray={this.props.languages} renderRow={rowData =>
-              <Text >{rowData}</Text>
+            contentContainerStyle={languagePickerStyles.rowList}
+            dataArray={this.props.languages}
+            renderRow={rowData =>
+              <View style={languagePickerStyles.rowListItem}>
+                <Text style={languagePickerStyles.rowListItemText}>{rowData.name}</Text>
+              </View>
               }
           />
         </Content >

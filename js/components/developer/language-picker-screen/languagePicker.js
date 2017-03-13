@@ -35,12 +35,12 @@ export default class LanguagePicker extends Component {
   }
 
   // Get a list with the name of all selected languages
-  getMyLanguageNames() {
+  getMyLanguagesNames() {
     return Array.from(
       LANGUAGES.filter(languageObject =>
         this.state.myLanguages.includes(languageObject.id),
       ),
-      languageObject => languageObject.name);
+      languageObject => languageObject);
   }
 
   // Display the modal
@@ -64,7 +64,7 @@ export default class LanguagePicker extends Component {
         });
       } else if (query.length > this.state.previousQuery.length) {
         this.setState({
-          // Filer the currently displayed languages
+          // Filter the currently displayed languages
           previousQuery: query,
           listLanguages: arraySearchFilter(this.state.listLanguages, query),
         });
@@ -142,7 +142,7 @@ export default class LanguagePicker extends Component {
             onPress={() => this.setModalVisible(true)}
           >
             <Body >
-              <KnownLanguages languages={this.getMyLanguageNames()} />
+              <KnownLanguages languages={this.getMyLanguagesNames()} />
             </Body>
           </CardItem>
         </Card>
