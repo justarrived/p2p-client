@@ -18,7 +18,7 @@ const LANGUAGES = [{ name: 'Abkhaz', id: 1 }, { name: 'Adyghe', id: 2 },
 // Returns all elements in languageArray that match the query
 function arraySearchFilter(languageArray, query) {
   return languageArray.filter(languageObject =>
-        languageObject.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
+        languageObject.name.toLowerCase().startsWith(query.toLowerCase()));
 }
 
 export default class LanguagePicker extends Component {
@@ -27,15 +27,15 @@ export default class LanguagePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      previousQuery: '',
-      listLanguages: LANGUAGES,
+      preQueryLenght: 0,
       modalVisible: false,
+      listLanguages: LANGUAGES,
       myLanguages: [],
     };
   }
 
   // Get an array with all selected languages
-  getMyLanguagesNames() {
+  getMyLanguages() {
     return Array.from(
       LANGUAGES.filter(languageObject =>
         this.state.myLanguages.includes(languageObject.id),
@@ -46,8 +46,8 @@ export default class LanguagePicker extends Component {
   // Display or hide the modal
   setModalVisible(visible) {
     this.setState({
+      preQueryLenght: 0,
       modalVisible: visible,
-      previousQuery: '',
       listLanguages: LANGUAGES,
     });
   }
@@ -55,23 +55,23 @@ export default class LanguagePicker extends Component {
   // Search for a specific language
   search(query) {
     if (this.state.listLanguages.length > 0
-      || query.length < this.state.previousQuery.length) {
+      || query.length < this.state.preQueryLenght) {
       if (query.length === 0) {
         // Display all languages
         this.setState({
-          previousQuery: query,
+          preQueryLenght: 0,
           listLanguages: LANGUAGES,
         });
-      } else if (query.length > this.state.previousQuery.length) {
+      } else if (query.length > this.state.preQueryLenght) {
         this.setState({
           // Filter the currently displayed languages
-          previousQuery: query,
+          preQueryLenght: query.length,
           listLanguages: arraySearchFilter(this.state.listLanguages, query),
         });
       } else {
         // Filter all languages
         this.setState({
-          previousQuery: query,
+          preQueryLenght: query.length,
           listLanguages: arraySearchFilter(LANGUAGES, query),
         });
       }
@@ -79,25 +79,28 @@ export default class LanguagePicker extends Component {
   }
 
   // Add or remove language as a known language
-  languageSelection(language) {
-    const index = this.state.myLanguages.indexOf(language.id);
+  languageSelection(language, index) {
     if (index >= 0) {
       this.state.myLanguages.splice(index, 1);
     } else {
       this.state.myLanguages.push(language.id);
     }
-    this.forceUpdate();
+    this.setState({
+      myLanguages: this.state.myLanguages,
+    });
   }
 
+  // Render a row in the modal
   renderRow(rowData) {
+    const index = this.state.myLanguages.indexOf(rowData.id);
     return (
       <Card bordered>
         <CardItem bordered >
           <Text>{rowData.name}</Text>
           <Right>
             <Radio
-              selected={this.state.myLanguages.includes(rowData.id)}
-              onPress={() => this.languageSelection(rowData)}
+              selected={index >= 0}
+              onPress={() => this.languageSelection(rowData, index)}
             />
           </Right>
         </CardItem>
@@ -145,7 +148,7 @@ export default class LanguagePicker extends Component {
             bordered
             onPress={() => this.setModalVisible(true)}
           >
-            <KnownLanguages languages={this.getMyLanguagesNames()} />
+            <KnownLanguages languages={this.getMyLanguages()} />
           </CardItem>
         </Card>
       </Content>
