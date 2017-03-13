@@ -10,8 +10,8 @@ const LANGUAGES = [{ name: 'Abkhaz', id: 1 }, { name: 'Adyghe', id: 2 },
   { name: 'Albanian', id: 5 }, { name: 'Amharic', id: 6 },
   { name: 'Arabic', id: 7 }, { name: 'Aragonese', id: 8 },
   { name: 'Aramaic', id: 9 }, { name: 'Armenian', id: 10 },
-  { name: 'Aymara', id: 11 }, { name: 'French', id: 12 },
-  { name: 'German', id: 13 }, { name: 'Japanese', id: 14 },
+  { name: 'Aymara', id: 11 }, { name: 'English', id: 12 },
+  { name: 'French', id: 13 }, { name: 'German', id: 14 },
   { name: 'Mandarin', id: 15 }, { name: 'Swahili', id: 16 },
   { name: 'Swedish', id: 17 }, { name: 'Tagalog', id: 18 }];
 
@@ -34,7 +34,7 @@ export default class LanguagePicker extends Component {
     };
   }
 
-  // Get a list with the name of all selected languages
+  // Get an array with all selected languages
   getMyLanguagesNames() {
     return Array.from(
       LANGUAGES.filter(languageObject =>
@@ -43,7 +43,7 @@ export default class LanguagePicker extends Component {
       languageObject => languageObject);
   }
 
-  // Display the modal
+  // Display or hide the modal
   setModalVisible(visible) {
     this.setState({
       modalVisible: visible,
@@ -89,6 +89,22 @@ export default class LanguagePicker extends Component {
     this.forceUpdate();
   }
 
+  renderRow(rowData) {
+    return (
+      <Card bordered>
+        <CardItem bordered >
+          <Text>{rowData.name}</Text>
+          <Right>
+            <Radio
+              selected={this.state.myLanguages.includes(rowData.id)}
+              onPress={() => this.languageSelection(rowData)}
+            />
+          </Right>
+        </CardItem>
+      </Card>
+    );
+  }
+
   // Render the component
   render() {
     return (
@@ -111,19 +127,7 @@ export default class LanguagePicker extends Component {
             <CardItem style={StyleSheet.flatten(languagePickerStyles.flexList)}>
               <List
                 dataArray={this.state.listLanguages}
-                renderRow={rowData =>
-                  <Card bordered="true">
-                    <CardItem bordered="true" >
-                      <Text>{rowData.name}</Text>
-                      <Right>
-                        <Radio
-                          selected={this.state.myLanguages.includes(rowData.id)}
-                          onPress={() => this.languageSelection(rowData)}
-                        />
-                      </Right>
-                    </CardItem>
-                  </Card>
-                    }
+                renderRow={rowData => this.renderRow(rowData)}
               />
             </CardItem>
             <CardItem >
@@ -141,9 +145,7 @@ export default class LanguagePicker extends Component {
             bordered
             onPress={() => this.setModalVisible(true)}
           >
-            <Body >
-              <KnownLanguages languages={this.getMyLanguagesNames()} />
-            </Body>
+            <KnownLanguages languages={this.getMyLanguagesNames()} />
           </CardItem>
         </Card>
       </Content>
