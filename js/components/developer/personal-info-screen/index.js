@@ -51,7 +51,7 @@ export default class PersonalInfoScreen extends React.Component {
             <PasswordInput title={'Lösenord'} />
           </Form>
           <View style={StyleSheet.flatten(styles.buttonContainer)}>
-            <Button full info rounded>
+            <Button full info rounded onPress={() => alert('asdsad')}>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
                 ÄNDRA
               </Text>
