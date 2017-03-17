@@ -1,32 +1,43 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Content, List } from 'native-base';
-import languagePickerStyles from './languagePickerStyles';
+import { connect } from 'react-redux';
 
-export default class KnownLanguages extends Component {
+import languagePickerStyles from './languagePickerStyles';
+import { addLanguage, removeLanguage } from '../../../actions/languages';
+
+import LANGUAGES from './languages';
+
+class KnownLanguages extends Component {
   static propTypes = {
-    languages: React.PropTypes.arrayOf(React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-      id: React.PropTypes.number.isRequired,
-    })).isRequired,
+    myLanguages: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
+  }
+
+  // Get an array with all selected languages
+  getMyLanguages() {
+    return Array.from(
+      LANGUAGES.filter(languageObject =>
+        this.props.myLanguages.includes(languageObject.id),
+      ),
+      languageObject => languageObject);
   }
 
   // Render the component
   render() {
-    if (this.props.languages.length > 0) {
+    if (this.props.myLanguages.length > 0) {
       return (
         <Content >
           <Text style={languagePickerStyles.myLanguagesTitle}>My Languages:</Text>
           <List
             contentContainerStyle={languagePickerStyles.rowList}
-            dataArray={this.props.languages}
+            dataArray={this.getMyLanguages()}
             renderRow={rowData =>
               <View style={languagePickerStyles.rowListItem}>
                 <Text style={languagePickerStyles.rowListItemText}>{rowData.name}</Text>
               </View>
               }
           />
-        </Content >
+        </Content>
       );
     }
     return (
@@ -34,3 +45,14 @@ export default class KnownLanguages extends Component {
     );
   }
 }
+
+function bindAction(dispatch) {
+  return {
+    addLanguage: name => dispatch(addLanguage(name)),
+    removeLanguage: name => dispatch(removeLanguage(name)),
+  };
+}
+
+const mapStateToProps = state => ({ myLanguages: state.languages.lang });
+
+export default connect(mapStateToProps, bindAction)(KnownLanguages);

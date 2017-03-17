@@ -2,14 +2,18 @@ import type { Action } from '../actions/types';
 import { ADD_LANGUAGE, REMOVE_LANGUAGE } from '../actions/languages';
 
 const initialState = {
-  lang: [13, 2, 12, 17],
+  lang: [7, 17],
 };
 
 export default function (state : State = initialState, action : Action) : State {
   if (action.type === REMOVE_LANGUAGE) {
-    // console.log('i reducer name');
+    // console.log(`splice lang ${action.payload}`);
     state.lang.splice(state.lang.indexOf(action.payload), 1);
-    return state;
+    // Have to create a new state in order for components to update correctly
+    return {
+      ...state,
+      lang: [...state.lang],
+    };
   }
   if (action.type === ADD_LANGUAGE) {
     // console.log(`push lang ${action.payload}`);
