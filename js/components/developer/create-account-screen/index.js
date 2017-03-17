@@ -1,21 +1,28 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+
 import {
   Container,
   Content,
   Form,
-  Item,
-  Input,
-  Label,
   Col,
   Row,
   Grid,
   Button,
-  Picker,
 } from 'native-base';
 import styles from './style';
 
-export default class DeveloperScreen extends React.Component {
+import { changeFirstName, changeLastName, changeAddress,
+   changePostCode, changePostArea, changePhoneNumber, changeEmail, changePassword } from '../../../actions/account';
+
+import EmailInput from '../../common/email-input';
+import PhoneInput from '../../common/numeric-input';
+import PasswordInput from '../../common/password-input';
+import TextInput from '../../common/text-input';
+import PostcodeInput from '../../common/post-code-input';
+
+class CreateAccountScreen extends React.Component {
   static navigationOptions = {
     tabBar: {
       label: 'Developer',
@@ -23,22 +30,48 @@ export default class DeveloperScreen extends React.Component {
     title: 'Skapa Konto',
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedItem: undefined,
-      selected1: 'key1',
-      results: {
-        items: [],
-      },
-    };
+  static propTypes = {
+    changeFirstName: React.PropTypes.func.isRequired,
+    changeLastName: React.PropTypes.func.isRequired,
+    changeAddress: React.PropTypes.func.isRequired,
+    changePostCode: React.PropTypes.func.isRequired,
+    changePostArea: React.PropTypes.func.isRequired,
+    changePhoneNumber: React.PropTypes.func.isRequired,
+    changeEmail: React.PropTypes.func.isRequired,
+    changePassword: React.PropTypes.func.isRequired,
+    account: React.PropTypes.shape({
+      firstName: React.PropTypes.string,
+      lastName: React.PropTypes.string,
+      address: React.PropTypes.string,
+      postCode: React.PropTypes.string,
+      postArea: React.PropTypes.string,
+      phoneNumber: React.PropTypes.string,
+      email: React.PropTypes.string,
+      password: React.PropTypes.string,
+    }).isRequired,
   }
-  onValueChange(value : string) {
-    this.setState({ selected1: value });
+
+
+  pressedRegister() {
+    const a = this.props.account;
+    alert(` Förnamn: ${a.firstName}`
+        + `\n Efternamn: ${a.lastName}`
+        + `\n Adress: ${a.address}`
+        + `\n postnummer: ${a.postCode}`
+        + `\n Ort: ${a.postArea}`
+        + `\n Telefonnumer: ${a.phoneNumber}`
+        + `\n Epost: ${a.email}`
+        + `\n Lösenord: ${a.password}`,
+      );
+  }
+
+  pressedGotAccount() {
+    alert('Pressed already got account!');
   }
 
   render() {
     const { navigate } = this.props.navigation;
+
     return (
       <Container>
         <Content>
@@ -46,72 +79,41 @@ export default class DeveloperScreen extends React.Component {
             <Grid>
               <Row>
                 <Col>
-                  <Item floatingLabel style={StyleSheet.flatten(styles.input)}>
-                    <Label>Förnamn</Label>
-                    <Input returnKeyType={'next'} />
-                  </Item>
+                  <TextInput title="Förnamn" floating onChange={input => this.props.changeFirstName(input)} />
                 </Col>
                 <Col>
-                  <Item floatingLabel style={StyleSheet.flatten(styles.input)}>
-                    <Label>Efternamn</Label>
-                    <Input returnKeyType={'next'} />
-                  </Item>
+                  <TextInput title="Efternamn" floating onChange={input => this.props.changeLastName(input)} />
                 </Col>
               </Row>
 
-              <Item floatingLabel style={StyleSheet.flatten(styles.input)}>
-                <Label>Adress</Label>
-                <Input returnKeyType={'next'} />
-              </Item>
+              <TextInput title="Adress" floating onChange={input => this.props.changeAddress(input)} />
 
               <Row>
                 <Col>
-                  <Item floatingLabel style={StyleSheet.flatten(styles.input)}>
-                    <Label>Postkod</Label>
-                    <Input keyboardType="numeric" maxLength={5} returnKeyType={'next'} />
-                  </Item>
+                  <PostcodeInput title="Postnummer" floating onChange={input => this.props.changePostCode(input)} />
                 </Col>
                 <Col>
-                  <Item floatingLabel last style={StyleSheet.flatten(styles.input)}>
-                    <Label>Ort</Label>
-                    <Input returnKeyType={'next'} />
-                  </Item>
+                  <TextInput title="Ort" floating onChange={input => this.props.changePostArea(input)} />
                 </Col>
               </Row>
             </Grid>
-            <Item floatingLabel style={StyleSheet.flatten(styles.input)}>
-              <Label>Telefon</Label>
-              <Input keyboardType="numeric" returnKeyType={'next'} />
-            </Item>
-            <Item floatingLabel style={StyleSheet.flatten(styles.input)}>
-              <Label>E-Post</Label>
-              <Input keyboardType="email-address" />
-            </Item>
-            <Item floatingLabel style={StyleSheet.flatten(styles.input)}>
-              <Label>Lösenord</Label>
-              <Input secureTextEntry />
-            </Item>
-            <Picker iosHeader="Select one" mode="dialog" selectedValue={this.state.selected1} onValueChange={this.onValueChange.bind(this)} style={StyleSheet.flatten(styles.dropdown)}>
-              <Item label="Svenska" value="key0" />
-              <Item label="Norsk" value="key1" />
-              <Item label="English" value="key2" />
-              <Item label="Dansk" value="key3" />
-              <Item label="العربية" value="key4" />
-            </Picker>
+
+            <PhoneInput title="Telefonnumer: " floating onChange={input => this.props.changePhoneNumber(input)} />
+            <EmailInput title="E-post adress:" floating onChange={input => this.props.changeEmail(input)} />
+            <PasswordInput title="Lösenord: " floating onChange={input => this.props.changePassword(input)} />
 
           </Form>
           <View style={StyleSheet.flatten(styles.bottomContainer)}>
-            <Button full info rounded>
+            <Button full info rounded onPress={() => this.pressedRegister()}>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
                 REGISTRERA
               </Text>
             </Button>
-            <Button full transparent>
+            <Button full transparent onPress={() => this.pressedGotAccount()}>
               <Text style={StyleSheet.flatten(styles.tranparentButtonText)}>
                 Jag har redan ett konto - Logga in
               </Text>
             </Button>
-
           </View>
         </Content>
       </Container>
@@ -119,6 +121,20 @@ export default class DeveloperScreen extends React.Component {
   }
 }
 
-/*
 
-*/
+function bindAction(dispatch) {
+  return {
+    changeFirstName: input => dispatch(changeFirstName(input)),
+    changeLastName: input => dispatch(changeLastName(input)),
+    changeAddress: input => dispatch(changeAddress(input)),
+    changePostCode: input => dispatch(changePostCode(input)),
+    changePostArea: input => dispatch(changePostArea(input)),
+    changePhoneNumber: input => dispatch(changePhoneNumber(input)),
+    changeEmail: input => dispatch(changeEmail(input)),
+    changePassword: input => dispatch(changePassword(input)),
+  };
+}
+
+const mapStateToProps = state => ({ account: state.account });
+
+export default connect(mapStateToProps, bindAction)(CreateAccountScreen);
