@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Modal, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 import { Content, Card, CardItem, Button, Text, Body, List, Right, Radio, Item, Input } from 'native-base';
+
 import KnownLanguages from './knownLanguages';
 import languagePickerStyles from './languagePickerStyles';
+import { addLanguage, removeLanguage } from '../../../actions/languages';
 
 // Temporary array with languages
 const LANGUAGES = [{ name: 'Abkhaz', id: 1 }, { name: 'Adyghe', id: 2 },
@@ -21,7 +24,13 @@ function arraySearchFilter(languageArray, query) {
         languageObject.name.toLowerCase().startsWith(query.toLowerCase()));
 }
 
-export default class LanguagePicker extends Component {
+class LanguagePicker extends Component {
+
+  static propTypes = {
+    addLanguage: React.PropTypes.func.isRequired,
+    removeLanguage: React.PropTypes.func.isRequired,
+    myLanguages: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
+  }
 
   // Constructor setting intitial state
   constructor(props) {
@@ -30,7 +39,6 @@ export default class LanguagePicker extends Component {
       preQueryLenght: 0,
       modalVisible: false,
       listLanguages: LANGUAGES,
-      myLanguages: [],
     };
   }
 
@@ -38,7 +46,7 @@ export default class LanguagePicker extends Component {
   getMyLanguages() {
     return Array.from(
       LANGUAGES.filter(languageObject =>
-        this.state.myLanguages.includes(languageObject.id),
+        this.props.myLanguages.includes(languageObject.id),
       ),
       languageObject => languageObject);
   }
@@ -79,28 +87,26 @@ export default class LanguagePicker extends Component {
   }
 
   // Add or remove language as a known language
-  languageSelection(language, index) {
-    if (index >= 0) {
-      this.state.myLanguages.splice(index, 1);
+  languageSelection(language, remove) {
+    if (remove) {
+      this.props.removeLanguage(language.id);
     } else {
-      this.state.myLanguages.push(language.id);
+      this.props.addLanguage(language.id);
     }
-    this.setState({
-      myLanguages: this.state.myLanguages,
-    });
+    this.forceUpdate();
   }
 
   // Render a row in the modal
   renderRow(rowData) {
-    const index = this.state.myLanguages.indexOf(rowData.id);
+    const selected = this.props.myLanguages.includes(rowData.id);
     return (
       <Card bordered>
         <CardItem bordered >
           <Text>{rowData.name}</Text>
           <Right>
             <Radio
-              selected={index >= 0}
-              onPress={() => this.languageSelection(rowData, index)}
+              selected={selected}
+              onPress={() => this.languageSelection(rowData, selected)}
             />
           </Right>
         </CardItem>
@@ -155,3 +161,14 @@ export default class LanguagePicker extends Component {
     );
   }
 }
+
+function bindAction(dispatch) {
+  return {
+    addLanguage: name => dispatch(addLanguage(name)),
+    removeLanguage: name => dispatch(removeLanguage(name)),
+  };
+}
+
+const mapStateToProps = state => ({ myLanguages: state.languages.lang });
+
+export default connect(mapStateToProps, bindAction)(LanguagePicker);

@@ -5,6 +5,12 @@ export type Action = {
   type: 'DECREASE_AGE'
 } | {
   type: 'INCREASE_AGE'
+} | {
+  type: 'ADD_LANGUAGE',
+  route: string
+} | {
+  type: 'REMOVE_LANGUAGE',
+  route: string
 }
 
 export type Dispatch = (action : Action | Array < Action >) => any;
