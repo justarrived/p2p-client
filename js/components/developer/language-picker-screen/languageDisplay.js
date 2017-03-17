@@ -4,11 +4,10 @@ import { Content, List } from 'native-base';
 import { connect } from 'react-redux';
 
 import languagePickerStyles from './languagePickerStyles';
-import { addLanguage, removeLanguage } from '../../../actions/languages';
 
 import LANGUAGES from './languages';
 
-class KnownLanguages extends Component {
+class LanguageDisplay extends Component {
   static propTypes = {
     myLanguages: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
   }
@@ -46,13 +45,6 @@ class KnownLanguages extends Component {
   }
 }
 
-function bindAction(dispatch) {
-  return {
-    addLanguage: name => dispatch(addLanguage(name)),
-    removeLanguage: name => dispatch(removeLanguage(name)),
-  };
-}
-
 const mapStateToProps = state => ({ myLanguages: state.languages.lang });
 
-export default connect(mapStateToProps, bindAction)(KnownLanguages);
+export default connect(mapStateToProps)(LanguageDisplay);

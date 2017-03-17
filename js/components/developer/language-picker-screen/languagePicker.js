@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Modal, StyleSheet } from 'react-native';
 import { Content, Card, CardItem, Button, Text, Body, List, Item, Input } from 'native-base';
 
-import KnownLanguages from './knownLanguages';
+import LanguageDisplay from './languageDisplay';
 import languagePickerStyles from './languagePickerStyles';
 import LanguageSelectionListItem from './languageSelectionListItem';
 
@@ -33,7 +33,6 @@ export default class LanguagePicker extends Component {
       modalVisible: visible,
       listLanguages: LANGUAGES,
     });
-    // this.forceUpdate();
   }
 
   // Search for a specific language
@@ -104,7 +103,7 @@ export default class LanguagePicker extends Component {
             bordered
             onPress={() => this.setModalVisible(true)}
           >
-            <KnownLanguages />
+            <LanguageDisplay />
           </CardItem>
         </Card>
       </Content>
