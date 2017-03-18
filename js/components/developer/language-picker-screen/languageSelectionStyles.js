@@ -2,9 +2,8 @@ import { StyleSheet } from 'react-native';
 // import { TITLE_COLOR, MAIN_CERISE, SECONDARY_GRAY } from './commonStyles';
 
 const languageSelectionStyles = StyleSheet.create({
-  flexList: {
+  languageSelectionListView: {
     flex: 1,
-    alignItems: 'flex-start',
   },
 });
 

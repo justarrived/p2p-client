@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-native';
-import { Content, Card, CardItem, Button, Text, Body } from 'native-base';
+import { Card, CardItem, Button, Text, Body } from 'native-base';
 
 import LanguageSelectionList from './languageSelectionList';
 

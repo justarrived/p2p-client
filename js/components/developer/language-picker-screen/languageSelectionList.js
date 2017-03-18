@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-import { Card, CardItem, List, Item, Input } from 'native-base';
+import { View } from 'react-native';
+import { CardItem, List, Item, Input } from 'native-base';
 
 import languageSelectionStyles from './languageSelectionStyles';
 import LanguageSelectionListItem from './languageSelectionListItem';
@@ -53,7 +53,9 @@ export default class LanguageSelectionList extends Component {
   // Render the component
   render() {
     return (
-      <Card>
+      <View
+        style={languageSelectionStyles.languageSelectionListView}
+      >
         <CardItem >
           <Item rounded>
             <Input
@@ -62,7 +64,7 @@ export default class LanguageSelectionList extends Component {
             />
           </Item>
         </CardItem>
-        <CardItem style={StyleSheet.flatten(languageSelectionStyles.flexList)}>
+        <CardItem >
           <List
             dataArray={this.state.listLanguages}
             renderRow={rowData => (
@@ -70,7 +72,7 @@ export default class LanguageSelectionList extends Component {
                 )}
           />
         </CardItem>
-      </Card>
+      </View>
     );
   }
 }
