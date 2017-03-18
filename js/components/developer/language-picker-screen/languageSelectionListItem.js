@@ -23,7 +23,7 @@ class LanguageSelectionListItem extends Component {
     } else {
       this.props.addLanguage(this.props.language.id);
     }
-    this.forceUpdate();
+    // this.forceUpdate();
   }
 
   // Render the component

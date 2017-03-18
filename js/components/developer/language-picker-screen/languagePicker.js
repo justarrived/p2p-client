@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Modal } from 'react-native';
-import { Content, Card, CardItem } from 'native-base';
+import { Content } from 'native-base';
 
 import LanguageDisplay from './languageDisplay';
-import LanguageSelectionList from './languageSelectionList';
+import LanguageModal from './languageModal';
 
 export default class LanguagePicker extends Component {
 
@@ -26,16 +25,10 @@ export default class LanguagePicker extends Component {
   render() {
     return (
       <Content>
-        <Modal
+        <LanguageModal
           visible={this.state.modalVisible}
-          animationType={'fade'}
-          transparent
-          onRequestClose={() => { this.setModalVisible(false); }}
-        >
-          <LanguageSelectionList
-            onDone={() => this.setModalVisible(false)}
-          />
-        </Modal>
+          onRequestClose={() => this.setModalVisible(false)}
+        />
 
         <LanguageDisplay onPress={() => this.setModalVisible(true)} />
       </Content>

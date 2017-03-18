@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { Card, CardItem, Button, Text, Body, List, Item, Input } from 'native-base';
+import { Card, CardItem, List, Item, Input } from 'native-base';
 
 import languageSelectionStyles from './languageSelectionStyles';
 import LanguageSelectionListItem from './languageSelectionListItem';
@@ -14,9 +14,6 @@ function arraySearchFilter(languageArray, query) {
 }
 
 export default class LanguageSelectionList extends Component {
-  static propTypes = {
-    onDone: React.PropTypes.func.isRequired,
-  }
 
   // Constructor setting intitial state
   constructor(props) {
@@ -56,7 +53,7 @@ export default class LanguageSelectionList extends Component {
   // Render the component
   render() {
     return (
-      <Card bordered>
+      <Card>
         <CardItem >
           <Item rounded>
             <Input
@@ -72,13 +69,6 @@ export default class LanguageSelectionList extends Component {
               <LanguageSelectionListItem language={rowData} />
                 )}
           />
-        </CardItem>
-        <CardItem >
-          <Body >
-            <Button block onPress={() => this.props.onDone()}>
-              <Text >Done</Text>
-            </Button>
-          </Body>
         </CardItem>
       </Card>
     );
