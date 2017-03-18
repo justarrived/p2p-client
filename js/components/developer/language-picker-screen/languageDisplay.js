@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import languagePickerStyles from './languagePickerStyles';
 
-import LANGUAGES from './languages';
+import LANGUAGES from './languageArray';
 
 class LanguageDisplay extends Component {
   static propTypes = {
@@ -14,11 +14,15 @@ class LanguageDisplay extends Component {
 
   // Get an array with all selected languages
   getMyLanguages() {
-    return Array.from(
-      LANGUAGES.filter(languageObject =>
-        this.props.myLanguages.includes(languageObject.id),
-      ),
-      languageObject => languageObject);
+    const tmpArray = [];
+    this.props.myLanguages.forEach((languageId) => {
+      if (LANGUAGES.length > languageId && languageId === LANGUAGES[languageId].id) {
+        tmpArray.push(LANGUAGES[languageId]);
+      } else {
+        console.warn(`language id ${languageId} mismatch`);
+      }
+    });
+    return tmpArray;
   }
 
   // Render the component

@@ -6,7 +6,7 @@ import LanguageDisplay from './languageDisplay';
 import languagePickerStyles from './languagePickerStyles';
 import LanguageSelectionListItem from './languageSelectionListItem';
 
-import LANGUAGES from './languages';
+import LANGUAGES from './languageArray';
 
 // Returns all elements in languageArray that match the query
 function arraySearchFilter(languageArray, query) {
