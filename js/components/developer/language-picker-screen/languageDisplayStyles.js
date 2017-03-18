@@ -1,15 +1,7 @@
 import { StyleSheet } from 'react-native';
+import { TITLE_COLOR, MAIN_CERISE, SECONDARY_GRAY } from './commonStyles';
 
-const TITLE_COLOR = '#171A20';
-const MAIN_CERISE = '#E5007D';
-const SECONDARY_GRAY = '#383F4E';
-// const SECONDARY_BLUE = '#0069D2';
-
-const languagePickerStyles = StyleSheet.create({
-  flexList: {
-    flex: 1,
-    alignItems: 'flex-start',
-  },
+const languageDisplayStyles = StyleSheet.create({
   rowList: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -42,4 +34,4 @@ const languagePickerStyles = StyleSheet.create({
   },
 });
 
-module.exports = languagePickerStyles;
+module.exports = languageDisplayStyles;

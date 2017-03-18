@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
-import { Modal, StyleSheet } from 'react-native';
-import { Content, Card, CardItem, Button, Text, Body, List, Item, Input } from 'native-base';
+import { Modal } from 'react-native';
+import { Content, Card, CardItem } from 'native-base';
 
 import LanguageDisplay from './languageDisplay';
-import languagePickerStyles from './languagePickerStyles';
-import LanguageSelectionListItem from './languageSelectionListItem';
-
-import LANGUAGES from './languageArray';
-
-// Returns all elements in languageArray that match the query
-function arraySearchFilter(languageArray, query) {
-  return languageArray.filter(languageObject =>
-        languageObject.name.toLowerCase().startsWith(query.toLowerCase()));
-}
+import LanguageSelectionList from './languageSelectionList';
 
 export default class LanguagePicker extends Component {
 
@@ -20,45 +11,15 @@ export default class LanguagePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      preQueryLenght: 0,
       modalVisible: false,
-      listLanguages: LANGUAGES,
     };
   }
 
   // Display or hide the modal
   setModalVisible(visible) {
     this.setState({
-      preQueryLenght: 0,
       modalVisible: visible,
-      listLanguages: LANGUAGES,
     });
-  }
-
-  // Search for a specific language
-  search(query) {
-    if (this.state.listLanguages.length > 0
-      || query.length < this.state.preQueryLenght) {
-      if (query.length === 0) {
-        // Display all languages
-        this.setState({
-          preQueryLenght: 0,
-          listLanguages: LANGUAGES,
-        });
-      } else if (query.length > this.state.preQueryLenght) {
-        this.setState({
-          // Filter the currently displayed languages
-          preQueryLenght: query.length,
-          listLanguages: arraySearchFilter(this.state.listLanguages, query),
-        });
-      } else {
-        // Filter all languages
-        this.setState({
-          preQueryLenght: query.length,
-          listLanguages: arraySearchFilter(LANGUAGES, query),
-        });
-      }
-    }
   }
 
   // Render the component
@@ -71,41 +32,12 @@ export default class LanguagePicker extends Component {
           transparent
           onRequestClose={() => { this.setModalVisible(false); }}
         >
-          <Card bordered>
-            <CardItem >
-              <Item rounded>
-                <Input
-                  placeholder=" Search..."
-                  onChangeText={query => this.search(query)}
-                />
-              </Item>
-            </CardItem>
-            <CardItem style={StyleSheet.flatten(languagePickerStyles.flexList)}>
-              <List
-                dataArray={this.state.listLanguages}
-                renderRow={rowData => (
-                  <LanguageSelectionListItem language={rowData} />
-                )}
-              />
-            </CardItem>
-            <CardItem >
-              <Body >
-                <Button block onPress={() => this.setModalVisible(false)}>
-                  <Text >Done</Text>
-                </Button>
-              </Body>
-            </CardItem>
-          </Card>
+          <LanguageSelectionList
+            onDone={() => this.setModalVisible(false)}
+          />
         </Modal>
 
-        <Card bordered>
-          <CardItem
-            bordered
-            onPress={() => this.setModalVisible(true)}
-          >
-            <LanguageDisplay />
-          </CardItem>
-        </Card>
+        <LanguageDisplay onPress={() => this.setModalVisible(true)} />
       </Content>
     );
   }
