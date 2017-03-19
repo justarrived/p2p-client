@@ -23,6 +23,8 @@ export default class DeveloperScreen extends React.Component {
         <Button onPress={() => navigate('MyProfileScreen')} title="My Profile" />
         <Button onPress={() => navigate('ChooseJobTypeScreen')} title="Go to choose job type screen" />
         <Button onPress={() => navigate('ReduxSampleScreen')} title="Go to the redux sample screen" />
+        <Button onPress={() => navigate('PaymentInfoScreen')} title="Payment Info Screen" />
+
       </View>
     );
   }
