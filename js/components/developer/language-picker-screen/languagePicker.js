@@ -4,7 +4,11 @@ import { Content } from 'native-base';
 import ModalCard from './modalCard';
 import ModalDoneButton from './modalDoneButton';
 import LanguageDisplay from './languageDisplay';
-import LanguageSelectionList from './languageSelectionList';
+
+import languageSelectionStyles from './languageSelectionStyles';
+import LanguageSelectionListItem from './languageSelectionListItem';
+import SearchList from './searchList';
+import { LANGUAGES, languageSearchFilter } from './languageArray';
 
 export default class LanguagePicker extends Component {
 
@@ -31,7 +35,13 @@ export default class LanguagePicker extends Component {
           visible={this.state.modalVisible}
           onRequestClose={() => this.setModalVisible(false)}
         >
-          <LanguageSelectionList />
+          <SearchList
+            styleView={languageSelectionStyles.languageSelectionView}
+            styleList={languageSelectionStyles.languageSelectionList}
+            dataArrayFilter={languageSearchFilter}
+            dataArray={LANGUAGES}
+            renderRow={rowData => <LanguageSelectionListItem language={rowData} />}
+          />
           <ModalDoneButton onPress={() => this.setModalVisible(false)} />
         </ModalCard>
 

@@ -1,5 +1,5 @@
 // Temporary array with languages
-const LANGUAGES = [{ name: 'Abkhaz', id: 0 }, { name: 'Adyghe', id: 1 },
+export const LANGUAGES = [{ name: 'Abkhaz', id: 0 }, { name: 'Adyghe', id: 1 },
   { name: 'Afrikaans', id: 2 }, { name: 'Akan', id: 3 },
   { name: 'Albanian', id: 4 }, { name: 'Amharic', id: 5 },
   { name: 'Arabic', id: 6 }, { name: 'Aragonese', id: 7 },
@@ -9,4 +9,6 @@ const LANGUAGES = [{ name: 'Abkhaz', id: 0 }, { name: 'Adyghe', id: 1 },
   { name: 'Mandarin', id: 14 }, { name: 'Swahili', id: 15 },
   { name: 'Swedish', id: 16 }, { name: 'Tagalog', id: 17 }];
 
-module.exports = LANGUAGES;
+export const languageSearchFilter = (languageArray, query) =>
+  languageArray.filter(languageObject =>
+        languageObject.name.toLowerCase().startsWith(query.toLowerCase()));

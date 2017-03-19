@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { CardItem, List, Item, Input } from 'native-base';
 
-import languageSelectionStyles from './languageSelectionStyles';
-
 export default class SearchList extends Component {
   static propTypes = {
     dataArrayFilter: React.PropTypes.func.isRequired,
     renderRow: React.PropTypes.func.isRequired,
     dataArray: React.PropTypes.arrayOf(React.PropTypes.shape).isRequired,
+    styleView: View.propTypes.style,
+    styleList: View.propTypes.style,
+  }
+  static defaultProps = {
+    styleView: StyleSheet.create({}),
+    styleList: StyleSheet.create({}),
   }
 
   // Constructor setting intitial state
@@ -20,24 +24,24 @@ export default class SearchList extends Component {
     };
   }
 
-  // Search for a specific language
+  // Search for specific data using the dataArrayFilter in the props
   search(query) {
     if (this.state.dataDisplayed.length > 0
       || query.length < this.state.preQueryLenght) {
       if (query.length === 0) {
-        // Display all languages
+        // Display all data
         this.setState({
           preQueryLenght: 0,
           dataDisplayed: this.props.dataArray,
         });
       } else if (query.length > this.state.preQueryLenght) {
         this.setState({
-          // Filter the currently displayed languages
+          // Filter the currently displayed data
           preQueryLenght: query.length,
           dataDisplayed: this.props.dataArrayFilter(this.state.dataDisplayed, query),
         });
       } else {
-        // Filter all languages
+        // Filter all data
         this.setState({
           preQueryLenght: query.length,
           dataDisplayed: this.props.dataArrayFilter(this.props.dataArray, query),
@@ -50,7 +54,7 @@ export default class SearchList extends Component {
   render() {
     return (
       <View
-        style={languageSelectionStyles.languageSelectionView}
+        style={this.props.styleView}
       >
         <CardItem>
           <Item rounded>
@@ -60,7 +64,7 @@ export default class SearchList extends Component {
             />
           </Item>
         </CardItem>
-        <CardItem style={StyleSheet.flatten(languageSelectionStyles.languageSelectionList)}>
+        <CardItem style={StyleSheet.flatten(this.props.styleList)}>
           <List
             dataArray={this.state.dataDisplayed}
             renderRow={rowData => this.props.renderRow(rowData)}

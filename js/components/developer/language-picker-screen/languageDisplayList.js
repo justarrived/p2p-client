@@ -4,7 +4,7 @@ import { Content, List } from 'native-base';
 
 import languageDisplayStyles from './languageDisplayStyles';
 
-import LANGUAGES from './languageArray';
+import { LANGUAGES } from './languageArray';
 
 export default class LanguageDisplayList extends Component {
   static propTypes = {
