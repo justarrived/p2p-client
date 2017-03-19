@@ -9,8 +9,10 @@ export default class SearchList extends Component {
     dataArray: React.PropTypes.arrayOf(React.PropTypes.shape).isRequired,
     styleView: View.propTypes.style,
     styleList: View.propTypes.style,
+    placeholder: React.PropTypes.string,
   }
   static defaultProps = {
+    placeholder: ' Search...',
     styleView: StyleSheet.create({}),
     styleList: StyleSheet.create({}),
   }
@@ -59,7 +61,7 @@ export default class SearchList extends Component {
         <CardItem>
           <Item rounded>
             <Input
-              placeholder=" Search..."
+              placeholder={this.props.placeholder}
               onChangeText={query => this.search(query)}
             />
           </Item>
