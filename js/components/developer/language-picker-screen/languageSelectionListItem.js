@@ -23,7 +23,6 @@ class LanguageSelectionListItem extends Component {
     } else {
       this.props.addLanguage(this.props.language.id);
     }
-    // this.forceUpdate();
   }
 
   // Render the component
@@ -31,9 +30,7 @@ class LanguageSelectionListItem extends Component {
     const selected = this.props.myLanguages.includes(this.props.language.id);
     return (
       <Card bordered="false">
-        <CardItem
-          onPress={() => this.languageSelection(selected)}
-        >
+        <CardItem onPress={() => this.languageSelection(selected)}>
           <Text>{this.props.language.name}</Text>
           <Right>
             <Radio

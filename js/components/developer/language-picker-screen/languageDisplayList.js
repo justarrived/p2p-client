@@ -36,7 +36,7 @@ export default class LanguageDisplayList extends Component {
             <View style={languageDisplayStyles.rowListItem}>
               <Text style={languageDisplayStyles.rowListItemText}>{rowData.name}</Text>
             </View>
-              }
+          }
         />
       </Content>
     );

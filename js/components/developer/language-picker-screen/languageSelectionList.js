@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { CardItem, List, Item, Input } from 'native-base';
 
 import languageSelectionStyles from './languageSelectionStyles';
@@ -54,9 +54,9 @@ export default class LanguageSelectionList extends Component {
   render() {
     return (
       <View
-        style={languageSelectionStyles.languageSelectionListView}
+        style={languageSelectionStyles.languageSelectionView}
       >
-        <CardItem >
+        <CardItem>
           <Item rounded>
             <Input
               placeholder=" Search..."
@@ -64,12 +64,10 @@ export default class LanguageSelectionList extends Component {
             />
           </Item>
         </CardItem>
-        <CardItem >
+        <CardItem style={StyleSheet.flatten(languageSelectionStyles.languageSelectionList)}>
           <List
             dataArray={this.state.listLanguages}
-            renderRow={rowData => (
-              <LanguageSelectionListItem language={rowData} />
-                )}
+            renderRow={rowData => <LanguageSelectionListItem language={rowData} />}
           />
         </CardItem>
       </View>
