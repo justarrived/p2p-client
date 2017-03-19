@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Alert } from 'react-native';
 import { Text, ListItem, Thumbnail, Body, Left, Form, Content, Button } from 'native-base';
+import paymentInfoScreenStyle from './paymentInfoScreenStyle';
 
 const alertMessage1 = 'För Kortet .... .... .... 4499\n';
 const alertMessage2 = 'För Kortet .... .... .... 3232\n';
@@ -34,7 +35,7 @@ export default class MakePaymentScreen extends Component {
             </Body>
           </ListItem>
         </Form>
-        <View style={{ padding: 20 }}>
+        <View style={paymentInfoScreenStyle.addCardButton}>
           <Button block light>
             <Text>Lägg Till Kort</Text>
           </Button>
