@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, CardItem, Text, Right, Radio } from 'native-base';
 
+import SelectionListItem from './selectionListItem';
 import { addLanguage, removeLanguage } from '../../../actions/languages';
 
 class LanguageSelectionListItem extends Component {
-
   static propTypes = {
     addLanguage: React.PropTypes.func.isRequired,
     removeLanguage: React.PropTypes.func.isRequired,
@@ -16,7 +15,7 @@ class LanguageSelectionListItem extends Component {
     }).isRequired,
   }
 
-  // Add or remove language as a known language
+  // Add or remove language. State updated through Redux
   languageSelection(remove) {
     if (remove) {
       this.props.removeLanguage(this.props.language.id);
@@ -29,21 +28,16 @@ class LanguageSelectionListItem extends Component {
   render() {
     const selected = this.props.myLanguages.includes(this.props.language.id);
     return (
-      <Card bordered="false">
-        <CardItem onPress={() => this.languageSelection(selected)}>
-          <Text>{this.props.language.name}</Text>
-          <Right>
-            <Radio
-              selected={selected}
-              onPress={() => this.languageSelection(selected)}
-            />
-          </Right>
-        </CardItem>
-      </Card>
+      <SelectionListItem
+        selected={selected}
+        text={this.props.language.name}
+        onPress={() => this.languageSelection(selected)}
+      />
     );
   }
 }
 
+// props tied together with Redux methods
 function bindAction(dispatch) {
   return {
     addLanguage: name => dispatch(addLanguage(name)),
@@ -51,6 +45,8 @@ function bindAction(dispatch) {
   };
 }
 
+//  props tied together with Redux state
 const mapStateToProps = state => ({ myLanguages: state.languages.lang });
 
+// Connect class with Redux and export
 export default connect(mapStateToProps, bindAction)(LanguageSelectionListItem);

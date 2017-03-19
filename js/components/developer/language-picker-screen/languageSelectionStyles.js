@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-// import { TITLE_COLOR, MAIN_CERISE, SECONDARY_GRAY } from './commonStyles';
+// import { TITLE_COLOR, MAIN_CERISE, SECONDARY_GRAY } from './commonColors';
 
 const languageSelectionStyles = StyleSheet.create({
   languageSelectionView: {

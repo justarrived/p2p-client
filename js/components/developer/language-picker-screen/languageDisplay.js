@@ -3,6 +3,7 @@ import { Card, CardItem } from 'native-base';
 
 import LanguageDisplayContent from './languageDisplayContent';
 
+// Function that returns a pressable View containing LanguageDisplayContent
 const LanguageDisplay = ({ onPress }) =>
   <Card bordered>
     <CardItem

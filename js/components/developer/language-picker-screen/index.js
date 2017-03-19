@@ -3,6 +3,7 @@ import { Container, Content, Text } from 'native-base';
 
 import LanguagePicker from './languagePicker';
 
+// Example screen containing a LanguagePicker
 export default class LanguagePickerScreen extends Component {
 
   // Navigation information
