@@ -7,10 +7,7 @@ const alertMessage1 = 'För Kortet .... .... .... 4499\n';
 const alertMessage2 = 'För Kortet .... .... .... 3232\n';
 
 
-export default class MakePaymentScreen extends Component {
-  pressCreditCard = () => {
-    alert(this.props.title);
-  }
+export default class PaymentInfoScreen extends Component {
 
   render() {
     return (
