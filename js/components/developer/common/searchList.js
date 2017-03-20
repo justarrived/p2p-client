@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { CardItem, List, Item, Input } from 'native-base';
 
+import searchListStyles from './searchListStyles';
+
 export default class SearchList extends Component {
   static propTypes = {
     dataArrayFilter: React.PropTypes.func.isRequired,
@@ -13,8 +15,8 @@ export default class SearchList extends Component {
   }
   static defaultProps = {
     placeholder: ' Search...',
-    styleView: StyleSheet.create({}),
-    styleList: StyleSheet.create({}),
+    styleView: {},
+    styleList: {},
   }
 
   // Constructor setting intitial state
@@ -56,7 +58,7 @@ export default class SearchList extends Component {
   render() {
     return (
       <View
-        style={this.props.styleView}
+        style={[searchListStyles.searchListView, this.props.styleView]}
       >
         <CardItem>
           <Item rounded>
@@ -66,7 +68,10 @@ export default class SearchList extends Component {
             />
           </Item>
         </CardItem>
-        <CardItem style={StyleSheet.flatten(this.props.styleList)}>
+        <CardItem
+          style={StyleSheet.flatten(
+            [searchListStyles.searchListCardItem, this.props.styleList])}
+        >
           <List
             dataArray={this.state.dataDisplayed}
             renderRow={rowData => this.props.renderRow(rowData)}

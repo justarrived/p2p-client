@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SelectionListItem from './selectionListItem';
+import SelectionListItem from '../common/selectionListItem';
 import { addLanguage, removeLanguage } from '../../../actions/languages';
 
 class LanguageSelectionListItem extends Component {

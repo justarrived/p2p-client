@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardItem, Body, Button, Text } from 'native-base';
 
-const ModalDoneButton = ({ onPress, text }) =>
+const CardItemButton = ({ onPress, text }) =>
   <CardItem>
     <Body>
       <Button block onPress={() => onPress()}>
@@ -10,12 +10,12 @@ const ModalDoneButton = ({ onPress, text }) =>
     </Body>
   </CardItem>;
 
-ModalDoneButton.propTypes = {
+CardItemButton.propTypes = {
   onPress: React.PropTypes.func.isRequired,
   text: React.PropTypes.string,
 };
-ModalDoneButton.defaultProps = {
-  text: 'Done',
+CardItemButton.defaultProps = {
+  text: 'Press to find out!',
 };
 
-export default ModalDoneButton;
+export default CardItemButton;
