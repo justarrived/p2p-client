@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { Container, Text, Content, Left, Icon, Right, Item, Input, ListItem, Body, Thumbnail } from 'native-base';
 import MyJobsStyles from './myJobsStyles';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 const GREEN = 'https://upload.wikimedia.org/wikipedia/commons/5/50/WX_circle_green.png';
 const YELLOW = 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Solid_yellow.png';
+const alertMessage1 = 'Alert\n';
 
 export default class Tab2 extends Component {
 
@@ -17,7 +18,7 @@ export default class Tab2 extends Component {
             <Item underline>
               <Input placeholder="Pågående" />
             </Item>
-            <ListItem avatar>
+            <ListItem avatar onPress={() => Alert.alert('Snöskottning', alertMessage1)}>
               <Left>
                 <Thumbnail
                   style={StyleSheet.flatten(MyJobsStyles.logo)} source={{ uri: LOGO_URL }}
@@ -36,7 +37,7 @@ export default class Tab2 extends Component {
             <Item underline>
               <Input placeholder="Historik" />
             </Item>
-            <ListItem avatar>
+            <ListItem avatar onPress={() => Alert.alert('Gräsklippning', alertMessage1)}>
               <Left>
                 <Thumbnail
                   style={StyleSheet.flatten(MyJobsStyles.logo)} source={{ uri: LOGO_URL }}

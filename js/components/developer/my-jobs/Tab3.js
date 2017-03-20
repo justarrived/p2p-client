@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { Container, Text, Content, Left, Icon, Right, Item, Input, ListItem, Body, Thumbnail } from 'native-base';
 import MyJobsStyles from './myJobsStyles';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 const BLUE = 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Solid_blue.png';
+const alertMessage1 = 'Alert\n';
 
 export default class Tab3 extends Component {
 
@@ -16,7 +17,7 @@ export default class Tab3 extends Component {
             <Item underline>
               <Input placeholder="Att Avsluta" />
             </Item>
-            <ListItem avatar>
+            <ListItem avatar onPress={() => Alert.alert('Snöskottning', alertMessage1)}>
               <Left>
                 <Thumbnail
                   style={StyleSheet.flatten(MyJobsStyles.logo)} source={{ uri: LOGO_URL }}
@@ -32,7 +33,7 @@ export default class Tab3 extends Component {
                 />
               </Right>
             </ListItem>
-            <ListItem avatar>
+            <ListItem avatar onPress={() => Alert.alert('Gräsklippning', alertMessage1)}>
               <Left>
                 <Thumbnail
                   style={StyleSheet.flatten(MyJobsStyles.logo)} source={{ uri: LOGO_URL }}
