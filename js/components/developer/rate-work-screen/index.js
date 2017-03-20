@@ -4,6 +4,7 @@ import { Text, View } from 'react-native';
 import EndButton from './endButton';
 import RatingLogo from './logo';
 import RatingScreenStyles from './rateWorkStyles';
+import RatingBar from './ratingBar';
 // import HeaderText from './headerText';
 import RecommendationTextbox from './recommendationTextbox';
 
@@ -21,6 +22,18 @@ export default class RateWorkScreen extends Component {
             <Text style={RatingScreenStyles.header2Text}>
 							Hur tyckte du att xx utförde uppdraget?
 						</Text>
+            <Text style={RatingScreenStyles.ratingText}>
+              Punktlighet
+            </Text>
+            <RatingBar />
+            <Text style={RatingScreenStyles.ratingText}>
+              Kommunikation
+            </Text>
+            <RatingBar />
+            <Text style={RatingScreenStyles.ratingText}>
+              Kvalité på utförande
+            </Text>
+            <RatingBar />
             <Text style={RatingScreenStyles.header3Text}>
 		          Ge antal stjärnor och skriv gärna en rekommendation som läggs till i xx profil.
 		        </Text>

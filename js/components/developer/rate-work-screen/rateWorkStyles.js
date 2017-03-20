@@ -28,6 +28,10 @@ const ratingScreenStyles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
   },
+  ratingText: {
+    fontSize: 14,
+    textAlign: 'center',
+  },
 });
 
 module.exports = ratingScreenStyles;
