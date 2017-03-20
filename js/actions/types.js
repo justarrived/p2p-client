@@ -1,17 +1,10 @@
 export type Action = {
-  type: 'PUSH_NEW_ROUTE',
+  type: 'CHANGE_NAME',
   route: string
 } | {
-  type: 'POP_ROUTE'
+  type: 'DECREASE_AGE'
 } | {
-  type: 'POP_TO_ROUTE',
-  route: string
-} | {
-  type: 'REPLACE_ROUTE',
-  route: string
-} | {
-  type: 'REPLACE_OR_PUSH_ROUTE',
-  route: string
+  type: 'INCREASE_AGE'
 }
 
 export type Dispatch = (action : Action | Array < Action >) => any;
