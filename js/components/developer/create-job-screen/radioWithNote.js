@@ -7,31 +7,15 @@ export default class RadioWithNote extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     note: React.PropTypes.string.isRequired,
-    selected: React.PropTypes.bool,
+    selected: React.PropTypes.bool.isRequired,
+    onPress: React.PropTypes.func.isRequired,
   };
-
-  static defaultProps = {
-    selected: true,
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSelected: this.props.selected,
-    };
-  }
-
-  toggleRadio = () => {
-    this.setState({
-      isSelected: !this.state.isSelected,
-    });
-  }
 
   render() {
     return (
-      <ListItem selected={this.state.isSelected} onPress={this.toggleRadio}>
+      <ListItem selected={this.props.selected} onPress={this.props.onPress} >
         <Left>
-          <Radio selected={this.state.isSelected} onPress={this.toggleRadio} />
+          <Radio selected={this.props.selected} onPress={this.props.onPress} />
           <Text>{this.props.title}</Text>
           <Right>
             <Text note>{this.props.note}</Text>
