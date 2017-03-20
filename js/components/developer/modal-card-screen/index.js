@@ -4,7 +4,7 @@ import { Container, Content, Card, CardItem, Text } from 'native-base';
 import ModalCard from '../common/modalCard';
 import CardItemButton from '../common/cardItemButton';
 
-// Example screen containing a LanguagePicker
+// Example screen containing a common ModalCard
 export default class ModalCardScreen extends Component {
 
   // Navigation information
@@ -40,7 +40,7 @@ export default class ModalCardScreen extends Component {
             onRequestClose={() => this.setModalVisible(false)}
           >
             <CardItem>
-              <Text >this is a modal!</Text>
+              <Text >this is a custom component modal!</Text>
             </CardItem>
             <CardItem>
               <Text >More styling and options can be added to make it fit different use cases</Text>

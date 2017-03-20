@@ -10,6 +10,7 @@ import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 import LanguagePickerScreen from './components/developer/language-picker-screen';
 import ModalCardScreen from './components/developer/modal-card-screen';
+import SearchListScreen from './components/developer/search-list-screen';
 
 // The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
@@ -46,6 +47,9 @@ const DeveloperTab = StackNavigator({
   },
   ModalCardScreen: {
     screen: ModalCardScreen,
+  },
+  SearchListScreen: {
+    screen: SearchListScreen,
   },
 });
 
