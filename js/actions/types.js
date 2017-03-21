@@ -1,16 +1,15 @@
 export type Action = {
-  type: 'PUSH_NEW_ROUTE',
+  type: 'CHANGE_NAME',
   route: string
 } | {
-  type: 'POP_ROUTE'
+  type: 'DECREASE_AGE'
 } | {
-  type: 'POP_TO_ROUTE',
+  type: 'INCREASE_AGE'
+} | {
+  type: 'ADD_LANGUAGE',
   route: string
 } | {
-  type: 'REPLACE_ROUTE',
-  route: string
-} | {
-  type: 'REPLACE_OR_PUSH_ROUTE',
+  type: 'REMOVE_LANGUAGE',
   route: string
 } | {
 type: 'ACCOUNT_FIRSTNAME',

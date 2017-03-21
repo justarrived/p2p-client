@@ -25,7 +25,7 @@ P2P cross platform mobile app created in colaboration between Just Arrived and C
 
     > A hackable text editor for the 21st Century.
 
-###Suggested Atom packages
+### Suggested Atom packages
 * **[react](https://atom.io/packages/react)** (by [orktes](https://atom.io/users/orktes))
 
     > React.js (JSX) language support, indentation, snippets, auto completion, reformatting.
@@ -42,7 +42,7 @@ P2P cross platform mobile app created in colaboration between Just Arrived and C
 
     > Lint JavaScript on the fly, using ESLint.
 
-#####**Settings**
+##### **Settings**
 ```json
 "linter-eslint":
   fixOnSave: true
@@ -51,7 +51,7 @@ P2P cross platform mobile app created in colaboration between Just Arrived and C
 
     > Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom.
 
-#####**Settings**
+##### **Settings**
 ```json
 "atom-beautify":
   js:
