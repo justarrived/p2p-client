@@ -7,7 +7,7 @@ import LanguageDisplayTitle from './languageDisplayTitle';
 import LanguageDisplayList from './languageDisplayList';
 import languageDisplayStyles from './languageDisplayStyles';
 
-// Function that returns Card with pressable cards and language info
+// Function that returns Card with pressable CardItems containing language info
 const LanguageDisplay = ({ onPress, languages }) =>
   <Card>
     <CardItem
