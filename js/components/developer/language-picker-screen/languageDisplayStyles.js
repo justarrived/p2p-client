@@ -2,6 +2,12 @@ import { StyleSheet } from 'react-native';
 import { TITLE_COLOR, MAIN_CERISE, SECONDARY_GRAY } from '../common/colors';
 
 const languageDisplayStyles = StyleSheet.create({
+  cardItemTitle: {
+    paddingBottom: 0,
+  },
+  cardItemList: {
+    paddingTop: 0,
+  },
   rowList: {
     flexDirection: 'row',
     flexWrap: 'wrap',

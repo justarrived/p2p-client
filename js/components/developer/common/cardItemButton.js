@@ -15,7 +15,7 @@ CardItemButton.propTypes = {
   text: React.PropTypes.string,
 };
 CardItemButton.defaultProps = {
-  text: 'Press to find out!',
+  text: 'ok',
 };
 
 export default CardItemButton;

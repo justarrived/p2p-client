@@ -2,7 +2,7 @@ import type { Action } from '../actions/types';
 import { ADD_LANGUAGE, REMOVE_LANGUAGE } from '../actions/languages';
 
 const initialState = {
-  lang: [6, 16, 17],
+  lang: [0, 2],
 };
 
 export default function (state : State = initialState, action : Action) : State {

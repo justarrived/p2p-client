@@ -1,19 +1,17 @@
 import React from 'react';
-import { Card, CardItem, Text, Right, Radio } from 'native-base';
+import { ListItem, Text, Right, CheckBox } from 'native-base';
 
 // Function returns a selectable item intended for use in lists
 const SelectionListItem = ({ onPress, text, selected }) =>
-  <Card bordered="false">
-    <CardItem onPress={() => onPress()}>
-      <Text>{text}</Text>
-      <Right>
-        <Radio
-          selected={selected}
-          onPress={() => onPress()}
-        />
-      </Right>
-    </CardItem>
-  </Card>;
+  <ListItem onPress={() => onPress()}>
+    <Text>{text}</Text>
+    <Right>
+      <CheckBox
+        checked={selected}
+        onPress={() => onPress()}
+      />
+    </Right>
+  </ListItem>;
 
 SelectionListItem.propTypes = {
   onPress: React.PropTypes.func.isRequired,

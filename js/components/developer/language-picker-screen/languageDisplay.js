@@ -1,21 +1,39 @@
 import React from 'react';
-import { Card, CardItem } from 'native-base';
+import { Text, StyleSheet } from 'react-native';
+import { Card, CardItem, Right } from 'native-base';
+import { connect } from 'react-redux';
 
-import LanguageDisplayContent from './languageDisplayContent';
+import LanguageDisplayTitle from './languageDisplayTitle';
+import LanguageDisplayList from './languageDisplayList';
+import languageDisplayStyles from './languageDisplayStyles';
 
-// Function that returns a pressable View containing LanguageDisplayContent
-const LanguageDisplay = ({ onPress }) =>
-  <Card bordered>
+// Function that returns Card with pressable cards and language info
+const LanguageDisplay = ({ onPress, languages }) =>
+  <Card>
     <CardItem
-      bordered
+      style={StyleSheet.flatten(languageDisplayStyles.cardItemTitle)}
       onPress={() => onPress()}
     >
-      <LanguageDisplayContent />
+      <LanguageDisplayTitle listTitle={languages.length > 0} />
+      <Right>
+        <Text>Edit</Text>
+      </Right>
+    </CardItem>
+    <CardItem
+      style={StyleSheet.flatten(languageDisplayStyles.cardItemList)}
+      onPress={() => onPress()}
+    >
+      <LanguageDisplayList languages={languages} />
     </CardItem>
   </Card>;
 
 LanguageDisplay.propTypes = {
   onPress: React.PropTypes.func.isRequired,
+  languages: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
 };
 
-export default LanguageDisplay;
+//  props tied together with Redux state
+const mapStateToProps = state => ({ languages: state.languages.lang });
+
+// Connect class with Redux and export
+export default connect(mapStateToProps)(LanguageDisplay);
