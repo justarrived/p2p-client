@@ -125,7 +125,7 @@ class CreateAccountScreen extends React.Component {
                 REGISTRERA
               </Text>
             </Button>
-            <Button full transparent onPress={() => this.pressedGotAccount()}>
+            <Button small block bordered onPress={() => this.pressedGotAccount()} style={StyleSheet.flatten(styles.secondButtonPadding)}>
               <Text style={StyleSheet.flatten(styles.tranparentButtonText)}>
                 Jag har redan ett konto - Logga in
               </Text>

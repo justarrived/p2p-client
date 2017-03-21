@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     flex: 1,
-    marginTop: 20,
-    marginBottom: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 
   input: {
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
   },
   regButtonText: {
     color: '#fff',
+  },
+  secondButtonPadding: {
+    marginTop: 10,
   },
 });
 module.exports = styles;
