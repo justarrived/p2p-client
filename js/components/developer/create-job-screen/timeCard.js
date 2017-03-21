@@ -38,7 +38,7 @@ export default class TimeCard extends Component {
 
     return (
       <Card>
-        <CardHeader icon="time" title="Tid" subtitle="Hur lång tid tar uppdraget?" />
+        <CardHeader icon="time" title="Tidsåtgång" subtitle="Hur lång tid tar uppdraget?" />
         {radioButtons}
         <CardItem footer />
       </Card>
