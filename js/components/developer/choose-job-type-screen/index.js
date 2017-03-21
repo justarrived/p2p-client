@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Content } from 'native-base';
 
 import JobTypeCard from './jobTypeCard';
-import ChooseJobTypeStyles from './chooseJobTypeStyles';
+import GlobalStyle from '../common/globalStyle';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
 const EXAMPLE_IMAGE_URL = 'https://facebook.github.io/react/img/logo_og.png';
@@ -22,7 +22,7 @@ export default class ChooseJobTypeScreen extends Component {
 
     return (
       <Container>
-        <Content contentContainerStyle={ChooseJobTypeStyles.padder}>
+        <Content contentContainerStyle={GlobalStyle.padder}>
           {jobTypeCards}
         </Content>
       </Container>
