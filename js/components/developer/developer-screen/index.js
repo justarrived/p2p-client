@@ -21,6 +21,7 @@ export default class DeveloperScreen extends React.Component {
         <Button onPress={() => navigate('NetworkingScreen')} title="Get JSON data examples" />
         <Button onPress={() => navigate('MakePaymentScreen')} title="Pay your order" />
         <Button onPress={() => navigate('MyProfileScreen')} title="My Profile" />
+        <Button onPress={() => navigate('CreateAccountScreen')} title="Create accout screen" />
       </View>
     );
   }
