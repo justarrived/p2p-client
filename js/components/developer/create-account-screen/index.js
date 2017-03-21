@@ -15,7 +15,7 @@ import {
 import styles from './style';
 
 import { changeFirstName, changeLastName, changeAddress,
-   changePostCode, changePostArea, changePhoneNumber, changeEmail, changePassword, toggleInputDisabled, toggleCheckBox } from '../../../actions/account';
+   changePostCode, changePostArea, changePhoneNumber, changeEmail, changePassword, toggleCheckBox } from '../../../actions/account';
 
 import EmailInput from '../../common/email-input';
 import PhoneInput from '../../common/numeric-input';
@@ -34,7 +34,6 @@ class CreateAccountScreen extends React.Component {
   };
 
   static propTypes = {
-    toggleInputDisabled: React.PropTypes.func.isRequired,
     changeFirstName: React.PropTypes.func.isRequired,
     changeLastName: React.PropTypes.func.isRequired,
     changeAddress: React.PropTypes.func.isRequired,
@@ -70,8 +69,7 @@ class CreateAccountScreen extends React.Component {
         + `\n Telefonnumer: ${a.phoneNumber}`
         + `\n Epost: ${a.email}`
         + `\n checked: ${a.userAgreement}`,
-
-        +`\n Lösenord: ${a.password}`,
+        +` Lösenord: ${a.password}`,
       );
   }
 
@@ -80,8 +78,6 @@ class CreateAccountScreen extends React.Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation;
-
     return (
       <Container>
         <Content padder>
@@ -90,29 +86,29 @@ class CreateAccountScreen extends React.Component {
               <Grid>
                 <Row>
                   <Col>
-                    <TextInput title="Förnamn" onChange={input => this.props.changeFirstName(input)} disable={this.props.account.disabled} />
+                    <TextInput title="Förnamn" onChange={input => this.props.changeFirstName(input)} disabled={this.props.account.disabled} />
                   </Col>
                   <Col>
-                    <TextInput title="Efternamn" onChange={input => this.props.changeLastName(input)} disable={this.props.account.disabled} />
+                    <TextInput title="Efternamn" onChange={input => this.props.changeLastName(input)} disabled={this.props.account.disabled} />
                   </Col>
                 </Row>
 
-                <TextInput title="Adress" onChange={input => this.props.changeAddress(input)} disable={this.props.account.disabled} />
+                <TextInput title="Adress" onChange={input => this.props.changeAddress(input)} disabled={this.props.account.disabled} />
 
                 <Row>
                   <Col>
-                    <TextInput title="Ort" onChange={input => this.props.changePostArea(input)} disable={this.props.account.disabled} />
+                    <TextInput title="Ort" onChange={input => this.props.changePostArea(input)} disabled={this.props.account.disabled} />
 
                   </Col>
                   <Col>
-                    <PostcodeInput title="Postnummer" onChange={input => this.props.changePostCode(input)} disable={this.props.account.disabled} />
+                    <PostcodeInput title="Postnummer" onChange={input => this.props.changePostCode(input)} disabled={this.props.account.disabled} />
                   </Col>
                 </Row>
               </Grid>
 
-              <PhoneInput title="Telefonnummer " onChange={input => this.props.changePhoneNumber(input)} disable={this.props.account.disabled} />
-              <EmailInput title="E-post" onChange={input => this.props.changeEmail(input)} disable={this.props.account.disabled} />
-              <PasswordInput title="Lösenord " onChange={input => this.props.changePassword(input)} disable={this.props.account.disabled} />
+              <PhoneInput title="Telefonnummer " onChange={input => this.props.changePhoneNumber(input)} disabled={this.props.account.disabled} />
+              <EmailInput title="E-post" onChange={input => this.props.changeEmail(input)} disabled={this.props.account.disabled} />
+              <PasswordInput title="Lösenord " onChange={input => this.props.changePassword(input)} disabled={this.props.account.disabled} />
 
               <CheckBoxPUL title="Jag accepterar PUL och användarvillkor" isChecked={this.props.account.userAgreement} onClick={() => this.props.toggleCheckBox()} />
 
@@ -125,7 +121,11 @@ class CreateAccountScreen extends React.Component {
                 REGISTRERA
               </Text>
             </Button>
-            <Button small block bordered onPress={() => this.pressedGotAccount()} style={StyleSheet.flatten(styles.secondButtonPadding)}>
+            <Button
+              small block bordered
+              onPress={() => this.pressedGotAccount()}
+              style={StyleSheet.flatten(styles.secondButtonPadding)}
+            >
               <Text style={StyleSheet.flatten(styles.tranparentButtonText)}>
                 Jag har redan ett konto - Logga in
               </Text>
@@ -148,7 +148,6 @@ function bindAction(dispatch) {
     changePhoneNumber: input => dispatch(changePhoneNumber(input)),
     changeEmail: input => dispatch(changeEmail(input)),
     changePassword: input => dispatch(changePassword(input)),
-    toggleInputDisabled: () => dispatch(toggleInputDisabled()),
     toggleCheckBox: () => dispatch(toggleCheckBox()),
 
 

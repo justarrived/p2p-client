@@ -7,12 +7,12 @@ export default class PostCodeInput extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    disable: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     defaultValue: React.PropTypes.string,
   }
 
   static defaultProps = {
-    disable: false,
+    disabled: false,
     defaultValue: '',
   }
 
@@ -28,7 +28,7 @@ export default class PostCodeInput extends Component {
         <Label>{this.props.title}</Label>
         <Input
           keyboardType="numeric" maxLength={5} returnKeyType={'next'} defaultValue={this.props.defaultValue}
-          disabled={this.props.disable} onChangeText={text => this.props.onChange(text)}
+          disabled={this.props.disabled} onChangeText={text => this.props.onChange(text)}
           style={StyleSheet.flatten(styles.inputField)}
         />
       </Item>

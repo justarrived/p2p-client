@@ -9,12 +9,12 @@ export default class EmailInput extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    disable: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     defaultValue: React.PropTypes.string,
   }
 
   static defaultProps = {
-    disable: false,
+    disabled: false,
     defaultValue: '',
   }
 
@@ -29,7 +29,7 @@ export default class EmailInput extends Component {
       <Item stackedLabel={stackLabel} floatingLabel={floatLabel} >
         <Label>{this.props.title}</Label>
         <Input
-          keyboardType="numeric" returnKeyType={'next'} defaultValue={this.props.defaultValue} disabled={this.props.disable}
+          keyboardType="numeric" returnKeyType={'next'} defaultValue={this.props.defaultValue} disabled={this.props.disabled}
           onChangeText={text => this.props.onChange(text)}
           style={StyleSheet.flatten(styles.inputField)}
         />
