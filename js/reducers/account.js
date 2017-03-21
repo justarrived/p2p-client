@@ -1,6 +1,8 @@
 import type { Action }
 from '../actions/types';
-import { ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE, ACCOUNT_POSTAREA, ACCOUNT_PHONENUMBER, ACCOUNT_EMAIL, ACCOUNT_PASSWORD } from '../actions/account';
+import { ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE,
+  ACCOUNT_POSTAREA, ACCOUNT_PHONENUMBER, ACCOUNT_EMAIL, ACCOUNT_PASSWORD, TOOGLE_INPUT_DISABLED,
+   ACCOUNT_USER_AGREEMENT } from '../actions/account';
 
 const initialState = {
   firstName: '',
@@ -11,7 +13,8 @@ const initialState = {
   phoneNumber: '',
   email: '',
   password: '',
-
+  userAgreement: false,
+  disabled: false,
 };
 
 export default function (state : State = initialState, action : Action) : State {
@@ -61,6 +64,18 @@ export default function (state : State = initialState, action : Action) : State 
     return {
       ...state,
       password: action.payload,
+    };
+  }
+  if (action.type === TOOGLE_INPUT_DISABLED) {
+    return {
+      ...state,
+      disabled: !state.disabled,
+    };
+  }
+  if (action.type === ACCOUNT_USER_AGREEMENT) {
+    return {
+      ...state,
+      userAgreement: !state.userAgreement,
     };
   }
   return state;

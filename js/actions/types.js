@@ -36,8 +36,11 @@ type: 'ACCOUNT_EMAIL',
 } | {
 type: 'ACCOUNT_PASSWORD',
   password: string
+} | {
+type: 'TOOGLE_INPUT_DISABLED',
+} | {
+type: 'ACCOUNT_USER_AGREEMENT',
 }
-
 
 export type Dispatch = (action : Action | Array < Action >) => any;
 export type GetState = () => Object;

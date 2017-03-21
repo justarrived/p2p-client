@@ -8,6 +8,8 @@ export const ACCOUNT_POSTAREA = 'ACCOUNT_POSTAREA';
 export const ACCOUNT_PHONENUMBER = 'ACCOUNT_PHONENUMBER';
 export const ACCOUNT_EMAIL = 'ACCOUNT_EMAIL';
 export const ACCOUNT_PASSWORD = 'ACCOUNT_PASSWORD';
+export const TOOGLE_INPUT_DISABLED = 'TOOGLE_INPUT_DISABLED';
+export const ACCOUNT_USER_AGREEMENT = 'ACCOUNT_USER_AGREEMENT';
 
 export function changeFirstName(firstName:string):Action {
   return {
@@ -62,5 +64,17 @@ export function changePassword(password:string):Action {
   return {
     type: ACCOUNT_PASSWORD,
     payload: password,
+  };
+}
+
+export function toggleCheckBox():Action {
+  return {
+    type: ACCOUNT_USER_AGREEMENT,
+  };
+}
+
+export function toggleInputDisabled():Action {
+  return {
+    type: TOOGLE_INPUT_DISABLED,
   };
 }

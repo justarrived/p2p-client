@@ -7,20 +7,27 @@ export default class TextInput extends Component {
 
   static propTypes = {
     title: React.PropTypes.string.isRequired,
-    onChange: React.PropTypes.func,
-    stacked: React.PropTypes.bool,
-    floating: React.PropTypes.bool,
+    onChange: React.PropTypes.func.isRequired,
     disable: React.PropTypes.bool,
+    defaultValue: React.PropTypes.string,
+  }
+
+  static defaultProps = {
+    disable: false,
+    defaultValue: '',
   }
 
   render() {
-    const floating = this.props.floating;
-    const stacked = this.props.stacked;
-    const disable = this.props.disable;
+    let stackLabel = true;
+    let floatLabel = false;
+    if (this.props.defaultValue === '') {
+      stackLabel = false;
+      floatLabel = true;
+    }
     return (
-      <Item stackedLabel={stacked} floatingLabel={floating} >
+      <Item stackedLabel={stackLabel} floatingLabel={floatLabel} >
         <Label>{this.props.title}</Label>
-        <Input returnKeyType={'next'} defaultValue={''} disabled={disable} onChangeText={text => this.props.onChange(text)} style={StyleSheet.flatten(styles.inputField)} />
+        <Input returnKeyType={'next'} defaultValue={this.props.defaultValue} disabled={this.props.disable} onChangeText={text => this.props.onChange(text)} style={StyleSheet.flatten(styles.inputField)} />
       </Item>
     );
   }
