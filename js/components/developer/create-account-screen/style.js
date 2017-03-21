@@ -3,16 +3,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 10,
-    marginRight: 40,
-    marginLeft: 20,
-    marginBottom: 40,
+    paddingRight: 16,
   },
   bottomContainer: {
     flex: 1,
-    marginRight: 40,
-    marginLeft: 40,
-    marginBottom: 10,
+    marginTop: 20,
+    marginBottom: 20,
   },
 
   input: {

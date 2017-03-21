@@ -10,6 +10,7 @@ import {
   Row,
   Grid,
   Button,
+  Card,
 } from 'native-base';
 import styles from './style';
 
@@ -83,39 +84,43 @@ class CreateAccountScreen extends React.Component {
 
     return (
       <Container>
-        <Content>
-          <Form style={StyleSheet.flatten(styles.container)}>
-            <Grid>
-              <Row>
-                <Col>
-                  <TextInput title="Förnamn" onChange={input => this.props.changeFirstName(input)} disable={this.props.account.disabled} />
-                </Col>
-                <Col>
-                  <TextInput title="Efternamn" onChange={input => this.props.changeLastName(input)} disable={this.props.account.disabled} defaultValue="Test" />
-                </Col>
-              </Row>
+        <Content padder>
+          <Card>
+            <Form style={StyleSheet.flatten(styles.container)}>
+              <Grid>
+                <Row>
+                  <Col>
+                    <TextInput title="Förnamn" onChange={input => this.props.changeFirstName(input)} disable={this.props.account.disabled} />
+                  </Col>
+                  <Col>
+                    <TextInput title="Efternamn" onChange={input => this.props.changeLastName(input)} disable={this.props.account.disabled} />
+                  </Col>
+                </Row>
 
-              <TextInput title="Adress" onChange={input => this.props.changeAddress(input)} disable={this.props.account.disabled} defaultValue="Test" />
+                <TextInput title="Adress" onChange={input => this.props.changeAddress(input)} disable={this.props.account.disabled} />
 
-              <Row>
-                <Col>
-                  <PostcodeInput title="Postnummer" onChange={input => this.props.changePostCode(input)} disable={this.props.account.disabled} defaultValue="55555" />
-                </Col>
-                <Col>
-                  <TextInput title="Ort" onChange={input => this.props.changePostArea(input)} disable={this.props.account.disabled} defaultValue="Test" />
-                </Col>
-              </Row>
-            </Grid>
+                <Row>
+                  <Col>
+                    <TextInput title="Ort" onChange={input => this.props.changePostArea(input)} disable={this.props.account.disabled} />
 
-            <PhoneInput title="Telefonnumer: " onChange={input => this.props.changePhoneNumber(input)} disable={this.props.account.disabled} defaultValue="2626262" />
-            <EmailInput title="E-post adress:" onChange={input => this.props.changeEmail(input)} disable={this.props.account.disabled} defaultValue="Test" />
-            <PasswordInput title="Lösenord: " onChange={input => this.props.changePassword(input)} disable={this.props.account.disabled} defaultValue="Test" />
+                  </Col>
+                  <Col>
+                    <PostcodeInput title="Postnummer" onChange={input => this.props.changePostCode(input)} disable={this.props.account.disabled} />
+                  </Col>
+                </Row>
+              </Grid>
 
-            <CheckBoxPUL title="Jag accepterar PUL och användarvilkor" isChecked={this.props.account.userAgreement} onClick={() => this.props.toggleCheckBox()} />
+              <PhoneInput title="Telefonnummer " onChange={input => this.props.changePhoneNumber(input)} disable={this.props.account.disabled} />
+              <EmailInput title="E-post" onChange={input => this.props.changeEmail(input)} disable={this.props.account.disabled} />
+              <PasswordInput title="Lösenord " onChange={input => this.props.changePassword(input)} disable={this.props.account.disabled} />
 
-          </Form>
+              <CheckBoxPUL title="Jag accepterar PUL och användarvillkor" isChecked={this.props.account.userAgreement} onClick={() => this.props.toggleCheckBox()} />
+
+            </Form>
+          </Card>
+
           <View style={StyleSheet.flatten(styles.bottomContainer)}>
-            <Button full info rounded onPress={() => this.pressedRegister()}>
+            <Button block onPress={() => this.pressedRegister()}>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
                 REGISTRERA
               </Text>
