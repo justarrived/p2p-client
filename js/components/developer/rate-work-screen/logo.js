@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import RatingScreenStyles from './rateWorkStyles';
 
 export default class RatingLogo extends Component {

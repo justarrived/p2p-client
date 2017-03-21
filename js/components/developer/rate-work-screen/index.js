@@ -17,11 +17,11 @@ export default class RateWorkScreen extends Component {
 
           <View style={RatingScreenStyles.textContainer}>
             <Text style={RatingScreenStyles.header1Text}>
-							Tack!
-						</Text>
+            Tack!
+            </Text>
             <Text style={RatingScreenStyles.header2Text}>
-							Hur tyckte du att xx utförde uppdraget?
-						</Text>
+            Hur tyckte du att xx utförde uppdraget?
+            </Text>
             <Text style={RatingScreenStyles.ratingText}>
               Punktlighet
             </Text>
@@ -35,8 +35,8 @@ export default class RateWorkScreen extends Component {
             </Text>
             <RatingBar />
             <Text style={RatingScreenStyles.header3Text}>
-		          Ge antal stjärnor och skriv gärna en rekommendation som läggs till i xx profil.
-		        </Text>
+              Ge antal stjärnor och skriv gärna en rekommendation som läggs till i xx profil.
+            </Text>
           </View>
           <RecommendationTextbox />
           <EndButton />

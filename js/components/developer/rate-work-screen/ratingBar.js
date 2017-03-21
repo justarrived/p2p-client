@@ -15,7 +15,11 @@ class GeneralStarExample extends Component {
   }
 
   render() {
-    return (<StarRating disabled={false} maxStars={5} rating={this.state.starCount} selectedStar={rating => this.onStarRatingPress(rating)} />);
+    return (<StarRating
+      disabled={false} maxStars={5}
+      rating={this.state.starCount} selectedStar={rating => this.onStarRatingPress(rating)}
+    />
+    );
   }
 }
 
