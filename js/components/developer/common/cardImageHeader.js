@@ -1,0 +1,39 @@
+import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
+import { Thumbnail, CardItem } from 'native-base';
+import CardImageHeaderStyle from './cardImageHeaderStyle';
+
+// Card header with image and icon.
+export default class CardImageHeader extends Component {
+  static propTypes = {
+    cover: React.PropTypes.string.isRequired,
+    icon: React.PropTypes.string,
+    onPress: React.PropTypes.func,
+  };
+
+  static defaultProps = {
+    icon: undefined,
+    onPress: undefined,
+  };
+
+  render() {
+    // Only show icon if it is provided as a prop
+    let iconIfProvided = [];
+    if (this.props.icon !== undefined) {
+      iconIfProvided = (
+        <Thumbnail source={{ uri: this.props.icon }} />
+      );
+    }
+
+    return (
+      <CardItem cardBody onPress={this.props.onPress}>
+        <Thumbnail
+          square resizeMode="cover" style={StyleSheet.flatten(CardImageHeaderStyle.coverPhoto)}
+          source={{ uri: this.props.cover }}
+        >
+          {iconIfProvided}
+        </Thumbnail>
+      </CardItem>
+    );
+  }
+}
