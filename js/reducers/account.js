@@ -5,8 +5,8 @@ import { ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE,
    ACCOUNT_USER_AGREEMENT } from '../actions/account';
 
 const initialState = {
-  firstName: '',
-  lastName: '',
+  firstName: 'Anton',
+  lastName: 'Smith',
   address: ' ',
   postCode: '',
   postArea: '',
