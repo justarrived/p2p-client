@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Alert } from 'react-native';
-import { Container, Text, Content, Left, Icon, Right, Item, Input, ListItem, Body, Thumbnail } from 'native-base';
+import { StyleSheet, Alert, View } from 'react-native';
+import { Container, Text, Content, Left, Icon, Right, Item, Input, ListItem, Body, Thumbnail, Badge } from 'native-base';
 import MyJobsStyles from './myJobsStyles';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
-const BLUE = 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Solid_blue.png';
 const alertMessage1 = 'Alert\n';
 
 export default class Tab3 extends Component {
@@ -28,9 +27,9 @@ export default class Tab3 extends Component {
                 <Text note> 14 April 20:00</Text>
               </Body>
               <Right>
-                <Thumbnail
-                  style={StyleSheet.flatten(MyJobsStyles.logo2)} source={{ uri: BLUE }}
-                />
+                <View style={StyleSheet.flatten(MyJobsStyles.blue)}>
+                  <Text style={{ fontSize: 12, color: 'white' }}>Avslutade</Text>
+                </View>
               </Right>
             </ListItem>
             <ListItem avatar onPress={() => Alert.alert('Gräsklippning', alertMessage1)}>
@@ -44,9 +43,9 @@ export default class Tab3 extends Component {
                 <Text note> 11 Maj 10:00</Text>
               </Body>
               <Right>
-                <Thumbnail
-                  style={StyleSheet.flatten(MyJobsStyles.logo2)} source={{ uri: BLUE }}
-                />
+                <View style={StyleSheet.flatten(MyJobsStyles.blue)}>
+                  <Text style={{ fontSize: 12, color: 'white' }}>Avslutade</Text>
+                </View>
               </Right>
             </ListItem>
           </Content>

@@ -20,9 +20,45 @@ const loginScreenStyles = StyleSheet.create({
   },
 
   logo2: {
-    width: 18,
-    height: 18,
+    width: 40,
+    height: 20,
+    borderRadius: 15,
+  },
+
+  green: {
+    paddingLeft: 6,
+    paddingRight: 6,
+    paddingTop: 4,
+    paddingBottom: 4,
     borderRadius: 10,
+    backgroundColor: 'green',
+  },
+
+  grey: {
+    paddingLeft: 6,
+    paddingRight: 6,
+    paddingTop: 4,
+    paddingBottom: 4,
+    borderRadius: 10,
+    backgroundColor: 'grey',
+  },
+
+  blue: {
+    paddingLeft: 6,
+    paddingRight: 6,
+    paddingTop: 4,
+    paddingBottom: 4,
+    borderRadius: 10,
+    backgroundColor: 'dodgerblue',
+  },
+
+  yellow: {
+    paddingLeft: 6,
+    paddingRight: 6,
+    paddingTop: 4,
+    paddingBottom: 4,
+    borderRadius: 10,
+    backgroundColor: 'goldenrod',
   },
 
 });
