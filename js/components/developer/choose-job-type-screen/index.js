@@ -10,9 +10,6 @@ const JOBS = ['Snöskottning', 'Lövkrattning', 'Städning', 'Ogräsrensning'];
 
 export default class ChooseJobTypeScreen extends Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Choose Job Type',
   };
 

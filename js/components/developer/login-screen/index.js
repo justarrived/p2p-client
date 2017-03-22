@@ -14,9 +14,6 @@ const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 export default class LoginScreen extends Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Login',
   };
 

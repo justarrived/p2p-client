@@ -7,9 +7,6 @@ Provides access to components during development.
 */
 export default class DeveloperScreen extends React.Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Developer',
   };
 

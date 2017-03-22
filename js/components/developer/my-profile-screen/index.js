@@ -6,11 +6,9 @@ import MakePaymentScreen from '../make-payment-screen';
 
 export default class MyProfileScreen extends Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'My Profile',
   };
+
   render() {
     return (
       <Container>

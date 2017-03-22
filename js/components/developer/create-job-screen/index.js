@@ -9,9 +9,6 @@ import CreateJobStyles from './createJobStyles';
 export default class CreateJobScreen extends Component {
 
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Create Job',
   };
 

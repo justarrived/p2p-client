@@ -7,9 +7,6 @@ import { decreaseAge } from '../../../actions/person';
 
 class ReduxSampleScreen extends React.Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Redux Sample Screen',
   };
 
