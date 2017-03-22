@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   topContainer: {
-    marginTop: 20,
+    paddingTop: 20,
     paddingBottom: 10,
     marginRight: 15,
     marginLeft: 15,
@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   buttonContainer: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginRight: 15,
-    marginLeft: 15,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingRight: 15,
+    paddingLeft: 15,
   },
   nameText: {
     fontSize: 24,

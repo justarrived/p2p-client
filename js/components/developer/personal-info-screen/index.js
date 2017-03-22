@@ -7,8 +7,6 @@ import {
   Form,
   Col,
   Row,
-  Button,
-  Grid,
   Thumbnail,
 } from 'native-base';
 import styles from './style';
@@ -21,7 +19,6 @@ import Buttons from './personalInfoButtons';
 import { changeAddress, changePostCode, changePostArea, changePhoneNumber, changeEmail, changePassword, toggleInputDisabled } from '../../../actions/account';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
-
 
 class PersonalInfoScreen extends React.Component {
 
@@ -46,7 +43,6 @@ class PersonalInfoScreen extends React.Component {
       disabled: React.PropTypes.boolean,
     }).isRequired,
   }
-
 
   pressedRegister() {
     const a = this.props.account;
@@ -104,7 +100,6 @@ class PersonalInfoScreen extends React.Component {
     );
   }
 }
-
 
 function bindAction(dispatch) {
   return {
