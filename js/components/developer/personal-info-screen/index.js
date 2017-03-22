@@ -76,18 +76,47 @@ class PersonalInfoScreen extends React.Component {
             </Text>
           </View>
           <Form style={StyleSheet.flatten(styles.formContainer)}>
-            <TextInput title="Adress" onChange={input => this.props.changeAddress(input)} disabled={this.props.account.disabled} />
+            <TextInput
+              title="Adress"
+              onChange={input => this.props.changeAddress(input)}
+              disabled={this.props.account.disabled}
+            />
             <Row>
               <Col>
-                <PostcodeInput title="Postnummer" onChange={input => this.props.changePostCode(input)} disabled={this.props.account.disabled} defaultValue="55555" />
+                <PostcodeInput
+                  title="Postnummer"
+                  onChange={input => this.props.changePostCode(input)}
+                  disabled={this.props.account.disabled}
+                  defaultValue="55555"
+                />
               </Col>
               <Col>
-                <TextInput title="Ort" onChange={input => this.props.changePostArea(input)} disabled={this.props.account.disabled} defaultValue="Test" />
+                <TextInput
+                  title="Ort"
+                  onChange={input => this.props.changePostArea(input)}
+                  disabled={this.props.account.disabled}
+                  defaultValue="Test"
+                />
               </Col>
             </Row>
-            <PhoneInput title="Telefonnumer: " onChange={input => this.props.changePhoneNumber(input)} disabled={this.props.account.disabled} defaultValue="2626262" />
-            <EmailInput title="E-post adress:" onChange={input => this.props.changeEmail(input)} disabled={this.props.account.disabled} defaultValue="Test" />
-            <PasswordInput title="Lösenord: " onChange={input => this.props.changePassword(input)} disabled={this.props.account.disabled} defaultValue="Test" />
+            <PhoneInput
+              title="Telefonnumer: "
+              onChange={input => this.props.changePhoneNumber(input)}
+              disabled={this.props.account.disabled}
+              defaultValue="2626262"
+            />
+            <EmailInput
+              title="E-post adress:"
+              onChange={input => this.props.changeEmail(input)}
+              disabled={this.props.account.disabled}
+              defaultValue="Test"
+            />
+            <PasswordInput
+              title="Lösenord: "
+              onChange={input => this.props.changePassword(input)}
+              disabled={this.props.account.disabled}
+              defaultValue="Test"
+            />
           </Form>
           <View style={StyleSheet.flatten(styles.buttonContainer)}>
             <Buttons
