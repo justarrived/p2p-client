@@ -5,10 +5,15 @@ import EndButton from './endButton';
 import RatingLogo from './logo';
 import RatingScreenStyles from './rateWorkStyles';
 import RatingBar from './ratingBar';
-// import HeaderText from './headerText';
 import RecommendationTextbox from './recommendationTextbox';
 
+// Render the component
 export default class RateWorkScreen extends Component {
+
+  static navigationOptions = {
+    title: 'Rate the work',
+  };
+
   render() {
     return (
       <Container>
