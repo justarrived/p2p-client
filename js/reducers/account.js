@@ -14,7 +14,7 @@ const initialState = {
   email: '',
   password: '',
   userAgreement: false,
-  disabled: false,
+  disabled: true,
 };
 
 export default function (state : State = initialState, action : Action) : State {
@@ -67,6 +67,7 @@ export default function (state : State = initialState, action : Action) : State 
     };
   }
   if (action.type === TOOGLE_INPUT_DISABLED) {
+    console.log('DISABLE');
     return {
       ...state,
       disabled: !state.disabled,

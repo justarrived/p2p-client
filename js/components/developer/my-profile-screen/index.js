@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import { Container, Tab, Tabs } from 'native-base';
 import MakePaymentScreen from '../make-payment-screen';
 import PersonalInfoScreen from '../personal-info-screen';
+
 
 export default class MyProfileScreen extends Component {
   static navigationOptions = {
@@ -11,6 +11,7 @@ export default class MyProfileScreen extends Component {
     },
     title: 'My Profile',
   };
+
   render() {
     return (
       <Container>

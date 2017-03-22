@@ -8,6 +8,7 @@ import {
   Col,
   Row,
   Button,
+  Grid,
   Thumbnail,
 } from 'native-base';
 import styles from './style';
@@ -80,29 +81,45 @@ class PersonalInfoScreen extends React.Component {
               <Text>{this.props.account.firstName} {this.props.account.lastName}</Text>
             </Text>
           </View>
-          <Form style={StyleSheet.flatten(styles.fromContainer)}>
-            <TextInput title="Adress" onChange={input => this.props.changeAddress(input)} disable={this.props.account.disabled} />
+          <Form style={StyleSheet.flatten(styles.formContainer)}>
+            <TextInput title="Adress" onChange={input => this.props.changeAddress(input)} disabled={this.props.account.disabled} />
 
             <Row>
               <Col>
-                <PostcodeInput title="Postnummer" onChange={input => this.props.changePostCode(input)} disable={this.props.account.disabled} defaultValue="55555" />
+                <PostcodeInput title="Postnummer" onChange={input => this.props.changePostCode(input)} disabled={this.props.account.disabled} defaultValue="55555" />
               </Col>
               <Col>
-                <TextInput title="Ort" onChange={input => this.props.changePostArea(input)} disable={this.props.account.disabled} defaultValue="Test" />
+                <TextInput title="Ort" onChange={input => this.props.changePostArea(input)} disabled={this.props.account.disabled} defaultValue="Test" />
               </Col>
             </Row>
-
-
-            <PhoneInput title="Telefonnumer: " onChange={input => this.props.changePhoneNumber(input)} disable={this.props.account.disabled} defaultValue="2626262" />
-            <EmailInput title="E-post adress:" onChange={input => this.props.changeEmail(input)} disable={this.props.account.disabled} defaultValue="Test" />
-            <PasswordInput title="Lösenord: " onChange={input => this.props.changePassword(input)} disable={this.props.account.disabled} defaultValue="Test" />
+            <PhoneInput title="Telefonnumer: " onChange={input => this.props.changePhoneNumber(input)} disabled={this.props.account.disabled} defaultValue="2626262" />
+            <EmailInput title="E-post adress:" onChange={input => this.props.changeEmail(input)} disabled={this.props.account.disabled} defaultValue="Test" />
+            <PasswordInput title="Lösenord: " onChange={input => this.props.changePassword(input)} disabled={this.props.account.disabled} defaultValue="Test" />
           </Form>
           <View style={StyleSheet.flatten(styles.buttonContainer)}>
-            <Button full info rounded onPress={() => this.props.toggleInputDisabled()}>
+            <Button full info onPress={() => this.props.toggleInputDisabled()}>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
                 ÄNDRA
               </Text>
             </Button>
+            <View >
+              <Grid>
+                <Col>
+                  <Button full info onPress={() => console.log('avbryt')}>
+                    <Text style={StyleSheet.flatten(styles.regButtonText)}>
+                    AVBRYT
+                  </Text>
+                  </Button>
+                </Col>
+                <Col>
+                  <Button full info onPress={() => console.log('spara')}>
+                    <Text style={StyleSheet.flatten(styles.regButtonText)}>
+                  SPARA
+                </Text>
+                  </Button>
+                </Col>
+              </Grid>
+            </View>
           </View>
         </Content>
       </Container>
@@ -128,7 +145,3 @@ function bindAction(dispatch) {
 const mapStateToProps = state => ({ account: state.account });
 
 export default connect(mapStateToProps, bindAction)(PersonalInfoScreen);
-
-/*
-
-*/

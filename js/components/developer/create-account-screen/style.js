@@ -1,18 +1,15 @@
 import { StyleSheet } from 'react-native';
+import { WHITE, SECONDARY_BLUE } from '../../common/color';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 10,
-    marginRight: 40,
-    marginLeft: 20,
-    marginBottom: 40,
+    paddingRight: 16,
   },
   bottomContainer: {
     flex: 1,
-    marginRight: 40,
-    marginLeft: 40,
-    marginBottom: 10,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 
   input: {
@@ -27,10 +24,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   tranparentButtonText: {
-    color: '#0069D2',
+    color: SECONDARY_BLUE,
   },
   regButtonText: {
-    color: '#fff',
+    color: WHITE,
+  },
+  secondButtonPadding: {
+    marginTop: 10,
   },
 });
 module.exports = styles;

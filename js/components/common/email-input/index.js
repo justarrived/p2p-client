@@ -7,24 +7,20 @@ export default class EmailInput extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    disable: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     defaultValue: React.PropTypes.string,
   }
 
   static defaultProps = {
-    disable: false,
+    disabled: false,
     defaultValue: '',
-  }
-
-  pressedNext() {
-    console.log('next');
   }
 
   render() {
     // Should be able to just grap the css from stylefile and put logic in Item style={}
     // Dont know how yet
     let disableStyle = {};
-    if (this.props.disable) {
+    if (this.props.disabled) {
       disableStyle = { borderColor: 'transparent' };
     }
 
@@ -36,13 +32,18 @@ export default class EmailInput extends Component {
     }
 
     return (
-      <Item stackedLabel={stackLabel} floatingLabel={floatLabel} style={disableStyle} >
+      <Item
+        stackedLabel={stackLabel} floatingLabel={floatLabel}
+        style={disableStyle}
+      >
         <Label>{this.props.title}</Label>
         <Input
-          returnKeyType="next" keyboardType="email-address" defaultValue={this.props.defaultValue} disabled={this.props.disable}
+          returnKeyType="next" keyboardType="email-address"
+          defaultValue={this.props.defaultValue}
+          disabled={this.props.disabled}
           onChangeText={text => this.props.onChange(text)}
           style={StyleSheet.flatten(styles.inputPadding)}
-          onSubmitEditing={() => this.pressedNext()}
+          onSubmitEditing={() => console.log('next')}
         />
       </Item>
     );

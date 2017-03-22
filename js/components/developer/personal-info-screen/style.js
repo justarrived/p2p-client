@@ -1,27 +1,26 @@
 import { StyleSheet } from 'react-native';
+import { BLACK } from '../../common/color';
 
 const styles = StyleSheet.create({
-  fromContainer: {
-    marginTop: 20,
+  formContainer: {
+    paddingRight: 15,
   },
   topContainer: {
     marginTop: 20,
     paddingBottom: 10,
-    borderColor: '#000',
+    marginRight: 15,
+    marginLeft: 15,
+    borderColor: BLACK,
     borderBottomWidth: 1,
   },
   buttonContainer: {
-    marginTop: 40,
-    marginBottom: 40,
-
+    marginTop: 20,
+    marginBottom: 20,
   },
   nameText: {
     fontSize: 24,
     alignSelf: 'center',
-    color: '#000',
-  },
-  input: {
-
+    color: BLACK,
   },
   logo: {
     width: 140,
@@ -34,6 +33,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  secondaryButtonGroup: {
+
   },
 });
 
