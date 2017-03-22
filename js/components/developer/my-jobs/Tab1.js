@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Alert, View } from 'react-native';
-import { Container, Text, Content, Left, Right, Item, Input, ListItem, Body, Thumbnail, Badge } from 'native-base';
+import { Container, Text, Content, Left, Right, Item, Input, ListItem, Body, Thumbnail } from 'native-base';
 import MyJobsStyles from './myJobsStyles';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
@@ -25,7 +25,7 @@ export default class Tab1 extends Component {
             </Body>
             <Right>
               <View style={StyleSheet.flatten(MyJobsStyles.green)}>
-                <Text style={{ fontSize: 12, color: 'white' }}>Aktiva</Text>
+                <Text style={StyleSheet.flatten(MyJobsStyles.badgeText)}>Aktiva</Text>
               </View>
             </Right>
           </ListItem>
@@ -39,7 +39,7 @@ export default class Tab1 extends Component {
             </Body>
             <Right>
               <View style={StyleSheet.flatten(MyJobsStyles.grey)}>
-                <Text style={{ fontSize: 12, color: 'white' }}>Pågående</Text>
+                <Text style={StyleSheet.flatten(MyJobsStyles.badgeText)}>Pågående</Text>
               </View>
             </Right>
           </ListItem>
