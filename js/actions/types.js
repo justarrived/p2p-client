@@ -11,6 +11,34 @@ export type Action = {
 } | {
   type: 'REMOVE_LANGUAGE',
   route: string
+} | {
+type: 'ACCOUNT_FIRSTNAME',
+  route: string
+} | {
+type: 'ACCOUNT_LASTNAME',
+  LastName: string
+} | {
+type: 'ACCOUNT_ADDRESS',
+  address: string
+} | {
+type: 'ACCOUNT_POSTCODE',
+  postCode: string
+} | {
+type: 'ACCOUNT_POSTAREA',
+  postArea: string
+} | {
+type: 'ACCOUNT_PHONENUMBER',
+  phoneNumber: string
+} | {
+type: 'ACCOUNT_EMAIL',
+  email: string
+} | {
+type: 'ACCOUNT_PASSWORD',
+  password: string
+} | {
+type: 'TOOGLE_INPUT_DISABLED',
+} | {
+type: 'ACCOUNT_USER_AGREEMENT',
 }
 
 export type Dispatch = (action : Action | Array < Action >) => any;

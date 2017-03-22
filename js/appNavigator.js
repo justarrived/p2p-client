@@ -7,6 +7,7 @@ import CreateJobScreen from './components/developer/create-job-screen';
 import LoginScreen from './components/developer/login-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
+import CreateAccountScreen from './components/developer/create-account-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 import LanguagePickerScreen from './components/developer/language-picker-screen';
@@ -64,6 +65,9 @@ const DeveloperTab = StackNavigator({
   },
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
+  },
+  CreateAccountScreen: {
+    screen: CreateAccountScreen,
   },
 }, {
   navigationOptions: {
