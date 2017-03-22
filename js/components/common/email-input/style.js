@@ -9,4 +9,5 @@ const styles = StyleSheet.create({
     borderColor: TRANSPARENT,
   },
 });
+
 module.exports = styles;

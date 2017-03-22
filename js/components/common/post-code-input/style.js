@@ -5,4 +5,5 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
   },
 });
+
 module.exports = styles;

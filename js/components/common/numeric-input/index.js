@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import { StyleSheet } from 'react-native';
 import { Item, Label, Input } from 'native-base';
 import styles from './style';
-
 
 export default class EmailInput extends Component {
   static propTypes = {
