@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
 
+const PADDING = 10;
 const ratingScreenStyles = StyleSheet.create({
   logoContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    margin: PADDING,
   },
 
   logo: {
@@ -17,20 +19,27 @@ const ratingScreenStyles = StyleSheet.create({
     alignItems: 'center',
   },
   header1Text: {
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: 'bold',
+    margin: PADDING / 2,
   },
   header2Text: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: 'bold',
+    margin: PADDING / 2,
   },
   header3Text: {
-    fontSize: 15,
+    fontSize: 14,
     textAlign: 'center',
+    margin: PADDING / 2,
   },
   ratingText: {
     fontSize: 14,
     textAlign: 'center',
+    margin: PADDING / 4,
+  },
+  textBox: {
+    margin: PADDING,
   },
 });
 

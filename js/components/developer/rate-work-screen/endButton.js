@@ -5,7 +5,7 @@ import { Button, Text } from 'native-base';
 export default class EndButton extends Component {
   render() {
     return (
-      <Button block>
+      <Button block primary>
         <Text>Slutför</Text>
       </Button>
     );
