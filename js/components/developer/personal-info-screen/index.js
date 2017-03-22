@@ -10,6 +10,7 @@ import {
   Thumbnail,
 } from 'native-base';
 import styles from './style';
+import GlobalStyle from '../common/globalStyle';
 import EmailInput from '../../common/email-input';
 import PhoneInput from '../../common/numeric-input';
 import PasswordInput from '../../common/password-input';
@@ -62,7 +63,7 @@ class PersonalInfoScreen extends React.Component {
   render() {
     return (
       <Container>
-        <Content padder>
+        <Content contentContainerStyle={GlobalStyle.padder}>
           <View style={StyleSheet.flatten(styles.topContainer)}>
             <View style={styles.logoContainer}>
               <Thumbnail

@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingTop: 20,
-    paddingBottom: 20,
     paddingRight: 15,
     paddingLeft: 15,
   },
