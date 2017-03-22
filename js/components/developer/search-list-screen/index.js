@@ -13,9 +13,6 @@ const FILTER = (dataArray, query) =>
 // Example screen containing a SearchList
 export default class SearchListScreen extends React.Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Search List',
   };
 

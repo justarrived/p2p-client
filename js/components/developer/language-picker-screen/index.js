@@ -8,9 +8,6 @@ export default class LanguagePickerScreen extends Component {
 
   // Navigation information
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Language Picker',
   };
 

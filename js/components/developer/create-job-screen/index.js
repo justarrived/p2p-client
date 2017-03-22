@@ -9,9 +9,6 @@ import GlobalStyle from '../common/globalStyle';
 export default class CreateJobScreen extends Component {
 
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Create Job',
   };
 

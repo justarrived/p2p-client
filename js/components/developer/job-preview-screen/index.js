@@ -14,9 +14,6 @@ const EXAMPLE_IMAGE_URL = 'https://facebook.github.io/react/img/logo_og.png';
 export default class JobPreviewScreen extends Component {
 
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Job Preview',
   };
 
