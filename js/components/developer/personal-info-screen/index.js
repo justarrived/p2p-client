@@ -17,8 +17,8 @@ import PhoneInput from '../../common/numeric-input';
 import PasswordInput from '../../common/password-input';
 import TextInput from '../../common/text-input';
 import PostcodeInput from '../../common/post-code-input';
-import { changeFirstName, changeLastName, changeAddress,
-   changePostCode, changePostArea, changePhoneNumber, changeEmail, changePassword, toggleInputDisabled } from '../../../actions/account';
+import Buttons from './personalInfoButtons';
+import { changeAddress, changePostCode, changePostArea, changePhoneNumber, changeEmail, changePassword, toggleInputDisabled } from '../../../actions/account';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
@@ -27,8 +27,6 @@ class PersonalInfoScreen extends React.Component {
 
   static propTypes = {
     toggleInputDisabled: React.PropTypes.func.isRequired,
-    changeFirstName: React.PropTypes.func.isRequired,
-    changeLastName: React.PropTypes.func.isRequired,
     changeAddress: React.PropTypes.func.isRequired,
     changePostCode: React.PropTypes.func.isRequired,
     changePostArea: React.PropTypes.func.isRequired,
@@ -83,7 +81,6 @@ class PersonalInfoScreen extends React.Component {
           </View>
           <Form style={StyleSheet.flatten(styles.formContainer)}>
             <TextInput title="Adress" onChange={input => this.props.changeAddress(input)} disabled={this.props.account.disabled} />
-
             <Row>
               <Col>
                 <PostcodeInput title="Postnummer" onChange={input => this.props.changePostCode(input)} disabled={this.props.account.disabled} defaultValue="55555" />
@@ -97,29 +94,10 @@ class PersonalInfoScreen extends React.Component {
             <PasswordInput title="Lösenord: " onChange={input => this.props.changePassword(input)} disabled={this.props.account.disabled} defaultValue="Test" />
           </Form>
           <View style={StyleSheet.flatten(styles.buttonContainer)}>
-            <Button full info onPress={() => this.props.toggleInputDisabled()}>
-              <Text style={StyleSheet.flatten(styles.regButtonText)}>
-                ÄNDRA
-              </Text>
-            </Button>
-            <View >
-              <Grid>
-                <Col>
-                  <Button full info onPress={() => console.log('avbryt')}>
-                    <Text style={StyleSheet.flatten(styles.regButtonText)}>
-                    AVBRYT
-                  </Text>
-                  </Button>
-                </Col>
-                <Col>
-                  <Button full info onPress={() => console.log('spara')}>
-                    <Text style={StyleSheet.flatten(styles.regButtonText)}>
-                  SPARA
-                </Text>
-                  </Button>
-                </Col>
-              </Grid>
-            </View>
+            <Buttons
+              disabled={this.props.account.disabled}
+              onPress={() => this.props.toggleInputDisabled()}
+            />
           </View>
         </Content>
       </Container>
@@ -130,8 +108,6 @@ class PersonalInfoScreen extends React.Component {
 
 function bindAction(dispatch) {
   return {
-    changeFirstName: input => dispatch(changeFirstName(input)),
-    changeLastName: input => dispatch(changeLastName(input)),
     changeAddress: input => dispatch(changeAddress(input)),
     changePostCode: input => dispatch(changePostCode(input)),
     changePostArea: input => dispatch(changePostArea(input)),

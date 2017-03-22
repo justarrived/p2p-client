@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 20,
     marginBottom: 20,
+    marginRight: 15,
+    marginLeft: 15,
   },
   nameText: {
     fontSize: 24,
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   secondaryButtonGroup: {
-
+    marginRight: 10,
   },
 });
 
