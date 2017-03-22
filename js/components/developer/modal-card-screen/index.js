@@ -9,9 +9,6 @@ export default class ModalCardScreen extends Component {
 
   // Navigation information
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Card Modal',
   };
 

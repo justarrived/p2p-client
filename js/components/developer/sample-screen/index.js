@@ -4,9 +4,6 @@ import I18n from '../../../../I18n/components/developer/sample-screen/I18n';
 
 export default class SampleScreen extends Component {
   static navigationOptions = {
-    tabBar: {
-      label: I18n.t('dev'),
-    },
     title: I18n.t('screenTitle'),
   };
 
