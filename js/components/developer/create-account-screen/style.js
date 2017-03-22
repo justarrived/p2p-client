@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { WHITE, SECONDARY_BLUE } from '../../common/color';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,10 +24,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   tranparentButtonText: {
-    color: '#0069D2',
+    color: SECONDARY_BLUE,
   },
   regButtonText: {
-    color: '#fff',
+    color: WHITE,
   },
   secondButtonPadding: {
     marginTop: 10,
