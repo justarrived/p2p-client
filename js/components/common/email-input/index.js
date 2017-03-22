@@ -34,7 +34,7 @@ export default class EmailInput extends Component {
     return (
       <Item
         stackedLabel={stackLabel} floatingLabel={floatLabel}
-        style={disableStyle}
+        style={StyleSheet.flatten([styles.active, this.props.disabled && styles.disabled])}
       >
         <Label>{this.props.title}</Label>
         <Input
