@@ -20,6 +20,12 @@ const HomeTab = StackNavigator({
   HomeScreen: {
     screen: HomeScreen,
   },
+}, {
+  navigationOptions: {
+    tabBar: {
+      label: 'Home',
+    },
+  },
 });
 
 // The developer tab holding screens in a stack.
@@ -62,6 +68,12 @@ const DeveloperTab = StackNavigator({
   },
   CreateAccountScreen: {
     screen: CreateAccountScreen,
+  },
+}, {
+  navigationOptions: {
+    tabBar: {
+      label: 'Developer',
+    },
   },
 });
 
