@@ -2,6 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const PADDING = 10;
 const ratingScreenStyles = StyleSheet.create({
+
+  contentContainerStyle: {
+    padding: 10,
+  },
+
   logoContainer: {
     flex: 1,
     justifyContent: 'center',

@@ -7,16 +7,26 @@ import CreateJobScreen from './components/developer/create-job-screen';
 import LoginScreen from './components/developer/login-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
-import MakePaymentScreen from './components/developer/make-payment-screen';
-import RateWorkScreen from './components/developer/rate-work-screen';
+import CreateAccountScreen from './components/developer/create-account-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
+import LanguagePickerScreen from './components/developer/language-picker-screen';
+import ModalCardScreen from './components/developer/modal-card-screen';
+import SearchListScreen from './components/developer/search-list-screen';
 import PaymentInfoScreen from './components/developer/payment-info-screen';
+import JobPreviewScreen from './components/developer/job-preview-screen';
+import RateWorkScreen from './components/developer/rate-work-screen';
 
 // The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
   HomeScreen: {
     screen: HomeScreen,
+  },
+}, {
+  navigationOptions: {
+    tabBar: {
+      label: 'Home',
+    },
   },
 });
 
@@ -46,11 +56,32 @@ const DeveloperTab = StackNavigator({
   ReduxSampleScreen: {
     screen: ReduxSampleScreen,
   },
+  LanguagePickerScreen: {
+    screen: LanguagePickerScreen,
+  },
+  ModalCardScreen: {
+    screen: ModalCardScreen,
+  },
+  SearchListScreen: {
+    screen: SearchListScreen,
+  },
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
   },
+  JobPreviewScreen: {
+    screen: JobPreviewScreen,
+  },
+  CreateAccountScreen: {
+    screen: CreateAccountScreen,
+  },
   RateWorkScreen: {
     screen: RateWorkScreen,
+  },
+}, {
+  navigationOptions: {
+    tabBar: {
+      label: 'Developer',
+    },
   },
 });
 

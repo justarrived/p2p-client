@@ -12,7 +12,7 @@ export default class RateWorkScreen extends Component {
   render() {
     return (
       <Container>
-        <Content contentContainerStyle={{ padding: 10 }} >
+        <Content style={RatingScreenStyles.contentContainerStyle} >
           <Card>
             <RatingLogo />
             <View style={RatingScreenStyles.textContainer}>
