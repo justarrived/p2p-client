@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Col, Form, Item, Label, Input, Card, CardItem } from 'native-base';
 
-import CardHeader from './cardHeader';
+import CardHeader from '../common/cardHeader';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
 const DATE_STRING = 'Datum';
