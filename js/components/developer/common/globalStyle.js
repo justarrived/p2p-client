@@ -11,6 +11,10 @@ const globalStyle = StyleSheet.create({
   rowMargin: {
     marginTop: ROW_MARGIN,
   },
+
+  noPadding: {
+    padding: 0,
+  },
 });
 
 module.exports = globalStyle;

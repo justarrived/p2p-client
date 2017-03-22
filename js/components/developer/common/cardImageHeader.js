@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Thumbnail, CardItem } from 'native-base';
 import CardImageHeaderStyle from './cardImageHeaderStyle';
+import GlobalStyle from '../common/globalStyle';
 
 // Card header with image and icon.
 export default class CardImageHeader extends Component {
@@ -26,7 +27,7 @@ export default class CardImageHeader extends Component {
     }
 
     return (
-      <CardItem cardBody onPress={this.props.onPress}>
+      <CardItem style={StyleSheet.flatten(GlobalStyle.noPadding)} onPress={this.props.onPress}>
         <Thumbnail
           square resizeMode="cover" style={StyleSheet.flatten(CardImageHeaderStyle.coverPhoto)}
           source={{ uri: this.props.cover }}
