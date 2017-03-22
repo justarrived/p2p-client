@@ -6,9 +6,6 @@ import PersonalInfoScreen from '../personal-info-screen';
 
 export default class MyProfileScreen extends Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'My Profile',
   };
 

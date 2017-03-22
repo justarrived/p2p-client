@@ -11,4 +11,5 @@ const styles = StyleSheet.create({
   active: {
   },
 });
+
 module.exports = styles;

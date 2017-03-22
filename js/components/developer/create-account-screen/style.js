@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
   },
-
   input: {
     marginRight: 0,
     marginBottom: 0,
@@ -33,4 +32,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+
 module.exports = styles;

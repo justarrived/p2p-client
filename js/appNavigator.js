@@ -8,8 +8,8 @@ import LoginScreen from './components/developer/login-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
 import MakePaymentScreen from './components/developer/make-payment-screen';
-import MyProfileScreen from './components/developer/my-profile-screen';
 import CreateAccountScreen from './components/developer/create-account-screen';
+import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 import LanguagePickerScreen from './components/developer/language-picker-screen';
 import ModalCardScreen from './components/developer/modal-card-screen';
@@ -20,6 +20,12 @@ import PaymentInfoScreen from './components/developer/payment-info-screen';
 const HomeTab = StackNavigator({
   HomeScreen: {
     screen: HomeScreen,
+  },
+}, {
+  navigationOptions: {
+    tabBar: {
+      label: 'Home',
+    },
   },
 });
 
@@ -66,6 +72,12 @@ const DeveloperTab = StackNavigator({
   },
   CreateAccountScreen: {
     screen: CreateAccountScreen,
+  },
+}, {
+  navigationOptions: {
+    tabBar: {
+      label: 'Developer',
+    },
   },
 });
 

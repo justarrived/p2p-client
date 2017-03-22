@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 import { Item, Label, Input } from 'native-base';
 import styles from './style';
 
-
 export default class EmailInput extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
