@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BLACK } from '../../common/color';
+import { BLACK } from '../../common/colors';
 
 const styles = StyleSheet.create({
   form: {

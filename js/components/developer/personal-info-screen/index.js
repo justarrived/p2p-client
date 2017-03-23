@@ -10,10 +10,9 @@ import {
   Thumbnail,
   Card,
   CardItem,
-  Body,
 } from 'native-base';
 import styles from './style';
-import GlobalStyle from '../common/globalStyle';
+import GlobalStyle from '../../common/globalStyle';
 import EmailInput from '../../common/email-input';
 import PhoneInput from '../../common/numeric-input';
 import PasswordInput from '../../common/password-input';

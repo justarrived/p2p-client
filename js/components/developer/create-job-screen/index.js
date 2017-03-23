@@ -4,7 +4,7 @@ import { Container, Content } from 'native-base';
 import PlaceCard from './placeCard';
 import TimeCard from './timeCard';
 import CalendarCard from './calendarCard';
-import GlobalStyle from '../common/globalStyle';
+import GlobalStyle from '../../common/globalStyle';
 
 export default class CreateJobScreen extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardItem, Right, Text, Body, Grid, Row } from 'native-base';
 
-import CardHeader from '../common/cardHeader';
+import CardHeader from '../../common/card-header/cardHeader';
 
 // Card showing the duration of the job, in the job creation preview.
 export default class TimeCardPreview extends Component {
