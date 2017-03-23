@@ -7,9 +7,6 @@ Provides access to components during development.
 */
 export default class DeveloperScreen extends React.Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Developer',
   };
 
@@ -24,9 +21,7 @@ export default class DeveloperScreen extends React.Component {
         <Button onPress={() => navigate('ChooseJobTypeScreen')} title="Go to choose job type screen" />
         <Button onPress={() => navigate('ReduxSampleScreen')} title="Go to the redux sample screen" />
         <Button onPress={() => navigate('PaymentInfoScreen')} title="Payment Info Screen" />
-        <Button onPress={() => navigate('MyJobs')} title="Mina Jobb" />
-
-
+        <Button onPress={() => navigate('MyJobsScreen')} title="Go to my jobs screen" />
       </View>
     );
   }

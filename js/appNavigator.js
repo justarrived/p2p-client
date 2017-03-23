@@ -9,8 +9,7 @@ import NetworkingScreen from './components/developer/networking-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 import PaymentInfoScreen from './components/developer/payment-info-screen';
-import MyJobs from './components/developer/my-jobs';
-
+import MyJobsScreen from './components/developer/my-jobs-screen';
 
 // The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
@@ -45,8 +44,8 @@ const DeveloperTab = StackNavigator({
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
   },
-  MyJobs: {
-    screen: MyJobs,
+  MyJobsScreen: {
+    screen: MyJobsScreen,
   },
 });
 
