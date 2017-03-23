@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import * as firebase from 'firebase';
 import AppNavigator from './appNavigator';
 
@@ -10,12 +10,7 @@ firebase.initializeApp({
   //messagingSenderId: '981762065581',
 });
 
-class App extends Component {
-
-  // This is the place for CodePush and similar modules
-  render() {
-    return <AppNavigator />;
-  }
-}
+const App = () =>
+  <AppNavigator />;
 
 export default App;

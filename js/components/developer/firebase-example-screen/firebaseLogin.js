@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Content, Card, CardItem } from 'native-base';
-import * as firebase from 'firebase';
 
 import EmailInput from '../../common/email-input';
 import PasswordInput from '../../common/password-input';
 import CardItemButton from '../common/cardItemButton';
+
+import Auth from './networking/auth';
 
 // Setting default values so they do not have to be entered every time
 const USER = 'noname@nomail.nope';
@@ -25,24 +26,16 @@ class FirebaseLogin extends Component {
     };
   }
 
-  async signup() {
-    await firebase.auth()
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => this.props.onLogin())
-      .catch(error =>
-        this.setState({
-          status: error.toString(),
-        }));
+  signUp() {
+    Auth.signUp(this.state.email, this.state.password,
+      () => this.props.onLogin(),
+      error => this.setState({ status: error.toString() }));
   }
 
-  async login() {
-    await firebase.auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => this.props.onLogin())
-      .catch(error =>
-        this.setState({
-          status: error.toString(),
-        }));
+  signIn() {
+    Auth.signIn(this.state.email, this.state.password,
+      () => this.props.onLogin(),
+      error => this.setState({ status: error.toString() }));
   }
 
   render() {
@@ -68,11 +61,11 @@ class FirebaseLogin extends Component {
             />
           </CardItem>
           <CardItemButton
-            onPress={() => this.login()}
+            onPress={() => this.signIn()}
             text="log in"
           />
           <CardItemButton
-            onPress={() => this.signup()}
+            onPress={() => this.signUp()}
             text="sign up"
           />
         </Card>

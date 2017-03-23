@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Content, Card, CardItem } from 'native-base';
-import * as firebase from 'firebase';
 
 import CardItemButton from '../common/cardItemButton';
+import FirebaseUserText from './firebaseUserText';
+import Auth from './networking/auth';
 
 class FirebaseHome extends Component {
   static propTypes = {
@@ -13,17 +14,13 @@ class FirebaseHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInfo: 'nothing to see here',
-      error: false,
-      errorMessage: '',
+      greeting: 'Welcome',
     };
   }
 
-  async logout() {
-    await firebase.auth()
-      .signOut()
-      .then(() => this.props.onLogout())
-      .catch(error => console.warn(error));
+  signOut() {
+    Auth.signOut(() => this.props.onLogout(),
+      () => this.setState({ greeting: 'Unable to sign out' }));
   }
 
   render() {
@@ -32,10 +29,11 @@ class FirebaseHome extends Component {
       <Content>
         <Card>
           <CardItem>
-            <Text >Welcome {firebase.auth().currentUser.email}</Text>
+            <Text >{this.state.greeting} {Auth.getCurrentUser().email}</Text>
           </CardItem>
+          <FirebaseUserText />
           <CardItemButton
-            onPress={() => this.logout()}
+            onPress={() => this.signOut()}
             text="log out"
           />
         </Card>
