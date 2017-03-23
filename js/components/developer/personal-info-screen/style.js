@@ -2,21 +2,28 @@ import { StyleSheet } from 'react-native';
 import { BLACK } from '../../common/color';
 
 const styles = StyleSheet.create({
+  form: {
+    flex: 1,
+    marginRight: 16,
+    marginLeft: 2,
+    paddingBottom: 16,
+  },
   formContainer: {
-    paddingRight: 15,
+    flex: 1,
+    padding: 0,
+    margin: 0,
+
   },
   topContainer: {
-    paddingTop: 20,
-    paddingBottom: 10,
-    marginRight: 15,
-    marginLeft: 15,
-    borderColor: BLACK,
-    borderBottomWidth: 1,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
   },
   buttonContainer: {
-    paddingTop: 20,
-    paddingRight: 15,
-    paddingLeft: 15,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   nameText: {
     fontSize: 24,
@@ -28,15 +35,16 @@ const styles = StyleSheet.create({
     height: 140,
     borderRadius: 70,
     alignItems: 'center',
-    margin: 20,
+    marginBottom: 10,
   },
-  logoContainer: {
+  secondaryButtonGroup: {
+    marginRight: 10,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  secondaryButtonGroup: {
-    marginRight: 10,
+  buttonFlex: {
+    flex: 1,
   },
 });
 

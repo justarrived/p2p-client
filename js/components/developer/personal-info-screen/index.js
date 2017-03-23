@@ -8,6 +8,9 @@ import {
   Col,
   Row,
   Thumbnail,
+  Card,
+  CardItem,
+  Body,
 } from 'native-base';
 import styles from './style';
 import GlobalStyle from '../common/globalStyle';
@@ -64,67 +67,71 @@ class PersonalInfoScreen extends React.Component {
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
-          <View style={StyleSheet.flatten(styles.topContainer)}>
-            <View style={styles.logoContainer}>
-              <Thumbnail
-                style={StyleSheet.flatten(styles.logo)} source={{
-                  uri: LOGO_URL,
-                }}
-              />
-            </View>
-            <Text style={StyleSheet.flatten(styles.nameText)}>
-              <Text>{this.props.account.firstName} {this.props.account.lastName}</Text>
-            </Text>
-          </View>
-          <Form style={StyleSheet.flatten(styles.formContainer)}>
-            <TextInput
-              title="Adress"
-              onChange={input => this.props.changeAddress(input)}
-              disabled={this.props.account.disabled}
-            />
-            <Row>
-              <Col>
-                <PostcodeInput
-                  title="Postnummer"
-                  onChange={input => this.props.changePostCode(input)}
-                  disabled={this.props.account.disabled}
-                  defaultValue="55555"
+          <Card>
+            <CardItem bordered style={StyleSheet.flatten(styles.topContainer)}>
+              <View>
+                <Thumbnail
+                  style={StyleSheet.flatten(styles.logo)} source={{
+                    uri: LOGO_URL,
+                  }}
                 />
-              </Col>
-              <Col>
+                <Text style={StyleSheet.flatten(styles.nameText)}>
+                  <Text>{this.props.account.firstName} {this.props.account.lastName}</Text>
+                </Text>
+              </View>
+            </CardItem>
+            <CardItem bordered style={StyleSheet.flatten(styles.formContainer)}>
+              <Form style={StyleSheet.flatten(styles.form)}>
                 <TextInput
-                  title="Ort"
-                  onChange={input => this.props.changePostArea(input)}
+                  title="Adress"
+                  onChange={input => this.props.changeAddress(input)}
+                  disabled={this.props.account.disabled}
+                />
+                <Row>
+                  <Col>
+                    <PostcodeInput
+                      title="Postnummer"
+                      onChange={input => this.props.changePostCode(input)}
+                      disabled={this.props.account.disabled}
+                      defaultValue="55555"
+                    />
+                  </Col>
+                  <Col>
+                    <TextInput
+                      title="Ort"
+                      onChange={input => this.props.changePostArea(input)}
+                      disabled={this.props.account.disabled}
+                      defaultValue="Test"
+                    />
+                  </Col>
+                </Row>
+                <PhoneInput
+                  title="Telefonnummer "
+                  onChange={input => this.props.changePhoneNumber(input)}
+                  disabled={this.props.account.disabled}
+                  defaultValue="2626262"
+                />
+                <EmailInput
+                  title="E-post "
+                  onChange={input => this.props.changeEmail(input)}
                   disabled={this.props.account.disabled}
                   defaultValue="Test"
                 />
-              </Col>
-            </Row>
-            <PhoneInput
-              title="Telefonnumer: "
-              onChange={input => this.props.changePhoneNumber(input)}
-              disabled={this.props.account.disabled}
-              defaultValue="2626262"
-            />
-            <EmailInput
-              title="E-post adress:"
-              onChange={input => this.props.changeEmail(input)}
-              disabled={this.props.account.disabled}
-              defaultValue="Test"
-            />
-            <PasswordInput
-              title="Lösenord: "
-              onChange={input => this.props.changePassword(input)}
-              disabled={this.props.account.disabled}
-              defaultValue="Test"
-            />
-          </Form>
-          <View style={StyleSheet.flatten(styles.buttonContainer)}>
-            <Buttons
-              disabled={this.props.account.disabled}
-              onPress={() => this.props.toggleInputDisabled()}
-            />
-          </View>
+                <PasswordInput
+                  title="Lösenord "
+                  onChange={input => this.props.changePassword(input)}
+                  disabled={this.props.account.disabled}
+                  defaultValue="Test"
+                />
+              </Form>
+            </CardItem>
+            <CardItem bordered style={StyleSheet.flatten(styles.buttonContainer)}>
+              <Buttons
+                disabled={this.props.account.disabled}
+                onPress={() => this.props.toggleInputDisabled()}
+              />
+            </CardItem>
+          </Card>
         </Content>
       </Container>
     );
