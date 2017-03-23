@@ -7,7 +7,7 @@ import reducer from '../reducers';
 import promise from './promise';
 
 export default function configureStore(onCompletion : () => void) : any {
-  const enhancer = compose(applyMiddleware(thunk, promise), devTools({ name: 'nativestarterkit', realtime: true }));
+  const enhancer = compose(applyMiddleware(thunk, promise), devTools({ name: 'justArrivedP2P', realtime: true }));
 
   const store = createStore(reducer, enhancer);
   persistStore(store, {

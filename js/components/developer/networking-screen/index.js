@@ -8,9 +8,6 @@ export default class NetworkingScreen extends Component {
 
   // Navigation information
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Networking Screen',
   };
 
