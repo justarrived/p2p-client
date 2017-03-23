@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card } from 'native-base';
 
-import CardImageHeader from '../common/cardImageHeader';
-import SimpleCardBody from '../common/simpleCardBody';
+import CardImageHeader from '../../common/card-image-header/cardImageHeader';
+import SimpleCardBody from '../../common/simple-card-body/simpleCardBody';
 
 export default class JobTypeCardPreview extends Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Content, Text } from 'native-base';
-import SearchList from '../common/searchList';
+import SearchList from '../../common/search-list/searchList';
 
 const DATA = ['abc', 'bcd', 'cde', 'def', 'efg', 'fgh', 'ghi',
   'hij', 'hik', 'ikl', 'klm', 'lmn', 'mno', 'nop', 'opq', 'pqr',

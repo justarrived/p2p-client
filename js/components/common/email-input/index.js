@@ -17,13 +17,6 @@ export default class EmailInput extends Component {
   }
 
   render() {
-    // Should be able to just grap the css from stylefile and put logic in Item style={}
-    // Dont know how yet
-    let disableStyle = {};
-    if (this.props.disabled) {
-      disableStyle = { borderColor: 'transparent' };
-    }
-
     let stackLabel = true;
     let floatLabel = false;
     if (this.props.defaultValue === '') {

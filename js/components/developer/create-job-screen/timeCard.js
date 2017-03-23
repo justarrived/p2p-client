@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardItem } from 'native-base';
-import CardHeader from '../common/cardHeader';
+import CardHeader from '../../common/card-header/cardHeader';
 import RadioWithNote from './radioWithNote';
 
 // Temporary data, will be moved and handled in another way in the future.
