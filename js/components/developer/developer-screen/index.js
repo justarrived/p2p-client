@@ -28,6 +28,8 @@ export default class DeveloperScreen extends React.Component {
         <Button onPress={() => navigate('ModalCardScreen')} title="Common Modal Card example" />
         <Button onPress={() => navigate('SearchListScreen')} title="Common searchable list example" />
         <Button onPress={() => navigate('PaymentInfoScreen')} title="Payment Info Screen" />
+
+        <Button onPress={() => navigate('ChooseLanguage')} title="Choose Language" />
       </View>
     );
   }
