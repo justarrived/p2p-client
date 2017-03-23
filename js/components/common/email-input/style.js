@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
   disabled: {
     borderColor: TRANSPARENT,
   },
+  active: {
+  },
 });
 
 module.exports = styles;

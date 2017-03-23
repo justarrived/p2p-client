@@ -18,9 +18,6 @@ import CheckBoxPUL from '../../common/checkbox-with-text';
 
 class CreateAccountScreen extends Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Skapa Konto',
   };
 
