@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { CardItem, Spinner } from 'native-base';
 
 import TextInput from '../../common/text-input';
-import CardItemButton from '../common/cardItemButton';
+import CardItemButton from '../../common/card-item-button/cardItemButton';
 import User from './networking/user';
 
 class FirebaseUserText extends Component {

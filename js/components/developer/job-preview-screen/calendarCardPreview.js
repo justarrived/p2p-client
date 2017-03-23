@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Col, Card, CardItem } from 'native-base';
 
-import TextWithStackedNote from '../common/textWithStackedNote';
-import CardHeader from '../common/cardHeader';
+import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
+import CardHeader from '../../common/card-header/cardHeader';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
 const DATE_STRING = 'Datum';

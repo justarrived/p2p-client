@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
-
-import { Container, Tab, Tabs, Text } from 'native-base';
+import { Container, Tab, Tabs } from 'native-base';
 import MakePaymentScreen from '../make-payment-screen';
+import PersonalInfoScreen from '../personal-info-screen';
+
 
 export default class MyProfileScreen extends Component {
   static navigationOptions = {
@@ -14,7 +14,7 @@ export default class MyProfileScreen extends Component {
       <Container>
         <Tabs>
           <Tab heading="PERSONUPPGIFTER" >
-            <Text> hej </Text>
+            <PersonalInfoScreen />
           </Tab>
           <Tab heading="BETALUPPGIFTER">
             <MakePaymentScreen />

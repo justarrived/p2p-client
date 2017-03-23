@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Content, Card, CardItem } from 'native-base';
 
-import CardItemButton from '../common/cardItemButton';
+import CardItemButton from '../../common/card-item-button/cardItemButton';
 import FirebaseUserText from './firebaseUserText';
 import Auth from './networking/auth';
 

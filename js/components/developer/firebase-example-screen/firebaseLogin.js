@@ -4,7 +4,7 @@ import { Content, Card, CardItem } from 'native-base';
 
 import EmailInput from '../../common/email-input';
 import PasswordInput from '../../common/password-input';
-import CardItemButton from '../common/cardItemButton';
+import CardItemButton from '../../common/card-item-button/cardItemButton';
 
 import Auth from './networking/auth';
 

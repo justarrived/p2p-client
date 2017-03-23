@@ -5,7 +5,7 @@ import JobTypeCardPreview from './jobTypeCardPreview';
 import TimeCardPreview from './timeCardPreview';
 import PlaceCardPreview from './placeCardPreview';
 import CalendarCardPreview from './calendarCardPreview';
-import GlobalStyle from '../common/globalStyle';
+import GlobalStyle from '../../common/globalStyle';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
 const EXAMPLE_IMAGE_URL = 'https://facebook.github.io/react/img/logo_og.png';
