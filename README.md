@@ -47,24 +47,6 @@ P2P cross platform mobile app created in colaboration between Just Arrived and C
 "linter-eslint":
   fixOnSave: true
 ```
-* **[atom-beautify](https://atom.io/packages/atom-beautify)** (by [Glavin001](https://atom.io/users/Glavin001))
-
-    > Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom.
-
-##### **Settings**
-```json
-"atom-beautify":
-  js:
-    beautify_on_save: true
-    default_beautifier: "Pretty Diff"
-    indent_size: 2
-    max_preserve_newlines: 2
-  jsx:
-    beautify_on_save: true
-    default_beautifier: "Pretty Diff"
-    indent_size: 2
-    max_preserve_newlines: 2
-```
 
 ## Getting started
 _Prerequisites_: nodejs, npm and the react native CLI.<br/>
