@@ -44,8 +44,8 @@ const CreateJobTab = StackNavigator({
 });
 
 const MyJobTab = StackNavigator({
-  HomeScreen: {
-    screen: HomeScreen,
+  MyJobsScreen: {
+    screen: MyJobsScreen,
   },
 }, {
   navigationOptions: {
