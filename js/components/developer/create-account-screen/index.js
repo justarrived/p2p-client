@@ -60,19 +60,16 @@ class CreateAccountScreen extends Component {
       );
   }
 
-  pressedGotAccount() {
-    alert('Pressed already got account!');
-  }
-
-  buttonPress() {
-    console.log('Reg Account');
-    console.log(Object.values(this.props.navigation.state.params));
+  pressRegisterButton() {
     const { navigate } = this.props.navigation;
     navigate(this.props.navigation.state.params.nextScreen);
-    /* if (this.props.navigation.state.params != null) {
-      console.log('NULL!!');
-      // navigate('MyProfileScreen');
-    }*/
+  }
+
+  pressAlreadyGotAccountButton() {
+    const { navigate } = this.props.navigation;
+    console.log('Got Account');
+    console.log(this.props.navigation.state.params.nextScreen);
+    navigate('LoginScreen', { nextScreen: this.props.navigation.state.params.nextScreen });
   }
 
   render() {
@@ -140,14 +137,14 @@ class CreateAccountScreen extends Component {
           </Card>
 
           <View style={StyleSheet.flatten(styles.bottomContainer)}>
-            <Button block onPress={() => this.buttonPress()}>
+            <Button block onPress={() => this.pressRegisterButton()}>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
                 REGISTRERA
               </Text>
             </Button>
             <Button
               small block bordered
-              onPress={() => navigate('LoginScreen')}
+              onPress={() => this.pressAlreadyGotAccountButton()}
               style={StyleSheet.flatten(styles.secondButtonPadding)}
             >
               <Text style={StyleSheet.flatten(styles.tranparentButtonText)}>
