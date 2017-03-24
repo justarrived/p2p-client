@@ -20,7 +20,7 @@ export default class CreateJobScreen extends Component {
           <TimeCard />
           <PlaceCard />
           <CalendarCard />
-          <Button full info onPress={() => navigate('JobPreviewScreen')} />
+          <Button full info onPress={() => navigate('LoginScreen')} />
         </Content>
       </Container>
     );
