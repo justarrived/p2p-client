@@ -2,32 +2,28 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { CardItem, Card, Thumbnail, Container, Content, Left, Right, Icon } from 'native-base';
 import chooseLanguageStyles from './chooseLanguageStyles';
+import GlobalStyle from '../../common/globalStyle';
+import CardHeader from '../../common/card-header/cardHeader';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 export default class ChooseLanguage extends Component {
-
   static navigationOptions = {
     title: 'Language Selection',
   };
 
   render() {
     return (
-
       <Container>
-        <Content>
-
+        <Content contentContainerStyle={GlobalStyle.padder}>
           <View style={StyleSheet.flatten(chooseLanguageStyles.logoContainer)}>
             <Thumbnail
               style={StyleSheet.flatten(chooseLanguageStyles.logo)}
               source={{ uri: LOGO_URL }}
             />
           </View>
-
-          <Text style={StyleSheet.flatten(chooseLanguageStyles.textStyleUnder)}>Välj språk
-            </Text>
-
           <Card style={StyleSheet.flatten(chooseLanguageStyles.cardInner)}>
+            <CardHeader title="Välj språk" subtitle="Språket som visas i appen" icon="globe" />
             <CardItem bordered button>
               <Left>
                 <Text>Svenska</Text>
@@ -85,10 +81,8 @@ export default class ChooseLanguage extends Component {
               </Right>
             </CardItem>
           </Card>
-
         </Content>
       </Container>
-
     );
   }
 }

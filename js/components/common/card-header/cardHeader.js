@@ -11,7 +11,7 @@ export default class CardHeader extends Component {
 
   render() {
     return (
-      <CardItem header>
+      <CardItem>
         <Icon name={this.props.icon} />
         <Body>
           <Text>{this.props.title}</Text>

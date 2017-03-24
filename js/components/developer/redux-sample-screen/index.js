@@ -1,15 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, Text, Button } from 'native-base';
-import { changeName } from '../../../actions/person';
-import { increaseAge } from '../../../actions/person';
-import { decreaseAge } from '../../../actions/person';
+import { changeName, increaseAge, decreaseAge } from '../../../actions/person';
 
 class ReduxSampleScreen extends React.Component {
   static navigationOptions = {
-    tabBar: {
-      label: 'Developer',
-    },
     title: 'Redux Sample Screen',
   };
 
