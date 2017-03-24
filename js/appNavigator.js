@@ -7,7 +7,6 @@ import CreateJobScreen from './components/developer/create-job-screen';
 import LoginScreen from './components/developer/login-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
-import MakePaymentScreen from './components/developer/make-payment-screen';
 import CreateAccountScreen from './components/developer/create-account-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
@@ -15,6 +14,7 @@ import LanguagePickerScreen from './components/developer/language-picker-screen'
 import ModalCardScreen from './components/developer/modal-card-screen';
 import SearchListScreen from './components/developer/search-list-screen';
 import PaymentInfoScreen from './components/developer/payment-info-screen';
+import MyJobsScreen from './components/developer/my-jobs-screen';
 import JobPreviewScreen from './components/developer/job-preview-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 
@@ -71,6 +71,9 @@ const DeveloperTab = StackNavigator({
   },
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
+  },
+  MyJobsScreen: {
+    screen: MyJobsScreen,
   },
   JobPreviewScreen: {
     screen: JobPreviewScreen,
