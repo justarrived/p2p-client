@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Button } from 'native-base';
+import { Container, Content, Button, Text } from 'native-base';
 
 import PlaceCard from './placeCard';
 import TimeCard from './timeCard';
@@ -24,7 +24,9 @@ export default class CreateJobScreen extends Component {
           <TimeCard />
           <PlaceCard />
           <CalendarCard />
-          <Button full info onPress={() => this.toNextScreen()} />
+          <Button full info onPress={() => this.toNextScreen()}>
+            <Text>Nästa</Text>
+          </Button>
         </Content>
       </Container>
     );

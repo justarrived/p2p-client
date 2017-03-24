@@ -31,6 +31,7 @@ export default class LoginScreen extends Component {
 
   pressLoginButton() {
     const { navigate } = this.props.navigation;
+    // if no params are passed into the navigation, MyProfileScreen is default for nextScreen
     if (this.props.navigation.state.params == null) {
       navigate('MyProfileScreen');
     } else {
@@ -40,15 +41,15 @@ export default class LoginScreen extends Component {
 
   pressCreateAccountButton() {
     const { navigate } = this.props.navigation;
-    if (this.props.navigation.state.params != null) {
-      navigate('CreateAccountScreen', { nextScreen: 'JobPreviewScreen' });
-    } else {
+    // if no params are passed into the navigation, MyProfileScreen will the nextScreen.
+    if (this.props.navigation.state.params == null) {
       navigate('CreateAccountScreen', { nextScreen: 'MyProfileScreen' });
+    } else {
+      navigate('CreateAccountScreen', { nextScreen: 'JobPreviewScreen' });
     }
   }
 
   render() {
-    const { navigate } = this.props.navigation;
     const fullHeightContentStyle = StyleSheet.create({
       fullHeight: {
         minHeight: this.state.minContentHeight, // The height of the Content component.
@@ -116,7 +117,6 @@ export default class LoginScreen extends Component {
                     <Text>{SIGN_UP_BUTTON_STRING}</Text>
                   </Button>
                 </Col>
-
               </Grid>
             </View>
           </Card>

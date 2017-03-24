@@ -67,8 +67,6 @@ class CreateAccountScreen extends Component {
 
   pressAlreadyGotAccountButton() {
     const { navigate } = this.props.navigation;
-    console.log('Got Account');
-    console.log(this.props.navigation.state.params.nextScreen);
     navigate('LoginScreen', { nextScreen: this.props.navigation.state.params.nextScreen });
   }
 
