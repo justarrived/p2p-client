@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Content } from 'native-base';
 
-import ModalCard from '../../common/modal-card/modalCard';
-import CardItemButton from '../../common/card-item-button/cardItemButton';
+import ModalCard from '../common/modalCard';
+import CardItemButton from '../common/cardItemButton';
 import LanguageDisplay from './languageDisplay';
 
 import LanguageSelectionListItem from './languageSelectionListItem';
-import SearchList from '../../common/search-list/searchList';
+import SearchList from '../common/searchList';
 import { LANGUAGES, languageSearchFilter } from './languageArray';
 
 export default class LanguagePicker extends Component {

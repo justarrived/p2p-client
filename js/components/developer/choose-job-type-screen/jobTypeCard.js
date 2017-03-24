@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import { Card } from 'native-base';
+import { StyleSheet } from 'react-native';
+import {
+  Right,
+  Icon,
+  Card,
+  CardItem,
+  Thumbnail,
+  Text,
+  Body,
+} from 'native-base';
 
-import CardImageHeader from '../../common/card-image-header/cardImageHeader';
-import SimpleCardBody from '../../common/simple-card-body/simpleCardBody';
+import ChooseJobTypeStyles from './chooseJobTypeStyles';
 
 export default class JobTypeCard extends Component {
   static propTypes = {
@@ -20,13 +28,26 @@ export default class JobTypeCard extends Component {
   render() {
     return (
       <Card>
-        <CardImageHeader
-          cover={this.props.cover} icon={this.props.icon} onPress={() => this.pressCard()}
-        />
-        <SimpleCardBody
-          title={this.props.title} subtitle={this.props.subtitle}
-          icon="arrow-forward" onPress={() => this.pressCard()}
-        />
+        {/* Card image header */}
+        <CardItem cardBody onPress={this.pressCard}>
+          <Thumbnail
+            square resizeMode="cover" style={StyleSheet.flatten(ChooseJobTypeStyles.coverPhoto)}
+            source={{ uri: `${this.props.cover}` }}
+          >
+            <Thumbnail source={{ uri: `${this.props.icon}` }} />
+          </Thumbnail>
+        </CardItem>
+
+        {/* Card body */}
+        <CardItem onPress={this.pressCard}>
+          <Body>
+            <Text>{this.props.title}</Text>
+            <Text note>{this.props.subtitle}</Text>
+          </Body>
+          <Right style={StyleSheet.flatten(ChooseJobTypeStyles.iconRightContainer)}>
+            <Icon name="arrow-forward" />
+          </Right>
+        </CardItem>
       </Card>
     );
   }

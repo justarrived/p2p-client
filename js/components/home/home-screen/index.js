@@ -3,6 +3,9 @@ import { Text } from 'react-native';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
+    tabBar: {
+      label: 'Home',
+    },
     title: 'Home',
   };
 

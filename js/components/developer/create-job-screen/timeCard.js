@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardItem } from 'native-base';
-import CardHeader from '../../common/card-header/cardHeader';
+import CardHeader from './cardHeader';
 import RadioWithNote from './radioWithNote';
 
 // Temporary data, will be moved and handled in another way in the future.
@@ -38,7 +38,7 @@ export default class TimeCard extends Component {
 
     return (
       <Card>
-        <CardHeader icon="time" title="Tidsåtgång" subtitle="Hur lång tid tar uppdraget?" />
+        <CardHeader icon="time" title="Tid" subtitle="Hur lång tid tar uppdraget?" />
         {radioButtons}
         <CardItem footer />
       </Card>

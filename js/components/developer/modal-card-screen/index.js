@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Container, Content, Card, CardItem, Text } from 'native-base';
 
-import ModalCard from '../../common/modal-card/modalCard';
-import CardItemButton from '../../common/card-item-button/cardItemButton';
+import ModalCard from '../common/modalCard';
+import CardItemButton from '../common/cardItemButton';
 
 // Example screen containing a common ModalCard
 export default class ModalCardScreen extends Component {
 
   // Navigation information
   static navigationOptions = {
+    tabBar: {
+      label: 'Developer',
+    },
     title: 'Card Modal',
   };
 

@@ -1,14 +1,10 @@
 import React from 'react';
 import { CardItem, Body, Button, Text } from 'native-base';
 
-const CardItemButton = ({ onPress, text, disabled }) =>
+const CardItemButton = ({ onPress, text }) =>
   <CardItem>
     <Body>
-      <Button
-        block
-        onPress={() => onPress()}
-        disabled={disabled}
-      >
+      <Button block onPress={() => onPress()}>
         <Text >{text}</Text>
       </Button>
     </Body>
@@ -17,11 +13,9 @@ const CardItemButton = ({ onPress, text, disabled }) =>
 CardItemButton.propTypes = {
   onPress: React.PropTypes.func.isRequired,
   text: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
 };
 CardItemButton.defaultProps = {
   text: 'ok',
-  disabled: false,
 };
 
 export default CardItemButton;

@@ -1,16 +1,17 @@
-import React from 'react';
-import * as firebase from 'firebase';
+import React, { Component } from 'react';
 import AppNavigator from './appNavigator';
 
-firebase.initializeApp({
-  apiKey: 'AIzaSyCY5F5QqKqaVTvwvQQf5EQgu2apNIfG1-0',
-  authDomain: 'justarrivedp2p.firebaseapp.com',
-  databaseURL: 'https://justarrivedp2p.firebaseio.com',
-  storageBucket: 'justarrivedp2p.appspot.com',
-  //messagingSenderId: '981762065581',
-});
+class App extends Component {
 
-const App = () =>
-  <AppNavigator />;
+  constructor(props) {
+    super(props);
+  }
+
+  // This is the place for CodePush and similar modules
+  render() {
+    return <AppNavigator />;
+  }
+
+}
 
 export default App;
