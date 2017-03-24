@@ -8,6 +8,9 @@ const alertMessage2 = 'För Kortet .... .... .... 3232\n';
 
 
 export default class PaymentInfoScreen extends Component {
+  static navigationOptions = {
+    title: 'Payment Information',
+  };
 
   render() {
     return (

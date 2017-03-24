@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { TITLE_COLOR, MAIN_CERISE, SECONDARY_GRAY } from '../common/colors';
+import { TITLE_COLOR, MAIN_CERISE, SECONDARY_GRAY } from '../../common/colors';
 
 const languageDisplayStyles = StyleSheet.create({
   cardItemTitle: {
