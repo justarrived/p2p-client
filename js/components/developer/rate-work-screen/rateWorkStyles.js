@@ -4,7 +4,7 @@ const PADDING = 10;
 const ratingScreenStyles = StyleSheet.create({
 
   contentContainerStyle: {
-    padding: 10,
+    margin: 10,
   },
 
   logoContainer: {
@@ -41,7 +41,7 @@ const ratingScreenStyles = StyleSheet.create({
   ratingText: {
     fontSize: 14,
     textAlign: 'center',
-    margin: PADDING / 4,
+    margin: PADDING / 5,
   },
   textBox: {
     margin: PADDING,

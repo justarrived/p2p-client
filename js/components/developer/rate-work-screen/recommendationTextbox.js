@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Input, Item } from 'native-base';
 
-export default class RecommendationTextbox extends Component {
-  render() {
-    return (
-      <Item regular>
-        <Input placeholder="Skriv din recension här" />
-      </Item>
-    );
-  }
-}
+const RecommendationTextbox = () =>
+  <Item regular>
+    <Input
+      multiline
+      maxLength={500}
+      placeholder="Skriv din recension här"
+    />
+  </Item>;
+
+export default RecommendationTextbox;
