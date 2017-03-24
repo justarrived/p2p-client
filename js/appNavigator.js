@@ -47,6 +47,9 @@ const MyJobTab = StackNavigator({
   MyJobsScreen: {
     screen: MyJobsScreen,
   },
+  JobPreviewScreen: {
+    screen: JobPreviewScreen,
+  },
 }, {
   navigationOptions: {
     tabBar: {

@@ -19,7 +19,7 @@ export default class ChooseJobTypeScreen extends Component {
     const jobTypeCards = JOBS.map((job, i) => <JobTypeCard
       key={job.concat(i)} title={job} subtitle={`Behöver du hjälp med ${job.toLowerCase()}?`}
       cover={EXAMPLE_IMAGE_URL} icon={EXAMPLE_IMAGE_URL}
-      onPress={() => navigate('CreateJobScreen')}
+      navigation={navigate}
     />);
 
     return (

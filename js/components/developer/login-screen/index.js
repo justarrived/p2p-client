@@ -19,7 +19,6 @@ export default class LoginScreen extends Component {
 
   constructor() {
     super();
-
     /*
       Used to set minHeight of Content (which is a scroll view).
       This mimics the behaviour of flex: 1 in a scroll view,
@@ -30,9 +29,26 @@ export default class LoginScreen extends Component {
     };
   }
 
+  pressLoginButton() {
+    const { navigate } = this.props.navigation;
+    if (this.props.navigation.state.params == null) {
+      navigate('MyProfileScreen');
+    } else {
+      navigate(this.props.navigation.state.params.nextScreen);
+    }
+  }
+
+  pressCreateAccountButton() {
+    const { navigate } = this.props.navigation;
+    if (this.props.navigation.state.params != null) {
+      navigate('CreateAccountScreen', { nextScreen: 'JobPreviewScreen' });
+    } else {
+      navigate('CreateAccountScreen', { nextScreen: 'MyProfileScreen' });
+    }
+  }
+
   render() {
     const { navigate } = this.props.navigation;
-    console.log(navigate);
     const fullHeightContentStyle = StyleSheet.create({
       fullHeight: {
         minHeight: this.state.minContentHeight, // The height of the Content component.
@@ -48,7 +64,6 @@ export default class LoginScreen extends Component {
             this.setState({ minContentHeight: height });
           }} contentContainerStyle={[fullHeightContentStyle.fullHeight, LoginScreenStyles.padder]}
         >
-
           {/* Logo container */}
           <View style={LoginScreenStyles.logoContainer}>
             <Thumbnail
@@ -81,7 +96,7 @@ export default class LoginScreen extends Component {
             <View style={LoginScreenStyles.buttonContainer}>
 
               {/* Login button */}
-              <Button block primary onPress={() => navigate('JobPreviewScreen')}>
+              <Button block primary onPress={() => this.pressLoginButton()}>
                 <Text>{LOGIN_BUTTON_STRING}</Text>
               </Button>
 
@@ -89,15 +104,15 @@ export default class LoginScreen extends Component {
               <Grid style={StyleSheet.flatten(LoginScreenStyles.secondaryButtonsContainer)}>
 
                 {/* Forgot password button container */}
-                <Col style={StyleSheet.flatten(LoginScreenStyles.secondaryButtonSpacing)}>
-                  <Button small block bordered>
+                <Col style={StyleSheet.flatten(LoginScreenStyles.secondaryButtonSpacing)} >
+                  <Button small block bordered >
                     <Text>{FORGOT_PASSWORD_STRING}</Text>
                   </Button>
                 </Col>
 
                 {/* Create account button container */}
                 <Col>
-                  <Button small block bordered onPress={() => navigate('CreateAccountScreen')}>
+                  <Button small block bordered onPress={() => this.pressCreateAccountButton()}>
                     <Text>{SIGN_UP_BUTTON_STRING}</Text>
                   </Button>
                 </Col>

@@ -18,7 +18,7 @@ export default class JobListItem extends Component {
     const { title, date, status } = this.props;
 
     return (
-      <ListItem avatar onPress={() => Alert.alert(title)}>
+      <ListItem avatar onPress={() => this.props.navigation('JobPreviewScreen')}>
         <Left>
           <Thumbnail
             style={StyleSheet.flatten(JobListItemStyles.logo)}

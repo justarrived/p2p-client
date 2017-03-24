@@ -12,6 +12,10 @@ export default class CreateJobScreen extends Component {
     title: 'Create Job',
   };
 
+  toNextScreen() {
+    this.props.navigation.navigate('LoginScreen', { nextScreen: 'JobPreviewScreen' });
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -20,7 +24,7 @@ export default class CreateJobScreen extends Component {
           <TimeCard />
           <PlaceCard />
           <CalendarCard />
-          <Button full info onPress={() => navigate('LoginScreen')} />
+          <Button full info onPress={() => this.toNextScreen()} />
         </Content>
       </Container>
     );

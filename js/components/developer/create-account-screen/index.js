@@ -64,6 +64,17 @@ class CreateAccountScreen extends Component {
     alert('Pressed already got account!');
   }
 
+  buttonPress() {
+    console.log('Reg Account');
+    console.log(Object.values(this.props.navigation.state.params));
+    const { navigate } = this.props.navigation;
+    navigate(this.props.navigation.state.params.nextScreen);
+    /* if (this.props.navigation.state.params != null) {
+      console.log('NULL!!');
+      // navigate('MyProfileScreen');
+    }*/
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -129,7 +140,7 @@ class CreateAccountScreen extends Component {
           </Card>
 
           <View style={StyleSheet.flatten(styles.bottomContainer)}>
-            <Button block onPress={() => navigate('MyProfileScreen')}>
+            <Button block onPress={() => this.buttonPress()}>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
                 REGISTRERA
               </Text>

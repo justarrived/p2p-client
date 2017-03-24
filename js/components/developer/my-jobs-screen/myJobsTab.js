@@ -25,7 +25,7 @@ export default class MyJobsTab extends Component {
       jobGroup.jobs.forEach((job, j) => {
         const jobId = `${job.title}-${i}-${j}`;
         jobs.push(
-          <JobListItem key={jobId} title={job.title} date={job.date} status={job.status} />,
+          <JobListItem key={jobId} title={job.title} date={job.date} status={job.status} navigation={this.props.navigation} />,
         );
       });
 
