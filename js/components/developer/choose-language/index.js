@@ -1,99 +1,93 @@
 import React, { Component } from 'react';
-
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Image
-} from 'react-native';
-import { Col, Row, Grid } from 'react-native-easy-grid';
-
-import {CardItem, Card, Thumbnail, Container, ListItem, Content, Button, Left, Right, Icon} from 'native-base';
+import { StyleSheet, Text, View } from 'react-native';
+import { CardItem, Card, Thumbnail, Container, Content, Left, Right, Icon } from 'native-base';
+import chooseLanguageStyles from './chooseLanguageStyles';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 export default class ChooseLanguage extends Component {
-render() {
-  return (
 
-<Container>
-  <Content>
-  <Text style={{fontSize: 15, fontStyle: 'italic', marginLeft: 15}}>Language Selection</Text>
-  <Card style={{margin: 5}}>
+  static navigationOptions = {
+    title: 'Language Selection',
+  };
 
-         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-              <Thumbnail style={{width: 140, height: 140, borderRadius: 70, alignItems: 'center', margin: 20}}
-                    source={{ uri: LOGO_URL }}
-              />
-         </View>
+  render() {
+    return (
 
-         <Text style={{fontSize: 20, fontWeight: 'bold', marginLeft: 25}}>Välj språk</Text>
+      <Container>
+        <Content>
 
-         <Card style={{flex: 0, margin: 10}}>
+          <View style={StyleSheet.flatten(chooseLanguageStyles.logoContainer)}>
+            <Thumbnail
+              style={StyleSheet.flatten(chooseLanguageStyles.logo)}
+              source={{ uri: LOGO_URL }}
+            />
+          </View>
 
-              <CardItem bordered button>
-                  <Left>
-                    <Text>Svenska</Text>
-                  </Left>
-                  <Right>
-                    <Icon name="arrow-forward" />
-                  </Right>
-              </CardItem>
-              <CardItem bordered button>
-                  <Left>
-                    <Text>English</Text>
-                  </Left>
-                  <Right>
-                    <Icon name="arrow-forward" />
-                  </Right>
-              </CardItem>
-              <CardItem bordered button>
-                  <Left>
-                    <Text>Español</Text>
-                  </Left>
-                  <Right>
-                    <Icon name="arrow-forward" />
-                  </Right>
-              </CardItem>
-              <CardItem bordered button>
-                  <Left>
-                    <Text>Dansk</Text>
-                  </Left>
-                  <Right>
-                    <Icon name="arrow-forward" />
-                  </Right>
-              </CardItem>
-              <CardItem bordered button>
-                  <Left>
-                    <Text>Norsk</Text>
-                  </Left>
-                  <Right>
-                    <Icon name="arrow-forward" />
-                  </Right>
-              </CardItem>
-              <CardItem bordered button>
-                  <Left>
-                    <Text>Etc</Text>
-                  </Left>
-                  <Right>
-                    <Icon name="arrow-forward" />
-                  </Right>
-              </CardItem>
-              <CardItem bordered button>
-                  <Left>
-                    <Text>Etc</Text>
-                  </Left>
-                  <Right>
-                    <Icon name="arrow-forward" />
-                  </Right>
-              </CardItem>
+          <Text style={StyleSheet.flatten(chooseLanguageStyles.textStyleUnder)}>Välj språk
+            </Text>
 
-       </Card>
-       </Card>
-   </Content>
-</Container>
+          <Card style={StyleSheet.flatten(chooseLanguageStyles.cardInner)}>
+            <CardItem bordered button>
+              <Left>
+                <Text>Svenska</Text>
+              </Left>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+            </CardItem>
+            <CardItem bordered button>
+              <Left>
+                <Text>English</Text>
+              </Left>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+            </CardItem>
+            <CardItem bordered button>
+              <Left>
+                <Text>Español</Text>
+              </Left>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+            </CardItem>
+            <CardItem bordered button>
+              <Left>
+                <Text>Dansk</Text>
+              </Left>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+            </CardItem>
+            <CardItem bordered button>
+              <Left>
+                <Text>Norsk</Text>
+              </Left>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+            </CardItem>
+            <CardItem bordered button>
+              <Left>
+                <Text>Etc</Text>
+              </Left>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+            </CardItem>
+            <CardItem bordered button>
+              <Left>
+                <Text>Etc</Text>
+              </Left>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+            </CardItem>
+          </Card>
 
+        </Content>
+      </Container>
 
     );
   }
