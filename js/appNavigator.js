@@ -14,6 +14,7 @@ import LanguagePickerScreen from './components/developer/language-picker-screen'
 import ModalCardScreen from './components/developer/modal-card-screen';
 import SearchListScreen from './components/developer/search-list-screen';
 import PaymentInfoScreen from './components/developer/payment-info-screen';
+import ChooseLanguageScreen from './components/developer/choose-language-screen';
 import MyJobsScreen from './components/developer/my-jobs-screen';
 import JobPreviewScreen from './components/developer/job-preview-screen';
 import RateWorkScreen from './components/developer/rate-work-screen';
@@ -72,6 +73,9 @@ const DeveloperTab = StackNavigator({
   },
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
+  },
+  ChooseLanguageScreen: {
+    screen: ChooseLanguageScreen,
   },
   MyJobsScreen: {
     screen: MyJobsScreen,
