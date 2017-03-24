@@ -31,6 +31,7 @@ export default class LoginScreen extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     const fullHeightContentStyle = StyleSheet.create({
       fullHeight: {
         minHeight: this.state.minContentHeight, // The height of the Content component.
@@ -79,7 +80,7 @@ export default class LoginScreen extends Component {
             <View style={LoginScreenStyles.buttonContainer}>
 
               {/* Login button */}
-              <Button block primary>
+              <Button block primary onPress={() => navigate('MyProfileScreen')}>
                 <Text>{LOGIN_BUTTON_STRING}</Text>
               </Button>
 
@@ -95,7 +96,7 @@ export default class LoginScreen extends Component {
 
                 {/* Create account button container */}
                 <Col>
-                  <Button small block bordered>
+                  <Button small block bordered onPress={() => navigate('CreateAccountScreen')}>
                     <Text>{SIGN_UP_BUTTON_STRING}</Text>
                   </Button>
                 </Col>

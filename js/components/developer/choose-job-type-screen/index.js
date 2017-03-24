@@ -14,8 +14,13 @@ export default class ChooseJobTypeScreen extends Component {
   };
 
   render() {
+    const { navigate } = this.props.navigation;
     // Creates a JobTypeCard for each job in the JOBS array.
-    const jobTypeCards = JOBS.map((job, i) => <JobTypeCard key={job.concat(i)} title={job} subtitle={`Behöver du hjälp med ${job.toLowerCase()}?`} cover={EXAMPLE_IMAGE_URL} icon={EXAMPLE_IMAGE_URL} />);
+    const jobTypeCards = JOBS.map((job, i) => <JobTypeCard
+      key={job.concat(i)} title={job} subtitle={`Behöver du hjälp med ${job.toLowerCase()}?`}
+      cover={EXAMPLE_IMAGE_URL} icon={EXAMPLE_IMAGE_URL}
+      onPress={() => navigate('CreateJobScreen')}
+    />);
 
     return (
       <Container>

@@ -21,11 +21,11 @@ export default class JobTypeCard extends Component {
     return (
       <Card>
         <CardImageHeader
-          cover={this.props.cover} icon={this.props.icon} onPress={() => this.pressCard()}
+          cover={this.props.cover} icon={this.props.icon} onPress={() => this.props.onPress()}
         />
         <SimpleCardBody
           title={this.props.title} subtitle={this.props.subtitle}
-          icon="arrow-forward" onPress={() => this.pressCard()}
+          icon="arrow-forward" onPress={() => this.props.onPress()}
         />
       </Card>
     );

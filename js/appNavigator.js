@@ -54,11 +54,11 @@ const MyJobTab = StackNavigator({
 });
 
 const MyProfileTab = StackNavigator({
-  MyProfileScreen: {
-    screen: MyProfileScreen,
-  },
   LoginScreen: {
     screen: LoginScreen,
+  },
+  MyProfileScreen: {
+    screen: MyProfileScreen,
   },
   CreateAccountScreen: {
     screen: CreateAccountScreen,

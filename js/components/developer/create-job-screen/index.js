@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content } from 'native-base';
+import { Container, Content, Button } from 'native-base';
 
 import PlaceCard from './placeCard';
 import TimeCard from './timeCard';
@@ -13,12 +13,14 @@ export default class CreateJobScreen extends Component {
   };
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
           <TimeCard />
           <PlaceCard />
           <CalendarCard />
+          <Button full info onPress={() => navigate('JobPreviewScreen')} />
         </Content>
       </Container>
     );

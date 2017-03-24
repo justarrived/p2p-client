@@ -65,6 +65,7 @@ class CreateAccountScreen extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <Container>
         <Content padder>
@@ -128,14 +129,14 @@ class CreateAccountScreen extends Component {
           </Card>
 
           <View style={StyleSheet.flatten(styles.bottomContainer)}>
-            <Button block onPress={() => this.pressedRegister()}>
+            <Button block onPress={() => navigate('MyProfileScreen')}>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
                 REGISTRERA
               </Text>
             </Button>
             <Button
               small block bordered
-              onPress={() => this.pressedGotAccount()}
+              onPress={() => navigate('LoginScreen')}
               style={StyleSheet.flatten(styles.secondButtonPadding)}
             >
               <Text style={StyleSheet.flatten(styles.tranparentButtonText)}>
