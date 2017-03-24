@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Thumbnail, CardItem } from 'native-base';
 import CardImageHeaderStyle from './cardImageHeaderStyle';
-import GlobalStyle from '../common/globalStyle';
+import GlobalStyle from '../../common/globalStyle';
 
 // Card header with image and icon.
 export default class CardImageHeader extends Component {

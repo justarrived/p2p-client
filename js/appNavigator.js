@@ -14,8 +14,10 @@ import LanguagePickerScreen from './components/developer/language-picker-screen'
 import ModalCardScreen from './components/developer/modal-card-screen';
 import SearchListScreen from './components/developer/search-list-screen';
 import PaymentInfoScreen from './components/developer/payment-info-screen';
+import MyJobsScreen from './components/developer/my-jobs-screen';
 import JobPreviewScreen from './components/developer/job-preview-screen';
 import RateWorkScreen from './components/developer/rate-work-screen';
+import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 
 // The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
@@ -44,6 +46,9 @@ const DeveloperTab = StackNavigator({
   LoginScreen: {
     screen: LoginScreen,
   },
+  FirebaseExampleScreen: {
+    screen: FirebaseExampleScreen,
+  },
   NetworkingScreen: {
     screen: NetworkingScreen,
   },
@@ -67,6 +72,9 @@ const DeveloperTab = StackNavigator({
   },
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
+  },
+  MyJobsScreen: {
+    screen: MyJobsScreen,
   },
   JobPreviewScreen: {
     screen: JobPreviewScreen,

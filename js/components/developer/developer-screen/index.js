@@ -19,8 +19,8 @@ export default class DeveloperScreen extends React.Component {
           <Button onPress={() => navigate('SampleScreen')} title="Go to the sample screen" />
           <Button onPress={() => navigate('CreateJobScreen')} title="Go to create job screen" />
           <Button onPress={() => navigate('LoginScreen')} title="Go to the login screen" />
+          <Button onPress={() => navigate('FirebaseExampleScreen')} title="Firebase example screen" />
           <Button onPress={() => navigate('NetworkingScreen')} title="Get JSON data examples" />
-          <Button onPress={() => navigate('MakePaymentScreen')} title="Pay your order" />
           <Button onPress={() => navigate('CreateAccountScreen')} title="Create account screen" />
           <Button onPress={() => navigate('MyProfileScreen')} title="My Profile" />
           <Button onPress={() => navigate('ChooseJobTypeScreen')} title="Go to choose job type screen" />
@@ -34,6 +34,7 @@ export default class DeveloperScreen extends React.Component {
           <Button onPress={() => navigate('PaymentInfoScreen')} title="Payment Info Screen" />
           <Button onPress={() => navigate('JobPreviewScreen')} title="Job creation preview screen" />
           <Button onPress={() => navigate('RateWorkScreen')} title="Rate work screen" />
+          <Button onPress={() => navigate('MyJobsScreen')} title="Go to my jobs screen" />
         </Content>
       </Container>
     );

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Col, Card, CardItem, Row } from 'native-base';
 
-import CardHeader from '../common/cardHeader';
-import TextWithStackedNote from '../common/textWithStackedNote';
-import GlobalStyle from '../common/globalStyle';
+import CardHeader from '../../common/card-header/cardHeader';
+import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
+import GlobalStyle from '../../common/globalStyle';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
 const ADDRESS_STRING = 'Adress';

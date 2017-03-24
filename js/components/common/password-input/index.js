@@ -25,7 +25,10 @@ export default class PasswordInput extends Component {
       floatLabel = true;
     }
     return (
-      <Item stackedLabel={stackLabel} floatingLabel={floatLabel} >
+      <Item
+        stackedLabel={stackLabel} floatingLabel={floatLabel}
+        style={StyleSheet.flatten([styles.active, this.props.disabled && styles.disabled])}
+      >
         <Label>{this.props.title}</Label>
         <Input
           secureTextEntry defaultValue={this.props.defaultValue} disabled={this.props.disabled}
@@ -35,5 +38,4 @@ export default class PasswordInput extends Component {
       </Item>
     );
   }
-
 }
