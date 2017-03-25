@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
-import { Container, Text, Content, ListItem } from 'native-base';
+import { Container, Content } from 'native-base';
 import JobListItem from '../../common/job-list-item/jobListItem';
+import ListSectionHeader from '../../common/list-section-header/listSectionHeader';
 import { JOB_STATUS } from '../../common/constants';
 
 export default class MyJobsTab extends Component {
@@ -32,11 +33,7 @@ export default class MyJobsTab extends Component {
 
   renderRow = job => <JobListItem title={job.title} date={job.date} status={job.status} />;
 
-  renderSectionHeader = (sectionData, sectionID) => (
-    <ListItem>
-      <Text note>{sectionID}</Text>
-    </ListItem>
-  );
+  renderSectionHeader = (sectionData, sectionID) => <ListSectionHeader title={sectionID} />;
 
   render() {
     return (
