@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Card, Thumbnail, Container, Content } from 'native-base';
+import { Card, Thumbnail, Container, Content, List } from 'native-base';
 import chooseLanguageStyles from './chooseLanguageStyles';
 import GlobalStyle from '../../common/globalStyle';
 import CardHeader from '../../common/card-header/cardHeader';
@@ -16,15 +16,9 @@ export default class ChooseLanguageScreen extends Component {
     title: 'Choose Language',
   };
 
-  render() {
-    const listItems = [];
-    LANGUAGES.forEach((language, i) => {
-      const languageId = `${language}-${i}`;
-      listItems.push(
-        <SingleRowListItem text={language} icon="arrow-forward" key={languageId} />,
-      );
-    });
+  renderRow = language => <SingleRowListItem text={language} icon="arrow-forward" />
 
+  render() {
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
@@ -36,7 +30,7 @@ export default class ChooseLanguageScreen extends Component {
           </View>
           <Card>
             <CardHeader title="Välj språk" subtitle="Språket som ska visas i appen" icon="globe" />
-            {listItems}
+            <List dataArray={LANGUAGES} renderRow={this.renderRow} />
           </Card>
         </Content>
       </Container>
