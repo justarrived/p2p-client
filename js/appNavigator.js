@@ -20,6 +20,8 @@ import JobPreviewScreen from './components/developer/job-preview-screen';
 import RateWorkScreen from './components/developer/rate-work-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 
+import TabBarStyles from './tabBarStyles';
+
 // The home tab holding screens in a stack.
 const HomeTab = StackNavigator({
   HomeScreen: {
@@ -108,7 +110,9 @@ const AppNavigator = TabNavigator({
 }, {
   tabBarPosition: 'bottom',
   tabBarOptions: {
-    activeTintColor: '#e91e63',
+    labelStyle: TabBarStyles.label,
+    style: TabBarStyles.tabBar,
+    indicatorStyle: TabBarStyles.indicator,
   },
 });
 
