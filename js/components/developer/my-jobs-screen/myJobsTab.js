@@ -1,47 +1,52 @@
 import React, { Component } from 'react';
-import { Container, Text, Content, ListItem } from 'native-base';
+import { ListView } from 'react-native';
+import { Container, Content } from 'native-base';
 import JobListItem from '../../common/job-list-item/jobListItem';
+import ListSectionHeader from '../../common/list-section-header/listSectionHeader';
 import { JOB_STATUS } from '../../common/constants';
 
 export default class MyJobsTab extends Component {
   static propTypes = {
-    data: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        title: React.PropTypes.string,
-        jobs: React.PropTypes.arrayOf(
-          React.PropTypes.shape({
-            title: React.PropTypes.string,
-            date: React.PropTypes.string,
-            status: React.PropTypes.oneOf(Object.values(JOB_STATUS)),
-          })),
-      }),
+    data: React.PropTypes.objectOf(
+      React.PropTypes.arrayOf(
+        React.PropTypes.shape({
+          date: React.PropTypes.string.isRequired,
+          status: React.PropTypes.oneOf(Object.values(JOB_STATUS)),
+          title: React.PropTypes.string.isRequired,
+        }).isRequired,
+      ).isRequired,
     ).isRequired,
   };
 
-  render() {
-    const listItems = [];
-    this.props.data.forEach((jobGroup, i) => {
-      const jobs = [];
-      jobGroup.jobs.forEach((job, j) => {
-        const jobId = `${job.title}-${i}-${j}`;
-        jobs.push(
-          <JobListItem key={jobId} title={job.title} date={job.date} status={job.status} navigation={this.props.navigation} />,
-        );
-      });
+  constructor(props) {
+    super(props);
 
-      const headerId = `${jobGroup.title}-${i}`;
-      listItems.push(
-        <ListItem itemheader key={headerId}>
-          <Text>{jobGroup.title}</Text>
-        </ListItem>
-        , jobs,
-      );
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
     });
 
+    this.state = {
+      dataSource: ds.cloneWithRowsAndSections(this.props.data),
+    };
+  }
+
+  renderRow = job => <JobListItem
+    title={job.title} date={job.date} status={job.status}
+    navigation={this.props.navigation}
+  />;
+
+  renderSectionHeader = (sectionData, sectionID) => <ListSectionHeader title={sectionID} />;
+
+  render() {
     return (
       <Container>
         <Content>
-          {listItems}
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={this.renderRow}
+            renderSectionHeader={this.renderSectionHeader}
+          />
         </Content>
       </Container>
     );

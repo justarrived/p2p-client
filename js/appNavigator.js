@@ -14,9 +14,13 @@ import LanguagePickerScreen from './components/developer/language-picker-screen'
 import ModalCardScreen from './components/developer/modal-card-screen';
 import SearchListScreen from './components/developer/search-list-screen';
 import PaymentInfoScreen from './components/developer/payment-info-screen';
+import ChooseLanguageScreen from './components/developer/choose-language-screen';
 import MyJobsScreen from './components/developer/my-jobs-screen';
 import JobPreviewScreen from './components/developer/job-preview-screen';
+import RateWorkScreen from './components/developer/rate-work-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
+
+import TabBarStyles from './tabBarStyles';
 
 // The home tab holding screens in a stack.
 const CreateJobTab = StackNavigator({
@@ -117,6 +121,9 @@ const DeveloperTab = StackNavigator({
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
   },
+  ChooseLanguageScreen: {
+    screen: ChooseLanguageScreen,
+  },
   MyJobsScreen: {
     screen: MyJobsScreen,
   },
@@ -125,6 +132,9 @@ const DeveloperTab = StackNavigator({
   },
   CreateAccountScreen: {
     screen: CreateAccountScreen,
+  },
+  RateWorkScreen: {
+    screen: RateWorkScreen,
   },
 }, {
   navigationOptions: {
@@ -148,7 +158,9 @@ const AppNavigator = TabNavigator({
 }, {
   tabBarPosition: 'bottom',
   tabBarOptions: {
-    activeTintColor: '#e91e63',
+    labelStyle: TabBarStyles.label,
+    style: TabBarStyles.tabBar,
+    indicatorStyle: TabBarStyles.indicator,
   },
   swipeEnabled: false,
 });

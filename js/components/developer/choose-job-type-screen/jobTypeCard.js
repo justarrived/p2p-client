@@ -18,14 +18,15 @@ export default class JobTypeCard extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <Card>
         <CardImageHeader
-          cover={this.props.cover} icon={this.props.icon} onPress={() => this.props.navigation('CreateJobScreen')}
+          cover={this.props.cover} icon={this.props.icon} onPress={() => navigate('CreateJobScreen')}
         />
         <SimpleCardBody
           title={this.props.title} subtitle={this.props.subtitle}
-          icon="arrow-forward" onPress={() => this.props.navigation('CreateJobScreen')}
+          icon="arrow-forward" onPress={() => navigate('CreateJobScreen')}
         />
       </Card>
     );
