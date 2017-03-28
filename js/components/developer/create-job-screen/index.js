@@ -12,6 +12,7 @@ export default class CreateJobScreen extends Component {
     title: 'Create Job',
   };
 
+  // here we want a check if we already are loggedin
   toNextScreen() {
     this.props.navigation.navigate('LoginScreen', { nextScreen: 'JobPreviewScreen' });
   }

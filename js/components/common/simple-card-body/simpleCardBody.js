@@ -9,15 +9,14 @@ export default class SimpleCardBody extends Component {
     title: React.PropTypes.string.isRequired,
     subtitle: React.PropTypes.string.isRequired,
     icon: React.PropTypes.string,
-    onPress: React.PropTypes.func,
   };
 
   static defaultProps = {
     icon: undefined,
-    onPress: undefined,
   };
 
   render() {
+    const { navigate } = this.props.navigation;
     // Only show icon if it is provided as a prop
     let iconIfProvided = [];
     if (this.props.icon !== undefined) {
@@ -29,7 +28,7 @@ export default class SimpleCardBody extends Component {
     }
 
     return (
-      <CardItem onPress={this.props.onPress}>
+      <CardItem onPress={() => navigate('CreateJobScreen')}>
         <Body>
           <Text>{this.props.title}</Text>
           <Text note>{this.props.subtitle}</Text>

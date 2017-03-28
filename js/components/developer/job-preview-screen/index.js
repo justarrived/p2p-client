@@ -24,6 +24,7 @@ export default class JobPreviewScreen extends Component {
           <JobTypeCardPreview
             title="Snöskottning" subtitle="Få hjälp i vinterkylan!"
             cover={EXAMPLE_IMAGE_URL} icon={EXAMPLE_IMAGE_URL}
+            navigation={this.props.navigation}
           />
           <TimeCardPreview
             data={{ duration: 'Litet, 1-2 timmar', cost: '(150 - 300 kr)' }}

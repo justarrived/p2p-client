@@ -29,19 +29,20 @@ export default class LoginScreen extends Component {
     };
   }
 
+  // if no nextscreen is passied into the navigation, MyProfileScreen is used as default for nextScreen
+  // else navigate to the provided nextScreen is executed
   pressLoginButton() {
     const { navigate } = this.props.navigation;
-    // if no params are passed into the navigation, MyProfileScreen is default for nextScreen
-    if (this.props.navigation.state.params == null) {
+    if (this.props.navigation.state.params.nextScreen == null) {
       navigate('MyProfileScreen');
     } else {
       navigate(this.props.navigation.state.params.nextScreen);
     }
   }
 
+  // if no params are passed into the navigation, we will go to CreateAccountScreen with MyProfileScreen as nextScreen.
   pressCreateAccountButton() {
     const { navigate } = this.props.navigation;
-    // if no params are passed into the navigation, MyProfileScreen will the nextScreen.
     if (this.props.navigation.state.params == null) {
       navigate('CreateAccountScreen', { nextScreen: 'MyProfileScreen' });
     } else {

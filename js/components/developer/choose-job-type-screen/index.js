@@ -22,7 +22,6 @@ export default class ChooseJobTypeScreen extends Component {
   );
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>

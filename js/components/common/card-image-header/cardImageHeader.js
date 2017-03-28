@@ -9,15 +9,14 @@ export default class CardImageHeader extends Component {
   static propTypes = {
     cover: React.PropTypes.string.isRequired,
     icon: React.PropTypes.string,
-    onPress: React.PropTypes.func,
   };
 
   static defaultProps = {
     icon: undefined,
-    onPress: undefined,
   };
 
   render() {
+    const { navigate } = this.props.navigation;
     // Only show icon if it is provided as a prop
     let iconIfProvided = [];
     if (this.props.icon !== undefined) {
@@ -27,7 +26,7 @@ export default class CardImageHeader extends Component {
     }
 
     return (
-      <CardItem style={StyleSheet.flatten(GlobalStyle.noPadding)} onPress={this.props.onPress}>
+      <CardItem style={StyleSheet.flatten(GlobalStyle.noPadding)} onPress={() => navigate('CreateJobScreen')}>
         <Thumbnail
           square resizeMode="cover" style={StyleSheet.flatten(CardImageHeaderStyle.coverPhoto)}
           source={{ uri: this.props.cover }}

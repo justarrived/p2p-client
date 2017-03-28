@@ -12,21 +12,15 @@ export default class JobTypeCard extends Component {
     subtitle: React.PropTypes.string.isRequired,
   };
 
-  // Temporary method to demonstrate component interaction
-  pressCard = () => {
-    alert(this.props.title);
-  }
-
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <Card>
         <CardImageHeader
-          cover={this.props.cover} icon={this.props.icon} onPress={() => navigate('CreateJobScreen')}
+          cover={this.props.cover} icon={this.props.icon} navigation={this.props.navigation}
         />
         <SimpleCardBody
           title={this.props.title} subtitle={this.props.subtitle}
-          icon="arrow-forward" onPress={() => navigate('CreateJobScreen')}
+          icon="arrow-forward" navigation={this.props.navigation}
         />
       </Card>
     );

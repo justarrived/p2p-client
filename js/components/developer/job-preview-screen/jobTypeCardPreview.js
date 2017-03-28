@@ -15,8 +15,8 @@ export default class JobTypeCardPreview extends Component {
   render() {
     return (
       <Card>
-        <CardImageHeader cover={this.props.cover} icon={this.props.icon} />
-        <SimpleCardBody title={this.props.title} subtitle={this.props.subtitle} />
+        <CardImageHeader cover={this.props.cover} icon={this.props.icon} navigation={this.props.navigation} />
+        <SimpleCardBody title={this.props.title} subtitle={this.props.subtitle} navigation={this.props.navigation} />
       </Card>
     );
   }
