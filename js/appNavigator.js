@@ -155,6 +155,9 @@ const AppNavigator = TabNavigator({
   MyProfileTab: {
     screen: MyProfileTab,
   },
+  Developer: {
+    screen: DeveloperScreen,
+  },
 }, {
   tabBarPosition: 'bottom',
   tabBarOptions: {
