@@ -70,7 +70,7 @@ class CreateAccountScreen extends Component {
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
           <Card>
-            <CardItem bordered style={StyleSheet.flatten(styles.formContainer)}>
+            <CardItem bordered style={StyleSheet.flatten(GlobalStyle.noPadding)}>
               <Form style={StyleSheet.flatten(styles.form)}>
                 <Grid>
                   <Row>
@@ -128,7 +128,7 @@ class CreateAccountScreen extends Component {
                 />
               </Form>
             </CardItem>
-            <CardItem style={StyleSheet.flatten(styles.fullFlex)}>
+            <CardItem style={StyleSheet.flatten(GlobalStyle.noPadding)}>
               <Grid style={StyleSheet.flatten(styles.buttonContainer)}>
                 <Row style={StyleSheet.flatten(styles.fullFlex)}>
                   <Button
