@@ -2,22 +2,21 @@ import { StyleSheet } from 'react-native';
 import { WHITE, SECONDARY_BLUE } from '../../common/colors';
 
 const styles = StyleSheet.create({
-  container: {
+  form: {
     flex: 1,
-    paddingRight: 16,
+    marginRight: 16,
+    marginLeft: 2,
+    paddingBottom: 16,
   },
-  bottomContainer: {
+  formContainer: {
     flex: 1,
-    paddingTop: 20,
-    paddingBottom: 20,
+    padding: 0,
+    margin: 0,
   },
-  input: {
-    marginRight: 0,
-    marginBottom: 0,
-  },
-  dropdown: {
-    marginTop: 20,
-    marginLeft: 10,
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
     marginTop: 20,
@@ -27,9 +26,15 @@ const styles = StyleSheet.create({
   },
   regButtonText: {
     color: WHITE,
+    alignSelf: 'center',
   },
   secondButtonPadding: {
     marginTop: 10,
+    flex: 1,
+  },
+  fullFlex: {
+    flex: 1,
+    alignItems: 'center',
   },
 });
 
