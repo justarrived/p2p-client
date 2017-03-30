@@ -14,7 +14,7 @@ export default class PersonalInfoButtons extends Component {
     if (this.props.disabled === true) {
       return (
         <Button
-          full info onPress={() => this.props.onPress()}
+          full onPress={() => this.props.onPress()}
           style={StyleSheet.flatten(styles.buttonFlex)}
         >
           <Text style={StyleSheet.flatten(styles.regButtonText)}>
@@ -28,7 +28,7 @@ export default class PersonalInfoButtons extends Component {
       <Grid>
         <Col>
           <Button
-            full info onPress={() => this.props.onPress()}
+            full onPress={() => this.props.onPress()}
             style={StyleSheet.flatten(styles.secondaryButtonGroup)}
           >
             <Text style={StyleSheet.flatten(styles.regButtonText)}>
@@ -37,7 +37,7 @@ export default class PersonalInfoButtons extends Component {
           </Button>
         </Col>
         <Col>
-          <Button full info onPress={() => this.props.onPress()}>
+          <Button full onPress={() => this.props.onPress()}>
             <Text style={StyleSheet.flatten(styles.regButtonText)}>
             SPARA
           </Text>
