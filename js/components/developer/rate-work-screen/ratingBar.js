@@ -1,5 +1,6 @@
 import StarRating from 'react-native-star-rating';
 import React, { Component } from 'react';
+import { MAIN_CERISE } from '../../common/colors';
 
 class GeneralStarExample extends Component {
 
@@ -18,6 +19,13 @@ class GeneralStarExample extends Component {
   render() {
     return (
       <StarRating
+        emptyStarColor={MAIN_CERISE}
+        starColor={MAIN_CERISE}
+        starSize={40}
+        iconSet={'MaterialIcons'}
+        fullStar={'star'}
+        emptyStar={'star-border'}
+        halfStar={'star-half'}
         disabled={false}
         maxStars={5}
         rating={this.state.starCount}
