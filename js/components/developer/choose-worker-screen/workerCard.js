@@ -5,11 +5,6 @@ import I18n from '../../../../I18n/components/developer/sample-screen/I18n';
 import WorkerScreenStyle from './chooseWorkerStyles';
 
 export default class SampleScreen extends Component {
-  static propTypes = {
-    name: React.PropTypes.string.isRequired,
-    rating: React.PropTypes.string.isRequired,
-    price: React.PropTypes.string.isRequired,
-  }
   static navigationOptions = {
     title: I18n.t('screenTitle'),
   };
