@@ -15,7 +15,6 @@ export default class SampleScreen extends Component {
   };
 
   render() {
-    const { name, rating, price } = this.props;
     return (
       <ListItem>
         <Left>
@@ -26,13 +25,13 @@ export default class SampleScreen extends Component {
             }}
           />
           <Body>
-            <Text>{name}</Text>
+            <Text>John Doe</Text>
             <Grid
               style={WorkerScreenStyle.ratingGridStyle}
             >
               <Text
                 note style={StyleSheet.flatten(WorkerScreenStyle.ratingStyle)}
-              >{rating}/5</Text>
+              >5/5</Text>
               <Thumbnail
                 style={StyleSheet.flatten(WorkerScreenStyle.starStyle)} source={{
                   uri: 'https://facebook.github.io/react/img/logo_og.png',
@@ -45,7 +44,7 @@ export default class SampleScreen extends Component {
           <Grid style={WorkerScreenStyle.priceGridStyle}>
             <Text
               style={StyleSheet.flatten(WorkerScreenStyle.priceStyle)}
-            >{price}</Text>
+            >500 kr</Text>
             <Icon active name="arrow-forward" />
           </Grid>
         </Right>
