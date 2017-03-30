@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { Container, Content } from 'native-base';
-import JobListItem from '../../common/job-list-item/jobListItem';
+import AvatarListItem from '../../common/avatar-list-item/avatarListItem';
 import ListSectionHeader from '../../common/list-section-header/listSectionHeader';
 import { JOB_STATUS } from '../../common/constants';
+
+// Temporary logo
+const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 export default class MyJobsTab extends Component {
   static propTypes = {
@@ -31,7 +34,10 @@ export default class MyJobsTab extends Component {
     };
   }
 
-  renderRow = job => <JobListItem title={job.title} date={job.date} status={job.status} />;
+  renderRow = job => <AvatarListItem
+    title={job.title} note={job.date}
+    status={job.status} icon={{ uri: LOGO_URL }}
+  />;
 
   renderSectionHeader = (sectionData, sectionID) => <ListSectionHeader title={sectionID} />;
 

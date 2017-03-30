@@ -1,42 +1,31 @@
 import React, { Component } from 'react';
-import { View, Alert } from 'react-native';
-import { Text, ListItem, Thumbnail, Body, Left, Form, Content, Button } from 'native-base';
+import { View } from 'react-native';
+import { Text, Content, Button, List } from 'native-base';
 import paymentInfoScreenStyle from './paymentInfoScreenStyle';
+import AvatarListItem from '../../common/avatar-list-item/avatarListItem';
 
-const alertMessage1 = 'För Kortet .... .... .... 4499\n';
-const alertMessage2 = 'För Kortet .... .... .... 3232\n';
+const masterCardIcon = require('./master.png');
+const visaCardIcon = require('./visa.png');
 
+// Temporary data
+const CARDS = [
+  { cardNumber: '.... .... .... 4499', brand: 'MasterCard', icon: masterCardIcon },
+  { cardNumber: '.... .... .... 3232', brand: 'Visa', icon: visaCardIcon },
+];
 
 export default class PaymentInfoScreen extends Component {
   static navigationOptions = {
     title: 'Payment Information',
   };
 
+  renderRow = card => <AvatarListItem title={card.cardNumber} note={card.brand} icon={card.icon} />
+
   render() {
     return (
       <Content>
-        <Form>
-          <ListItem avatar onPress={() => Alert.alert('Bekräfta Betalning', alertMessage1)}>
-            <Left>
-              <Thumbnail source={require('./master.png')} />
-            </Left>
-            <Body>
-              <Text> .... .... .... 4499</Text>
-              <Text note>Master Card</Text>
-            </Body>
-          </ListItem>
-          <ListItem avatar onPress={() => Alert.alert('Bekräfta Betalning', alertMessage2)}>
-            <Left>
-              <Thumbnail source={require('./visa.png')} />
-            </Left>
-            <Body>
-              <Text> .... .... .... 3232</Text>
-              <Text note>Visa Card</Text>
-            </Body>
-          </ListItem>
-        </Form>
+        <List dataArray={CARDS} renderRow={this.renderRow} />
         <View style={paymentInfoScreenStyle.addCardButton}>
-          <Button block light>
+          <Button block>
             <Text>Lägg Till Kort</Text>
           </Button>
         </View>

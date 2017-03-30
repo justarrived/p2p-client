@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const jobListItemStyles = StyleSheet.create({
+const avatarListItemStyles = StyleSheet.create({
   logo: {
     width: 40,
     height: 40,
@@ -8,4 +8,4 @@ const jobListItemStyles = StyleSheet.create({
   },
 });
 
-module.exports = jobListItemStyles;
+module.exports = avatarListItemStyles;
