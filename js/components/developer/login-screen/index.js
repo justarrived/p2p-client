@@ -26,9 +26,12 @@ export default class LoginScreen extends Component {
       but in addition preserves the the ability to scroll if needed.
     */
     this.state = {
-      minContentHeight: 0,  //This is instantly updated upon mount/render.
+      minContentHeight: 0,  // This is instantly updated upon mount/render.
+      rememberPassword: true,
     };
   }
+
+  toggleCheckbox = () => this.setState({ rememberPassword: !this.state.rememberPassword })
 
   render() {
     const fullHeightContentStyle = StyleSheet.create({
@@ -69,7 +72,10 @@ export default class LoginScreen extends Component {
 
             {/* Remember password checkbox */}
             <ListItem>
-              <CheckBox checked />
+              <CheckBox
+                checked={this.state.rememberPassword}
+                onPress={() => this.toggleCheckbox()}
+              />
               <Body>
                 <Text>{REMEMBER_ME_STRING}</Text>
               </Body>
