@@ -74,33 +74,33 @@ class CreateAccountScreen extends Component {
                 <Row>
                   <Col>
                     <TextInput
-                      title="Förnamn" disabled={this.props.account.disabled}
+                      title="Förnamn"
                       onChange={input => this.props.changeFirstName(input)}
                     />
                   </Col>
                   <Col>
                     <TextInput
-                      title="Efternamn" disabled={this.props.account.disabled}
+                      title="Efternamn"
                       onChange={input => this.props.changeLastName(input)}
                     />
                   </Col>
                 </Row>
 
                 <TextInput
-                  title="Adress" disabled={this.props.account.disabled}
+                  title="Adress"
                   onChange={input => this.props.changeAddress(input)}
                 />
 
                 <Row>
                   <Col>
                     <TextInput
-                      title="Ort" disabled={this.props.account.disabled}
+                      title="Ort"
                       onChange={input => this.props.changePostArea(input)}
                     />
                   </Col>
                   <Col>
                     <PostcodeInput
-                      title="Postnummer" disabled={this.props.account.disabled}
+                      title="Postnummer"
                       onChange={input => this.props.changePostCode(input)}
                     />
                   </Col>
@@ -108,15 +108,15 @@ class CreateAccountScreen extends Component {
               </Grid>
 
               <PhoneInput
-                title="Telefonnummer " disabled={this.props.account.disabled}
+                title="Telefonnummer "
                 onChange={input => this.props.changePhoneNumber(input)}
               />
               <EmailInput
-                title="E-post" disabled={this.props.account.disabled}
+                title="E-post"
                 onChange={input => this.props.changeEmail(input)}
               />
               <PasswordInput
-                title="Lösenord " disabled={this.props.account.disabled}
+                title="Lösenord"
                 onChange={input => this.props.changePassword(input)}
               />
               <CheckBoxPUL
