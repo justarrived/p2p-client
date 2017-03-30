@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Content, Form, Col, Row, Grid, Button, Card, CardItem } from 'native-base';
+import { Container, Content, Form, Col, Row, Grid, Button, Card, CardItem, Text } from 'native-base';
 import styles from './style';
 
 import {
