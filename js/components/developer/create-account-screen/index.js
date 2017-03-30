@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Content, Form, Col, Row, Grid, Button, Card, Text } from 'native-base';
+import { Container, Content, Form, Col, Row, Grid, Button, Card, CardItem, Text } from 'native-base';
 import styles from './style';
 
 import {
@@ -15,6 +15,7 @@ import PasswordInput from '../../common/password-input';
 import TextInput from '../../common/text-input';
 import PostcodeInput from '../../common/post-code-input';
 import CheckBoxPUL from '../../common/checkbox-with-text';
+import GlobalStyle from '../../common/globalStyle';
 
 class CreateAccountScreen extends Component {
   static navigationOptions = {
@@ -67,81 +68,93 @@ class CreateAccountScreen extends Component {
   render() {
     return (
       <Container>
-        <Content padder>
+        <Content contentContainerStyle={GlobalStyle.padder}>
           <Card>
-            <Form style={StyleSheet.flatten(styles.container)}>
-              <Grid>
-                <Row>
-                  <Col>
-                    <TextInput
-                      title="Förnamn"
-                      onChange={input => this.props.changeFirstName(input)}
-                    />
-                  </Col>
-                  <Col>
-                    <TextInput
-                      title="Efternamn"
-                      onChange={input => this.props.changeLastName(input)}
-                    />
-                  </Col>
-                </Row>
+            <CardItem bordered style={StyleSheet.flatten(GlobalStyle.noPadding)}>
+              <Form style={StyleSheet.flatten(styles.form)}>
+                <Grid>
+                  <Row>
+                    <Col>
+                      <TextInput
+                        title="Förnamn"
+                        onChange={input => this.props.changeFirstName(input)}
+                      />
+                    </Col>
+                    <Col>
+                      <TextInput
+                        title="Efternamn"
+                        onChange={input => this.props.changeLastName(input)}
+                      />
+                    </Col>
+                  </Row>
 
-                <TextInput
-                  title="Adress"
-                  onChange={input => this.props.changeAddress(input)}
+                  <TextInput
+                    title="Adress"
+                    onChange={input => this.props.changeAddress(input)}
+                  />
+
+                  <Row>
+                    <Col>
+                      <TextInput
+                        title="Ort"
+                        onChange={input => this.props.changePostArea(input)}
+                      />
+                    </Col>
+                    <Col>
+                      <PostcodeInput
+                        title="Postnummer"
+                        onChange={input => this.props.changePostCode(input)}
+                      />
+                    </Col>
+                  </Row>
+                </Grid>
+
+                <PhoneInput
+                  title="Telefonnummer"
+                  onChange={input => this.props.changePhoneNumber(input)}
                 />
-
-                <Row>
-                  <Col>
-                    <TextInput
-                      title="Ort"
-                      onChange={input => this.props.changePostArea(input)}
-                    />
-                  </Col>
-                  <Col>
-                    <PostcodeInput
-                      title="Postnummer"
-                      onChange={input => this.props.changePostCode(input)}
-                    />
-                  </Col>
+                <EmailInput
+                  title="E-post"
+                  onChange={input => this.props.changeEmail(input)}
+                />
+                <PasswordInput
+                  title="Lösenord"
+                  onChange={input => this.props.changePassword(input)}
+                />
+                <CheckBoxPUL
+                  title="Jag accepterar PUL och användarvillkor"
+                  isChecked={this.props.account.userAgreement}
+                  onClick={() => this.props.toggleCheckBox()}
+                />
+              </Form>
+            </CardItem>
+            <CardItem style={StyleSheet.flatten(GlobalStyle.noPadding)}>
+              <Grid style={StyleSheet.flatten(styles.buttonContainer)}>
+                <Row style={StyleSheet.flatten(styles.fullFlex)}>
+                  <Button
+                    block
+                    onPress={() => this.pressedRegister()}
+                    style={StyleSheet.flatten(styles.fullFlex)}
+                  >
+                    <Text style={StyleSheet.flatten(styles.regButtonText)}>
+                      REGISTRERA
+                    </Text>
+                  </Button>
+                </Row>
+                <Row style={StyleSheet.flatten(styles.fullFlex)}>
+                  <Button
+                    small block bordered
+                    onPress={() => this.pressedGotAccount()}
+                    style={StyleSheet.flatten(styles.secondButtonPadding)}
+                  >
+                    <Text>
+                      Jag har redan ett konto - Logga in
+                    </Text>
+                  </Button>
                 </Row>
               </Grid>
-
-              <PhoneInput
-                title="Telefonnummer "
-                onChange={input => this.props.changePhoneNumber(input)}
-              />
-              <EmailInput
-                title="E-post"
-                onChange={input => this.props.changeEmail(input)}
-              />
-              <PasswordInput
-                title="Lösenord"
-                onChange={input => this.props.changePassword(input)}
-              />
-              <CheckBoxPUL
-                title="Jag accepterar PUL och användarvillkor"
-                isChecked={this.props.account.userAgreement}
-                onClick={() => this.props.toggleCheckBox()}
-              />
-            </Form>
+            </CardItem>
           </Card>
-          <View style={StyleSheet.flatten(styles.bottomContainer)}>
-            <Button block onPress={() => this.pressedRegister()}>
-              <Text style={StyleSheet.flatten(styles.regButtonText)}>
-                REGISTRERA
-              </Text>
-            </Button>
-            <Button
-              small block bordered
-              onPress={() => this.pressedGotAccount()}
-              style={StyleSheet.flatten(styles.secondButtonPadding)}
-            >
-              <Text>
-                Jag har redan ett konto - Logga in
-              </Text>
-            </Button>
-          </View>
         </Content>
       </Container>
     );
