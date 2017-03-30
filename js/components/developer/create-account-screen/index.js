@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Content, Form, Col, Row, Grid, Button, Card } from 'native-base';
+import { Container, Content, Form, Col, Row, Grid, Button, Card, Text } from 'native-base';
 import styles from './style';
 
 import {
@@ -126,7 +126,6 @@ class CreateAccountScreen extends Component {
               />
             </Form>
           </Card>
-
           <View style={StyleSheet.flatten(styles.bottomContainer)}>
             <Button block onPress={() => this.pressedRegister()}>
               <Text style={StyleSheet.flatten(styles.regButtonText)}>
@@ -138,7 +137,7 @@ class CreateAccountScreen extends Component {
               onPress={() => this.pressedGotAccount()}
               style={StyleSheet.flatten(styles.secondButtonPadding)}
             >
-              <Text style={StyleSheet.flatten(styles.tranparentButtonText)}>
+              <Text>
                 Jag har redan ett konto - Logga in
               </Text>
             </Button>
