@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { MAIN_CERISE } from '../../common/colors';
 
 const chooseWorkerStyles = StyleSheet.create({
 
@@ -10,8 +11,8 @@ const chooseWorkerStyles = StyleSheet.create({
     padding: 2,
   },
   starStyle: {
-    width: 15,
-    height: 15,
+    fontSize: 18,
+    color: MAIN_CERISE,
   },
   priceGridStyle: {
     alignItems: 'center',

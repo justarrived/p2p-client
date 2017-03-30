@@ -1,34 +1,29 @@
 import React, { Component } from 'react';
 import {} from 'react-native';
-import { Form, Content } from 'native-base';
+import { Form, Content, List } from 'native-base';
 import I18n from '../../../../I18n/components/developer/sample-screen/I18n';
 import WorkerCard from './workerCard';
-import WorkerScreenStyle from './chooseWorkerStyles';
 
+const ICON = { uri: 'https://facebook.github.io/react/img/logo_og.png' };
+const REFERENCES = [{ author: 'John Doe', rating: '4,5', price: '500 kr', icon: ICON },
+                    { author: 'Jhon Doe', rating: '3', price: '350 kr', icon: ICON },
+                    { author: 'John Deo', rating: '2', price: '150 kr', icon: ICON }];
 export default class ChooseWorkerScreen extends Component {
   static navigationOptions = {
-    title: I18n.t('screenTitle'),
+    title: 'Choose Worker',
   };
+  renderRow = reference => <WorkerCard
+    author={reference.author}
+    rating={reference.rating}
+    price={reference.price}
+    icon={reference.icon}
+  />
 
   render() {
     return (
       <Content>
         <Form>
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
-          <WorkerCard />
+          <List dataArray={REFERENCES} renderRow={this.renderRow} />
         </Form>
       </Content>
     );

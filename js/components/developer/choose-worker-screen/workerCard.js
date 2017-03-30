@@ -8,6 +8,17 @@ export default class SampleScreen extends Component {
   static navigationOptions = {
     title: I18n.t('screenTitle'),
   };
+  static propTypes = {
+    rating: React.PropTypes.string.isRequired,
+    author: React.PropTypes.string.isRequired,
+    price: React.PropTypes.string.isRequired,
+    icon: React.PropTypes.oneOfType([
+      React.PropTypes.number.isRequired,
+      React.PropTypes.shape({
+        uri: React.PropTypes.string.isRequired,
+      }),
+    ]).isRequired,
+  }
 
   render() {
     return (
@@ -15,22 +26,19 @@ export default class SampleScreen extends Component {
         <Left>
           <Thumbnail
             style={StyleSheet.flatten(WorkerScreenStyle.pictureStyle)}
-            source={{
-              uri: 'https://facebook.github.io/react/img/logo_og.png',
-            }}
+            source={this.props.icon}
           />
           <Body>
-            <Text>John Doe</Text>
+            <Text>{this.props.author}</Text>
             <Grid
               style={WorkerScreenStyle.ratingGridStyle}
             >
               <Text
                 note style={StyleSheet.flatten(WorkerScreenStyle.ratingStyle)}
-              >5/5</Text>
-              <Thumbnail
-                style={StyleSheet.flatten(WorkerScreenStyle.starStyle)} source={{
-                  uri: 'https://facebook.github.io/react/img/logo_og.png',
-                }}
+              >{this.props.rating}/5</Text>
+              <Icon
+                style={StyleSheet.flatten(WorkerScreenStyle.starStyle)}
+                active name="star"
               />
             </Grid>
           </Body>
@@ -39,7 +47,7 @@ export default class SampleScreen extends Component {
           <Grid style={WorkerScreenStyle.priceGridStyle}>
             <Text
               style={StyleSheet.flatten(WorkerScreenStyle.priceStyle)}
-            >500 kr</Text>
+            >{this.props.price}</Text>
             <Icon active name="arrow-forward" />
           </Grid>
         </Right>
