@@ -33,7 +33,7 @@ export default class LoginScreen extends Component {
   // else navigate to the provided nextScreen is executed
   pressLoginButton() {
     const { navigate } = this.props.navigation;
-    if (this.props.navigation.state.params.nextScreen == null) {
+    if (this.props.navigation.state.params == null) {
       navigate('MyProfileScreen');
     } else {
       navigate(this.props.navigation.state.params.nextScreen);
