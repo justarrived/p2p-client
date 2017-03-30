@@ -6,18 +6,19 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 16,
     marginLeft: 2,
-    paddingBottom: 16,
   },
   formContainer: {
     flex: 1,
-    padding: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: 0,
+    paddingBottom: 20,
     margin: 0,
   },
   topContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
   },
   buttonContainer: {
     flex: 1,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Col, Row, Grid, Button, Card, CardItem, Text } from 'native-base';
 import styles from './style';
@@ -147,7 +147,7 @@ class CreateAccountScreen extends Component {
                     onPress={() => this.pressedGotAccount()}
                     style={StyleSheet.flatten(styles.secondButtonPadding)}
                   >
-                    <Text style={StyleSheet.flatten(styles.tranparentButtonText)}>
+                    <Text>
                       Jag har redan ett konto - Logga in
                     </Text>
                   </Button>

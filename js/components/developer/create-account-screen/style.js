@@ -5,8 +5,7 @@ const styles = StyleSheet.create({
   form: {
     flex: 1,
     marginRight: 16,
-    marginLeft: 2,
-    paddingBottom: 16,
+    marginLeft: 0,
   },
   formContainer: {
     flex: 1,
@@ -23,9 +22,6 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-  },
-  tranparentButtonText: {
-    color: SECONDARY_BLUE,
   },
   regButtonText: {
     color: WHITE,
