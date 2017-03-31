@@ -19,6 +19,7 @@ export default class MyJobsTab extends Component {
         }).isRequired,
       ).isRequired,
     ).isRequired,
+    toNextScreen: React.PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -37,7 +38,7 @@ export default class MyJobsTab extends Component {
   renderRow = job => <AvatarListItem
     title={job.title} note={job.date}
     status={job.status} icon={{ uri: LOGO_URL }}
-    navigation={this.props.navigation}
+    toNextScreen={this.props.toNextScreen}
     nextScreen={'JobPreviewScreen'}
   />;
 

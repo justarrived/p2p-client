@@ -10,6 +10,7 @@ export default class JobTypeCard extends Component {
     cover: React.PropTypes.string.isRequired,
     icon: React.PropTypes.string.isRequired,
     subtitle: React.PropTypes.string.isRequired,
+    toNextScreen: React.PropTypes.func.isRequired,
   };
 
   render() {
@@ -17,12 +18,11 @@ export default class JobTypeCard extends Component {
       <Card>
         <CardImageHeader
           cover={this.props.cover} icon={this.props.icon}
-          navigation={this.props.navigation} nextScreen={'CreateJobScreen'}
+          toNextScreen={this.props.toNextScreen}
         />
         <SimpleCardBody
           title={this.props.title} subtitle={this.props.subtitle}
-          icon="arrow-forward" navigation={this.props.navigation}
-          nextScreen={'CreateJobScreen'}
+          icon="arrow-forward" toNextScreen={this.props.toNextScreen}
         />
       </Card>
     );

@@ -13,11 +13,15 @@ export default class ChooseJobTypeScreen extends Component {
     title: 'Choose Job Type',
   };
 
+  navigateToNextScreen = () => (
+    this.props.navigation.navigate('CreateJobScreen')
+  );
+
   renderRow = jobType => (
     <JobTypeCard
       title={jobType} subtitle={`Behöver du hjälp med ${jobType.toLowerCase()}?`}
       cover={EXAMPLE_IMAGE_URL} icon={EXAMPLE_IMAGE_URL}
-      navigation={this.props.navigation}
+      toNextScreen={() => this.navigateToNextScreen()}
     />
   );
 

@@ -30,24 +30,25 @@ export default class LoginScreen extends Component {
     };
   }
 
-  // if no nextscreen is passied into the navigation, MyProfileScreen is used as default for nextScreen
+  // if no nextscreen is passied into the navigation,
+  // MyProfileScreen is used as default for nextScreen
   // else navigate to the provided nextScreen is executed
-  pressLoginButton() {
-    const { navigate } = this.props.navigation;
-    if (this.props.navigation.state.params == null) {
-      navigate('MyProfileScreen');
+  pressLoginButton = () => {
+    const { navigate, state } = this.props.navigation;
+    if (state.params !== undefined && state.params.nextScreen !== undefined) {
+      navigate(state.params.nextScreen);
     } else {
-      navigate(this.props.navigation.state.params.nextScreen);
+      navigate('MyProfileScreen');
     }
   }
 
-  // if no params are passed into the navigation, we will go to CreateAccountScreen with MyProfileScreen as nextScreen.
+  // dsfs
   pressCreateAccountButton() {
-    const { navigate } = this.props.navigation;
-    if (this.props.navigation.state.params == null) {
-      navigate('CreateAccountScreen', { nextScreen: 'MyProfileScreen' });
-    } else {
+    const { navigate, state } = this.props.navigation;
+    if (state.params !== undefined && state.params.nextScreen !== undefined) {
       navigate('CreateAccountScreen', { nextScreen: 'JobPreviewScreen' });
+    } else {
+      navigate('CreateAccountScreen', { nextScreen: 'MyProfileScreen' });
     }
   }
 

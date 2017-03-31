@@ -141,7 +141,7 @@ class CreateAccountScreen extends Component {
                 <Row style={StyleSheet.flatten(styles.fullFlex)}>
                   <Button
                     block
-                    onPress={() => this.pressedRegister()}
+                    onPress={() => this.pressRegisterButton()}
                     style={StyleSheet.flatten(styles.fullFlex)}
                   >
                     <Text style={StyleSheet.flatten(styles.regButtonText)}>

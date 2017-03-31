@@ -9,7 +9,6 @@ export default class AvatarListItem extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     note: React.PropTypes.string.isRequired,
-    nextScreen: React.PropTypes.string,
     status: React.PropTypes.oneOf(Object.values(JOB_STATUS)),
     icon: React.PropTypes.oneOfType([
       React.PropTypes.number.isRequired,
@@ -17,11 +16,12 @@ export default class AvatarListItem extends Component {
         uri: React.PropTypes.string.isRequired,
       }),
     ]).isRequired,
+    toNextScreen: React.PropTypes.func,
   }
 
   static defaultProps = {
     status: undefined,
-    nextScreen: undefined,
+    toNextScreen: () => alert('hej!'),
   }
 
   onPressItem() {
@@ -42,7 +42,7 @@ export default class AvatarListItem extends Component {
     }
 
     return (
-      <ListItem avatar onPress={() => this.onPressItem()}>
+      <ListItem avatar onPress={this.props.toNextScreen}>
         <Left>
           <Thumbnail
             style={StyleSheet.flatten(AvatarListItemStyles.logo)}

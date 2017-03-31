@@ -27,14 +27,22 @@ export default class MyJobsScreen extends Component {
     title: 'Mina Uppdrag',
   };
 
+  navigateToNextScreen = () => (
+    this.props.navigation.navigate('JobPreviewScreen')
+  );
+
+  /* TODO
+FIXA NAVIGATION TILL SKICKA ONPRESS!!!!!!
+  */
+
   render() {
     return (
       <Tabs>
         <Tab heading="Pågående">
-          <MyJobsTab data={activeJobsData} navigation={this.props.navigation} />
+          <MyJobsTab data={activeJobsData} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
         <Tab heading="Avslutade">
-          <MyJobsTab data={archivedJobsData} navigation={this.props.navigation} />
+          <MyJobsTab data={archivedJobsData} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
       </Tabs>
     );
