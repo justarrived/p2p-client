@@ -38,6 +38,7 @@ export default class MyJobsTab extends Component {
     title={job.title} note={job.date}
     status={job.status} icon={{ uri: LOGO_URL }}
     navigation={this.props.navigation}
+    nextScreen={'JobPreviewScreen'}
   />;
 
   renderSectionHeader = (sectionData, sectionID) => <ListSectionHeader title={sectionID} />;

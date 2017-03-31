@@ -18,7 +18,7 @@ export default class PaymentInfoScreen extends Component {
     title: 'Payment Information',
   };
 
-  renderRow = card => <AvatarListItem title={card.cardNumber} note={card.brand} icon={card.icon} />
+  renderRow = card => <AvatarListItem title={card.cardNumber} note={card.brand} icon={card.icon} navigation={this.props.navigation} />
 
   render() {
     return (

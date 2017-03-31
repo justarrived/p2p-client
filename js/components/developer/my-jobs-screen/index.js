@@ -28,14 +28,13 @@ export default class MyJobsScreen extends Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <Tabs>
         <Tab heading="Pågående">
-          <MyJobsTab data={activeJobsData} navigation={navigate} />
+          <MyJobsTab data={activeJobsData} navigation={this.props.navigation} />
         </Tab>
         <Tab heading="Avslutade">
-          <MyJobsTab data={archivedJobsData} navigation={navigate} />
+          <MyJobsTab data={archivedJobsData} navigation={this.props.navigation} />
         </Tab>
       </Tabs>
     );

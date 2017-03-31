@@ -22,9 +22,14 @@ export default class AvatarListItem extends Component {
     status: undefined,
   }
 
+  onPressItem() {
+    if (this.props.nextScreen === 'JobPreviewScreen') {
+      this.props.navigation.navigate('JobPreviewScreen');
+    }
+  }
+
   render() {
     const { title, note, status, icon } = this.props;
-
     let badgeIfProvided = [];
     if (status !== undefined) {
       badgeIfProvided = (
@@ -35,7 +40,7 @@ export default class AvatarListItem extends Component {
     }
 
     return (
-      <ListItem avatar onPress={() => Alert.alert(title)}>
+      <ListItem avatar onPress={() => this.onPressItem()}>
         <Left>
           <Thumbnail
             style={StyleSheet.flatten(AvatarListItemStyles.logo)}
