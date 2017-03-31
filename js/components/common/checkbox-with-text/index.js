@@ -16,7 +16,7 @@ export default class CheckBoxWithText extends Component {
 
   render() {
     return (
-      <ListItem>
+      <ListItem style={StyleSheet.flatten(styles.noUnderline)}>
         <CheckBox checked={this.props.isChecked} onPress={() => this.props.onClick()} />
         <Body style={StyleSheet.flatten(styles.textPadding)} >
           <Text>{this.props.title}</Text>
