@@ -29,7 +29,7 @@ export default class PlaceCard extends Component {
             <Col>
               <Item floatingLabel>
                 <Label>{ZIP_CODE_STRING}</Label>
-                <Input />
+                <Input keyboardType="numeric" />
               </Item>
             </Col>
           </Grid>
