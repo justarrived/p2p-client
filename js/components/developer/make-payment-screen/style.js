@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { BLACK } from '../../common/colors';
 
 const styles = StyleSheet.create({
   form: {
@@ -10,7 +9,10 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     flex: 1,
-    padding: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
     margin: 0,
   },
   secondaryButtonSpacing: {
