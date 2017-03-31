@@ -24,12 +24,6 @@ export default class AvatarListItem extends Component {
     toNextScreen: () => alert('hej!'),
   }
 
-  onPressItem() {
-    if (this.props.nextScreen === 'JobPreviewScreen') {
-      this.props.navigation.navigate('JobPreviewScreen');
-    }
-  }
-
   render() {
     const { title, note, status, icon } = this.props;
     let badgeIfProvided = [];

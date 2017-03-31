@@ -30,9 +30,9 @@ export default class LoginScreen extends Component {
     };
   }
 
-  // if no nextscreen is passied into the navigation,
-  // MyProfileScreen is used as default for nextScreen
-  // else navigate to the provided nextScreen is executed
+  // if nextscreen is passed into the navigation as payload,
+  // We navigate to the provided nextScreen
+  // else MyProfileScreen is used as default for nextScreen
   pressLoginButton = () => {
     const { navigate, state } = this.props.navigation;
     if (state.params !== undefined && state.params.nextScreen !== undefined) {
@@ -42,7 +42,9 @@ export default class LoginScreen extends Component {
     }
   }
 
-  // dsfs
+  // if nextscreen is passed into the navigation as payload,
+  // We navigate to the provided nextScreen
+  // else MyProfileScreen is used as default for nextScreen
   pressCreateAccountButton() {
     const { navigate, state } = this.props.navigation;
     if (state.params !== undefined && state.params.nextScreen !== undefined) {
@@ -53,7 +55,6 @@ export default class LoginScreen extends Component {
   }
 
   toggleCheckbox = () => this.setState({ rememberPassword: !this.state.rememberPassword })
-
 
   render() {
     const fullHeightContentStyle = StyleSheet.create({

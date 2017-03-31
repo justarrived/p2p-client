@@ -18,7 +18,6 @@ export default class CreateJobScreen extends Component {
   );
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>

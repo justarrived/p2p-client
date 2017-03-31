@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Card } from 'native-base';
-
 import CardImageHeader from '../../common/card-image-header/cardImageHeader';
 import SimpleCardBody from '../../common/simple-card-body/simpleCardBody';
 

@@ -31,10 +31,6 @@ export default class MyJobsScreen extends Component {
     this.props.navigation.navigate('JobPreviewScreen')
   );
 
-  /* TODO
-FIXA NAVIGATION TILL SKICKA ONPRESS!!!!!!
-  */
-
   render() {
     return (
       <Tabs>

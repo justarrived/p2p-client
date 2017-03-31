@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Col, Row, Grid, Button, Card, CardItem, Text } from 'native-base';
 import styles from './style';
@@ -63,14 +63,14 @@ class CreateAccountScreen extends Component {
 
   // nextScreen is either jobPreview or personalInfo
   pressRegisterButton() {
-    const { navigate } = this.props.navigation;
-    navigate(this.props.navigation.state.params.nextScreen);
+    const { navigate, state } = this.props.navigation;
+    navigate(state.params.nextScreen);
   }
 
   // Navigates to LoginScreen with nextScreen param as either jobPreview or personalInfo
   pressAlreadyGotAccountButton() {
-    const { navigate } = this.props.navigation;
-    navigate('LoginScreen', { nextScreen: this.props.navigation.state.params.nextScreen });
+    const { navigate, state } = this.props.navigation;
+    navigate('LoginScreen', { nextScreen: state.params.nextScreen });
   }
 
   render() {
@@ -95,12 +95,10 @@ class CreateAccountScreen extends Component {
                       />
                     </Col>
                   </Row>
-
                   <TextInput
                     title="Adress"
                     onChange={input => this.props.changeAddress(input)}
                   />
-
                   <Row>
                     <Col>
                       <TextInput
@@ -116,7 +114,6 @@ class CreateAccountScreen extends Component {
                     </Col>
                   </Row>
                 </Grid>
-
                 <PhoneInput
                   title="Telefonnummer"
                   onChange={input => this.props.changePhoneNumber(input)}
