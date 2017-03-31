@@ -34,7 +34,8 @@ export default class SampleScreen extends Component {
               style={WorkerScreenStyle.ratingGridStyle}
             >
               <Text
-                note style={StyleSheet.flatten(WorkerScreenStyle.ratingStyle)}
+                note
+                style={StyleSheet.flatten(WorkerScreenStyle.ratingStyle)}
               >{this.props.rating}/5</Text>
               <Icon
                 style={StyleSheet.flatten(WorkerScreenStyle.starStyle)}
@@ -46,6 +47,7 @@ export default class SampleScreen extends Component {
         <Right>
           <Grid style={WorkerScreenStyle.priceGridStyle}>
             <Text
+              note
               style={StyleSheet.flatten(WorkerScreenStyle.priceStyle)}
             >{this.props.price}</Text>
             <Icon active name="arrow-forward" />

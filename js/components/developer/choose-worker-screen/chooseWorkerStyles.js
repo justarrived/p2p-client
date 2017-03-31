@@ -8,7 +8,7 @@ const chooseWorkerStyles = StyleSheet.create({
     flex: 1,
   },
   ratingStyle: {
-    padding: 2,
+    paddingRight: 2,
   },
   starStyle: {
     fontSize: 18,
