@@ -1,4 +1,4 @@
-import { getJson, postJson, postJsonStatus } from './networking';
+import { postJson } from './networking';
 
 const BASE_URL = 'https://sandbox-api.justarrived.xyz';
 const USERS_PATH = '/api/v1/users';
