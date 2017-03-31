@@ -18,13 +18,13 @@ export default class CalendarCard extends Component {
             <Col>
               <Item floatingLabel>
                 <Label>{DATE_STRING}</Label>
-                <Input />
+                <Input keyboardType="numeric" />
               </Item>
             </Col>
             <Col>
               <Item floatingLabel>
                 <Label>{TIME_STRING}</Label>
-                <Input />
+                <Input keyboardType="numeric" />
               </Item>
             </Col>
           </Grid>
