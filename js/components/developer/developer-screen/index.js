@@ -29,9 +29,6 @@ export default class DeveloperScreen extends React.Component {
           <Button onPress={() => navigate('SearchListScreen')} title="Common searchable list example" />
           <Button onPress={() => navigate('PaymentInfoScreen')} title="Payment Info Screen" />
           <Button onPress={() => navigate('JobPreviewScreen')} title="Job creation preview screen" />
-          <Button onPress={() => navigate('SearchListScreen')} title="Common searchable list example" />
-          <Button onPress={() => navigate('PaymentInfoScreen')} title="Payment Info Screen" />
-          <Button onPress={() => navigate('JobPreviewScreen')} title="Job creation preview screen" />
           <Button onPress={() => navigate('RateWorkScreen')} title="Rate work screen" />
           <Button onPress={() => navigate('MyJobsScreen')} title="Go to my jobs screen" />
           <Button onPress={() => navigate('ChooseLanguageScreen')} title="Choose Language" />
