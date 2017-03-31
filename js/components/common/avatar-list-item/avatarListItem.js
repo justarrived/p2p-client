@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Alert } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Text, Left, Right, ListItem, Body, Thumbnail } from 'native-base';
 import AvatarListItemStyles from './avatarListItemStyles';
 import StatusBadge from '../status-badge/statusBadge';
@@ -9,6 +9,7 @@ export default class AvatarListItem extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     note: React.PropTypes.string.isRequired,
+    nextScreen: React.PropTypes.string,
     status: React.PropTypes.oneOf(Object.values(JOB_STATUS)),
     icon: React.PropTypes.oneOfType([
       React.PropTypes.number.isRequired,
@@ -20,6 +21,7 @@ export default class AvatarListItem extends Component {
 
   static defaultProps = {
     status: undefined,
+    nextScreen: undefined,
   }
 
   onPressItem() {

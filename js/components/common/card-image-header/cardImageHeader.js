@@ -9,11 +9,19 @@ export default class CardImageHeader extends Component {
   static propTypes = {
     cover: React.PropTypes.string.isRequired,
     icon: React.PropTypes.string,
+    nextScreen: React.PropTypes.string,
   };
 
   static defaultProps = {
     icon: undefined,
+    nextScreen: undefined,
   };
+
+  onPressItem() {
+    if (this.props.nextScreen === 'CreateJobScreen') {
+      this.props.navigation.navigate('CreateJobScreen');
+    }
+  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -26,7 +34,10 @@ export default class CardImageHeader extends Component {
     }
 
     return (
-      <CardItem style={StyleSheet.flatten(GlobalStyle.noPadding)} onPress={() => navigate('CreateJobScreen')}>
+      <CardItem
+        style={StyleSheet.flatten(GlobalStyle.noPadding)}
+        onPress={() => this.onPressItem()}
+      >
         <Thumbnail
           square resizeMode="cover" style={StyleSheet.flatten(CardImageHeaderStyle.coverPhoto)}
           source={{ uri: this.props.cover }}

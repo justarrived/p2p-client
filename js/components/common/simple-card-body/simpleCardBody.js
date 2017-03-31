@@ -9,11 +9,19 @@ export default class SimpleCardBody extends Component {
     title: React.PropTypes.string.isRequired,
     subtitle: React.PropTypes.string.isRequired,
     icon: React.PropTypes.string,
+    nextScreen: React.PropTypes.string,
   };
 
   static defaultProps = {
     icon: undefined,
+    nextScreen: undefined,
   };
+
+  onPressItem() {
+    if (this.props.nextScreen === 'CreateJobScreen') {
+      this.props.navigation.navigate('CreateJobScreen');
+    }
+  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -28,7 +36,7 @@ export default class SimpleCardBody extends Component {
     }
 
     return (
-      <CardItem onPress={() => navigate('CreateJobScreen')}>
+      <CardItem onPress={() => this.onPressItem()}>
         <Body>
           <Text>{this.props.title}</Text>
           <Text note>{this.props.subtitle}</Text>

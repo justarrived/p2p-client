@@ -16,11 +16,13 @@ export default class JobTypeCard extends Component {
     return (
       <Card>
         <CardImageHeader
-          cover={this.props.cover} icon={this.props.icon} navigation={this.props.navigation}
+          cover={this.props.cover} icon={this.props.icon}
+          navigation={this.props.navigation} nextScreen={'CreateJobScreen'}
         />
         <SimpleCardBody
           title={this.props.title} subtitle={this.props.subtitle}
           icon="arrow-forward" navigation={this.props.navigation}
+          nextScreen={'CreateJobScreen'}
         />
       </Card>
     );
