@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { Container, Content, Text, Col, Grid, Row, ListItem, Form, Input, Item, CheckBox, Button, Body, Label, Card, CardItem } from 'native-base';
+import {
+  Container, Content, Text, Col, Grid, ListItem, Form, Input,
+  Item, CheckBox, Button, Body, Label, Card, CardItem,
+} from 'native-base';
 import styles from './style';
 import GlobalStyle from '../../common/globalStyle';
 
@@ -18,19 +21,19 @@ export default class MakePaymentScreen extends Component {
                 </Item>
                 <Item floatingLabel>
                   <Label>Kortnummer</Label>
-                  <Input />
+                  <Input keyboardType="numeric" />
                 </Item>
                 <Grid>
                   <Col>
                     <Item floatingLabel>
                       <Label>MM/ÅÅ</Label>
-                      <Input />
+                      <Input keyboardType="numeric" />
                     </Item>
                   </Col>
                   <Col>
                     <Item floatingLabel>
                       <Label>CVC</Label>
-                      <Input />
+                      <Input keyboardType="numeric" />
                     </Item>
                   </Col>
                 </Grid>
