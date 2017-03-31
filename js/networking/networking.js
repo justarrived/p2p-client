@@ -40,7 +40,8 @@ export function postJson(url, json, onSuccess, onError) {
     if (response.status === 200) {
       return response.json();
     }
-    throw new Error('Response was not 200 OK');
+    console.warn(response.json().toString());
+    throw new Error(`Response was ${response.status}, not 200 OK`);
   })
   .then(responseJson => onSuccess(responseJson))
   .catch(error => onError(error))
