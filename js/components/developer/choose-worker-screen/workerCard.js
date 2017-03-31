@@ -4,12 +4,14 @@ import { Text, Thumbnail, Grid, Left, Body, ListItem, Icon, Right } from 'native
 import I18n from '../../../../I18n/components/developer/sample-screen/I18n';
 import WorkerScreenStyle from './chooseWorkerStyles';
 
+const noRatingString = 'No rating yet';
+
 export default class SampleScreen extends Component {
   static navigationOptions = {
     title: I18n.t('screenTitle'),
   };
   static propTypes = {
-    rating: React.PropTypes.string.isRequired,
+    rating: React.PropTypes.string,
     author: React.PropTypes.string.isRequired,
     price: React.PropTypes.string.isRequired,
     icon: React.PropTypes.oneOfType([
@@ -19,8 +21,19 @@ export default class SampleScreen extends Component {
       }),
     ]).isRequired,
   }
+  static defaultProps = {
+    rating: noRatingString,
+  }
 
   render() {
+    let starIconIfRating = [];
+    if (this.props.rating !== noRatingString) {
+      starIconIfRating =
+    (<Icon
+      style={StyleSheet.flatten(WorkerScreenStyle.starStyle)}
+      active name="star"
+    />);
+    }
     return (
       <ListItem>
         <Left>
@@ -36,11 +49,8 @@ export default class SampleScreen extends Component {
               <Text
                 note
                 style={StyleSheet.flatten(WorkerScreenStyle.ratingStyle)}
-              >{this.props.rating}/5</Text>
-              <Icon
-                style={StyleSheet.flatten(WorkerScreenStyle.starStyle)}
-                active name="star"
-              />
+              >{this.props.rating}</Text>
+              {starIconIfRating}
             </Grid>
           </Body>
         </Left>
