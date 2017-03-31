@@ -1,30 +1,38 @@
-import { getJson, postJson } from './networking';
+import { getJson, postJson, postJsonStatus } from './networking';
 
 const BASE_URL = 'https://sandbox-api.justarrived.xyz';
-const USER_ENDPOINT = '/api/v1/users';
-const SESSIONS = '/api/v1/users/sessions';
+const USERS_PATH = '/api/v1/users';
+const SESSIONS_PATH = '/api/v1/users/sessions';
 
-export async function signUp(email, password, onSuccess, onError) {
-  const url = BASE_URL + USER_ENDPOINT;
-  await postJson(url,
-  { Email: email, Password: password },
-  onSuccess, onError);
+function getJsonDataAttributes(attributes) {
+  return {
+    data: {
+      attributes,
+    },
+  };
 }
 
-export async function signIn(email, password, onSuccess, onError) {
-  await postJson(BASE_URL + SESSIONS,
-    { data: {
-      attributes: {
-        email_or_phone: email,
-        password,
-      },
-    },
-    },
-  onSuccess, onError);
+export function signUp(email, password, onSuccess, onError) {
+  const requestJson = getJsonDataAttributes({
+    email,
+    password,
+    consent: true,
+    system_language_id: 38,
+    first_name: 'meName',
+    last_name: 'meLastName' });
+  postJson(BASE_URL + USERS_PATH,
+    requestJson, onSuccess, onError);
+}
+
+export function signIn(email, password, onSuccess, onError) {
+  const requestJson = getJsonDataAttributes({
+    email_or_phone: email,
+    password });
+  postJson(BASE_URL + SESSIONS_PATH,
+    requestJson, onSuccess, onError);
 }
 
 export async function signOut(onSuccess, onError) {
-  await postJson(BASE_URL + USER_ENDPOINT,
-  { Operation: 'sign out' },
-  onSuccess, onError);
+  console.warn('signOut not implemented');
+  onSuccess();
 }

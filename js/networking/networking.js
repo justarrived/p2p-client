@@ -27,7 +27,7 @@ export function getJson(url, onSuccess, onError) {
 }
 
 // POST JSON data to url and handle JSON response
-export function postJson(url, json, onSuccess, onError) {
+export function postJsonStatus(url, json, expectedStatus, onSuccess, onError) {
   fetch(url, {
     method: 'POST',
     headers: {
@@ -37,13 +37,19 @@ export function postJson(url, json, onSuccess, onError) {
     body: JSON.stringify(json),
   })
   .then((response) => {
-    if (response.status === 200) {
+    // response.text() consumes the response stream
+    // console.log(response.text());
+    if (response.status === expectedStatus) {
       return response.json();
     }
-    console.warn(response.json().toString());
     throw new Error(`Response was ${response.status}, not 200 OK`);
   })
   .then(responseJson => onSuccess(responseJson))
   .catch(error => onError(error))
   .done();
+}
+
+// POST JSON data to url and handle 201 JSON response
+export function postJson(url, json, onSuccess, onError) {
+  postJsonStatus(url, json, 201, onSuccess, onError);
 }

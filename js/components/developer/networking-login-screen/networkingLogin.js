@@ -26,20 +26,20 @@ class NetworkingLogin extends Component {
     };
   }
 
-  signUp() {
+  create() {
     signUp(this.state.email, this.state.password,
       () => this.props.onLogin(),
       error => this.setState({ status: error.toString() }));
   }
 
-  signIn() {
+  logIn() {
     signIn(this.state.email, this.state.password,
       () => this.props.onLogin(),
       error => this.setState({ status: error.toString() }));
   }
 
   render() {
-    // console.log('render FirebaseLogin');
+    // console.log('render NetworkingLogin');
     return (
       <Content>
         <Card>
@@ -61,11 +61,11 @@ class NetworkingLogin extends Component {
             />
           </CardItem>
           <CardItemButton
-            onPress={() => this.signIn()}
+            onPress={() => this.logIn()}
             text="log in"
           />
           <CardItemButton
-            onPress={() => this.signUp()}
+            onPress={() => this.create()}
             text="sign up"
           />
         </Card>
