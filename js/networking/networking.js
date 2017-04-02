@@ -1,9 +1,9 @@
-import { createJsonPostRequest,
-  createJsonPatchRequest,
-  createDeleteRequest } from './request';
+import { methods, createJsonPostRequest,
+  createDeleteRequest, createAuthRequest,
+  createAuthJsonRequest } from './request';
 
 /*
-Class containing basic networking methods
+Class with networking fetch methods
 */
 
 function handleJsonStatusResponse(response, status) {
@@ -45,6 +45,15 @@ export function getJson(url, onSuccess, onError) {
     error => onError(error));
 }
 
+// GET url that requires Auth
+export function getAuthJson(url, token, onSuccess, onError) {
+  fetch(url, createAuthRequest(methods.GET, token))
+    .then(response => handleJsonResponse(response))
+    .then(responseJson => onSuccess(responseJson))
+    .catch(error => onError(error))
+    .done();
+}
+
 // POST JSON data to url and handle expectedStatus JSON response
 export function postJsonStatus(url, json, expectedStatus, onSuccess, onError) {
   fetch(url, createJsonPostRequest(json))
@@ -68,8 +77,8 @@ export function deleteRequest(url, onSuccess, onError) {
 }
 
 // PATCH JSON data to url and handle response
-export function patchJson(url, json, onSuccess, onError) {
-  fetch(url, createJsonPatchRequest(json))
+export function patchAuthJson(url, token, json, onSuccess, onError) {
+  fetch(url, createAuthJsonRequest(methods.PATCH, token, json))
     .then(response => handleJsonResponse(response))
     .then(responseJson => onSuccess(responseJson))
     .catch(error => onError(error))

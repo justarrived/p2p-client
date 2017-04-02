@@ -1,10 +1,9 @@
 /*
-Class containing basic networking methods
-for creating requests
+Class with methods for creating requests
 */
 
 // http request methods
-const methods = {
+export const methods = {
   GET: 'GET',
   POST: 'POST',
   PATCH: 'PATCH',
@@ -69,9 +68,8 @@ export function createAuthRequest(method, token) {
 }
 
 // Helper method creating request with auth and JSON body
-export function createAuthJsonRequest(method, json, token) {
-  const request = createRequest(method);
+export function createAuthJsonRequest(method, token, json) {
+  const request = createAuthRequest(method, token);
   request.body = JSON.stringify(json);
-  request.headers.Authorization = `Token token=${token}`;
   return request;
 }
