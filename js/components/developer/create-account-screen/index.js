@@ -61,8 +61,16 @@ class CreateAccountScreen extends Component {
       );
   }
 
-  pressedGotAccount() {
-    alert('Pressed already got account!');
+  // nextScreen is either jobPreview or personalInfo
+  pressRegisterButton() {
+    const { navigate, state } = this.props.navigation;
+    navigate(state.params.nextScreen);
+  }
+
+  // Navigates to LoginScreen with nextScreen param as either jobPreview or personalInfo
+  pressAlreadyGotAccountButton() {
+    const { navigate, state } = this.props.navigation;
+    navigate('LoginScreen', { nextScreen: state.params.nextScreen });
   }
 
   render() {
@@ -87,12 +95,10 @@ class CreateAccountScreen extends Component {
                       />
                     </Col>
                   </Row>
-
                   <TextInput
                     title="Adress"
                     onChange={input => this.props.changeAddress(input)}
                   />
-
                   <Row>
                     <Col>
                       <TextInput
@@ -108,7 +114,6 @@ class CreateAccountScreen extends Component {
                     </Col>
                   </Row>
                 </Grid>
-
                 <PhoneInput
                   title="Telefonnummer"
                   onChange={input => this.props.changePhoneNumber(input)}
@@ -133,7 +138,7 @@ class CreateAccountScreen extends Component {
                 <Row style={StyleSheet.flatten(styles.fullFlex)}>
                   <Button
                     block
-                    onPress={() => this.pressedRegister()}
+                    onPress={() => this.pressRegisterButton()}
                     style={StyleSheet.flatten(styles.fullFlex)}
                   >
                     <Text style={StyleSheet.flatten(styles.regButtonText)}>
@@ -144,7 +149,7 @@ class CreateAccountScreen extends Component {
                 <Row style={StyleSheet.flatten(styles.fullFlex)}>
                   <Button
                     small block bordered
-                    onPress={() => this.pressedGotAccount()}
+                    onPress={() => this.pressAlreadyGotAccountButton()}
                     style={StyleSheet.flatten(styles.secondButtonPadding)}
                   >
                     <Text>

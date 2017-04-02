@@ -24,5 +24,4 @@ export default class CheckBoxWithText extends Component {
       </ListItem>
     );
   }
-
 }

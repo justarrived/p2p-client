@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content } from 'native-base';
+import { Container, Content, Button, Text } from 'native-base';
 
 import PlaceCard from './placeCard';
 import TimeCard from './timeCard';
@@ -12,6 +12,11 @@ export default class CreateJobScreen extends Component {
     title: 'Create Job',
   };
 
+  // here we want a check if we already are loggedin
+  navigateToNextScreen = () => (
+    this.props.navigation.navigate('LoginScreen', { nextScreen: 'JobPreviewScreen' })
+  );
+
   render() {
     return (
       <Container>
@@ -19,6 +24,9 @@ export default class CreateJobScreen extends Component {
           <TimeCard />
           <PlaceCard />
           <CalendarCard />
+          <Button full info onPress={() => this.navigateToNextScreen()}>
+            <Text>Nästa</Text>
+          </Button>
         </Content>
       </Container>
     );

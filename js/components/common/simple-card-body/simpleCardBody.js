@@ -9,12 +9,12 @@ export default class SimpleCardBody extends Component {
     title: React.PropTypes.string.isRequired,
     subtitle: React.PropTypes.string.isRequired,
     icon: React.PropTypes.string,
-    onPress: React.PropTypes.func,
+    toNextScreen: React.PropTypes.func,
   };
 
   static defaultProps = {
     icon: undefined,
-    onPress: undefined,
+    toNextScreen: () => alert('hej!'),
   };
 
   render() {
@@ -29,7 +29,7 @@ export default class SimpleCardBody extends Component {
     }
 
     return (
-      <CardItem onPress={this.props.onPress}>
+      <CardItem onPress={this.props.toNextScreen}>
         <Body>
           <Text>{this.props.title}</Text>
           <Text note>{this.props.subtitle}</Text>

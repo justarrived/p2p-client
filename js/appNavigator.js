@@ -1,7 +1,6 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import DeveloperScreen from './components/developer/developer-screen';
-import HomeScreen from './components/home/home-screen';
 import CreateJobScreen from './components/developer/create-job-screen';
 import LoginScreen from './components/developer/login-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
@@ -21,15 +20,59 @@ import FirebaseExampleScreen from './components/developer/firebase-example-scree
 
 import TabBarStyles from './tabBarStyles';
 
-// The home tab holding screens in a stack.
-const HomeTab = StackNavigator({
-  HomeScreen: {
-    screen: HomeScreen,
+const CreateJobTab = StackNavigator({
+  ChooseJobTypeScreen: {
+    screen: ChooseJobTypeScreen,
+  },
+  CreateJobScreen: {
+    screen: CreateJobScreen,
+  },
+  JobPreviewScreen: {
+    screen: JobPreviewScreen,
+  },
+  LoginScreen: {
+    screen: LoginScreen,
+  },
+  CreateAccountScreen: {
+    screen: CreateAccountScreen,
   },
 }, {
   navigationOptions: {
     tabBar: {
-      label: 'Home',
+      label: 'Skapa uppdrag',
+    },
+  },
+});
+
+const MyJobTab = StackNavigator({
+  MyJobsScreen: {
+    screen: MyJobsScreen,
+  },
+  JobPreviewScreen: {
+    screen: JobPreviewScreen,
+  },
+}, {
+  navigationOptions: {
+    tabBar: {
+      label: 'Mina uppdrag',
+    },
+  },
+});
+
+const MyProfileTab = StackNavigator({
+  LoginScreen: {
+    screen: LoginScreen,
+  },
+  MyProfileScreen: {
+    screen: MyProfileScreen,
+  },
+  CreateAccountScreen: {
+    screen: CreateAccountScreen,
+  },
+}, {
+  navigationOptions: {
+    tabBar: {
+      label: 'Min Profil',
     },
   },
 });
@@ -97,10 +140,16 @@ const DeveloperTab = StackNavigator({
 
 // Main navigation. Contains different tabs.
 const AppNavigator = TabNavigator({
-  HomeTab: {
-    screen: HomeTab,
+  CreateJobTab: {
+    screen: CreateJobTab,
   },
-  DeveloperTab: {
+  MyJobsTab: {
+    screen: MyJobTab,
+  },
+  MyProfileTab: {
+    screen: MyProfileTab,
+  },
+  Developer: {
     screen: DeveloperTab,
   },
 }, {
@@ -110,6 +159,7 @@ const AppNavigator = TabNavigator({
     style: TabBarStyles.tabBar,
     indicatorStyle: TabBarStyles.indicator,
   },
+  swipeEnabled: false,
 });
 
 export default AppNavigator;

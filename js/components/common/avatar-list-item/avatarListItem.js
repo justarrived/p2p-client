@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Alert } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Text, Left, Right, ListItem, Body, Thumbnail } from 'native-base';
 import AvatarListItemStyles from './avatarListItemStyles';
 import StatusBadge from '../status-badge/statusBadge';
@@ -16,15 +16,16 @@ export default class AvatarListItem extends Component {
         uri: React.PropTypes.string.isRequired,
       }),
     ]).isRequired,
+    toNextScreen: React.PropTypes.func,
   }
 
   static defaultProps = {
     status: undefined,
+    toNextScreen: () => alert('hej!'),
   }
 
   render() {
     const { title, note, status, icon } = this.props;
-
     let badgeIfProvided = [];
     if (status !== undefined) {
       badgeIfProvided = (
@@ -35,7 +36,7 @@ export default class AvatarListItem extends Component {
     }
 
     return (
-      <ListItem avatar onPress={() => Alert.alert(title)}>
+      <ListItem avatar onPress={this.props.toNextScreen}>
         <Left>
           <Thumbnail
             style={StyleSheet.flatten(AvatarListItemStyles.logo)}

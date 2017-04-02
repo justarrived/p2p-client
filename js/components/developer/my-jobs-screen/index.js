@@ -27,14 +27,18 @@ export default class MyJobsScreen extends Component {
     title: 'Mina Uppdrag',
   };
 
+  navigateToNextScreen = () => (
+    this.props.navigation.navigate('JobPreviewScreen')
+  );
+
   render() {
     return (
       <Tabs>
         <Tab heading="Pågående">
-          <MyJobsTab data={activeJobsData} />
+          <MyJobsTab data={activeJobsData} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
         <Tab heading="Avslutade">
-          <MyJobsTab data={archivedJobsData} />
+          <MyJobsTab data={archivedJobsData} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
       </Tabs>
     );

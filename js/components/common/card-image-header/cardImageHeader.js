@@ -9,12 +9,12 @@ export default class CardImageHeader extends Component {
   static propTypes = {
     cover: React.PropTypes.string.isRequired,
     icon: React.PropTypes.string,
-    onPress: React.PropTypes.func,
+    toNextScreen: React.PropTypes.func,
   };
 
   static defaultProps = {
     icon: undefined,
-    onPress: undefined,
+    toNextScreen: () => alert('hej!'),
   };
 
   render() {
@@ -27,7 +27,10 @@ export default class CardImageHeader extends Component {
     }
 
     return (
-      <CardItem style={StyleSheet.flatten(GlobalStyle.noPadding)} onPress={this.props.onPress}>
+      <CardItem
+        style={StyleSheet.flatten(GlobalStyle.noPadding)}
+        onPress={this.props.toNextScreen}
+      >
         <Thumbnail
           square resizeMode="cover" style={StyleSheet.flatten(CardImageHeaderStyle.coverPhoto)}
           source={{ uri: this.props.cover }}
