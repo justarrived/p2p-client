@@ -28,14 +28,15 @@ class NetworkingLogin extends Component {
 
   create() {
     signUp(this.state.email, this.state.password,
-      () => this.props.onLogin(),
+      () => alert('Account created'),
       error => this.setState({ status: error.toString() }));
   }
 
   logIn() {
     signIn(this.state.email, this.state.password,
       (responseJson) => {
-        this.props.onLogin(responseJson.data.attributes['auth-token']);
+        this.props.onLogin(responseJson.data.attributes['auth-token'],
+          responseJson.data.attributes['user-id']);
       },
       error => this.setState({ status: error.toString() }));
   }

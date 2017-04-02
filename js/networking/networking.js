@@ -14,6 +14,18 @@ function getJsonPostRequest(json) {
   };
 }
 
+// Helper method creting PATCH request with JSON body
+function getJsonPatchRequest(json) {
+  return {
+    method: 'PATCH',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(json),
+  };
+}
+
 // Helper method creting DELETE request without body
 function getDeleteRequest() {
   return {
@@ -35,12 +47,12 @@ function handleJsonStatusResponse(response, status) {
 }
 
 function handleJsonResponse(response) {
-  handleJsonStatusResponse(response, 200);
+  return handleJsonStatusResponse(response, 200);
 }
 
 function handleNoContentResponse(response, onSuccess) {
   if (response.status === 204) {
-    return onSuccess(response);
+    return onSuccess(response.text());
   }
   throw new Error(`Response was ${response.status}, not 204`);
 }
@@ -82,6 +94,15 @@ export function postJson(url, json, onSuccess, onError) {
 export function deleteRequest(url, onSuccess, onError) {
   fetch(url, getDeleteRequest())
     .then(response => handleNoContentResponse(response, onSuccess))
+    .catch(error => onError(error))
+    .done();
+}
+
+// PATCH JSON data to url and handle response
+export function patchJson(url, json, onSuccess, onError) {
+  fetch(url, getJsonPatchRequest(json))
+    .then(response => handleJsonResponse(response))
+    .then(responseJson => onSuccess(responseJson))
     .catch(error => onError(error))
     .done();
 }

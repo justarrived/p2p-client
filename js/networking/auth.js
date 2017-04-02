@@ -37,14 +37,14 @@ export function signIn(email, password, onSuccess, onError) {
     requestJson, responseJson => saveToken(responseJson, onSuccess), onError);
 }
 
-function deleteToken(json, onSuccess) {
+function deleteToken(response, onSuccess) {
   // TODO remove token in redux here? Or refactor to use redux
-  onSuccess(json);
+  onSuccess(response);
 }
 
-export async function signOut(token, onSuccess, onError) {
+export function signOut(token, onSuccess, onError) {
   // Delete the session token
-  deleteRequest(`${BASE_URL + SESSIONS_PATH}/${token}?auth_token=${token}`,
-    responseJson => deleteToken(responseJson, onSuccess),
+  deleteRequest(`${BASE_URL + SESSIONS_PATH}/${token}`,
+    response => deleteToken(response, onSuccess),
     onError);
 }

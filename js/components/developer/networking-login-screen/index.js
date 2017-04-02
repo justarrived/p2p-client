@@ -12,13 +12,15 @@ export default class LoginExampleScreen extends Component {
     super(props);
     this.state = {
       token: null,
+      userId: null,
     };
   }
 
-  updateToken(token) {
+  updateToken(token, userId) {
     // console.warn(`Token: ${token}`);
     this.setState({
       token,
+      userId,
     });
   }
 
@@ -26,13 +28,14 @@ export default class LoginExampleScreen extends Component {
     if (this.state.token === null) {
       return (
         <NetworkingLogin
-          onLogin={token => this.updateToken(token)}
+          onLogin={(token, userId) => this.updateToken(token, userId)}
         />
       );
     }
     return (
       <NetworkingHome
         token={this.state.token}
+        userId={this.state.userId}
         onLogout={() => this.updateToken(null)}
       />
     );

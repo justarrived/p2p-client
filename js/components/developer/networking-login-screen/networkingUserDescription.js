@@ -5,40 +5,46 @@ import { CardItem, Spinner } from 'native-base';
 import TextInput from '../../common/text-input';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 
+import { getUser, patchUserDescription } from '../../../networking/user';
+
 class NetworkingUserDescription extends Component {
+  static propTypes = {
+    token: React.PropTypes.string.isRequired,
+    userId: React.PropTypes.number.isRequired,
+  }
 
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
       hasChanged: false,
-      userText: '',
+      description: '',
     };
   }
 
   componentDidMount() {
-    /* User.getUserText(
-      (text) => {
-        this.setState({
-          userText: text,
-          loading: false,
-        });
-      },
-      error => console.warn(error));*/
+    getUser(this.props.userId, this.props.token,
+    (response) => {
+      this.setState({
+        description: response.data.attributes.description,
+        loading: false,
+      });
+    },
+    error => console.warn(error));
   }
 
-  updateUserText(text) {
+  updateUserText(description) {
     this.setState({
       hasChanged: true,
-      userText: text,
+      description,
     });
   }
 
   uploadUserText() {
-    // User.setUserText(this.state.userText);
-    this.setState({
-      hasChanged: false,
-    });
+    patchUserDescription(this.props.userId, this.props.token,
+      this.state.description,
+      () => this.setState({ hasChanged: false }),
+      error => console.warn(error));
   }
 
   render() {
@@ -51,9 +57,9 @@ class NetworkingUserDescription extends Component {
       <View>
         <CardItem>
           <TextInput
-            title="user text"
-            onChange={text => this.updateUserText(text)}
-            defaultValue={this.state.userText}
+            title="user description"
+            onChange={description => this.updateUserText(description)}
+            defaultValue={this.state.description}
           />
         </CardItem>
         <CardItemButton
