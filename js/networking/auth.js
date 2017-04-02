@@ -1,4 +1,7 @@
 import { postJson, deleteRequest } from './networking';
+/*
+Class with methods for handling auth against API.
+*/
 
 const BASE_URL = 'https://sandbox-api.justarrived.xyz';
 const USERS_PATH = '/api/v1/users';

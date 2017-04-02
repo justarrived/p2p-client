@@ -40,7 +40,7 @@ class NetworkingUserDescription extends Component {
     });
   }
 
-  uploadUserText() {
+  uploadUserDescription() {
     patchUserDescription(this.props.userId, this.props.token,
       this.state.description,
       () => this.setState({ hasChanged: false }),
@@ -63,8 +63,8 @@ class NetworkingUserDescription extends Component {
           />
         </CardItem>
         <CardItemButton
-          onPress={() => this.uploadUserText()}
-          text="Submit user text"
+          onPress={() => this.uploadUserDescription()}
+          text="Upload description"
           disabled={!this.state.hasChanged}
         />
       </View>

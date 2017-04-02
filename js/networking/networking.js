@@ -1,41 +1,10 @@
+import { createJsonPostRequest,
+  createJsonPatchRequest,
+  createDeleteRequest } from './request';
+
 /*
 Class containing basic networking methods
 */
-
-// Helper method creting POST request with JSON body
-function getJsonPostRequest(json) {
-  return {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(json),
-  };
-}
-
-// Helper method creting PATCH request with JSON body
-function getJsonPatchRequest(json) {
-  return {
-    method: 'PATCH',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(json),
-  };
-}
-
-// Helper method creting DELETE request without body
-function getDeleteRequest() {
-  return {
-    method: 'DELETE',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  };
-}
 
 function handleJsonStatusResponse(response, status) {
   // response.text() consumes the response stream
@@ -78,7 +47,7 @@ export function getJson(url, onSuccess, onError) {
 
 // POST JSON data to url and handle expectedStatus JSON response
 export function postJsonStatus(url, json, expectedStatus, onSuccess, onError) {
-  fetch(url, getJsonPostRequest(json))
+  fetch(url, createJsonPostRequest(json))
     .then(response => handleJsonStatusResponse(response, expectedStatus))
     .then(responseJson => onSuccess(responseJson))
     .catch(error => onError(error))
@@ -92,7 +61,7 @@ export function postJson(url, json, onSuccess, onError) {
 
 // DELETE url and handle 204 response
 export function deleteRequest(url, onSuccess, onError) {
-  fetch(url, getDeleteRequest())
+  fetch(url, createDeleteRequest())
     .then(response => handleNoContentResponse(response, onSuccess))
     .catch(error => onError(error))
     .done();
@@ -100,7 +69,7 @@ export function deleteRequest(url, onSuccess, onError) {
 
 // PATCH JSON data to url and handle response
 export function patchJson(url, json, onSuccess, onError) {
-  fetch(url, getJsonPatchRequest(json))
+  fetch(url, createJsonPatchRequest(json))
     .then(response => handleJsonResponse(response))
     .then(responseJson => onSuccess(responseJson))
     .catch(error => onError(error))
