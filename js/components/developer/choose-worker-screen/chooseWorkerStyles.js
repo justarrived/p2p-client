@@ -2,21 +2,14 @@ import { StyleSheet } from 'react-native';
 import { MAIN_CERISE } from '../../common/colors';
 
 const chooseWorkerStyles = StyleSheet.create({
-
-  ratingGridStyle: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  ratingStyle: {
-    paddingRight: 2,
-  },
   starStyle: {
+    marginLeft: 2,
     fontSize: 18,
     color: MAIN_CERISE,
   },
   priceGridStyle: {
-    alignItems: 'center',
-    flex: 1,
+    flexDirection: 'row',
+    flex: 0,
   },
   pictureStyle: {
     width: 40,
