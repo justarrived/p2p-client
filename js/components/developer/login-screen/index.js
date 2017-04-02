@@ -42,13 +42,18 @@ export default class LoginScreen extends Component {
     }
   }
 
-  // if nextscreen is passed into the navigation as payload,
-  // We navigate to the provided nextScreen
-  // else MyProfileScreen is used as default for nextScreen
+  /*
+    If nextscreen is passed into the navigation as payload,
+    we navigate to CreateAccountScreen and pass the nextScreen
+    received along as nextScreen for CreateAccountScreen
+
+    else MyProfileScreen is used as default for nextScreen
+    with no nextScreen
+  */
   pressCreateAccountButton() {
     const { navigate, state } = this.props.navigation;
     if (state.params !== undefined && state.params.nextScreen !== undefined) {
-      navigate('CreateAccountScreen', { nextScreen: 'JobPreviewScreen' });
+      navigate('CreateAccountScreen', { nextScreen: state.params.nextScreen });
     } else {
       navigate('CreateAccountScreen', { nextScreen: 'MyProfileScreen' });
     }
