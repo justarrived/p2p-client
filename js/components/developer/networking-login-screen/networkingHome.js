@@ -9,6 +9,7 @@ import { signOut } from '../../../networking/auth';
 class NetworkingHome extends Component {
   static propTypes = {
     onLogout: React.PropTypes.func.isRequired,
+    token: React.PropTypes.string.isRequired,
   }
 
   constructor(props) {
@@ -19,8 +20,9 @@ class NetworkingHome extends Component {
   }
 
   signOut() {
-    signOut(() => this.props.onLogout(),
-      () => this.setState({ greeting: 'Unable to sign out' }));
+    signOut(this.props.token,
+      () => this.props.onLogout(),
+      error => this.setState({ greeting: `Unable to sign out: ${error}` }));
   }
 
   render() {
@@ -30,6 +32,7 @@ class NetworkingHome extends Component {
         <Card>
           <CardItem>
             <Text >{this.state.greeting}</Text>
+            <Text > Token: {this.props.token}</Text>
           </CardItem>
           <NetworkingUserDescription />
           <CardItemButton

@@ -11,27 +11,29 @@ export default class LoginExampleScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false,
+      token: null,
     };
   }
 
-  updateLogedin() {
+  updateToken(token) {
+    // console.warn(`Token: ${token}`);
     this.setState({
-      loggedIn: !this.state.loggedIn,
+      token,
     });
   }
 
   render() {
-    if (!this.state.loggedIn) {
+    if (this.state.token === null) {
       return (
         <NetworkingLogin
-          onLogin={() => this.updateLogedin()}
+          onLogin={token => this.updateToken(token)}
         />
       );
     }
     return (
       <NetworkingHome
-        onLogout={() => this.updateLogedin()}
+        token={this.state.token}
+        onLogout={() => this.updateToken(null)}
       />
     );
   }

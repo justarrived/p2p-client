@@ -1,4 +1,4 @@
-import { postJson } from './networking';
+import { postJson, deleteRequest } from './networking';
 
 const BASE_URL = 'https://sandbox-api.justarrived.xyz';
 const USERS_PATH = '/api/v1/users';
@@ -18,10 +18,15 @@ export function signUp(email, password, onSuccess, onError) {
     password,
     consent: true,
     system_language_id: 38,
-    first_name: 'meName',
-    last_name: 'meLastName' });
+    first_name: 'SomeName',
+    last_name: 'SomeLastName' });
   postJson(BASE_URL + USERS_PATH,
     requestJson, onSuccess, onError);
+}
+
+function saveToken(json, onSuccess) {
+  // TODO save token in redux here? Or refactor to use redux
+  onSuccess(json);
 }
 
 export function signIn(email, password, onSuccess, onError) {
@@ -29,10 +34,17 @@ export function signIn(email, password, onSuccess, onError) {
     email_or_phone: email,
     password });
   postJson(BASE_URL + SESSIONS_PATH,
-    requestJson, onSuccess, onError);
+    requestJson, responseJson => saveToken(responseJson, onSuccess), onError);
 }
 
-export async function signOut(onSuccess, onError) {
-  console.warn('signOut not implemented');
-  onSuccess();
+function deleteToken(json, onSuccess) {
+  // TODO remove token in redux here? Or refactor to use redux
+  onSuccess(json);
+}
+
+export async function signOut(token, onSuccess, onError) {
+  // Delete the session token
+  deleteRequest(`${BASE_URL + SESSIONS_PATH}/${token}?auth_token=${token}`,
+    responseJson => deleteToken(responseJson, onSuccess),
+    onError);
 }

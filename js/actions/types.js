@@ -11,6 +11,9 @@ export type Action = {
 } | {
   type: 'REMOVE_LANGUAGE',
   route: string
+/* } | { TODO use for networking
+  type: 'UPDATE_TOKEN',
+  route: string*/
 } | {
 type: 'ACCOUNT_FIRSTNAME',
   route: string

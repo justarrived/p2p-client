@@ -2,7 +2,7 @@
 Class containing basic networking methods
 */
 
-// Helper method creting POST request body
+// Helper method creting POST request with JSON body
 function getJsonPostRequest(json) {
   return {
     method: 'POST',
@@ -11,6 +11,17 @@ function getJsonPostRequest(json) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(json),
+  };
+}
+
+// Helper method creting DELETE request without body
+function getDeleteRequest() {
+  return {
+    method: 'DELETE',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
   };
 }
 
@@ -25,6 +36,13 @@ function handleJsonStatusResponse(response, status) {
 
 function handleJsonResponse(response) {
   handleJsonStatusResponse(response, 200);
+}
+
+function handleNoContentResponse(response, onSuccess) {
+  if (response.status === 204) {
+    return onSuccess(response);
+  }
+  throw new Error(`Response was ${response.status}, not 204`);
 }
 
 /* global fetch b:true*/
@@ -58,4 +76,12 @@ export function postJsonStatus(url, json, expectedStatus, onSuccess, onError) {
 // POST JSON data to url and handle 201 JSON response
 export function postJson(url, json, onSuccess, onError) {
   postJsonStatus(url, json, 201, onSuccess, onError);
+}
+
+// DELETE url and handle 204 response
+export function deleteRequest(url, onSuccess, onError) {
+  fetch(url, getDeleteRequest())
+    .then(response => handleNoContentResponse(response, onSuccess))
+    .catch(error => onError(error))
+    .done();
 }
