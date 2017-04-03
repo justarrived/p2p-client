@@ -13,7 +13,7 @@ export default class MyProfileScreen extends Component {
     return (
       <Container>
         <Tabs>
-          <Tab heading="Uppdrags info" >
+          <Tab heading="Uppdrag" >
             <JobPreviewScreen />
           </Tab>
           <Tab heading="Ansökningar">
