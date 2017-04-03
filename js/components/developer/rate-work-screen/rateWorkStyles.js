@@ -11,12 +11,12 @@ const ratingScreenStyles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: PADDING,
+    margin: PADDING / 2,
   },
-
   logo: {
     width: 80,
     height: 80,
+    borderRadius: 70,
   },
   textContainer: {
     flex: 1,
