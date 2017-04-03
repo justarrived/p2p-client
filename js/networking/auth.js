@@ -1,4 +1,5 @@
 import { postJson, deleteRequest } from './networking';
+import { createJsonDataAttributes } from './json';
 /*
 Class with methods for handling auth against API.
 */
@@ -7,16 +8,8 @@ const BASE_URL = 'https://sandbox-api.justarrived.xyz';
 const USERS_PATH = '/api/v1/users';
 const SESSIONS_PATH = '/api/v1/users/sessions';
 
-function getJsonDataAttributes(attributes) {
-  return {
-    data: {
-      attributes,
-    },
-  };
-}
-
 export function signUp(email, password, onSuccess, onError) {
-  const requestJson = getJsonDataAttributes({
+  const requestJson = createJsonDataAttributes({
     email,
     password,
     consent: true,
@@ -27,27 +20,16 @@ export function signUp(email, password, onSuccess, onError) {
     requestJson, onSuccess, onError);
 }
 
-function saveToken(json, onSuccess) {
-  // TODO save token in redux here? Or refactor to use redux
-  onSuccess(json);
-}
-
 export function signIn(email, password, onSuccess, onError) {
-  const requestJson = getJsonDataAttributes({
+  const requestJson = createJsonDataAttributes({
     email_or_phone: email,
     password });
   postJson(BASE_URL + SESSIONS_PATH,
-    requestJson, responseJson => saveToken(responseJson, onSuccess), onError);
-}
-
-function deleteToken(response, onSuccess) {
-  // TODO remove token in redux here? Or refactor to use redux
-  onSuccess(response);
+    requestJson, onSuccess, onError);
 }
 
 export function signOut(token, onSuccess, onError) {
-  // Delete the session token
+  // Delete the session token from the API
   deleteRequest(`${BASE_URL + SESSIONS_PATH}/${token}`,
-    response => deleteToken(response, onSuccess),
-    onError);
+    onSuccess, onError);
 }
