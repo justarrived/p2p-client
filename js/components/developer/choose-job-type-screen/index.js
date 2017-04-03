@@ -1,26 +1,36 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Container, Content, List } from 'native-base';
-
+import { connect } from 'react-redux';
 import JobTypeCard from './jobTypeCard';
 import GlobalStyle from '../../common/globalStyle';
+import { imageProp } from '../../common/propTypes';
 
-// Temporary constants. These will be moved and implemented in another way in the future!
-const EXAMPLE_IMAGE_URL = 'https://facebook.github.io/react/img/logo_og.png';
-const JOB_TYPES = ['Snöskottning', 'Lövkrattning', 'Städning', 'Ogräsrensning'];
+const { shape, arrayOf, string } = PropTypes;
 
-export default class ChooseJobTypeScreen extends Component {
+class ChooseJobTypeScreen extends Component {
   static navigationOptions = {
     title: 'Choose Job Type',
   };
 
-  navigateToNextScreen = () => (
-    this.props.navigation.navigate('CreateJobScreen')
-  );
+  static propTypes = {
+    jobTypes: shape({
+      data: arrayOf(
+        shape({
+          title: string.isRequired,
+          description: string.isRequired,
+          icon: imageProp.isRequired,
+          image: imageProp.isRequired,
+        }).isRequired,
+      ).isRequired,
+    }).isRequired,
+  };
+
+  navigateToNextScreen = () => this.props.navigation.navigate('CreateJobScreen');
 
   renderRow = jobType => (
     <JobTypeCard
-      title={jobType} subtitle={`Behöver du hjälp med ${jobType.toLowerCase()}?`}
-      cover={EXAMPLE_IMAGE_URL} icon={EXAMPLE_IMAGE_URL}
+      title={jobType.title} subtitle={jobType.description}
+      cover={jobType.image} icon={jobType.icon}
       toNextScreen={() => this.navigateToNextScreen()}
     />
   );
@@ -29,9 +39,13 @@ export default class ChooseJobTypeScreen extends Component {
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
-          <List dataArray={JOB_TYPES} renderRow={this.renderRow} />
+          <List dataArray={this.props.jobTypes.data} renderRow={this.renderRow} />
         </Content>
       </Container>
     );
   }
 }
+
+const mapStateToProps = state => ({ jobTypes: state.jobTypes });
+
+export default connect(mapStateToProps)(ChooseJobTypeScreen);
