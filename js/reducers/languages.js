@@ -5,7 +5,7 @@ const initialState = {
   lang: [0, 2],
 };
 
-export default function (state = initialState, action : Action) {
+export default function (state : State = initialState, action : Action) : State {
   if (action.type === REMOVE_LANGUAGE) {
     // console.log(`splice lang ${action.payload}`);
     state.lang.splice(state.lang.indexOf(action.payload), 1);

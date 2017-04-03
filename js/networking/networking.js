@@ -7,8 +7,6 @@ Class with networking fetch methods
 */
 
 function handleJsonStatusResponse(response, status) {
-  // response.text() consumes the response stream
-  // console.log(response.text());
   if (response.status === status) {
     return response.json();
   }
