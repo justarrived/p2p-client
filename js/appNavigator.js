@@ -51,8 +51,8 @@ const MyJobTab = StackNavigator({
   MyJobsScreen: {
     screen: MyJobsScreen,
   },
-  JobPreviewScreen: {
-    screen: JobPreviewScreen,
+  JobInfoScreen: {
+    screen: JobInfoScreen,
   },
 }, {
   navigationOptions: {

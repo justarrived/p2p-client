@@ -6,7 +6,7 @@ import ChooseWorkerScreen from '../choose-worker-screen';
 
 export default class MyProfileScreen extends Component {
   static navigationOptions = {
-    title: 'My Profile',
+    title: 'Mina Uppdrag',
   };
 
   render() {
