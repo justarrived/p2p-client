@@ -3,12 +3,13 @@ import { Card } from 'native-base';
 
 import CardImageHeader from '../../common/card-image-header/cardImageHeader';
 import SimpleCardBody from '../../common/simple-card-body/simpleCardBody';
+import { imageProp } from '../../common/propTypes';
 
 export default class JobTypeCardPreview extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
-    cover: React.PropTypes.string.isRequired,
-    icon: React.PropTypes.string.isRequired,
+    cover: imageProp.isRequired,
+    icon: imageProp.isRequired,
     subtitle: React.PropTypes.string.isRequired,
   };
 
