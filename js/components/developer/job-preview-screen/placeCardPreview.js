@@ -24,7 +24,6 @@ export default class PlaceCardPreview extends Component {
     const { address, city, zip } = this.props.data;
     return (
       <Card>
-        <CardHeader icon="pin" title="Plats" subtitle="Var ska uppdraget utföras?" />
         <CardItem>
           <Grid>
             <Row>

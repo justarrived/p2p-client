@@ -16,7 +16,6 @@ export default class TimeCardPreview extends Component {
     const { duration, cost } = this.props.data;
     return (
       <Card>
-        <CardHeader icon="time" title="Tidsåtgång" subtitle="Hur lång tid tar uppdraget?" />
         <CardItem>
           <Grid>
             <Row>

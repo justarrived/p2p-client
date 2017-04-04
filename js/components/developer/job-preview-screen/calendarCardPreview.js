@@ -21,7 +21,6 @@ export default class CalendarCardPreview extends Component {
     const { date, time } = this.props.data;
     return (
       <Card>
-        <CardHeader icon="calendar" title="Datum" subtitle="När ska uppdraget utföras?" />
         <CardItem>
           <Grid>
             <Col>
