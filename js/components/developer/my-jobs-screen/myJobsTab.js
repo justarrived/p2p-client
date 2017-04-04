@@ -3,22 +3,15 @@ import { ListView } from 'react-native';
 import { Container, Content } from 'native-base';
 import AvatarListItem from '../../common/avatar-list-item/avatarListItem';
 import ListSectionHeader from '../../common/list-section-header/listSectionHeader';
-import { JOB_STATUS } from '../../common/constants';
 
-// Temporary logo
+// Temporary logo, TODO replace with real icon.
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 export default class MyJobsTab extends Component {
+
+  // TODO Improve typechecking
   static propTypes = {
-    data: React.PropTypes.objectOf(
-      React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-          date: React.PropTypes.string.isRequired,
-          status: React.PropTypes.oneOf(Object.values(JOB_STATUS)),
-          title: React.PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-    ).isRequired,
+    data: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
     toNextScreen: React.PropTypes.func.isRequired,
   };
 
@@ -36,8 +29,8 @@ export default class MyJobsTab extends Component {
   }
 
   renderRow = job => <AvatarListItem
-    title={job.title} note={job.date}
-    status={job.status} icon={{ uri: LOGO_URL }}
+    title={job.attributes.name} note={job.attributes.street}
+    status={'Aktiv'} icon={{ uri: LOGO_URL }}
     toNextScreen={this.props.toNextScreen}
   />;
 
