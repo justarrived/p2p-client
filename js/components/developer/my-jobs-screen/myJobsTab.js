@@ -28,6 +28,8 @@ export default class MyJobsTab extends Component {
     };
   }
 
+  // TODO Read job status from API and pass to status.
+  // Also replace icon with actual icon.
   renderRow = job => <AvatarListItem
     title={job.attributes.name} note={job.attributes.street}
     status={'Aktiv'} icon={{ uri: LOGO_URL }}
