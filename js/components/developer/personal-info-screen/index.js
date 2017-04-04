@@ -1,18 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import {
-  Container,
-  Content,
-  Form,
-  Col,
-  Row,
-  Thumbnail,
-  Card,
-  CardItem,
-  Button,
-  Text,
-} from 'native-base';
+import { Container, Content, Form, Col, Row, Thumbnail, Card, CardItem, Button, Text } from 'native-base';
 import styles from './style';
 import GlobalStyle from '../../common/globalStyle';
 import EmailInput from '../../common/email-input';
