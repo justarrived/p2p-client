@@ -31,9 +31,9 @@ export default class PlaceCardPreview extends Component {
               <TextWithStackedNote text={address} note={ADDRESS_STRING} />
             </Row>
             <Row style={GlobalStyle.rowMargin}>
-            <Col>
-              <TextWithStackedNote text={zip} note={ZIP_CODE_STRING} />
-            </Col>
+              <Col>
+                <TextWithStackedNote text={zip} note={ZIP_CODE_STRING} />
+              </Col>
               <Col>
                 <TextWithStackedNote text={city} note={CITY_STRING} />
               </Col>
