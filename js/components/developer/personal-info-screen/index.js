@@ -122,13 +122,11 @@ class PersonalInfoScreen extends React.Component {
                   onPress={() => this.props.toggleInputDisabled()}
                 />
                 <Button
-                  small
-                  block
-                  bordered
+                  small block bordered
                   style={StyleSheet.flatten(styles.logoutButton)}
                   onPress={() => alert('Du loggas ut')}
                 >
-                  <Text>{'Logga Ut'}</Text>
+                  <Text>Logga Ut</Text>
                 </Button>
               </Col>
             </CardItem>
