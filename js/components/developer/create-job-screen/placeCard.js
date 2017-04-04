@@ -20,16 +20,16 @@ export default class PlaceCard extends Component {
             <Input />
           </Item>
           <Grid>
+          <Col>
+            <Item floatingLabel>
+              <Label>{ZIP_CODE_STRING}</Label>
+              <Input keyboardType="numeric" />
+            </Item>
+          </Col>
             <Col>
               <Item floatingLabel>
                 <Label>{CITY_STRING}</Label>
                 <Input />
-              </Item>
-            </Col>
-            <Col>
-              <Item floatingLabel>
-                <Label>{ZIP_CODE_STRING}</Label>
-                <Input keyboardType="numeric" />
               </Item>
             </Col>
           </Grid>

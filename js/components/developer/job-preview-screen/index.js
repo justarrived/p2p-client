@@ -29,7 +29,7 @@ export default class JobPreviewScreen extends Component {
             data={{ duration: 'Litet, 1-2 timmar', cost: '(150 - 300 kr)' }}
           />
           <PlaceCardPreview
-            data={{ address: 'Sample Street 46', city: 'Sample City', zip: '12345' }}
+            data={{ address: 'Sample Street 46', zip: '12345', city: 'Sample City'}}
           />
           <CalendarCardPreview
             data={{ date: '23 April 2017', time: '16:00' }}
