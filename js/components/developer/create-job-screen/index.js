@@ -22,8 +22,8 @@ export default class CreateJobScreen extends Component {
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
           <TimeCard />
-          <PlaceCard />
           <CalendarCard />
+          <PlaceCard />
           <Button full info onPress={() => this.navigateToNextScreen()}>
             <Text>Nästa</Text>
           </Button>
