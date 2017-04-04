@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import {
   Container,
@@ -10,6 +10,8 @@ import {
   Thumbnail,
   Card,
   CardItem,
+  Button,
+  Text,
 } from 'native-base';
 import styles from './style';
 import GlobalStyle from '../../common/globalStyle';
@@ -125,10 +127,21 @@ class PersonalInfoScreen extends React.Component {
               </Form>
             </CardItem>
             <CardItem bordered style={StyleSheet.flatten(styles.buttonContainer)}>
-              <Buttons
-                disabled={this.props.account.disabled}
-                onPress={() => this.props.toggleInputDisabled()}
-              />
+              <Col>
+                <Buttons
+                  disabled={this.props.account.disabled}
+                  onPress={() => this.props.toggleInputDisabled()}
+                />
+                <Button
+                  small
+                  block
+                  bordered
+                  style={StyleSheet.flatten(styles.logoutButton)}
+                  onPress={() => alert('Du loggas ut')}
+                >
+                  <Text>{'Logga Ut'}</Text>
+                </Button>
+              </Col>
             </CardItem>
           </Card>
         </Content>
