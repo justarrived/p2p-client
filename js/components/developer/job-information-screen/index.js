@@ -4,7 +4,7 @@ import JobPreviewScreen from '../job-preview-screen';
 import ChooseWorkerScreen from '../choose-worker-screen';
 
 
-export default class MyProfileScreen extends Component {
+export default class JobsInformationScreen extends Component {
   static navigationOptions = {
     title: 'Mina Uppdrag',
   };
