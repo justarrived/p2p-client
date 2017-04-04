@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Grid, Col, Card, CardItem, Row } from 'native-base';
+import { Grid, Col, CardItem, Row } from 'native-base';
 
-import CardHeader from '../../common/card-header/cardHeader';
 import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
 import GlobalStyle from '../../common/globalStyle';
 
@@ -23,23 +22,21 @@ export default class PlaceCardPreview extends Component {
   render() {
     const { address, city, zip } = this.props.data;
     return (
-      <Card>
-        <CardItem>
-          <Grid>
-            <Row>
-              <TextWithStackedNote text={address} note={ADDRESS_STRING} />
-            </Row>
-            <Row style={GlobalStyle.rowMargin}>
-              <Col>
-                <TextWithStackedNote text={city} note={CITY_STRING} />
-              </Col>
-              <Col>
-                <TextWithStackedNote text={zip} note={ZIP_CODE_STRING} />
-              </Col>
-            </Row>
-          </Grid>
-        </CardItem>
-      </Card>
+      <CardItem bordered >
+        <Grid>
+          <Row>
+            <TextWithStackedNote text={address} note={ADDRESS_STRING} />
+          </Row>
+          <Row style={GlobalStyle.rowMargin}>
+            <Col>
+              <TextWithStackedNote text={city} note={CITY_STRING} />
+            </Col>
+            <Col>
+              <TextWithStackedNote text={zip} note={ZIP_CODE_STRING} />
+            </Col>
+          </Row>
+        </Grid>
+      </CardItem>
     );
   }
 }

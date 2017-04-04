@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, Col, Card, CardItem } from 'native-base';
+import { Grid, Col, CardItem } from 'native-base';
 
 import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
-import CardHeader from '../../common/card-header/cardHeader';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
 const DATE_STRING = 'Datum';
@@ -20,18 +19,16 @@ export default class CalendarCardPreview extends Component {
   render() {
     const { date, time } = this.props.data;
     return (
-      <Card>
-        <CardItem>
-          <Grid>
-            <Col>
-              <TextWithStackedNote text={date} note={DATE_STRING} />
-            </Col>
-            <Col>
-              <TextWithStackedNote text={time} note={TIME_STRING} />
-            </Col>
-          </Grid>
-        </CardItem>
-      </Card>
+      <CardItem bordered>
+        <Grid>
+          <Col>
+            <TextWithStackedNote text={date} note={DATE_STRING} />
+          </Col>
+          <Col>
+            <TextWithStackedNote text={time} note={TIME_STRING} />
+          </Col>
+        </Grid>
+      </CardItem>
     );
   }
 }

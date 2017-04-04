@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'native-base';
+import { View } from 'react-native';
 
 import CardImageHeader from '../../common/card-image-header/cardImageHeader';
 import SimpleCardBody from '../../common/simple-card-body/simpleCardBody';
@@ -14,10 +14,10 @@ export default class JobTypeCardPreview extends Component {
 
   render() {
     return (
-      <Card>
+      <View>
         <CardImageHeader cover={this.props.cover} icon={this.props.icon} />
         <SimpleCardBody title={this.props.title} subtitle={this.props.subtitle} />
-      </Card>
+      </View>
     );
   }
 }
