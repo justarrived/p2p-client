@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Spinner } from 'native-base';
 import webAppStyles from './webAppStyles';
+import { getJson } from '../../../networking/networking';
 
 export default class WebAppHourlyWage extends Component {
   static propTypes = {
@@ -30,26 +31,20 @@ export default class WebAppHourlyWage extends Component {
 
   // Fetch data from this.props.url and update state
   fetchData() {
-    fetch(this.props.url)
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        }
-        throw new Error('Response was not 200 OK!');
-      })
-      .then((responseJson) => {
+    getJson(this.props.url,
+      (responseJson) => {
         this.setState({
           data: responseJson.data,
           loading: false,
         });
-      }).catch((error) => {
+      },
+      (error) => {
         console.warn(error);
         this.setState({
           loading: false,
           error: true,
         });
-      })
-      .done();
+      });
   }
 
   // Render the component

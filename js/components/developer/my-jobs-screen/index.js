@@ -1,30 +1,16 @@
 import React, { Component } from 'react';
 import { Tab, Tabs } from 'native-base';
+import { connect } from 'react-redux';
 import MyJobsTab from './myJobsTab';
-import { JOB_STATUS } from '../../common/constants';
 
-// Temporary example data for active jobs.
-const activeJobsData = {
-  'Pågående uppdrag': [
-    { title: 'Snöskottning', date: '14 April 20:00', status: JOB_STATUS.ACTIVE },
-    { title: 'Gräsklippning', date: '11 Maj 10:00', status: JOB_STATUS.ACTIVE },
-  ],
-  'Ej tilldelade uppdrag': [
-    { title: 'Snöskottning', date: '2 December 19:00', status: JOB_STATUS.UNASSIGNED },
-  ],
-};
-
-// Temporary example data for archived jobs.
-const archivedJobsData = {
-  'Avslutade uppdrag': [
-    { title: 'Snöskottning', date: '14 Januari 18:00', status: JOB_STATUS.FINISHED },
-    { title: 'Snöskottning', date: '14 Januari 18:00', status: JOB_STATUS.FINISHED },
-  ],
-};
-
-export default class MyJobsScreen extends Component {
+class MyJobsScreen extends Component {
   static navigationOptions = {
     title: 'Mina Uppdrag',
+  };
+
+  // TODO Improve typechecking
+  static propTypes = {
+    ownedJobs: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   };
 
   navigateToNextScreen = () => (
@@ -32,15 +18,29 @@ export default class MyJobsScreen extends Component {
   );
 
   render() {
+    // TODO Replace placeholder data with real data from API.
+    const temporaryActive = {
+      'Tilldelade uppdrag': this.props.ownedJobs.data,
+      'Icke tilldelade uppdrag': this.props.ownedJobs.data,
+    };
+
+    const temporaryArchived = {
+      'Avslutade uppdrag': this.props.ownedJobs.data,
+    };
+
     return (
       <Tabs>
-        <Tab heading="Pågående">
-          <MyJobsTab data={activeJobsData} toNextScreen={() => this.navigateToNextScreen()} />
+        <Tab heading="Aktiva">
+          <MyJobsTab data={temporaryActive} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
         <Tab heading="Avslutade">
-          <MyJobsTab data={archivedJobsData} toNextScreen={() => this.navigateToNextScreen()} />
+          <MyJobsTab data={temporaryArchived} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
       </Tabs>
     );
   }
 }
+
+const mapStateToProps = state => ({ ownedJobs: state.ownedJobs });
+
+export default connect(mapStateToProps)(MyJobsScreen);

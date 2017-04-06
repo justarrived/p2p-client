@@ -4,13 +4,15 @@ import * as firebase from 'firebase';
 import FirebaseLogin from './firebaseLogin';
 import FirebaseHome from './firebaseHome';
 
-/** const firebaseApp = firebase.initializeApp({
-  apiKey: 'AIzaSyCY5F5QqKqaVTvwvQQf5EQgu2apNIfG1-0',
-  authDomain: 'justarrivedp2p.firebaseapp.com',
-  databaseURL: 'https://justarrivedp2p.firebaseio.com',
-  storageBucket: 'justarrivedp2p.appspot.com',
-  //messagingSenderId: '981762065581',
-});*/
+if (firebase.apps.length === 0) {
+  firebase.initializeApp({
+    apiKey: 'AIzaSyCY5F5QqKqaVTvwvQQf5EQgu2apNIfG1-0',
+    authDomain: 'justarrivedp2p.firebaseapp.com',
+    databaseURL: 'https://justarrivedp2p.firebaseio.com',
+    storageBucket: 'justarrivedp2p.appspot.com',
+    messagingSenderId: '981762065581',
+  });
+}
 
 export default class FirebaseExampleScreen extends Component {
   static navigationOptions = {

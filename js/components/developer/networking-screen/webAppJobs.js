@@ -4,6 +4,7 @@ import { Spinner, Card, CardItem, Body, Left, Right } from 'native-base';
 import webAppStyles from './webAppStyles';
 import WebAppHourlyWage from './webAppHourlyWage';
 import WebAppCompany from './webAppCompany';
+import { getJson } from '../../../networking/networking';
 
 // URL JSON data is fetched from
 const REQUEST_URL = 'https://api.justarrived.se/api/v1/jobs/';
@@ -35,26 +36,20 @@ export default class WebAppJobs extends Component {
 
   // Fetch data from REQUEST_URL and update state
   fetchData() {
-    fetch(REQUEST_URL)
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        }
-        throw new Error('Response was not 200 OK!');
-      })
-      .then((responseJson) => {
+    getJson(REQUEST_URL,
+      (responseJson) => {
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(responseJson.data),
           loading: false,
         });
-      }).catch((error) => {
+      },
+      (error) => {
         console.warn(error);
         this.setState({
           loading: false,
           error: true,
         });
-      })
-      .done();
+      });
   }
 
   // Render the component

@@ -5,6 +5,7 @@ import CreateJobScreen from './components/developer/create-job-screen';
 import LoginScreen from './components/developer/login-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
+import NetworkingLoginScreen from './components/developer/networking-login-screen';
 import CreateAccountScreen from './components/developer/create-account-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
@@ -17,6 +18,7 @@ import MyJobsScreen from './components/developer/my-jobs-screen';
 import JobPreviewScreen from './components/developer/job-preview-screen';
 import RateWorkScreen from './components/developer/rate-work-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
+import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 
 import TabBarStyles from './tabBarStyles';
 
@@ -94,6 +96,9 @@ const DeveloperTab = StackNavigator({
   NetworkingScreen: {
     screen: NetworkingScreen,
   },
+  NetworkingLoginScreen: {
+    screen: NetworkingLoginScreen,
+  },
   MyProfileScreen: {
     screen: MyProfileScreen,
   },
@@ -129,6 +134,9 @@ const DeveloperTab = StackNavigator({
   },
   RateWorkScreen: {
     screen: RateWorkScreen,
+  },
+  ChooseWorkerScreen: {
+    screen: ChooseWorkerScreen,
   },
 }, {
   navigationOptions: {

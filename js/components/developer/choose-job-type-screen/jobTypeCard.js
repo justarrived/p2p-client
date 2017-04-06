@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Card } from 'native-base';
 import CardImageHeader from '../../common/card-image-header/cardImageHeader';
 import SimpleCardBody from '../../common/simple-card-body/simpleCardBody';
+import { imageProp } from '../../common/propTypes';
 
 export default class JobTypeCard extends Component {
   static propTypes = {
-    title: React.PropTypes.string.isRequired,
-    cover: React.PropTypes.string.isRequired,
-    icon: React.PropTypes.string.isRequired,
-    subtitle: React.PropTypes.string.isRequired,
-    toNextScreen: React.PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+    cover: imageProp.isRequired,
+    icon: imageProp.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    toNextScreen: PropTypes.func.isRequired,
   };
 
   render() {

@@ -29,7 +29,7 @@ export default class SimpleCardBody extends Component {
     }
 
     return (
-      <CardItem onPress={this.props.toNextScreen}>
+      <CardItem bordered onPress={this.props.toNextScreen}>
         <Body>
           <Text>{this.props.title}</Text>
           <Text note>{this.props.subtitle}</Text>

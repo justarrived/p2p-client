@@ -46,6 +46,9 @@ const styles = StyleSheet.create({
   buttonFlex: {
     flex: 1,
   },
+  logoutButton: {
+    marginTop: 20,
+  },
 });
 
 module.exports = styles;

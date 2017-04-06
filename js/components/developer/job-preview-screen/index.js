@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content } from 'native-base';
+import { Container, Content, Card } from 'native-base';
 
 import JobTypeCardPreview from './jobTypeCardPreview';
 import TimeCardPreview from './timeCardPreview';
@@ -21,19 +21,21 @@ export default class JobPreviewScreen extends Component {
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
-          <JobTypeCardPreview
-            title="Snöskottning" subtitle="Få hjälp i vinterkylan!"
-            cover={EXAMPLE_IMAGE_URL} icon={EXAMPLE_IMAGE_URL}
-          />
-          <TimeCardPreview
-            data={{ duration: 'Litet, 1-2 timmar', cost: '(150 - 300 kr)' }}
-          />
-          <PlaceCardPreview
-            data={{ address: 'Sample Street 46', zip: '12345', city: 'Sample City'}}
-          />
-          <CalendarCardPreview
-            data={{ date: '23 April 2017', time: '16:00' }}
-          />
+          <Card>
+            <JobTypeCardPreview
+              title="Snöskottning" subtitle="Få hjälp i vinterkylan!"
+              cover={{ uri: EXAMPLE_IMAGE_URL }} icon={{ uri: EXAMPLE_IMAGE_URL }}
+            />
+            <TimeCardPreview
+              data={{ duration: 'Litet, 1-2 timmar', cost: '(150 - 300 kr)' }}
+            />
+            <CalendarCardPreview
+              data={{ date: '23 April 2017', time: '16:00' }}
+            />
+            <PlaceCardPreview
+              data={{ address: 'Sample Street 46', zip: '12345', city: 'Sample City' }}
+            />
+          </Card>
         </Content>
       </Container>
     );
