@@ -28,11 +28,11 @@ export default class JobPreviewScreen extends Component {
           <TimeCardPreview
             data={{ duration: 'Litet, 1-2 timmar', cost: '(150 - 300 kr)' }}
           />
-          <PlaceCardPreview
-            data={{ address: 'Sample Street 46', city: 'Sample City', zip: '12345' }}
-          />
           <CalendarCardPreview
             data={{ date: '23 April 2017', time: '16:00' }}
+          />
+          <PlaceCardPreview
+            data={{ address: 'Sample Street 46', city: 'Sample City', zip: '12345' }}
           />
         </Content>
       </Container>
