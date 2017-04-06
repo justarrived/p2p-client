@@ -22,14 +22,14 @@ export default class PlaceCard extends Component {
           <Grid>
             <Col>
               <Item floatingLabel>
-                <Label>{CITY_STRING}</Label>
-                <Input />
+                <Label>{ZIP_CODE_STRING}</Label>
+                <Input keyboardType="numeric" />
               </Item>
             </Col>
             <Col>
               <Item floatingLabel>
-                <Label>{ZIP_CODE_STRING}</Label>
-                <Input keyboardType="numeric" />
+                <Label>{CITY_STRING}</Label>
+                <Input />
               </Item>
             </Col>
           </Grid>

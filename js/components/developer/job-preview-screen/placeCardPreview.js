@@ -29,10 +29,10 @@ export default class PlaceCardPreview extends Component {
           </Row>
           <Row style={GlobalStyle.rowMargin}>
             <Col>
-              <TextWithStackedNote text={city} note={CITY_STRING} />
+              <TextWithStackedNote text={zip} note={ZIP_CODE_STRING} />
             </Col>
             <Col>
-              <TextWithStackedNote text={zip} note={ZIP_CODE_STRING} />
+              <TextWithStackedNote text={city} note={CITY_STRING} />
             </Col>
           </Row>
         </Grid>

@@ -101,15 +101,15 @@ class CreateAccountScreen extends Component {
                   />
                   <Row>
                     <Col>
-                      <TextInput
-                        title="Ort"
-                        onChange={input => this.props.changePostArea(input)}
-                      />
-                    </Col>
-                    <Col>
                       <PostcodeInput
                         title="Postnummer"
                         onChange={input => this.props.changePostCode(input)}
+                      />
+                    </Col>
+                    <Col>
+                      <TextInput
+                        title="Ort"
+                        onChange={input => this.props.changePostArea(input)}
                       />
                     </Col>
                   </Row>

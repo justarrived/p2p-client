@@ -33,7 +33,7 @@ export default class JobPreviewScreen extends Component {
               data={{ date: '23 April 2017', time: '16:00' }}
             />
             <PlaceCardPreview
-              data={{ address: 'Sample Street 46', city: 'Sample City', zip: '12345' }}
+              data={{ address: 'Sample Street 46', zip: '12345', city: 'Sample City' }}
             />
           </Card>
         </Content>
