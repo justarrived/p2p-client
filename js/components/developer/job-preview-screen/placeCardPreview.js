@@ -22,7 +22,7 @@ export default class PlaceCardPreview extends Component {
   render() {
     const { address, city, zip } = this.props.data;
     return (
-      <CardItem bordered >
+      <CardItem bordered>
         <Grid>
           <Row>
             <TextWithStackedNote text={address} note={ADDRESS_STRING} />
