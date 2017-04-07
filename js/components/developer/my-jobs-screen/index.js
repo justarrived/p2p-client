@@ -14,7 +14,7 @@ class MyJobsScreen extends Component {
   };
 
   navigateToNextScreen = () => (
-    this.props.navigation.navigate('JobPreviewScreen')
+    this.props.navigation.navigate('JobInfoScreen')
   );
 
   render() {
