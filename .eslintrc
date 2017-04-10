@@ -19,5 +19,17 @@
         ]
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".android.js",
+          ".ios.js"
+        ]
+      }
+    }
   }
 }
