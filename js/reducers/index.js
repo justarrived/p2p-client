@@ -6,6 +6,7 @@ import languages from './languages';
 import jobTypes from './jobTypes';
 import ownedJobs from './ownedJobs';
 import creditCards from './creditCards';
+import session from './session';
 
 export default combineReducers({
   account,
@@ -14,4 +15,5 @@ export default combineReducers({
   jobTypes,
   ownedJobs,
   creditCards,
+  session,
 });

@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Text } from 'react-native';
 import { Content, Card, CardItem } from 'native-base';
+import { connect } from 'react-redux';
 
 import EmailInput from '../../common/email-input';
 import PasswordInput from '../../common/password-input';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 
-import { signUp, signIn } from '../../../networking/auth';
+// import { signUp, signIn } from '../../../networking/auth';
+import { signUp } from '../../../networking/auth';
+import { requestSignIn } from '../../../actions/session';
 
 // Setting default values so they do not have to be entered every time
 const USER = 'noname@nomail.nope';
@@ -14,7 +17,8 @@ const PASSWORD = 'password';
 
 class NetworkingLogin extends Component {
   static propTypes = {
-    onLogin: React.PropTypes.func.isRequired,
+    // onLogin: PropTypes.func.isRequired,
+    signIn: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -33,12 +37,14 @@ class NetworkingLogin extends Component {
   }
 
   logIn() {
-    signIn(this.state.email, this.state.password,
-      (responseJson) => {
-        this.props.onLogin(responseJson.data.attributes.auth_token,
-          responseJson.data.attributes.user_id);
-      },
-      error => this.setState({ status: error.toString() }));
+    this.props.signIn(this.state.email, this.state.password);
+    /*
+      signIn(this.state.email, this.state.password,
+        (responseJson) => {
+          this.props.onLogin(responseJson.data.attributes.auth_token,
+            responseJson.data.attributes.user_id);
+        },
+        error => this.setState({ status: error.toString() }));*/
   }
 
   render() {
@@ -77,4 +83,15 @@ class NetworkingLogin extends Component {
   }
 }
 
-module.exports = NetworkingLogin;
+// props tied together with Redux methods
+function bindAction(dispatch) {
+  return {
+    signIn: (user, password) => dispatch(requestSignIn(user, password)),
+  };
+}
+
+// props tied together with Redux state
+const mapStateToProps = () => ({ });
+
+// Connect class with Redux and export
+export default connect(mapStateToProps, bindAction)(NetworkingLogin);

@@ -1,31 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import NetworkingLogin from './networkingLogin';
 import NetworkingHome from './networkingHome';
 
-export default class LoginExampleScreen extends Component {
+class LoginExampleScreen extends Component {
+  static propTypes = {
+    token: React.PropTypes.string,
+    userId: React.PropTypes.number,
+  }
   static navigationOptions = {
     title: 'Login Example',
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      token: null,
-      userId: null,
-    };
-  }
-
-  updateToken(token, userId) {
-    // console.warn(`Token: ${token}`);
-    this.setState({
-      token,
-      userId,
-    });
-  }
-
   render() {
-    if (this.state.token === null) {
+    if (this.props.token === null) {
       return (
         <NetworkingLogin
           onLogin={(token, userId) => this.updateToken(token, userId)}
@@ -33,11 +22,16 @@ export default class LoginExampleScreen extends Component {
       );
     }
     return (
-      <NetworkingHome
-        token={this.state.token}
-        userId={this.state.userId}
-        onLogout={() => this.updateToken(null)}
-      />
+      <NetworkingHome />
     );
   }
 }
+
+// props tied together with Redux state
+const mapStateToProps = state => ({
+  token: state.session.token,
+  userId: state.session.userId,
+});
+
+// Connect class with Redux and export
+export default connect(mapStateToProps)(LoginExampleScreen);

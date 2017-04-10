@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Content, Card, CardItem } from 'native-base';
+import { connect } from 'react-redux';
 
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 import NetworkingUserDescription from './networkingUserDescription';
-import { signOut } from '../../../networking/auth';
+// import { signOut } from '../../../networking/auth';
+import { requestSignOut } from '../../../actions/session';
 
 class NetworkingHome extends Component {
   static propTypes = {
-    onLogout: React.PropTypes.func.isRequired,
+    signOut: React.PropTypes.func.isRequired,
     token: React.PropTypes.string.isRequired,
     userId: React.PropTypes.number.isRequired,
   }
@@ -21,9 +23,7 @@ class NetworkingHome extends Component {
   }
 
   signOut() {
-    signOut(this.props.token,
-      () => this.props.onLogout(),
-      error => this.setState({ greeting: `Unable to sign out: ${error}` }));
+    this.props.signOut(this.props.token);
   }
 
   render() {
@@ -48,4 +48,18 @@ class NetworkingHome extends Component {
   }
 }
 
-module.exports = NetworkingHome;
+// props tied together with Redux state
+const mapStateToProps = state => ({
+  token: state.session.token,
+  userId: state.session.userId,
+});
+
+// props tied together with Redux methods
+function bindAction(dispatch) {
+  return {
+    signOut: token => dispatch(requestSignOut(token)),
+  };
+}
+
+// Connect class with Redux and export
+export default connect(mapStateToProps, bindAction)(NetworkingHome);
