@@ -7,7 +7,6 @@ import EmailInput from '../../common/email-input';
 import PasswordInput from '../../common/password-input';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 
-// import { signUp, signIn } from '../../../networking/auth';
 import { signUp } from '../../../networking/auth';
 import { requestSignIn } from '../../../actions/session';
 
@@ -17,7 +16,6 @@ const PASSWORD = 'password';
 
 class NetworkingLogin extends Component {
   static propTypes = {
-    // onLogin: PropTypes.func.isRequired,
     signIn: PropTypes.func.isRequired,
   }
 
@@ -38,13 +36,6 @@ class NetworkingLogin extends Component {
 
   logIn() {
     this.props.signIn(this.state.email, this.state.password);
-    /*
-      signIn(this.state.email, this.state.password,
-        (responseJson) => {
-          this.props.onLogin(responseJson.data.attributes.auth_token,
-            responseJson.data.attributes.user_id);
-        },
-        error => this.setState({ status: error.toString() }));*/
   }
 
   render() {

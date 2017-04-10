@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 import NetworkingUserDescription from './networkingUserDescription';
-// import { signOut } from '../../../networking/auth';
 import { requestSignOut } from '../../../actions/session';
 
 class NetworkingHome extends Component {

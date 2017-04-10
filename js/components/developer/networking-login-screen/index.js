@@ -1,36 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Spinner } from 'native-base';
 
 import NetworkingLogin from './networkingLogin';
 import NetworkingHome from './networkingHome';
 
 class LoginExampleScreen extends Component {
   static propTypes = {
-    token: React.PropTypes.string,
-    userId: React.PropTypes.number,
+    authenticated: React.PropTypes.bool.isRequired,
+    loading: React.PropTypes.bool.isRequired,
   }
   static navigationOptions = {
     title: 'Login Example',
   };
 
   render() {
-    if (this.props.token === null) {
+    if (this.props.loading) {
       return (
-        <NetworkingLogin
-          onLogin={(token, userId) => this.updateToken(token, userId)}
-        />
+        <Spinner color="blue" />
+      );
+    }
+    if (this.props.authenticated) {
+      return (
+        <NetworkingHome />
       );
     }
     return (
-      <NetworkingHome />
+      <NetworkingLogin />
     );
   }
 }
 
 // props tied together with Redux state
 const mapStateToProps = state => ({
-  token: state.session.token,
-  userId: state.session.userId,
+  authenticated: state.session.token != null,
+  loading: state.session.sessionLoading,
 });
 
 // Connect class with Redux and export

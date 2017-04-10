@@ -5,8 +5,7 @@ export const SESSION_REQUEST = 'REQUEST_TOKEN';
 export const SESSION_RECEIVE = 'RECEIVE_TOKEN';
 export const SESSION_REMOVE = 'REMOVE_TOKEN';
 
-// export const CREATE_USER = 'CREATE_USER';
-
+// Used to set state waiting for token
 function requestToken(user : string) : Action {
   return {
     type: SESSION_REQUEST,
@@ -14,7 +13,8 @@ function requestToken(user : string) : Action {
   };
 }
 
-function receiveToken(userId : string, token : string, error) : Action {
+// Used to set state with token
+function receiveToken(userId : number, token : string, error) : Action {
   return {
     type: SESSION_RECEIVE,
     userId,
@@ -23,6 +23,7 @@ function receiveToken(userId : string, token : string, error) : Action {
   };
 }
 
+// Used to set state with no token
 function removeToken(removed : boolean, error) : Action {
   return {
     type: SESSION_REMOVE,
@@ -31,29 +32,22 @@ function removeToken(removed : boolean, error) : Action {
   };
 }
 
-/* export function createUser(user):Action {
-  return {
-    type: CREATE_USER,
-    user,
-  };
-}*/
-
 export function requestSignIn(user, password) {
-  // console.log(`requestSignIn, user: ${user}, password: ${password}`);
+  // dispatch = method that sends state to store
   return (dispatch) => {
-    // console.log(`dispatch(requestToken(${user}))`);
+    // dispatch that token has been requested
     dispatch(requestToken(user));
+    // request the token
     signIn(user, password,
       (responseJson) => {
-        // console.log('dispatch(receiveToken(...))');
+        // dispatch the received token
         dispatch(receiveToken(
           responseJson.data.attributes.user_id,
           responseJson.data.attributes.auth_token,
           null));
       },
       (error) => {
-        // TODO handle errors
-        console.warn(error);
+        // Dispatch the received error
         dispatch(receiveToken(null, null, error));
       },
     );
@@ -68,8 +62,6 @@ export function requestSignOut(token : string) {
         dispatch(removeToken(true, null));
       },
       (error) => {
-        // TODO handle errors
-        console.warn(error);
         dispatch(removeToken(false, error));
       },
     );
