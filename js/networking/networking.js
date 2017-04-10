@@ -1,6 +1,6 @@
 import { methods, createJsonPostRequest,
   createDeleteRequest, createAuthRequest,
-  createAuthJsonRequest } from './request';
+  createAuthJsonRequest, createRequest } from './request';
 
 /*
 Class with networking fetch methods
@@ -28,7 +28,7 @@ function handleNoContentResponse(response, onSuccess) {
 
 // GET url
 export function get(url, handleResponse, onSuccess, onError) {
-  fetch(url)
+  fetch(url, createRequest(methods.GET))
     .then(response => handleResponse(response))
     .then(responseJson => onSuccess(responseJson))
     .catch(error => onError(error))

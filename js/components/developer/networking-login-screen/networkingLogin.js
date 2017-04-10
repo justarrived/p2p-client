@@ -35,8 +35,8 @@ class NetworkingLogin extends Component {
   logIn() {
     signIn(this.state.email, this.state.password,
       (responseJson) => {
-        this.props.onLogin(responseJson.data.attributes['auth-token'],
-          responseJson.data.attributes['user-id']);
+        this.props.onLogin(responseJson.data.attributes.auth_token,
+          responseJson.data.attributes.user_id);
       },
       error => this.setState({ status: error.toString() }));
   }
