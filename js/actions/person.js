@@ -5,8 +5,6 @@ export const CHANGE_NAME = 'CHANGE_NAME';
 export const INCREASE_AGE = 'INCREASE_AGE';
 export const DECREASE_AGE = 'DECREASE_AGE';
 
-
-
 export function changeName(name:string):Action {
   return {
     type: CHANGE_NAME,
