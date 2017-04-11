@@ -10,7 +10,9 @@ function handleJsonStatusResponse(response, status) {
   if (response.status === status) {
     return response.json();
   }
-  throw new Error(`Response was ${response.status}, not ${status}`);
+  const error = new Error(`Response was ${response.status}, not ${status}`);
+  error.response = response;
+  throw error;
 }
 
 function handleJsonResponse(response) {
@@ -21,7 +23,9 @@ function handleNoContentResponse(response, onSuccess) {
   if (response.status === 204) {
     return onSuccess(response.text());
   }
-  throw new Error(`Response was ${response.status}, not 204`);
+  const error = new Error(`Response was ${response.status}, not 204`);
+  error.response = response;
+  throw error;
 }
 
 /* global fetch b:true*/

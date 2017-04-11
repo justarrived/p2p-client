@@ -7,8 +7,9 @@ import EmailInput from '../../common/email-input';
 import PasswordInput from '../../common/password-input';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 
-import { signUp } from '../../../networking/auth';
+// import { postUser } from '../../../networking/user';
 import { requestSignIn } from '../../../actions/session';
+import { requestCreateUser } from '../../../actions/user';
 
 // Setting default values so they do not have to be entered every time
 const USER = 'noname@nomail.nope';
@@ -17,6 +18,9 @@ const PASSWORD = 'password';
 class NetworkingLogin extends Component {
   static propTypes = {
     signIn: PropTypes.func.isRequired,
+    signUp: PropTypes.func.isRequired,
+    sessionError: PropTypes.object,
+    userError: PropTypes.object,
   }
 
   constructor(props) {
@@ -29,9 +33,14 @@ class NetworkingLogin extends Component {
   }
 
   create() {
-    signUp(this.state.email, this.state.password,
+    this.props.signUp(this.state.email, this.state.password);
+    /* postUser(this.state.email, this.state.password,
       () => alert('Account created'),
-      error => this.setState({ status: error.toString() }));
+      (error) => {
+        // TODO handle errors better
+        console.warn(JSON.stringify(error.response));
+        this.setState({ status: error.toString() });
+      });*/
   }
 
   logIn() {
@@ -39,6 +48,14 @@ class NetworkingLogin extends Component {
   }
 
   render() {
+    if (this.props.sessionError != null) {
+      // TODO proper error handling
+      console.warn(JSON.stringify(this.props.sessionError));
+    }
+    if (this.props.userError != null) {
+      console.warn(JSON.stringify(this.props.userError));
+    }
+
     // console.log('render NetworkingLogin');
     return (
       <Content>
@@ -74,15 +91,19 @@ class NetworkingLogin extends Component {
   }
 }
 
+// props tied together with Redux state
+const mapStateToProps = state => ({
+  sessionError: state.session.error,
+  userError: state.user.error,
+});
+
 // props tied together with Redux methods
 function bindAction(dispatch) {
   return {
     signIn: (user, password) => dispatch(requestSignIn(user, password)),
+    signUp: (user, password) => dispatch(requestCreateUser(user, password)),
   };
 }
-
-// props tied together with Redux state
-const mapStateToProps = () => ({ });
 
 // Connect class with Redux and export
 export default connect(mapStateToProps, bindAction)(NetworkingLogin);

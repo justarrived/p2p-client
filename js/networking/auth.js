@@ -5,20 +5,7 @@ Class with methods for handling auth against API.
 */
 
 const BASE_URL = 'https://sandbox-api.justarrived.xyz';
-const USERS_PATH = '/api/v1/users';
 const SESSIONS_PATH = '/api/v1/users/sessions';
-
-export function signUp(email, password, onSuccess, onError) {
-  const requestJson = createJsonDataAttributes({
-    email,
-    password,
-    consent: true,
-    system_language_id: 38,
-    first_name: 'SomeName',
-    last_name: 'SomeLastName' });
-  postJson(BASE_URL + USERS_PATH,
-    requestJson, onSuccess, onError);
-}
 
 export function signIn(email, password, onSuccess, onError) {
   const requestJson = createJsonDataAttributes({

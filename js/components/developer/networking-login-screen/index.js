@@ -15,14 +15,14 @@ class LoginExampleScreen extends Component {
   };
 
   render() {
-    if (this.props.loading) {
-      return (
-        <Spinner color="blue" />
-      );
-    }
     if (this.props.authenticated) {
       return (
         <NetworkingHome />
+      );
+    }
+    if (this.props.loading) {
+      return (
+        <Spinner color="blue" />
       );
     }
     return (
@@ -34,7 +34,7 @@ class LoginExampleScreen extends Component {
 // props tied together with Redux state
 const mapStateToProps = state => ({
   authenticated: state.session.token != null,
-  loading: state.session.sessionLoading,
+  loading: state.session.sessionLoading || state.user.userLoading,
 });
 
 // Connect class with Redux and export

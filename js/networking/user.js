@@ -1,4 +1,4 @@
-import { getAuthJson, patchAuthJson } from './networking';
+import { getAuthJson, patchAuthJson, postJson } from './networking';
 import { createJsonDataAttributes } from './json';
 /*
 Class with methods for manipulating user info against API.
@@ -16,8 +16,23 @@ export function getUser(userId, token, onSuccess, onError) {
     token, onSuccess, onError);
 }
 
+export function patchUser(userId, token, json, onSuccess, onError) {
+  patchAuthJson(getUserPath(userId), token, json, onSuccess, onError);
+}
+
 export function patchUserDescription(userId, token, description, onSuccess, onError) {
   const updateJson = createJsonDataAttributes({ description });
-  patchAuthJson(getUserPath(userId),
-    token, updateJson, onSuccess, onError);
+  patchUser(userId, token, updateJson, onSuccess, onError);
+}
+
+export function postUser(email, password, onSuccess, onError) {
+  const requestJson = createJsonDataAttributes({
+    email,
+    password,
+    consent: true,
+    system_language_id: 38,
+    first_name: 'SomeName',
+    last_name: 'SomeLastName' });
+  postJson(BASE_URL + USERS_PATH,
+    requestJson, onSuccess, onError);
 }

@@ -54,9 +54,13 @@ export function requestSignIn(user, password) {
   };
 }
 
+// TODO purge user data when signing out
+// Sign out the user
 export function requestSignOut(token : string) {
   return (dispatch) => {
+    // Remove local token
     dispatch(removeToken(false, null));
+    // Remove token from API
     signOut(token,
       () => {
         dispatch(removeToken(true, null));

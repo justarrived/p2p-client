@@ -1,6 +1,8 @@
 import type { Action } from '../actions/types';
 import { SESSION_REQUEST, SESSION_RECEIVE, SESSION_REMOVE } from '../actions/session';
 
+// TODO Safe storage of token?
+
 const initialState = {
   userId: null,
   token: null,
@@ -32,7 +34,7 @@ export default function (state = initialState, action : Action) {
       ...state,
       userId: null,
       token: null,
-      sessionLoading: !action.removed || action.error != null,
+      sessionLoading: !action.removed && action.error === null,
       error: action.error,
     };
   }

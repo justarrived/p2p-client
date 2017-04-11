@@ -33,10 +33,7 @@ class NetworkingHome extends Component {
           <CardItem>
             <Text >{this.state.greeting}</Text>
           </CardItem>
-          <NetworkingUserDescription
-            token={this.props.token}
-            userId={this.props.userId}
-          />
+          <NetworkingUserDescription />
           <CardItemButton
             onPress={() => this.signOut()}
             text="log out"

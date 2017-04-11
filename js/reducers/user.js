@@ -1,83 +1,48 @@
 import type { Action } from '../actions/types';
-import {
-  ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE,
-  ACCOUNT_POSTAREA, ACCOUNT_PHONENUMBER, ACCOUNT_EMAIL, ACCOUNT_PASSWORD,
-  TOOGLE_INPUT_DISABLED, ACCOUNT_USER_AGREEMENT,
-} from '../actions/user';
+import { USER_REQUEST, USER_RECEIVE, USER_CREATE, USER_UPDATE } from '../actions/user';
 
 const initialState = {
-  firstName: 'Anton',
-  lastName: 'Smith',
-  address: ' ',
-  postCode: '',
-  postArea: '',
-  phoneNumber: '',
-  email: '',
-  password: '',
-  userAgreement: false,
-  disabled: true,
+  userId: null,
+  userJson: null,
+  userLoading: false,
+  error: null,
 };
 
 export default function (state = initialState, action : Action) {
-  if (action.type === ACCOUNT_FIRSTNAME) {
+  if (action.type === USER_REQUEST) {
     return {
       ...state,
-      firstName: action.payload,
+      userId: action.userId,
+      userJson: null,
+      userLoading: true,
+      error: null,
     };
   }
-  if (action.type === ACCOUNT_LASTNAME) {
+  if (action.type === USER_RECEIVE) {
     return {
       ...state,
-      lastName: action.payload,
+      userId: action.userId,
+      userJson: action.userJson,
+      userLoading: false,
+      error: action.error,
     };
   }
-  if (action.type === ACCOUNT_ADDRESS) {
+  if (action.type === USER_CREATE) {
     return {
       ...state,
-      address: action.payload,
+      userId: null,
+      userJson: null,
+      userLoading: true,
+      error: null,
     };
   }
-  if (action.type === ACCOUNT_POSTCODE) {
+  if (action.type === USER_UPDATE) {
     return {
       ...state,
-      postCode: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_POSTAREA) {
-    return {
-      ...state,
-      postArea: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_PHONENUMBER) {
-    return {
-      ...state,
-      phoneNumber: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_EMAIL) {
-    return {
-      ...state,
-      email: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_PASSWORD) {
-    return {
-      ...state,
-      password: action.payload,
-    };
-  }
-  if (action.type === TOOGLE_INPUT_DISABLED) {
-    console.log('DISABLE');
-    return {
-      ...state,
-      disabled: !state.disabled,
-    };
-  }
-  if (action.type === ACCOUNT_USER_AGREEMENT) {
-    return {
-      ...state,
-      userAgreement: !state.userAgreement,
+      userId: null,
+      userJson: null,
+      userLoading: true,
+      error: null,
     };
   }
   return state;
