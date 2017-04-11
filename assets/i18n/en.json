@@ -1,17 +1,20 @@
 {
   "job": {
+    "jobs": "Jobs",
+    "applications": "Applications",
     "when_will_the_job_be_performed": "When will the job be performed?",
     "create_job": "Create job",
     "location": "Location",
     "where_will_the_job_be_performed": "Where will be the job be performed?",
+    "how_long_will_the_job_take": "How long will the job take?",
     "job_duration": "Job duration",
-    "job_preview": "Job preview",
     "status": {
       "active": "Active",
       "completed": "Completed",
       "unassigned": "Unassigned"
     },
     "rating": {
+      "rate": "Rate",
       "how_did_the_worker_perform_the_job": "How did the worker perfom the job?",
       "communication": "Communication",
       "work_quality": "Work quality",
@@ -82,6 +85,7 @@
     "my_profile": "My Profile",
     "rate_worker": "Rate Worker",
     "choose_language": "Choose Language",
+    "payment_information": "Payment Information",
     "choose_worker": "Choose Worker"
   },
   "navigation_tabs": {
@@ -100,6 +104,9 @@
     "already_have_an_account_button": "Already have an account - Sign in",
     "accept_pul_and_terms": "I accept the PUL and Terms of Use"
   },
+  "sign_out": {
+    "sign_out_button": "Sign out",
+  },
   "date_and_time": {
     "date": "Date",
     "time": "Time",
@@ -108,8 +115,9 @@
   "button_actions": {
     "done": "Done",
     "edit": "Edit",
+    "save": "Save",
     "cancel": "Cancel",
-    "save": "Save"
+    "next": "Next"
   },
   "card": {
     "card_holder": "Card holder",
@@ -120,7 +128,7 @@
     "add_credit_card": "Add credit card",
     "brand": {
       "mastercard": "MasterCard",
-      "visa": "Visa"
+      "visa": "Visa Card"
     }
   },
   "language": {

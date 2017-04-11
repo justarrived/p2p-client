@@ -10,6 +10,7 @@ import PasswordInput from '../../common/password-input';
 import TextInput from '../../common/text-input';
 import PostcodeInput from '../../common/post-code-input';
 import Buttons from './personalInfoButtons';
+import I18n from '../../../i18n';
 import { changeAddress, changePostCode, changePostArea, changePhoneNumber, changeEmail, changePassword, toggleInputDisabled } from '../../../actions/account';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
@@ -73,45 +74,45 @@ class PersonalInfoScreen extends React.Component {
             <CardItem bordered style={StyleSheet.flatten(styles.formContainer)}>
               <Form style={StyleSheet.flatten(styles.form)}>
                 <TextInput
-                  title="Adress"
+                  title={I18n.t('account.address')}
                   onChange={input => this.props.changeAddress(input)}
                   disabled={this.props.account.disabled}
                 />
                 <Row>
                   <Col>
                     <PostcodeInput
-                      title="Postnummer"
+                      title={I18n.t('account.postal_code')}
                       onChange={input => this.props.changePostCode(input)}
                       disabled={this.props.account.disabled}
-                      defaultValue="55555"
+                      defaultValue="41253"
                     />
                   </Col>
                   <Col>
                     <TextInput
-                      title="Ort"
+                      title={I18n.t('account.city')}
                       onChange={input => this.props.changePostArea(input)}
                       disabled={this.props.account.disabled}
-                      defaultValue="Test"
+                      defaultValue="Göteborg"
                     />
                   </Col>
                 </Row>
                 <PhoneInput
-                  title="Telefonnummer "
+                  title={I18n.t('account.phone_number')}
                   onChange={input => this.props.changePhoneNumber(input)}
                   disabled={this.props.account.disabled}
-                  defaultValue="2626262"
+                  defaultValue="0707979836"
                 />
                 <EmailInput
-                  title="E-post "
+                  title={I18n.t('account.email')}
                   onChange={input => this.props.changeEmail(input)}
                   disabled={this.props.account.disabled}
-                  defaultValue="Test"
+                  defaultValue="anton_smith@gmail.com"
                 />
                 <PasswordInput
-                  title="Lösenord "
+                  title={I18n.t('account.password')}
                   onChange={input => this.props.changePassword(input)}
                   disabled={this.props.account.disabled}
-                  defaultValue="Test"
+                  defaultValue="00000000"
                 />
               </Form>
             </CardItem>
@@ -126,7 +127,7 @@ class PersonalInfoScreen extends React.Component {
                   style={StyleSheet.flatten(styles.logoutButton)}
                   onPress={() => alert('Du loggas ut')}
                 >
-                  <Text>Logga Ut</Text>
+                  <Text>{I18n.t('sign_out.sign_out_button')}</Text>
                 </Button>
               </Col>
             </CardItem>

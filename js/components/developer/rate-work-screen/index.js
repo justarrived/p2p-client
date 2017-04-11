@@ -6,12 +6,13 @@ import RatingLogo from './logo';
 import RatingScreenStyles from './rateWorkStyles';
 import RatingBar from './ratingBar';
 import RecommendationTextbox from './recommendationTextbox';
+import I18n from '../../../i18n';
 
 // Render the component
 export default class RateWorkScreen extends Component {
 
   static navigationOptions = {
-    title: 'Rate the work',
+    title: I18n.t('screen_titles.rate_worker'),
   };
 
   render() {
@@ -23,26 +24,26 @@ export default class RateWorkScreen extends Component {
             <View style={RatingScreenStyles.textContainer}>
               <Text
                 style={RatingScreenStyles.header1Text}
-              >Tack!</Text>
+              >{I18n.t('job.rating.thank_you')}</Text>
               <Text
                 style={RatingScreenStyles.header2Text}
-              >Hur tyckte du att xx utförde uppdraget?</Text>
+              >{I18n.t('job.rating.how_did_the_worker_perform_the_job')}</Text>
               <Text
                 style={RatingScreenStyles.ratingText}
-              >Punktlighet</Text>
+              >{I18n.t('job.rating.punctuality')}</Text>
               <RatingBar />
               <Text
                 style={RatingScreenStyles.ratingText}
-              >Kommunikation</Text>
+              >{I18n.t('job.rating.communication')}</Text>
               <RatingBar />
               <Text
                 style={RatingScreenStyles.ratingText}
-              >Kvalité på utförande</Text>
+              >{I18n.t('job.rating.work_quality')}</Text>
               <RatingBar />
             </View>
             <Text
               style={RatingScreenStyles.header3Text}
-            >Ge antal stjärnor och skriv gärna en rekommendation som läggs till i xx profil.</Text>
+            >{I18n.t('job.rating.rate_worker_and_write_review')}</Text>
             <View style={RatingScreenStyles.textBox}>
               <RecommendationTextbox />
             </View>

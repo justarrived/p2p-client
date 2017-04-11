@@ -6,6 +6,7 @@ import {
 } from 'native-base';
 import styles from './style';
 import GlobalStyle from '../../common/globalStyle';
+import I18n from '../../../i18n';
 
 export default class MakePaymentScreen extends Component {
   render() {
@@ -16,17 +17,17 @@ export default class MakePaymentScreen extends Component {
             <CardItem bordered style={StyleSheet.flatten(styles.formContainer)}>
               <Form style={StyleSheet.flatten(styles.form)}>
                 <Item floatingLabel>
-                  <Label>Kortinnehavare</Label>
+                  <Label>{I18n.t('card.card_holder')}</Label>
                   <Input />
                 </Item>
                 <Item floatingLabel>
-                  <Label>Kortnummer</Label>
+                  <Label>{I18n.t('card.card_number')}</Label>
                   <Input keyboardType="numeric" />
                 </Item>
                 <Grid>
                   <Col>
                     <Item floatingLabel>
-                      <Label>MM/ÅÅ</Label>
+                      <Label>{I18n.t('card.expiration_date_placeholder')}</Label>
                       <Input keyboardType="numeric" />
                     </Item>
                   </Col>
@@ -40,7 +41,7 @@ export default class MakePaymentScreen extends Component {
                 <ListItem>
                   <CheckBox checked={false} />
                   <Body>
-                    <Text>Spara kort</Text>
+                    <Text>{I18n.t('card.save_card')}</Text>
                   </Body>
                 </ListItem>
               </Form>
@@ -49,12 +50,12 @@ export default class MakePaymentScreen extends Component {
               <Grid>
                 <Col style={StyleSheet.flatten(styles.secondaryButtonSpacing)}>
                   <Button block light>
-                    <Text>Avbryt</Text>
+                    <Text>{I18n.t('button_actions.cancel')}</Text>
                   </Button>
                 </Col>
                 <Col>
                   <Button block primary>
-                    <Text>Betala</Text>
+                    <Text>{I18n.t('card.pay')}</Text>
                   </Button>
                 </Col>
               </Grid>

@@ -3,11 +3,12 @@ import { Grid, Col, CardItem, Row } from 'native-base';
 
 import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
 import GlobalStyle from '../../common/globalStyle';
+import I18n from '../../../i18n';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
-const ADDRESS_STRING = 'Adress';
-const CITY_STRING = 'Stad';
-const ZIP_CODE_STRING = 'Postnummer';
+const ADDRESS_STRING = I18n.t('account.address');
+const CITY_STRING = I18n.t('account.city');
+const ZIP_CODE_STRING = I18n.t('account.postal_code');
 
 // Card showing the location of the job, in the job creation preview.
 export default class PlaceCardPreview extends Component {

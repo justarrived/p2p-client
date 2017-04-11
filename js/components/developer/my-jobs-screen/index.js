@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Tab, Tabs } from 'native-base';
 import { connect } from 'react-redux';
 import MyJobsTab from './myJobsTab';
+import I18n from '../../../i18n';
 
 class MyJobsScreen extends Component {
   static navigationOptions = {
-    title: 'Mina Uppdrag',
+    title: I18n.t('screen_titles.my_jobs'),
   };
 
   // TODO Improve typechecking
@@ -30,10 +31,10 @@ class MyJobsScreen extends Component {
 
     return (
       <Tabs>
-        <Tab heading="Aktiva">
+        <Tab heading={I18n.t('job.status.active')}>
           <MyJobsTab data={temporaryActive} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
-        <Tab heading="Avslutade">
+        <Tab heading={I18n.t('job.status.completed')}>
           <MyJobsTab data={temporaryArchived} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
       </Tabs>
