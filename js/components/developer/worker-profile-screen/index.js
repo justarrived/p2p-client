@@ -15,6 +15,9 @@ const EDUCATION = 'Nationalekonomi';
 const PREVJOB = 'Banktjänsteman';
 
 export default class WorkerInfoScreen extends Component {
+  static navigationOptions = {
+    title: 'John Does profile',
+  };
   render() {
     return (
       <Container>
