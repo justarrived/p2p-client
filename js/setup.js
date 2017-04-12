@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-
-import App from './app';
+import AppNavigatorWithHelpers from './app';
 import configureStore from './store/configureStore';
 
 function setup() : React.Component {
@@ -18,7 +17,7 @@ function setup() : React.Component {
     render() {
       return (
         <Provider store={this.state.store}>
-          <App />
+          <AppNavigatorWithHelpers />
         </Provider>
       );
     }
