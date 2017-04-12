@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Container, Content, CheckBox, Form, Item, Thumbnail, Card, Input, ListItem, Button, Body, Col, Grid, Text } from 'native-base';
 import LoginScreenStyles from './loginScreenStyles';
+import I18n from '../../../i18n';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
-const EMAIL_STRING = 'E-post';
-const PASSWORD_STRING = 'Lösenord';
-const REMEMBER_ME_STRING = 'Kom ihåg mig';
-const LOGIN_BUTTON_STRING = 'Logga In';
-const FORGOT_PASSWORD_STRING = 'Glömt lösenord';
-const SIGN_UP_BUTTON_STRING = 'Skapa konto';
+const EMAIL_STRING = I18n.t('account.email');
+const PASSWORD_STRING = I18n.t('account.password');
+const REMEMBER_ME_STRING = I18n.t('login.remember_me');
+const LOGIN_BUTTON_STRING = I18n.t('login.sign_in_button');
+const FORGOT_PASSWORD_STRING = I18n.t('login.forgot_password_button');
+const SIGN_UP_BUTTON_STRING = I18n.t('sign_up.sign_up_button');
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 export default class LoginScreen extends Component {
   static navigationOptions = {
-    title: 'Login',
+    title: I18n.t('screen_titles.login'),
   };
 
   constructor() {

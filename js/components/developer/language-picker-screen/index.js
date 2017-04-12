@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Container, Content, Text } from 'native-base';
 
 import LanguagePicker from './languagePicker';
+import I18n from '../../../i18n';
 
 // Example screen containing a LanguagePicker
 export default class LanguagePickerScreen extends Component {
 
   // Navigation information
   static navigationOptions = {
-    title: 'Language Picker',
+    title: I18n.t('screen_titles.choose_language'),
   };
 
   // Render the component

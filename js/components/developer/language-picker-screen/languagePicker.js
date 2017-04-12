@@ -4,6 +4,7 @@ import { Content } from 'native-base';
 import ModalCard from '../../common/modal-card/modalCard';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 import LanguageDisplay from './languageDisplay';
+import I18n from '../../../i18n';
 
 import LanguageSelectionListItem from './languageSelectionListItem';
 import SearchList from '../../common/search-list/searchList';
@@ -40,7 +41,7 @@ export default class LanguagePicker extends Component {
             renderRow={rowData => <LanguageSelectionListItem language={rowData} />}
           />
           <CardItemButton
-            text="Done"
+            text={I18n.t('button_actions.done')}
             onPress={() => this.setModalVisible(false)}
           />
         </ModalCard>

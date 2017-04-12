@@ -20,6 +20,7 @@ import RateWorkScreen from './components/developer/rate-work-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
+import I18n from './i18n';
 
 import TabBarStyles from './tabBarStyles';
 
@@ -42,7 +43,7 @@ const CreateJobTab = StackNavigator({
 }, {
   navigationOptions: {
     tabBar: {
-      label: 'Skapa uppdrag',
+      label: I18n.t('screen_titles.create_job'),
     },
   },
 });
@@ -57,7 +58,7 @@ const MyJobTab = StackNavigator({
 }, {
   navigationOptions: {
     tabBar: {
-      label: 'Mina uppdrag',
+      label: I18n.t('screen_titles.my_jobs'),
     },
   },
 });
@@ -75,7 +76,7 @@ const MyProfileTab = StackNavigator({
 }, {
   navigationOptions: {
     tabBar: {
-      label: 'Min Profil',
+      label: I18n.t('screen_titles.my_profile'),
     },
   },
 });

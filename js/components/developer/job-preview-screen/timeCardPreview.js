@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CardItem, Right, Text, Body, Grid, Row } from 'native-base';
+import I18n from '../../../i18n';
 
 // Card showing the duration of the job, in the job creation preview.
 export default class TimeCardPreview extends Component {
@@ -16,7 +17,7 @@ export default class TimeCardPreview extends Component {
       <CardItem bordered>
         <Grid>
           <Row>
-            <Text note>Tidsåtgång</Text>
+            <Text note>{I18n.t('job.job_duration')}</Text>
           </Row>
           <Row>
             <Body>
