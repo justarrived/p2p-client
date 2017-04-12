@@ -1,12 +1,11 @@
-import type { Action } from './types';
-import { signIn, signOut } from '../networking/auth';
+import { signIn, signOut } from '../networking/session';
 
 export const SESSION_REQUEST = 'REQUEST_TOKEN';
 export const SESSION_RECEIVE = 'RECEIVE_TOKEN';
 export const SESSION_REMOVE = 'REMOVE_TOKEN';
 
 // Used to set state waiting for token
-function requestToken(user : string) : Action {
+function requestToken(user) {
   return {
     type: SESSION_REQUEST,
     user,
@@ -14,7 +13,7 @@ function requestToken(user : string) : Action {
 }
 
 // Used to set state with token
-function receiveToken(userId : number, token : string, error) : Action {
+function receiveToken(userId, token, error) {
   return {
     type: SESSION_RECEIVE,
     userId,
@@ -24,7 +23,7 @@ function receiveToken(userId : number, token : string, error) : Action {
 }
 
 // Used to set state with no token
-function removeToken(removed : boolean, error) : Action {
+function removeToken(removed, error) {
   return {
     type: SESSION_REMOVE,
     removed,
@@ -55,7 +54,7 @@ export function requestSignIn(user, password) {
 }
 
 // Sign out the user
-export function requestSignOut(token : string) {
+export function requestSignOut(token) {
   return (dispatch) => {
     // Remove local token
     dispatch(removeToken(false, null));

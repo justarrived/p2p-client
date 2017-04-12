@@ -1,4 +1,3 @@
-
 export const CHANGE_NAME = 'CHANGE_NAME';
 export const INCREASE_AGE = 'INCREASE_AGE';
 export const DECREASE_AGE = 'DECREASE_AGE';
