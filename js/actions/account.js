@@ -1,5 +1,3 @@
-import type { Action } from './types';
-
 export const ACCOUNT_FIRSTNAME = 'ACCOUNT_FIRSTNAME';
 export const ACCOUNT_LASTNAME = 'ACCOUNT_LASTNAME';
 export const ACCOUNT_ADDRESS = 'ACCOUNT_ADDRESS';
@@ -11,69 +9,69 @@ export const ACCOUNT_PASSWORD = 'ACCOUNT_PASSWORD';
 export const TOOGLE_INPUT_DISABLED = 'TOOGLE_INPUT_DISABLED';
 export const ACCOUNT_USER_AGREEMENT = 'ACCOUNT_USER_AGREEMENT';
 
-export function changeFirstName(firstName:string):Action {
+export function changeFirstName(firstName) {
   return {
     type: ACCOUNT_FIRSTNAME,
     payload: firstName,
   };
 }
 
-export function changeLastName(LastName:string):Action {
+export function changeLastName(LastName) {
   return {
     type: ACCOUNT_LASTNAME,
     payload: LastName,
   };
 }
 
-export function changeAddress(address:string):Action {
+export function changeAddress(address) {
   return {
     type: ACCOUNT_ADDRESS,
     payload: address,
   };
 }
 
-export function changePostCode(postCode:string):Action {
+export function changePostCode(postCode) {
   return {
     type: ACCOUNT_POSTCODE,
     payload: postCode,
   };
 }
 
-export function changePostArea(postArea:string):Action {
+export function changePostArea(postArea) {
   return {
     type: ACCOUNT_POSTAREA,
     payload: postArea,
   };
 }
 
-export function changePhoneNumber(phoneNumber:string):Action {
+export function changePhoneNumber(phoneNumber) {
   return {
     type: ACCOUNT_PHONENUMBER,
     payload: phoneNumber,
   };
 }
 
-export function changeEmail(email:string):Action {
+export function changeEmail(email) {
   return {
     type: ACCOUNT_EMAIL,
     payload: email,
   };
 }
 
-export function changePassword(password:string):Action {
+export function changePassword(password) {
   return {
     type: ACCOUNT_PASSWORD,
     payload: password,
   };
 }
 
-export function toggleCheckBox():Action {
+export function toggleCheckBox() {
   return {
     type: ACCOUNT_USER_AGREEMENT,
   };
 }
 
-export function toggleInputDisabled():Action {
+export function toggleInputDisabled() {
   return {
     type: TOOGLE_INPUT_DISABLED,
   };
