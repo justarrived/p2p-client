@@ -36,7 +36,7 @@
       "title": "Cleaning",
       "description": "Get help with cleaning!"
     },
-    "weeding": {
+    "gardening": {
       "title": "Gardening",
       "description": "Get help with gardening!"
     }
@@ -56,7 +56,7 @@
     }
   },
   "section_headings": {
-    "assaigned_jobs": "Assaigned, awaiting completion",
+    "assigned_jobs": "Assigned, awaiting completion",
     "archived_jobs": "Completed jobs",
     "unassigned_jobs": "Unassigned jobs"
   },

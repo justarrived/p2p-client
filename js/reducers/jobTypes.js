@@ -21,8 +21,8 @@ const initialState = {
       image: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
     },
     {
-      title: I18n.t('categories.weeding.title'),
-      description: I18n.t('categories.weeding.description'),
+      title: I18n.t('categories.gardening.title'),
+      description: I18n.t('categories.gardening.description'),
       icon: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
       image: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
     },

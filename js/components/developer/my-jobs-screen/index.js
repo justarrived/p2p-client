@@ -21,7 +21,7 @@ class MyJobsScreen extends Component {
   render() {
     // TODO Replace placeholder data with real data from API.
     const temporaryActive = {
-      'section_headings.assaigned_jobs': this.props.ownedJobs.data,
+      'section_headings.assigned_jobs': this.props.ownedJobs.data,
       'section_headings.unassigned_jobs': this.props.ownedJobs.data,
     };
 
