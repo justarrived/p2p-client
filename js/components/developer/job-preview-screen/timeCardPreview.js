@@ -17,7 +17,7 @@ export default class TimeCardPreview extends Component {
       <CardItem bordered>
         <Grid>
           <Row>
-            <Text note>{I18n.t('date_and_time.time')}</Text>
+            <Text note>{I18n.t('job.job_duration')}</Text>
           </Row>
           <Row>
             <Body>
