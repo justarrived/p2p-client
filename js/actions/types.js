@@ -41,12 +41,6 @@ type: 'ACCOUNT_PASSWORD',
 type: 'TOOGLE_INPUT_DISABLED',
 } | {
 type: 'ACCOUNT_USER_AGREEMENT',
-} | {
-type: 'SESSION_REQUEST',
-} | {
-type: 'SESSION_RECEIVE',
-} | {
-type: 'SESSION_REMOVE',
 }
 
 export type Dispatch = (action : Action | Array < Action >) => any;

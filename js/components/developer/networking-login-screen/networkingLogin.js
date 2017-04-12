@@ -30,8 +30,8 @@ class NetworkingLogin extends Component {
   static propTypes = {
     signIn: PropTypes.func.isRequired,
     signUp: PropTypes.func.isRequired,
-    sessionError: PropTypes.object,
-    userError: PropTypes.object,
+    sessionError: PropTypes.objectOf(React.PropTypes.any),
+    userError: PropTypes.objectOf(React.PropTypes.any),
   }
   static defaultProps = {
     sessionError: null,

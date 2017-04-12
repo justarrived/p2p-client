@@ -17,7 +17,10 @@ class NetworkingUserDescription extends Component {
     getUser: React.PropTypes.func.isRequired,
     loading: React.PropTypes.bool.isRequired,
     // userError: React.PropTypes.object,
-    userJson: React.PropTypes.object,
+    userJson: React.PropTypes.objectOf(React.PropTypes.any),
+  }
+  static defaultProps = {
+    userJson: null,
   }
 
   constructor(props) {
@@ -53,7 +56,7 @@ class NetworkingUserDescription extends Component {
       );
     }
     const apiDescription = this.props.userJson.data.attributes.description;
-    const disableUpload = this.state.startup || this.state.description === apiDescription;
+    const disableUpload = this.state.startup || (this.state.description === apiDescription);
     return (
       <View>
         <CardItem>
@@ -72,10 +75,6 @@ class NetworkingUserDescription extends Component {
     );
   }
 }
-
-NetworkingUserDescription.defaultProps = {
-  userJson: null,
-};
 
 // props tied together with Redux state
 const mapStateToProps = state => ({

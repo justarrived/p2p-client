@@ -1,4 +1,3 @@
-import type { Action } from '../actions/types';
 import { CHANGE_NAME, INCREASE_AGE, DECREASE_AGE } from '../actions/person';
 
 const initialState = {
@@ -7,7 +6,7 @@ const initialState = {
   lang: ['Svenska', 'English'],
 };
 
-export default function (state = initialState, action : Action) {
+export default function (state = initialState, action) {
   if (action.type === CHANGE_NAME) {
     // console.log('i reducer name');
     return {

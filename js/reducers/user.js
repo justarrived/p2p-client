@@ -44,8 +44,6 @@ export default function (state = initialState, action) {
     // Request for user to be updated has been sent
     return {
       ...state,
-      userId: action.userId,
-      userJson: null,
       userLoading: true,
       error: null,
     };

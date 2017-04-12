@@ -1,13 +1,12 @@
-import type { Action } from './types';
 import { getUser, postUser, patchUser } from '../networking/user';
 
 export const USER_REQUEST = 'USER_REQUEST';
 export const USER_RECEIVE = 'USER_RECEIVE';
 export const USER_CREATE = 'USER_CREATE';
-export const USER_UPDATE = 'USER_CREATE';
+export const USER_UPDATE = 'USER_UPDATE';
 
 // Used to set state waiting for user
-function requestUser(userId : string) : Action {
+function requestUser(userId) {
   return {
     type: USER_REQUEST,
     userId,
@@ -15,7 +14,7 @@ function requestUser(userId : string) : Action {
 }
 
 // Used to set state with user
-function receiveUser(userId, userJson, error) : Action {
+function receiveUser(userId, userJson, error) {
   return {
     type: USER_RECEIVE,
     userId,
@@ -25,14 +24,14 @@ function receiveUser(userId, userJson, error) : Action {
 }
 
 // Used to set state with new user
-function createUser() : Action {
+function createUser() {
   return {
     type: USER_CREATE,
   };
 }
 
 // Used to set state with updated user
-function updateUser(userId) : Action {
+function updateUser(userId) {
   return {
     type: USER_UPDATE,
     userId,

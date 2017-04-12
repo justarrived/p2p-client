@@ -1,24 +1,22 @@
 
-import type { Action } from './types';
-
 export const CHANGE_NAME = 'CHANGE_NAME';
 export const INCREASE_AGE = 'INCREASE_AGE';
 export const DECREASE_AGE = 'DECREASE_AGE';
 
-export function changeName(name:string):Action {
+export function changeName(name) {
   return {
     type: CHANGE_NAME,
     payload: name,
   };
 }
 
-export function increaseAge():Action {
+export function increaseAge() {
   return {
     type: INCREASE_AGE,
   };
 }
 
-export function decreaseAge():Action {
+export function decreaseAge() {
   return {
     type: DECREASE_AGE,
   };

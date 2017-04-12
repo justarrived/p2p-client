@@ -1,4 +1,3 @@
-import type { Action } from '../actions/types';
 import { SESSION_REQUEST, SESSION_RECEIVE, SESSION_REMOVE } from '../actions/session';
 
 const initialState = {
@@ -8,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-export default function (state = initialState, action : Action) {
+export default function (state = initialState, action) {
   // console.log(`previous session state:\n${JSON.stringify(state, null, 4)}`);
   if (action.type === SESSION_REQUEST) {
     return {
@@ -33,7 +32,7 @@ export default function (state = initialState, action : Action) {
       ...state,
       userId: null,
       token: null,
-      sessionLoading: !action.removed && action.error === null,
+      sessionLoading: !action.removed && (action.error === null),
       error: action.error,
     };
   }
