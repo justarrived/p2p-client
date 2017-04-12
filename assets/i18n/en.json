@@ -1,26 +1,24 @@
 {
   "job": {
-    "jobs": "Jobs",
+    "job_details": "Job details",
     "applications": "Applications",
     "when_will_the_job_be_performed": "When will the job be performed?",
     "create_job": "Create job",
     "location": "Location",
     "where_will_the_job_be_performed": "Where will the job be performed?",
-    "how_long_will_the_job_take": "How long will the job take?",
+    "approximate_duration": "What's the approximate duration?",
     "job_duration": "Job duration",
-    "status": {
-      "active": "Active",
-      "completed": "Completed",
-      "unassigned": "Unassigned"
+    "headings": {
+      "current": "Current",
+      "history": "History",
     },
     "rating": {
       "rate": "Rate",
-      "how_did_the_worker_perform_the_job": "How did the worker perfom the job?",
+      "how_did_the_worker_perform_the_job": "Please rate the worker and write a short review",
       "communication": "Communication",
       "work_quality": "Work quality",
       "punctuality": "Punctuality",
-      "rate_worker_and_write_review": "Please rate worker and write a short review!",
-      "write_short_review_here": "Write your short review here",
+      "write_review_here": "Write your review here",
       "no_rating_yet": "No rating yet",
       "thank_you": "Thank you!"
     }
@@ -28,19 +26,19 @@
   "categories": {
     "shoveling": {
       "title": "Snow shoveling",
-      "description": "Get help in the snow!"
+      "description": "Get help with the snow!"
     },
     "raking": {
       "title": "Leaf raking",
-      "description": "Get help with leaves!"
+      "description": "Get help with the leaves!"
     },
     "cleaning": {
       "title": "Cleaning",
       "description": "Get help with cleaning!"
     },
     "weeding": {
-      "title": "Grass weeding",
-      "description": "Get help with grass weeding!"
+      "title": "Gardening",
+      "description": "Get help with gardening!"
     }
   },
   "size": {
@@ -58,7 +56,7 @@
     }
   },
   "section_headings": {
-    "active_jobs": "Active jobs",
+    "assaigned_jobs": "Assaigned, awaiting completion",
     "archived_jobs": "Completed jobs",
     "unassigned_jobs": "Unassigned jobs"
   },
@@ -128,10 +126,10 @@
     "add_credit_card": "Add credit card",
     "brand": {
       "mastercard": "MasterCard",
-      "visa": "Visa Card"
+      "visa": "Visa"
     }
   },
   "language": {
-    "language_displayed_in_app": "Language that will be displayed in the app"
+    "select_display_language": "Select app display language"
   }
 }

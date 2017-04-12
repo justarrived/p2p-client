@@ -7,7 +7,7 @@ const RecommendationTextbox = () =>
     <Input
       multiline
       maxLength={500}
-      placeholder={I18n.t('job.rating.write_short_review_here')}
+      placeholder={I18n.t('job.rating.write_review_here')}
     />
   </Item>;
 

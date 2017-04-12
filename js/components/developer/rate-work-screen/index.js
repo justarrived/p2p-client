@@ -41,9 +41,6 @@ export default class RateWorkScreen extends Component {
               >{I18n.t('job.rating.work_quality')}</Text>
               <RatingBar />
             </View>
-            <Text
-              style={RatingScreenStyles.header3Text}
-            >{I18n.t('job.rating.rate_worker_and_write_review')}</Text>
             <View style={RatingScreenStyles.textBox}>
               <RecommendationTextbox />
             </View>

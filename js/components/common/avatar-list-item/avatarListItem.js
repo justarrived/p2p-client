@@ -4,7 +4,6 @@ import { Text, Left, Right, ListItem, Body, Thumbnail } from 'native-base';
 import AvatarListItemStyles from './avatarListItemStyles';
 import StatusBadge from '../status-badge/statusBadge';
 import { JOB_STATUS } from '../../common/constants';
-import I18n from '../../../i18n';
 
 export default class AvatarListItem extends Component {
   static propTypes = {
@@ -22,7 +21,7 @@ export default class AvatarListItem extends Component {
 
   static defaultProps = {
     status: undefined,
-    toNextScreen: () => alert('Hej!'),
+    toNextScreen: () => alert('hej!'),
   }
 
   render() {

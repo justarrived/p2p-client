@@ -13,7 +13,7 @@ export default class JobsInformationScreen extends Component {
     return (
       <Container>
         <Tabs>
-          <Tab heading={I18n.t('job.jobs')} >
+          <Tab heading={I18n.t('job.job_details')} >
             <JobPreviewScreen />
           </Tab>
           <Tab heading={I18n.t('job.applications')}>

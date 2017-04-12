@@ -45,7 +45,7 @@ export default class TimeCard extends Component {
 
     return (
       <Card>
-        <CardHeader icon="time" title={I18n.t('date_and_time.time')} subtitle={I18n.t('job.how_long_will_the_job_take')} />
+        <CardHeader icon="time" title={I18n.t('date_and_time.time')} subtitle={I18n.t('job.approximate_duration')} />
         {radioButtons}
         <CardItem footer />
       </Card>

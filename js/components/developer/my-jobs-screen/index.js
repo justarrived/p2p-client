@@ -21,7 +21,7 @@ class MyJobsScreen extends Component {
   render() {
     // TODO Replace placeholder data with real data from API.
     const temporaryActive = {
-      'section_headings.active_jobs': this.props.ownedJobs.data,
+      'section_headings.assaigned_jobs': this.props.ownedJobs.data,
       'section_headings.unassigned_jobs': this.props.ownedJobs.data,
     };
 
@@ -31,10 +31,10 @@ class MyJobsScreen extends Component {
 
     return (
       <Tabs>
-        <Tab heading={I18n.t('job.status.active')}>
+        <Tab heading={I18n.t('job.headings.current')}>
           <MyJobsTab data={temporaryActive} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
-        <Tab heading={I18n.t('job.status.completed')}>
+        <Tab heading={I18n.t('job.headings.history')}>
           <MyJobsTab data={temporaryArchived} toNextScreen={() => this.navigateToNextScreen()} />
         </Tab>
       </Tabs>
