@@ -76,7 +76,7 @@ export default class WebAppJobs extends Component {
                   url={rowData.relationships.company.links.self}
                   city={rowData.attributes.city}
                 />
-                <Text style={webAppStyles.textContent}>{rowData.attributes['short-description']}</Text>
+                <Text style={webAppStyles.textContent}>{rowData.attributes.short_description}</Text>
                 <Text >
                   <Text style={webAppStyles.textMoney}>{rowData.attributes.amount}</Text>
                   <Text style={webAppStyles.textCurrency}> {rowData.attributes.currency}</Text>
@@ -89,7 +89,7 @@ export default class WebAppJobs extends Component {
                 <Text style={webAppStyles.textLeft}>{rowData.attributes.hours} TIMMAR</Text>
               </Left>
               <Right >
-                <WebAppHourlyWage url={rowData.relationships['hourly-pay'].links.self} />
+                <WebAppHourlyWage url={rowData.relationships.hourly_pay.links.self} />
               </Right>
             </CardItem>
           </Card>

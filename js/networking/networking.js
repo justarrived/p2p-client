@@ -1,6 +1,6 @@
 import { methods, createJsonPostRequest,
   createDeleteRequest, createAuthRequest,
-  createAuthJsonRequest } from './request';
+  createAuthJsonRequest, createRequest } from './request';
 
 /*
 Class with networking fetch methods
@@ -10,7 +10,9 @@ function handleJsonStatusResponse(response, status) {
   if (response.status === status) {
     return response.json();
   }
-  throw new Error(`Response was ${response.status}, not ${status}`);
+  const error = new Error(`Response was ${response.status}, not ${status}`);
+  error.response = response;
+  throw error;
 }
 
 function handleJsonResponse(response) {
@@ -21,14 +23,16 @@ function handleNoContentResponse(response, onSuccess) {
   if (response.status === 204) {
     return onSuccess(response.text());
   }
-  throw new Error(`Response was ${response.status}, not 204`);
+  const error = new Error(`Response was ${response.status}, not 204`);
+  error.response = response;
+  throw error;
 }
 
 /* global fetch b:true*/
 
 // GET url
 export function get(url, handleResponse, onSuccess, onError) {
-  fetch(url)
+  fetch(url, createRequest(methods.GET))
     .then(response => handleResponse(response))
     .then(responseJson => onSuccess(responseJson))
     .catch(error => onError(error))

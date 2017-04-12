@@ -1,3 +1,5 @@
+// TODO find out if anything in this file is necessary...
+
 export type Action = {
   type: 'CHANGE_NAME',
   route: string
