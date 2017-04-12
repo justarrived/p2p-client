@@ -63,14 +63,14 @@ export function requestGetUser(userId, token) {
 }
 
 // Create a new user
-export function requestCreateUser(email, password) {
+export function requestCreateUser(requestJson) {
   return (dispatch) => {
     dispatch(createUser());
-    postUser(email, password,
-      (userJson) => {
+    postUser(requestJson,
+      (responseJson) => {
         dispatch(receiveUser(
-          userJson.data.id,
-          userJson,
+          responseJson.data.id,
+          responseJson,
           null));
       },
       (error) => {

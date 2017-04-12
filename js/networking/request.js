@@ -8,9 +8,6 @@ export const methods = {
   POST: 'POST',
   PATCH: 'PATCH',
   DELETE: 'DELETE',
-  // HEAD: 'HEAD',
-  // PUT: 'PUT',
-  // OPTIONS: 'OPTIONS',
 };
 
 // Helper method creting 'method' request
@@ -19,7 +16,7 @@ export function createRequest(method) {
     method,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/vnd.api+json',
       'X-API-KEY-TRANSFORM': 'underscore',
     },
   };

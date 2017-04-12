@@ -11,6 +11,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action : Action) {
+  // console.log(`previous session state:\n${JSON.stringify(state, null, 4)}`);
   if (action.type === SESSION_REQUEST) {
     return {
       ...state,

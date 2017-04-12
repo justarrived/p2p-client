@@ -16,7 +16,7 @@ class NetworkingUserDescription extends Component {
     updateUser: React.PropTypes.func.isRequired,
     getUser: React.PropTypes.func.isRequired,
     loading: React.PropTypes.bool.isRequired,
-    userError: React.PropTypes.object,
+    // userError: React.PropTypes.object,
     userJson: React.PropTypes.object,
   }
 
@@ -73,12 +73,16 @@ class NetworkingUserDescription extends Component {
   }
 }
 
+NetworkingUserDescription.defaultProps = {
+  userJson: null,
+};
+
 // props tied together with Redux state
 const mapStateToProps = state => ({
   token: state.session.token,
   userId: state.session.userId,
   loading: state.user.userLoading,
-  userError: state.user.error,
+  // userError: state.user.error,
   userJson: state.user.userJson,
 });
 

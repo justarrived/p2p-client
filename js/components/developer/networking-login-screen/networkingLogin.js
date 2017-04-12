@@ -7,9 +7,20 @@ import EmailInput from '../../common/email-input';
 import PasswordInput from '../../common/password-input';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 
-// import { postUser } from '../../../networking/user';
+import { createJsonDataAttributes } from '../../../networking/json';
 import { requestSignIn } from '../../../actions/session';
 import { requestCreateUser } from '../../../actions/user';
+
+function getCreateUserJson(email, password) {
+  return createJsonDataAttributes({
+    email,
+    password,
+    consent: true,
+    system_language_id: 38,
+    first_name: 'SomeName',
+    last_name: 'SomeLastName',
+  });
+}
 
 // Setting default values so they do not have to be entered every time
 const USER = 'noname@nomail.nope';
@@ -22,6 +33,10 @@ class NetworkingLogin extends Component {
     sessionError: PropTypes.object,
     userError: PropTypes.object,
   }
+  static defaultProps = {
+    sessionError: null,
+    userError: null,
+  }
 
   constructor(props) {
     super(props);
@@ -32,15 +47,9 @@ class NetworkingLogin extends Component {
     };
   }
 
-  create() {
-    this.props.signUp(this.state.email, this.state.password);
-    /* postUser(this.state.email, this.state.password,
-      () => alert('Account created'),
-      (error) => {
-        // TODO handle errors better
-        console.warn(JSON.stringify(error.response));
-        this.setState({ status: error.toString() });
-      });*/
+  createAccount() {
+    this.props.signUp(
+      getCreateUserJson(this.state.email, this.state.password));
   }
 
   logIn() {
@@ -49,14 +58,12 @@ class NetworkingLogin extends Component {
 
   render() {
     if (this.props.sessionError != null) {
-      // TODO proper error handling
-      console.warn(JSON.stringify(this.props.sessionError));
+      // console.warn(JSON.stringify(this.props.sessionError));
     }
     if (this.props.userError != null) {
-      console.warn(JSON.stringify(this.props.userError));
+      // console.warn(JSON.stringify(this.props.userError));
     }
 
-    // console.log('render NetworkingLogin');
     return (
       <Content>
         <Card>
@@ -82,7 +89,7 @@ class NetworkingLogin extends Component {
             text="log in"
           />
           <CardItemButton
-            onPress={() => this.create()}
+            onPress={() => this.createAccount()}
             text="sign up"
           />
         </Card>
