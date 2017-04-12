@@ -54,7 +54,6 @@ export function requestSignIn(user, password) {
   };
 }
 
-// TODO purge user data when signing out
 // Sign out the user
 export function requestSignOut(token : string) {
   return (dispatch) => {
