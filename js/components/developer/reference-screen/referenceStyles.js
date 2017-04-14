@@ -7,20 +7,12 @@ const referenceStyles = StyleSheet.create({
     fontSize: 18,
     color: MAIN_CERISE,
   },
-  authorStyle: {
-    marginTop: 0,
-    paddingTop: 0,
-  },
   pictureStyle: {
     width: 40,
     height: 40,
     borderRadius: 20,
     marginLeft: 15,
     marginRight: 15,
-  },
-  textboxStyle: {
-    paddingTop: 0,
-    marginBottom: 0,
   },
   textStyle: {
     color: BLACK,
@@ -50,7 +42,7 @@ const referenceStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  leftColStyle: {
+  leftColSize: {
     flex: 2.3,
   },
 });

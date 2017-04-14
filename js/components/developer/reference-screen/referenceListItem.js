@@ -23,8 +23,8 @@ export default class referenceListItem extends Component {
         <Thumbnail
           style={StyleSheet.flatten(ReferenceStyles.pictureStyle)} source={this.props.icon}
         />
-        <View style={ReferenceStyles.leftColStyle}>
-          <View style={ReferenceStyles.textboxStyle}>
+        <View style={ReferenceStyles.leftColSize}>
+          <View>
             <Text
               multiline
               numberOfLines={4}
@@ -32,7 +32,7 @@ export default class referenceListItem extends Component {
             >{this.props.reference}
             </Text>
           </View>
-          <View style={ReferenceStyles.authorStyle}>
+          <View>
             <Text
               style={StyleSheet.flatten(ReferenceStyles.textStyle)}
             >{'- '}{this.props.author}
