@@ -8,7 +8,7 @@ const REFERENCES = [
   { reference: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor', author: 'Anna', icon: ICON, date: '2017-04-10', rating: '4' },
   { reference: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor', author: 'Eva', icon: ICON, date: '2017-04-12', rating: '5' },
   { reference: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor', author: 'Johan', icon: ICON, date: '2017-04-14', rating: '2' },
-  { reference: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor', author: 'John', icon: ICON, date: '2017-04-13', rating: '3' },
+  { reference: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor', author: 'John', icon: ICON, date: '2017-04-13', rating: '3' },
 ];
 
 export default class ReferenceScreen extends Component {

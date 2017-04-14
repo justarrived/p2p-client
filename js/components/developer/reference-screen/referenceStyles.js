@@ -1,11 +1,15 @@
 import { StyleSheet } from 'react-native';
-import { MAIN_CERISE, BLACK } from '../../common/colors';
+import { MAIN_CERISE, BLACK, WHITE } from '../../common/colors';
 
 const referenceStyles = StyleSheet.create({
   starStyle: {
     marginLeft: 2,
     fontSize: 18,
     color: MAIN_CERISE,
+  },
+  authorStyle: {
+    marginTop: 0,
+    paddingTop: 0,
   },
   pictureStyle: {
     width: 40,
@@ -15,19 +19,20 @@ const referenceStyles = StyleSheet.create({
     marginRight: 15,
   },
   textboxStyle: {
-    fontSize: 14,
-    textAlign: 'left',
+    paddingTop: 0,
+    marginBottom: 0,
+  },
+  textStyle: {
     color: BLACK,
+    fontSize: 12,
   },
   dateStyle: {
+    color: BLACK,
     fontSize: 14,
-    paddingTop: 10,
   },
   ratingStyle: {
+    color: BLACK,
     fontSize: 18,
-  },
-  leftColStyle: {
-    flex: 2,
   },
   rightColStyle: {
     flex: 1,
@@ -35,14 +40,18 @@ const referenceStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   listItemStyle: {
-    paddingTop: 0,
-    paddingBottom: 0,
+    paddingTop: 2,
+    paddingBottom: 2,
     marginLeft: 0,
     paddingRight: 0,
+    backgroundColor: WHITE,
   },
   ratingRowStyle: {
+    flexDirection: 'row',
     alignItems: 'center',
-    paddingBottom: 40,
+  },
+  leftColStyle: {
+    flex: 2.3,
   },
 });
 

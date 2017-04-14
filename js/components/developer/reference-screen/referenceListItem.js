@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
-import { Text, Thumbnail, Row, ListItem, Icon, Grid, Col } from 'native-base';
+import { StyleSheet, View, Text } from 'react-native';
+import { Thumbnail, ListItem, Icon } from 'native-base';
 import ReferenceStyles from './referenceStyles';
 
 
@@ -23,31 +23,33 @@ export default class referenceListItem extends Component {
         <Thumbnail
           style={StyleSheet.flatten(ReferenceStyles.pictureStyle)} source={this.props.icon}
         />
-        <Grid>
-          <Col style={StyleSheet.flatten(ReferenceStyles.leftColStyle)}>
-            <TextInput
+        <View style={ReferenceStyles.leftColStyle}>
+          <View style={ReferenceStyles.textboxStyle}>
+            <Text
               multiline
               numberOfLines={4}
-              editable={false}
-              style={StyleSheet.flatten(ReferenceStyles.textboxStyle)}
-            >
-              {this.props.reference}{'\n'}{'- '}{this.props.author}
-            </TextInput>
-          </Col>
-          <Col style={StyleSheet.flatten(ReferenceStyles.rightColStyle)}>
-            <Row>
-              <Text style={StyleSheet.flatten(ReferenceStyles.dateStyle)}>
-                {this.props.date}
-              </Text>
-            </Row>
-            <Row style={ReferenceStyles.ratingRowStyle}>
-              <Text style={StyleSheet.flatten(ReferenceStyles.ratingStyle)}>
-                {this.props.rating}
-              </Text>
-              <Icon style={StyleSheet.flatten(ReferenceStyles.starStyle)} active name="star" />
-            </Row>
-          </Col>
-        </Grid>
+              style={StyleSheet.flatten(ReferenceStyles.textStyle)}
+            >{this.props.reference}
+            </Text>
+          </View>
+          <View style={ReferenceStyles.authorStyle}>
+            <Text
+              style={StyleSheet.flatten(ReferenceStyles.textStyle)}
+            >{'- '}{this.props.author}
+            </Text>
+          </View>
+        </View>
+        <View style={ReferenceStyles.rightColStyle}>
+          <Text style={StyleSheet.flatten(ReferenceStyles.dateStyle)}>
+            {this.props.date}
+          </Text>
+          <View style={ReferenceStyles.ratingRowStyle}>
+            <Text style={StyleSheet.flatten(ReferenceStyles.ratingStyle)}>
+              {this.props.rating}
+            </Text>
+            <Icon style={StyleSheet.flatten(ReferenceStyles.starStyle)} active name="star" />
+          </View>
+        </View>
       </ListItem>
     );
   }
