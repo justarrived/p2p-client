@@ -2,11 +2,9 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import DeveloperScreen from './components/developer/developer-screen';
 import CreateJobScreen from './components/developer/create-job-screen';
-import LoginScreen from './components/developer/login-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
 import NetworkingLoginScreen from './components/developer/networking-login-screen';
-import CreateAccountScreen from './components/developer/create-account-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 import LanguagePickerScreen from './components/developer/language-picker-screen';
@@ -34,12 +32,6 @@ const CreateJobTab = StackNavigator({
   JobPreviewScreen: {
     screen: JobPreviewScreen,
   },
-  LoginScreen: {
-    screen: LoginScreen,
-  },
-  CreateAccountScreen: {
-    screen: CreateAccountScreen,
-  },
 }, {
   navigationOptions: {
     tabBar: {
@@ -64,14 +56,8 @@ const MyJobTab = StackNavigator({
 });
 
 const MyProfileTab = StackNavigator({
-  LoginScreen: {
-    screen: LoginScreen,
-  },
   MyProfileScreen: {
     screen: MyProfileScreen,
-  },
-  CreateAccountScreen: {
-    screen: CreateAccountScreen,
   },
 }, {
   navigationOptions: {
@@ -88,9 +74,6 @@ const DeveloperTab = StackNavigator({
   },
   CreateJobScreen: {
     screen: CreateJobScreen,
-  },
-  LoginScreen: {
-    screen: LoginScreen,
   },
   FirebaseExampleScreen: {
     screen: FirebaseExampleScreen,
@@ -130,9 +113,6 @@ const DeveloperTab = StackNavigator({
   },
   JobPreviewScreen: {
     screen: JobPreviewScreen,
-  },
-  CreateAccountScreen: {
-    screen: CreateAccountScreen,
   },
   RateWorkScreen: {
     screen: RateWorkScreen,
