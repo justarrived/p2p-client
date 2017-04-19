@@ -3,6 +3,7 @@ import { NavigationActions, addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
 import { BackAndroid } from 'react-native';
 import AppNavigator from './appNavigator';
+import Secure from './components/developer/secure/secure';
 
 /*
   Main navigation with navigation helpers for Redux.
@@ -48,14 +49,16 @@ class AppNavigatorWithHelpers extends Component {
   render() {
     const { dispatch, navigationState } = this.props;
     return (
-      <AppNavigator
-        navigation={
+      <Secure>
+        <AppNavigator
+          navigation={
           addNavigationHelpers({
             dispatch,
             state: navigationState,
           })
         }
-      />
+        />
+      </Secure>
     );
   }
 }
