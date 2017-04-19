@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button, Text, Grid, Col } from 'native-base';
 import styles from './style';
+import I18n from '../../../i18n';
 
 
 export default class PersonalInfoButtons extends Component {
@@ -18,7 +19,7 @@ export default class PersonalInfoButtons extends Component {
           style={StyleSheet.flatten(styles.buttonFlex)}
         >
           <Text style={StyleSheet.flatten(styles.regButtonText)}>
-            ÄNDRA
+            {I18n.t('button_actions.edit')}
           </Text>
         </Button>
       );
@@ -32,15 +33,15 @@ export default class PersonalInfoButtons extends Component {
             style={StyleSheet.flatten(styles.secondaryButtonGroup)}
           >
             <Text style={StyleSheet.flatten(styles.regButtonText)}>
-              AVBRYT
+              {I18n.t('button_actions.cancel')}
             </Text>
           </Button>
         </Col>
         <Col>
           <Button full onPress={() => this.props.onPress()}>
             <Text style={StyleSheet.flatten(styles.regButtonText)}>
-            SPARA
-          </Text>
+              {I18n.t('button_actions.save')}
+            </Text>
           </Button>
         </Col>
       </Grid>

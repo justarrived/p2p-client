@@ -1,10 +1,9 @@
-import { getAuthJson, patchAuthJson } from './networking';
-import { createJsonDataAttributes } from './json';
+import { getAuthJson, patchAuthJson, postJson } from './networking';
+import BASE_URL from './url';
 /*
 Class with methods for manipulating user info against API.
 */
 
-const BASE_URL = 'https://sandbox-api.justarrived.xyz';
 const USERS_PATH = '/api/v1/users';
 
 function getUserPath(userId) {
@@ -12,12 +11,13 @@ function getUserPath(userId) {
 }
 
 export function getUser(userId, token, onSuccess, onError) {
-  getAuthJson(getUserPath(userId),
-    token, onSuccess, onError);
+  getAuthJson(getUserPath(userId), token, onSuccess, onError);
 }
 
-export function patchUserDescription(userId, token, description, onSuccess, onError) {
-  const updateJson = createJsonDataAttributes({ description });
-  patchAuthJson(getUserPath(userId),
-    token, updateJson, onSuccess, onError);
+export function patchUser(userId, token, json, onSuccess, onError) {
+  patchAuthJson(getUserPath(userId), token, json, onSuccess, onError);
+}
+
+export function postUser(json, onSuccess, onError) {
+  postJson(BASE_URL + USERS_PATH, json, onSuccess, onError);
 }

@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import JobTypeCard from './jobTypeCard';
 import GlobalStyle from '../../common/globalStyle';
 import { imageProp } from '../../common/propTypes';
+import I18n from '../../../i18n';
 
 const { shape, arrayOf, string } = PropTypes;
 
 class ChooseJobTypeScreen extends Component {
   static navigationOptions = {
-    title: 'Choose Job Type',
+    title: I18n.t('screen_titles.choose_job_type'),
   };
 
   static propTypes = {

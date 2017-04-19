@@ -4,10 +4,11 @@ import { Text, Content, Button, List } from 'native-base';
 import { connect } from 'react-redux';
 import paymentInfoScreenStyle from './paymentInfoScreenStyle';
 import AvatarListItem from '../../common/avatar-list-item/avatarListItem';
+import I18n from '../../../i18n';
 
 class PaymentInfoScreen extends Component {
   static navigationOptions = {
-    title: 'Payment Information',
+    title: I18n.t('screen_titles.payment_information'),
   };
 
   // TODO Improve typechecking
@@ -23,7 +24,7 @@ class PaymentInfoScreen extends Component {
         <List dataArray={this.props.creditCards.data} renderRow={this.renderRow} />
         <View style={paymentInfoScreenStyle.addCardButton}>
           <Button block>
-            <Text>Lägg Till Kort</Text>
+            <Text>{I18n.t('card.add_credit_card')}</Text>
           </Button>
         </View>
       </Content>

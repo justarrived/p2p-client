@@ -3,6 +3,7 @@ import { ListView } from 'react-native';
 import { Container, Content } from 'native-base';
 import AvatarListItem from '../../common/avatar-list-item/avatarListItem';
 import ListSectionHeader from '../../common/list-section-header/listSectionHeader';
+import I18n from '../../../i18n';
 
 // Temporary logo, TODO replace with real icon.
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
@@ -36,7 +37,7 @@ export default class MyJobsTab extends Component {
     toNextScreen={this.props.toNextScreen}
   />;
 
-  renderSectionHeader = (sectionData, sectionID) => <ListSectionHeader title={sectionID} />;
+  renderSectionHeader = (sectionData, sectionID) => <ListSectionHeader title={I18n.t(sectionID)} />;
 
   render() {
     return (
