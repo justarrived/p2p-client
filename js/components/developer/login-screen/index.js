@@ -95,12 +95,10 @@ class LoginScreen extends Component {
             {/* Input fields */}
             <Form>
               <EmailInput
-                title="Email"
                 onChange={email => this.setState({ email })}
                 defaultValue={this.state.email}
               />
               <PasswordInput
-                title="Password"
                 onChange={password => this.setState({ password })}
                 defaultValue={this.state.password}
               />
