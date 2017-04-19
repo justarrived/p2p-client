@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Content, List } from 'native-base';
 import ReferenceListItem from './referenceListItem';
+import I18n from '../../../i18n';
 
 // Temporary data. Will be handled in another way in the future.
 const ICON = { uri: 'https://facebook.github.io/react/img/logo_og.png' };
@@ -13,7 +14,7 @@ const REFERENCES = [
 
 export default class ReferenceScreen extends Component {
   static navigationOptions = {
-    title: 'Reference List',
+    title: I18n.t('screen_titles.reference'),
   };
 
   renderRow = reference =>

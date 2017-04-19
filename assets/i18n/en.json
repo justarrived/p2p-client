@@ -84,7 +84,8 @@
     "rate_worker": "Rate Worker",
     "choose_language": "Choose Language",
     "payment_information": "Payment Information",
-    "choose_worker": "Choose Worker"
+    "choose_worker": "Choose Worker",
+    "reference": "Reference List"
   },
   "navigation_tabs": {
     "create_job": "Create Job",
