@@ -16,7 +16,7 @@ const referenceStyles = StyleSheet.create({
   },
   textStyle: {
     color: BLACK,
-    fontSize: 12,
+    fontSize: 14,
   },
   dateStyle: {
     color: BLACK,
@@ -24,16 +24,18 @@ const referenceStyles = StyleSheet.create({
   },
   ratingStyle: {
     color: BLACK,
-    fontSize: 18,
+    fontSize: 16,
   },
   rightColStyle: {
-    flex: 1,
+    paddingLeft: 8,
+    paddingRight: 8,
+    flex: 0,
     alignItems: 'center',
     justifyContent: 'center',
   },
   listItemStyle: {
-    paddingTop: 2,
-    paddingBottom: 2,
+    paddingTop: 8,
+    paddingBottom: 8,
     marginLeft: 0,
     paddingRight: 0,
     backgroundColor: WHITE,
@@ -43,7 +45,7 @@ const referenceStyles = StyleSheet.create({
     alignItems: 'center',
   },
   leftColSize: {
-    flex: 2.3,
+    flex: 1,
   },
 });
 
