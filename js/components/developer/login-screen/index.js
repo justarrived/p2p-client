@@ -1,68 +1,72 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Container, Content, CheckBox, Form, Item, Thumbnail, Card, Input, ListItem, Button, Body, Col, Grid, Text } from 'native-base';
+import { Text, Content, Card, Container, CheckBox, Form, Thumbnail, ListItem, Button, Body, Col, Grid } from 'native-base';
+import { connect } from 'react-redux';
+import EmailInput from '../../common/email-input';
+import PasswordInput from '../../common/password-input';
+import { requestSignIn } from '../../../actions/session';
 import LoginScreenStyles from './loginScreenStyles';
 import I18n from '../../../i18n';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
-const EMAIL_STRING = I18n.t('account.email');
-const PASSWORD_STRING = I18n.t('account.password');
 const REMEMBER_ME_STRING = I18n.t('login.remember_me');
 const LOGIN_BUTTON_STRING = I18n.t('login.sign_in_button');
 const FORGOT_PASSWORD_STRING = I18n.t('login.forgot_password_button');
 const SIGN_UP_BUTTON_STRING = I18n.t('sign_up.sign_up_button');
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
-export default class LoginScreen extends Component {
+// Setting default values so they do not have to be entered every time
+// TODO Store email input value in Redux
+const USER = 'noname@nomail.nope';
+const PASSWORD = 'password';
+
+class LoginScreen extends Component {
   static navigationOptions = {
     title: I18n.t('screen_titles.login'),
   };
 
-  constructor() {
-    super();
-    /*
-      Used to set minHeight of Content (which is a scroll view).
-      This mimics the behaviour of flex: 1 in a scroll view,
-      but in addition preserves the the ability to scroll if needed.
-    */
+  static propTypes = {
+    goToRegister: PropTypes.func.isRequired,
+    signIn: PropTypes.func.isRequired,
+    sessionError: PropTypes.objectOf(PropTypes.any),
+    userError: PropTypes.objectOf(PropTypes.any),
+  };
+
+  static defaultProps = {
+    sessionError: null,
+    userError: null,
+  };
+
+  constructor(props) {
+    super(props);
     this.state = {
+      email: USER,
+      password: PASSWORD,
+      /*
+        Used to set minHeight of Content (which is a scroll view).
+        This mimics the behaviour of flex: 1 in a scroll view,
+        but in addition preserves the the ability to scroll if needed.
+      */
       minContentHeight: 0,  // This is instantly updated upon mount/render.
       rememberPassword: true,
     };
   }
 
-  // if nextscreen is passed into the navigation as payload,
-  // We navigate to the provided nextScreen
-  // else MyProfileScreen is used as default for nextScreen
-  pressLoginButton = () => {
-    const { navigate, state } = this.props.navigation;
-    if (state.params !== undefined && state.params.nextScreen !== undefined) {
-      navigate(state.params.nextScreen);
-    } else {
-      navigate('MyProfileScreen');
-    }
-  }
-
-  /*
-    If nextscreen is passed into the navigation as payload,
-    we navigate to CreateAccountScreen and pass the nextScreen
-    received along as nextScreen for CreateAccountScreen
-
-    else MyProfileScreen is used as default for nextScreen
-    with no nextScreen
-  */
-  pressCreateAccountButton() {
-    const { navigate, state } = this.props.navigation;
-    if (state.params !== undefined && state.params.nextScreen !== undefined) {
-      navigate('CreateAccountScreen', { nextScreen: state.params.nextScreen });
-    } else {
-      navigate('CreateAccountScreen', { nextScreen: 'MyProfileScreen' });
-    }
+  logIn() {
+    this.props.signIn(this.state.email, this.state.password);
   }
 
   toggleCheckbox = () => this.setState({ rememberPassword: !this.state.rememberPassword })
 
+  // TODO Implement proper error handling
   render() {
+    if (this.props.sessionError != null) {
+      // console.warn(JSON.stringify(this.props.sessionError));
+    }
+    if (this.props.userError != null) {
+      // console.warn(JSON.stringify(this.props.userError));
+    }
+
     const fullHeightContentStyle = StyleSheet.create({
       fullHeight: {
         minHeight: this.state.minContentHeight, // The height of the Content component.
@@ -90,12 +94,16 @@ export default class LoginScreen extends Component {
 
             {/* Input fields */}
             <Form>
-              <Item underline>
-                <Input placeholder={EMAIL_STRING} />
-              </Item>
-              <Item underline>
-                <Input secureTextEntry placeholder={PASSWORD_STRING} />
-              </Item>
+              <EmailInput
+                title="Email"
+                onChange={email => this.setState({ email })}
+                defaultValue={this.state.email}
+              />
+              <PasswordInput
+                title="Password"
+                onChange={password => this.setState({ password })}
+                defaultValue={this.state.password}
+              />
             </Form>
 
             {/* Remember password checkbox */}
@@ -111,9 +119,8 @@ export default class LoginScreen extends Component {
 
             {/* Button container */}
             <View style={LoginScreenStyles.buttonContainer}>
-
               {/* Login button */}
-              <Button block primary onPress={() => this.pressLoginButton()}>
+              <Button block primary onPress={() => this.logIn()}>
                 <Text>{LOGIN_BUTTON_STRING}</Text>
               </Button>
 
@@ -129,7 +136,7 @@ export default class LoginScreen extends Component {
 
                 {/* Create account button container */}
                 <Col>
-                  <Button small block bordered onPress={() => this.pressCreateAccountButton()}>
+                  <Button small block bordered onPress={() => this.props.goToRegister()}>
                     <Text>{SIGN_UP_BUTTON_STRING}</Text>
                   </Button>
                 </Col>
@@ -141,3 +148,19 @@ export default class LoginScreen extends Component {
     );
   }
 }
+
+// props tied together with Redux state
+const mapStateToProps = state => ({
+  sessionError: state.session.error,
+  userError: state.user.error,
+});
+
+// props tied together with Redux methods
+function bindAction(dispatch) {
+  return {
+    signIn: (user, password) => dispatch(requestSignIn(user, password)),
+  };
+}
+
+// Connect class with Redux and export
+export default connect(mapStateToProps, bindAction)(LoginScreen);
