@@ -1,23 +1,24 @@
 {
   "job": {
+    "job_details": "Job details",
+    "applications": "Applications",
     "when_will_the_job_be_performed": "When will the job be performed?",
     "create_job": "Create job",
     "location": "Location",
-    "where_will_the_job_be_performed": "Where will be the job be performed?",
+    "where_will_the_job_be_performed": "Where will the job be performed?",
+    "approximate_duration": "What's the approximate duration?",
     "job_duration": "Job duration",
-    "job_preview": "Job preview",
-    "status": {
-      "active": "Active",
-      "completed": "Completed",
-      "unassigned": "Unassigned"
+    "headings": {
+      "current": "Current",
+      "history": "History",
     },
     "rating": {
-      "how_did_the_worker_perform_the_job": "How did the worker perfom the job?",
+      "rate": "Rate",
+      "how_did_the_worker_perform_the_job": "Please rate the worker and write a short review",
       "communication": "Communication",
       "work_quality": "Work quality",
       "punctuality": "Punctuality",
-      "rate_worker_and_write_review": "Please rate worker and write a short review!",
-      "write_short_review_here": "Write your short review here",
+      "write_review_here": "Write your review here",
       "no_rating_yet": "No rating yet",
       "thank_you": "Thank you!"
     }
@@ -25,19 +26,19 @@
   "categories": {
     "shoveling": {
       "title": "Snow shoveling",
-      "description": "Get help in the snow!"
+      "description": "Get help with the snow!"
     },
     "raking": {
       "title": "Leaf raking",
-      "description": "Get help with leaves!"
+      "description": "Get help with the leaves!"
     },
     "cleaning": {
       "title": "Cleaning",
       "description": "Get help with cleaning!"
     },
-    "weeding": {
-      "title": "Grass weeding",
-      "description": "Get help with grass weeding!"
+    "gardening": {
+      "title": "Gardening",
+      "description": "Get help with gardening!"
     }
   },
   "size": {
@@ -55,7 +56,7 @@
     }
   },
   "section_headings": {
-    "active_jobs": "Active jobs",
+    "assigned_jobs": "Assigned, awaiting completion",
     "archived_jobs": "Completed jobs",
     "unassigned_jobs": "Unassigned jobs"
   },
@@ -82,6 +83,7 @@
     "my_profile": "My Profile",
     "rate_worker": "Rate Worker",
     "choose_language": "Choose Language",
+    "payment_information": "Payment Information",
     "choose_worker": "Choose Worker"
   },
   "navigation_tabs": {
@@ -100,6 +102,9 @@
     "already_have_an_account_button": "Already have an account - Sign in",
     "accept_pul_and_terms": "I accept the PUL and Terms of Use"
   },
+  "sign_out": {
+    "sign_out_button": "Sign out",
+  },
   "date_and_time": {
     "date": "Date",
     "time": "Time",
@@ -108,8 +113,9 @@
   "button_actions": {
     "done": "Done",
     "edit": "Edit",
+    "save": "Save",
     "cancel": "Cancel",
-    "save": "Save"
+    "next": "Next"
   },
   "card": {
     "card_holder": "Card holder",
@@ -124,6 +130,6 @@
     }
   },
   "language": {
-    "language_displayed_in_app": "Language that will be displayed in the app"
+    "select_display_language": "Select app display language"
   }
 }

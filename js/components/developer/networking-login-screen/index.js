@@ -1,43 +1,41 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Spinner } from 'native-base';
 
 import NetworkingLogin from './networkingLogin';
 import NetworkingHome from './networkingHome';
 
-export default class LoginExampleScreen extends Component {
+class LoginExampleScreen extends Component {
+  static propTypes = {
+    authenticated: React.PropTypes.bool.isRequired,
+    loading: React.PropTypes.bool.isRequired,
+  }
   static navigationOptions = {
     title: 'Login Example',
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      token: null,
-      userId: null,
-    };
-  }
-
-  updateToken(token, userId) {
-    // console.warn(`Token: ${token}`);
-    this.setState({
-      token,
-      userId,
-    });
-  }
-
   render() {
-    if (this.state.token === null) {
+    if (this.props.authenticated) {
       return (
-        <NetworkingLogin
-          onLogin={(token, userId) => this.updateToken(token, userId)}
-        />
+        <NetworkingHome />
+      );
+    }
+    if (this.props.loading) {
+      return (
+        <Spinner color="blue" />
       );
     }
     return (
-      <NetworkingHome
-        token={this.state.token}
-        userId={this.state.userId}
-        onLogout={() => this.updateToken(null)}
-      />
+      <NetworkingLogin />
     );
   }
 }
+
+// props tied together with Redux state
+const mapStateToProps = state => ({
+  authenticated: state.session.token != null,
+  loading: state.session.sessionLoading || state.user.userLoading,
+});
+
+// Connect class with Redux and export
+export default connect(mapStateToProps)(LoginExampleScreen);

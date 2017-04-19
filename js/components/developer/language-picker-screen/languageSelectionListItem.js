@@ -40,8 +40,8 @@ class LanguageSelectionListItem extends Component {
 // props tied together with Redux methods
 function bindAction(dispatch) {
   return {
-    addLanguage: name => dispatch(addLanguage(name)),
-    removeLanguage: name => dispatch(removeLanguage(name)),
+    addLanguage: id => dispatch(addLanguage(id)),
+    removeLanguage: id => dispatch(removeLanguage(id)),
   };
 }
 

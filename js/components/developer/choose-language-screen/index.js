@@ -6,13 +6,15 @@ import chooseLanguageStyles from './chooseLanguageStyles';
 import GlobalStyle from '../../common/globalStyle';
 import CardHeader from '../../common/card-header/cardHeader';
 import SingleRowListItem from '../../common/single-row-list-item/singleRowListItem';
+import I18n from '../../../i18n';
 
 // TODO Replace temporary placeholder image
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 class ChooseLanguageScreen extends Component {
   static navigationOptions = {
-    title: 'Choose Language',
+    title: I18n.t('screen_titles.choose_language')
+,
   };
 
   // TODO Improve typechecking
@@ -33,7 +35,7 @@ class ChooseLanguageScreen extends Component {
             />
           </View>
           <Card>
-            <CardHeader title="Välj språk" subtitle="Språket som ska visas i appen" icon="globe" />
+            <CardHeader title={I18n.t('screen_titles.choose_language')} subtitle={I18n.t('language.select_display_language')} icon="globe" />
             <List dataArray={this.props.languages.languages.data} renderRow={this.renderRow} />
           </Card>
         </Content>

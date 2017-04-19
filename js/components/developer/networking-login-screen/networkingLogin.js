@@ -1,12 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Text } from 'react-native';
 import { Content, Card, CardItem } from 'native-base';
+import { connect } from 'react-redux';
 
 import EmailInput from '../../common/email-input';
 import PasswordInput from '../../common/password-input';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 
-import { signUp, signIn } from '../../../networking/auth';
+import { createJsonDataAttributes } from '../../../networking/json';
+import { requestSignIn } from '../../../actions/session';
+import { requestCreateUser } from '../../../actions/user';
+
+function getCreateUserJson(email, password) {
+  return createJsonDataAttributes({
+    email,
+    password,
+    consent: true,
+    system_language_id: 38,
+    first_name: 'SomeName',
+    last_name: 'SomeLastName',
+  });
+}
 
 // Setting default values so they do not have to be entered every time
 const USER = 'noname@nomail.nope';
@@ -14,7 +28,14 @@ const PASSWORD = 'password';
 
 class NetworkingLogin extends Component {
   static propTypes = {
-    onLogin: React.PropTypes.func.isRequired,
+    signIn: PropTypes.func.isRequired,
+    signUp: PropTypes.func.isRequired,
+    sessionError: PropTypes.objectOf(React.PropTypes.any),
+    userError: PropTypes.objectOf(React.PropTypes.any),
+  }
+  static defaultProps = {
+    sessionError: null,
+    userError: null,
   }
 
   constructor(props) {
@@ -26,23 +47,23 @@ class NetworkingLogin extends Component {
     };
   }
 
-  create() {
-    signUp(this.state.email, this.state.password,
-      () => alert('Account created'),
-      error => this.setState({ status: error.toString() }));
+  createAccount() {
+    this.props.signUp(
+      getCreateUserJson(this.state.email, this.state.password));
   }
 
   logIn() {
-    signIn(this.state.email, this.state.password,
-      (responseJson) => {
-        this.props.onLogin(responseJson.data.attributes['auth-token'],
-          responseJson.data.attributes['user-id']);
-      },
-      error => this.setState({ status: error.toString() }));
+    this.props.signIn(this.state.email, this.state.password);
   }
 
   render() {
-    // console.log('render NetworkingLogin');
+    if (this.props.sessionError != null) {
+      // console.warn(JSON.stringify(this.props.sessionError));
+    }
+    if (this.props.userError != null) {
+      // console.warn(JSON.stringify(this.props.userError));
+    }
+
     return (
       <Content>
         <Card>
@@ -68,7 +89,7 @@ class NetworkingLogin extends Component {
             text="log in"
           />
           <CardItemButton
-            onPress={() => this.create()}
+            onPress={() => this.createAccount()}
             text="sign up"
           />
         </Card>
@@ -77,4 +98,19 @@ class NetworkingLogin extends Component {
   }
 }
 
-module.exports = NetworkingLogin;
+// props tied together with Redux state
+const mapStateToProps = state => ({
+  sessionError: state.session.error,
+  userError: state.user.error,
+});
+
+// props tied together with Redux methods
+function bindAction(dispatch) {
+  return {
+    signIn: (user, password) => dispatch(requestSignIn(user, password)),
+    signUp: (user, password) => dispatch(requestCreateUser(user, password)),
+  };
+}
+
+// Connect class with Redux and export
+export default connect(mapStateToProps, bindAction)(NetworkingLogin);

@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Col, Row, Grid, Button, Card, CardItem, Text } from 'native-base';
 import styles from './style';
+import I18n from '../../../i18n';
 
 import {
   changeFirstName, changeLastName, changeAddress, changePostCode, changePostArea,
@@ -19,7 +20,7 @@ import GlobalStyle from '../../common/globalStyle';
 
 class CreateAccountScreen extends Component {
   static navigationOptions = {
-    title: 'Skapa Konto',
+    title: I18n.t('screen_titles.create_account'),
   };
 
   static propTypes = {
@@ -84,50 +85,50 @@ class CreateAccountScreen extends Component {
                   <Row>
                     <Col>
                       <TextInput
-                        title="Förnamn"
+                        title={I18n.t('account.first_name')}
                         onChange={input => this.props.changeFirstName(input)}
                       />
                     </Col>
                     <Col>
                       <TextInput
-                        title="Efternamn"
+                        title={I18n.t('account.last_name')}
                         onChange={input => this.props.changeLastName(input)}
                       />
                     </Col>
                   </Row>
                   <TextInput
-                    title="Adress"
+                    title={I18n.t('account.address')}
                     onChange={input => this.props.changeAddress(input)}
                   />
                   <Row>
                     <Col>
                       <PostcodeInput
-                        title="Postnummer"
+                        title={I18n.t('account.postal_code')}
                         onChange={input => this.props.changePostCode(input)}
                       />
                     </Col>
                     <Col>
                       <TextInput
-                        title="Ort"
+                        title={I18n.t('account.city')}
                         onChange={input => this.props.changePostArea(input)}
                       />
                     </Col>
                   </Row>
                 </Grid>
                 <PhoneInput
-                  title="Telefonnummer"
+                  title={I18n.t('account.phone_number')}
                   onChange={input => this.props.changePhoneNumber(input)}
                 />
                 <EmailInput
-                  title="E-post"
+                  title={I18n.t('account.email')}
                   onChange={input => this.props.changeEmail(input)}
                 />
                 <PasswordInput
-                  title="Lösenord"
+                  title={I18n.t('account.password')}
                   onChange={input => this.props.changePassword(input)}
                 />
                 <CheckBoxPUL
-                  title="Jag accepterar PUL och användarvillkor"
+                  title={I18n.t('sign_up.accept_pul_and_terms')}
                   isChecked={this.props.account.userAgreement}
                   onClick={() => this.props.toggleCheckBox()}
                 />
@@ -142,7 +143,7 @@ class CreateAccountScreen extends Component {
                     style={StyleSheet.flatten(styles.fullFlex)}
                   >
                     <Text style={StyleSheet.flatten(styles.regButtonText)}>
-                      REGISTRERA
+                      {I18n.t('sign_up.sign_up_button')}
                     </Text>
                   </Button>
                 </Row>
@@ -153,7 +154,7 @@ class CreateAccountScreen extends Component {
                     style={StyleSheet.flatten(styles.secondButtonPadding)}
                   >
                     <Text>
-                      Jag har redan ett konto - Logga in
+                      {I18n.t('sign_up.already_have_an_account_button')}
                     </Text>
                   </Button>
                 </Row>

@@ -1,4 +1,3 @@
-import type { Action } from '../actions/types';
 import {
   ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE,
   ACCOUNT_POSTAREA, ACCOUNT_PHONENUMBER, ACCOUNT_EMAIL, ACCOUNT_PASSWORD,
@@ -18,7 +17,7 @@ const initialState = {
   disabled: true,
 };
 
-export default function (state : State = initialState, action : Action) : State {
+export default function (state = initialState, action) {
   if (action.type === ACCOUNT_FIRSTNAME) {
     return {
       ...state,

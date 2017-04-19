@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, Thumbnail, Body, Row, Left, ListItem, Icon, Right } from 'native-base';
 import ChooseWorkerStyles from './chooseWorkerStyles';
+import I18n from '../../../i18n';
 
-const noRatingString = 'No rating yet';
+const noRatingString = I18n.t('job.rating.no_rating_yet');
 
 export default class WorkerListItem extends Component {
   static propTypes = {
