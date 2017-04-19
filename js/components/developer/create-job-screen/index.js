@@ -13,9 +13,8 @@ export default class CreateJobScreen extends Component {
     title: I18n.t('job.create_job'),
   };
 
-  // here we want a check if we already are loggedin
-  navigateToNextScreen = () => (
-    this.props.navigation.navigate('LoginScreen', { nextScreen: 'JobPreviewScreen' })
+  goToJobPreview = () => (
+    this.props.navigation.navigate('JobPreviewScreen')
   );
 
   render() {
@@ -25,7 +24,7 @@ export default class CreateJobScreen extends Component {
           <TimeCard />
           <CalendarCard />
           <PlaceCard />
-          <Button full info onPress={() => this.navigateToNextScreen()}>
+          <Button full info onPress={() => this.goToJobPreview()}>
             <Text>{I18n.t('button_actions.next')}</Text>
           </Button>
         </Content>
