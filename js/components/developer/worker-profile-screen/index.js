@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { Container, Content, Thumbnail, Card, CardItem, Text, Grid, Icon, Col, Row } from 'native-base';
 import GlobalStyle from '../../common/globalStyle';
 import WorkerProfileStyles from './workerProfileStyles';
+import I18n from '../../../i18n';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 const NAME = 'John Doe';
@@ -16,7 +17,7 @@ const PREVJOB = 'Banktjänsteman';
 
 export default class WorkerInfoScreen extends Component {
   static navigationOptions = {
-    title: 'John Does profile',
+    title: I18n.t('screen_titles.worker_profile', { name: NAME }),
   };
   render() {
     return (
@@ -58,8 +59,8 @@ export default class WorkerInfoScreen extends Component {
             <CardItem bordered style={StyleSheet.flatten(WorkerProfileStyles.infoContainer)}>
               <View>
                 <Text note>
-                    Presentation
-                  </Text>
+                  {I18n.t('worker_profile.presentation')}
+                </Text>
                 <Text>
                   {PRESENTATION}
                 </Text>
@@ -68,7 +69,7 @@ export default class WorkerInfoScreen extends Component {
             <CardItem bordered style={StyleSheet.flatten(WorkerProfileStyles.infoContainer)}>
               <View>
                 <Text note>
-                  Språk
+                  {I18n.t('worker_profile.language')}
                 </Text>
                 <Text>
                   {LANGUAGES}
@@ -78,7 +79,7 @@ export default class WorkerInfoScreen extends Component {
             <CardItem bordered style={StyleSheet.flatten(WorkerProfileStyles.infoContainer)}>
               <View>
                 <Text note>
-                  Utbildning
+                  {I18n.t('worker_profile.education')}
                 </Text>
                 <Text>
                   {EDUCATION}
@@ -88,7 +89,7 @@ export default class WorkerInfoScreen extends Component {
             <CardItem bordered style={StyleSheet.flatten(WorkerProfileStyles.infoContainer)}>
               <View>
                 <Text note>
-                  Tidigare Jobb
+                  {I18n.t('worker_profile.prev_work')}
                 </Text>
                 <Text>
                   {PREVJOB}
