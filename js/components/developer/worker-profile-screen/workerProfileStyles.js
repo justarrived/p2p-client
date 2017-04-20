@@ -3,33 +3,29 @@ import { BLACK, MAIN_CERISE } from '../../common/colors';
 
 const styles = StyleSheet.create({
   infoContainer: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    margin: 0,
+    paddingLeft: 8,
+    paddingRight: 8,
+    paddingTop: 8,
+    paddingBottom: 8,
   },
-  topGrid: {
-    justifyContent: 'center',
-    alignItems: 'center',
+  topRow: {
+    paddingTop: 8,
+    paddingRight: 8,
+    paddingLeft: 8,
   },
   topLeftCol: {
     flex: 1,
   },
   topRightCol: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
   },
   topMidCol: {
-    flex: 2,
-    overflow: 'visible',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 0,
   },
   starStyle: {
     marginLeft: 2,
-    fontSize: 35,
+    fontSize: 40,
     color: MAIN_CERISE,
   },
   ratingStyle: {
@@ -39,7 +35,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   priceRow: {
-    alignItems: 'center',
+    flex: 0,
   },
   nameText: {
     fontSize: 24,
