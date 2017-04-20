@@ -20,6 +20,8 @@ import RateWorkScreen from './components/developer/rate-work-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
+import ForgotPassword from './components/developer/forgot-password';
+
 import I18n from './i18n';
 
 import TabBarStyles from './tabBarStyles';
@@ -139,6 +141,9 @@ const DeveloperTab = StackNavigator({
   },
   ChooseWorkerScreen: {
     screen: ChooseWorkerScreen,
+  },
+  ForgotPassword: {
+    screen: ForgotPassword,
   },
   JobInfoScreen: {
     screen: JobInfoScreen,

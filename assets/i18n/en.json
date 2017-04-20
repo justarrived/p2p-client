@@ -89,13 +89,15 @@
   "navigation_tabs": {
     "create_job": "Create Job",
     "my_job": "My Jobs",
-    "my_profile": "My Profile"
+    "my_profile": "My Profile",
   },
   "login": {
     "sign_in_button": "Sign in",
     "remember_me": "Remember me",
     "forgot_password_button": "Forgot password",
-    "create_account_button": "Create account"
+    "create_account_button": "Create account",
+    "forgot_your_password": "Forgot your password?",
+    "forgot_your_password_info": "No Worries! Type your email address in the box below and then check your inbox",
   },
   "sign_up": {
     "sign_up_button": "Sign up",
@@ -113,6 +115,7 @@
   "button_actions": {
     "done": "Done",
     "edit": "Edit",
+    "send": "Send",
     "save": "Save",
     "cancel": "Cancel",
     "next": "Next"
