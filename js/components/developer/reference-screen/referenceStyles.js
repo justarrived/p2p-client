@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { MAIN_CERISE, BLACK, WHITE } from '../../common/colors';
+import { MAIN_CERISE, BLACK, WHITE, SECONDARY_BLUE } from '../../common/colors';
 
 const referenceStyles = StyleSheet.create({
   starStyle: {
@@ -11,6 +11,7 @@ const referenceStyles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
+    paddingTop: 8,
     marginLeft: 8,
     marginRight: 8,
   },
@@ -18,19 +19,18 @@ const referenceStyles = StyleSheet.create({
     color: BLACK,
     fontSize: 14,
   },
-  dateStyle: {
-    color: BLACK,
+  secondaryTextStyle: {
     fontSize: 14,
   },
   ratingStyle: {
-    color: BLACK,
     fontSize: 16,
   },
   rightColStyle: {
     paddingLeft: 8,
     paddingRight: 8,
     flex: 0,
-    alignItems: 'center',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
   },
   listItemStyle: {
     paddingTop: 8,
@@ -40,8 +40,8 @@ const referenceStyles = StyleSheet.create({
     backgroundColor: WHITE,
   },
   ratingRowStyle: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
   },
   listItemViewStyle: {
     flex: 1,

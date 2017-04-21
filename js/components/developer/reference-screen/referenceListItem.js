@@ -35,18 +35,23 @@ export default class referenceListItem extends Component {
             </View>
             <View>
               <Text
-                style={StyleSheet.flatten(ReferenceStyles.textStyle)}
+                note
+                style={StyleSheet.flatten(ReferenceStyles.secondaryTextStyle)}
               >{this.props.author}
               </Text>
             </View>
           </View>
           <View style={ReferenceStyles.rightColStyle}>
-            <Text style={StyleSheet.flatten(ReferenceStyles.dateStyle)}>
-              {this.props.date}
+            <Text
+              note
+              style={StyleSheet.flatten(ReferenceStyles.secondaryTextStyle)}
+            >{this.props.date}
             </Text>
             <View style={ReferenceStyles.ratingRowStyle}>
-              <Text style={StyleSheet.flatten(ReferenceStyles.ratingStyle)}>
-                {this.props.rating}
+              <Text
+                note
+                style={StyleSheet.flatten(ReferenceStyles.ratingStyle)}
+              >{this.props.rating}
               </Text>
               <Icon style={StyleSheet.flatten(ReferenceStyles.starStyle)} active name="star" />
             </View>
