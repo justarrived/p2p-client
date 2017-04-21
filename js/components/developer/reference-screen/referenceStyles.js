@@ -11,8 +11,8 @@ const referenceStyles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    marginLeft: 15,
-    marginRight: 15,
+    marginLeft: 8,
+    marginRight: 8,
   },
   textStyle: {
     color: BLACK,
@@ -31,7 +31,6 @@ const referenceStyles = StyleSheet.create({
     paddingRight: 8,
     flex: 0,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   listItemStyle: {
     paddingTop: 8,
@@ -44,7 +43,11 @@ const referenceStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  leftColSize: {
+  listItemViewStyle: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  midColSize: {
     flex: 1,
   },
 });

@@ -20,34 +20,36 @@ export default class referenceListItem extends Component {
   render() {
     return (
       <ListItem style={StyleSheet.flatten(ReferenceStyles.listItemStyle)}>
-        <Thumbnail
-          style={StyleSheet.flatten(ReferenceStyles.pictureStyle)} source={this.props.icon}
-        />
-        <View style={ReferenceStyles.leftColSize}>
-          <View>
-            <Text
-              multiline
-              numberOfLines={4}
-              style={StyleSheet.flatten(ReferenceStyles.textStyle)}
-            >{this.props.reference}
-            </Text>
+        <View style={StyleSheet.flatten(ReferenceStyles.listItemViewStyle)}>
+          <Thumbnail
+            style={StyleSheet.flatten(ReferenceStyles.pictureStyle)} source={this.props.icon}
+          />
+          <View style={ReferenceStyles.midColSize}>
+            <View>
+              <Text
+                multiline
+                numberOfLines={4}
+                style={StyleSheet.flatten(ReferenceStyles.textStyle)}
+              >{this.props.reference}
+              </Text>
+            </View>
+            <View>
+              <Text
+                style={StyleSheet.flatten(ReferenceStyles.textStyle)}
+              >{'- '}{this.props.author}
+              </Text>
+            </View>
           </View>
-          <View>
-            <Text
-              style={StyleSheet.flatten(ReferenceStyles.textStyle)}
-            >{'- '}{this.props.author}
+          <View style={ReferenceStyles.rightColStyle}>
+            <Text style={StyleSheet.flatten(ReferenceStyles.dateStyle)}>
+              {this.props.date}
             </Text>
-          </View>
-        </View>
-        <View style={ReferenceStyles.rightColStyle}>
-          <Text style={StyleSheet.flatten(ReferenceStyles.dateStyle)}>
-            {this.props.date}
-          </Text>
-          <View style={ReferenceStyles.ratingRowStyle}>
-            <Text style={StyleSheet.flatten(ReferenceStyles.ratingStyle)}>
-              {this.props.rating}
-            </Text>
-            <Icon style={StyleSheet.flatten(ReferenceStyles.starStyle)} active name="star" />
+            <View style={ReferenceStyles.ratingRowStyle}>
+              <Text style={StyleSheet.flatten(ReferenceStyles.ratingStyle)}>
+                {this.props.rating}
+              </Text>
+              <Icon style={StyleSheet.flatten(ReferenceStyles.starStyle)} active name="star" />
+            </View>
           </View>
         </View>
       </ListItem>
