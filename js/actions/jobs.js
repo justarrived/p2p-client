@@ -22,7 +22,7 @@ function requestJobs() {
   };
 }
 
-// Used to set state with received job
+// Used to set state with received job (one)
 function receiveJob(jobId, jobJson, error) {
   return {
     type: JOB_RECEIVE,
@@ -32,7 +32,7 @@ function receiveJob(jobId, jobJson, error) {
   };
 }
 
-// Used to set state with received jobs
+// Used to set state with received jobs (all)
 function receiveJobs(jobJson, error) {
   return {
     type: JOBS_RECEIVE,
@@ -41,14 +41,14 @@ function receiveJobs(jobJson, error) {
   };
 }
 
-// Used to set state with new user
+// Used to set state waiting for new job
 function createJob() {
   return {
     type: JOB_CREATE,
   };
 }
 
-// Used to set state with updated user
+// Used to set state waiting for updated job
 function updateJob(jobId) {
   return {
     type: JOB_UPDATE,
@@ -113,14 +113,14 @@ export function requestPostJob(requestJson) {
 }
 
 // update existing job through API
-export function requestPatchUser(jobId, token, requestJson) {
+export function requestPatchJob(jobId, token, requestJson) {
   return (dispatch) => {
     dispatch(updateJob(jobId));
     patchJob(jobId, token, requestJson,
-      (userJson) => {
+      (jobJson) => {
         dispatch(receiveJob(
-          userJson.data.id,
-          userJson,
+          jobJson.data.id,
+          jobJson,
           null));
       },
       (error) => {

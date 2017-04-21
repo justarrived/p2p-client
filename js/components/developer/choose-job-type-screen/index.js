@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import JobTypeCard from './jobTypeCard';
 import GlobalStyle from '../../common/globalStyle';
 import { imageProp } from '../../common/propTypes';
+import { clearData, setName, setDescription, setOwner } from '../../../actions/jobCreation';
 import I18n from '../../../i18n';
 
-const { shape, arrayOf, string } = PropTypes;
+const { shape, arrayOf, string, func, number } = PropTypes;
 
 class ChooseJobTypeScreen extends Component {
   static navigationOptions = {
@@ -24,6 +25,8 @@ class ChooseJobTypeScreen extends Component {
         }).isRequired,
       ).isRequired,
     }).isRequired,
+    userId: number.isRequired,
+    initiateCreateJob: func.isRequired,
   };
 
   navigateToNextScreen = () => this.props.navigation.navigate('CreateJobScreen');
@@ -32,7 +35,10 @@ class ChooseJobTypeScreen extends Component {
     <JobTypeCard
       title={jobType.title} subtitle={jobType.description}
       cover={jobType.image} icon={jobType.icon}
-      toNextScreen={() => this.navigateToNextScreen()}
+      toNextScreen={() => {
+        this.props.initiateCreateJob(jobType.title, jobType.description, this.props.userId);
+        this.navigateToNextScreen();
+      }}
     />
   );
 
@@ -47,6 +53,20 @@ class ChooseJobTypeScreen extends Component {
   }
 }
 
-const mapStateToProps = state => ({ jobTypes: state.jobTypes });
+const mapStateToProps = state => ({
+  jobTypes: state.jobTypes,
+  userId: state.session.userId,
+});
 
-export default connect(mapStateToProps)(ChooseJobTypeScreen);
+function bindAction(dispatch) {
+  return {
+    initiateCreateJob: (name, description, userId) => {
+      dispatch(clearData());
+      dispatch(setName(name));
+      dispatch(setDescription(description));
+      dispatch(setOwner(userId));
+    },
+  };
+}
+
+export default connect(mapStateToProps, bindAction)(ChooseJobTypeScreen);
