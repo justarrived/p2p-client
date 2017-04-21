@@ -1,5 +1,5 @@
 import { JOBC_NAME, JOBC_DESCRIPTION, JOBC_OWNER_ID, JOBC_CATEGORY,
-JOBC_HOURS, JOBC_START_DATE, JOBC_END_DATE, JOBC_LANGUAGE,
+JOBC_HOURS, JOBC_H_START_DATE, JOBC_H_START_TIME, JOBC_LANGUAGE,
 JOBC_HOURLY_PAY, JOBC_SKILLS, JOBC_CLEAR_DATA } from '../actions/jobCreation';
 import { SESSION_REMOVE } from '../actions/session';
 
@@ -8,12 +8,18 @@ const initialState = {
   name: '',
   description: '',
   owner_user_id: null,
-  job_date: null,
-  job_end_date: null,
+  job_date: '',
+  job_end_date: '',
   language_id: 38, // TODO handle languages
   category_id: 8212, // TODO handle categories
   hourly_pay_id: 1, // TODO handle hourly pay
   skill_ids: [1], // TODO handle skills
+  city: '',
+  full_street_address: '',
+  helperDate: {
+    date: '',
+    time: '10:00',
+  },
 };
 
 export default function (state = initialState, action) {
@@ -48,18 +54,32 @@ export default function (state = initialState, action) {
       hours: action.payload,
     };
   }
-  if (action.type === JOBC_START_DATE) {
-    // If no end date set end date to start date
+  if (action.type === JOBC_H_START_DATE) {
+    // TODO set correct end date
+    const time = state.helperDate.time;
+    const actualDate = `${action.payload}T${time}`;
     return {
       ...state,
-      job_date: action.payload,
-      job_end_date: state.job_end_date === null ? action.payload : state.job_end_date,
+      job_date: actualDate,
+      job_end_date: actualDate,
+      helperDate: {
+        date: action.payload,
+        time,
+      },
     };
   }
-  if (action.type === JOBC_END_DATE) {
+  if (action.type === JOBC_H_START_TIME) {
+    // TODO set correct end date
+    const date = state.helperDate.date;
+    const actualDate = `${date}T${action.payload}`;
     return {
       ...state,
-      job_end_date: action.payload,
+      job_date: actualDate,
+      job_end_date: actualDate,
+      helperDate: {
+        date,
+        time: action.payload,
+      },
     };
   }
   if (action.type === JOBC_LANGUAGE) {

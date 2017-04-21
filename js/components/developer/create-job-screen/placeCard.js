@@ -9,6 +9,8 @@ const ADDRESS_STRING = I18n.t('account.address');
 const CITY_STRING = I18n.t('account.city');
 const ZIP_CODE_STRING = I18n.t('account.postal_code');
 
+// TODO add location in redux job creation
+
 // Card with input fields to specify the location of the job.
 export default class PlaceCard extends Component {
   render() {
