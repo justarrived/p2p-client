@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { Thumbnail, Grid, Icon, Col, Row } from 'native-base';
+import { View, StyleSheet } from 'react-native';
+import { Thumbnail, Grid, Icon, Col, Row, Text } from 'native-base';
 import WorkerProfileStyles from './workerProfileStyles';
 import { imageProp } from '../../common/propTypes';
 
