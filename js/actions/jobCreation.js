@@ -5,101 +5,78 @@ export const JOBC_DESCRIPTION = 'JOBC_DESCRIPTION';
 export const JOBC_OWNER_ID = 'JOBC_OWNER_ID';
 export const JOBC_CATEGORY = 'JOBC_CATEGORY';
 export const JOBC_HOURS = 'JOBC_HOURS';
-// export const JOBC_START_DATE = 'JOBC_START_DATE';
-// export const JOBC_END_DATE = 'JOBC_END_DATE';
 export const JOBC_LANGUAGE = 'JOBC_LANGUAGE';
 export const JOBC_HOURLY_PAY = 'JOBC_HOURLY_PAY';
 export const JOBC_SKILLS = 'JOBC_SKILLS';
+export const JOBC_CITY = 'JOBC_CITY';
 
 // Edit helper variables
 export const JOBC_H_START_DATE = 'JOBC_HIDDEN_STAR_DATE';
 export const JOBC_H_START_TIME = 'JOBC_HIDDEN_STAR_TIME';
 // export const JOBC_H_END_DATE = 'JOBC_HIDDEN_STAR_DATE';
 // export const JOBC_H_END_TIME = 'JOBC_HIDDEN_STAR_DATE';
+export const JOBC_H_ADDRESS_STREET = 'JOBC_HIDDEN_ADDRESS_STREET';
+export const JOBC_H_ADDRESS_ZIP = 'JOBC_HIDDEN_ADDRESS_ZIP';
 
 export const JOBC_CLEAR_DATA = 'JOBC_CLEAR_DATA';
 
-export function setName(name) {
+function getDispatchAction(type, payload) {
   return {
-    type: JOBC_NAME,
-    payload: name,
+    type,
+    payload,
   };
+}
+
+export function setName(name) {
+  return getDispatchAction(JOBC_NAME, name);
 }
 
 export function setDescription(description) {
-  return {
-    type: JOBC_DESCRIPTION,
-    payload: description,
-  };
+  return getDispatchAction(JOBC_DESCRIPTION, description);
 }
 
 export function setOwner(userId) {
-  return {
-    type: JOBC_OWNER_ID,
-    payload: userId,
-  };
+  return getDispatchAction(JOBC_OWNER_ID, userId);
 }
 
 export function setCategory(cetegoryId) {
-  return {
-    type: JOBC_CATEGORY,
-    payload: cetegoryId,
-  };
+  return getDispatchAction(JOBC_CATEGORY, cetegoryId);
 }
 
 export function setHours(hours) {
-  return {
-    type: JOBC_HOURS,
-    payload: hours,
-  };
+  return getDispatchAction(JOBC_HOURS, hours);
 }
 
 export function setHStartDate(startDate) {
-  return {
-    type: JOBC_H_START_DATE,
-    payload: startDate,
-  };
+  return getDispatchAction(JOBC_H_START_DATE, startDate);
 }
 
 export function setHStartTime(startTime) {
-  return {
-    type: JOBC_H_START_TIME,
-    payload: startTime,
-  };
+  return getDispatchAction(JOBC_H_START_TIME, startTime);
 }
 
-/* export function setDate(startDate) {
-  return {
-    type: JOBC_START_DATE,
-    payload: startDate,
-  };
-}*/
-/* export function setEndDate(endDate) {
-  return {
-    type: JOBC_END_DATE,
-    payload: endDate,
-  };
-}*/
-
 export function setLanguage(languageId) {
-  return {
-    type: JOBC_LANGUAGE,
-    payload: languageId,
-  };
+  return getDispatchAction(JOBC_LANGUAGE, languageId);
 }
 
 export function setPay(hourlyPayId) {
-  return {
-    type: JOBC_HOURLY_PAY,
-    payload: hourlyPayId,
-  };
+  return getDispatchAction(JOBC_HOURLY_PAY, hourlyPayId);
 }
 
 export function setSkills(skillIds) {
-  return {
-    type: JOBC_SKILLS,
-    payload: skillIds,
-  };
+  return getDispatchAction(JOBC_SKILLS, skillIds);
+}
+
+export function setCity(city) {
+  return getDispatchAction(JOBC_CITY, city);
+}
+
+export function setHStreet(street) {
+  return getDispatchAction(JOBC_H_ADDRESS_STREET, street);
+}
+
+export function setHZip(zip) {
+  return getDispatchAction(JOBC_H_ADDRESS_ZIP, zip);
 }
 
 export function clearData() {

@@ -1,6 +1,7 @@
 import { JOBC_NAME, JOBC_DESCRIPTION, JOBC_OWNER_ID, JOBC_CATEGORY,
 JOBC_HOURS, JOBC_H_START_DATE, JOBC_H_START_TIME, JOBC_LANGUAGE,
-JOBC_HOURLY_PAY, JOBC_SKILLS, JOBC_CLEAR_DATA } from '../actions/jobCreation';
+JOBC_HOURLY_PAY, JOBC_SKILLS, JOBC_CLEAR_DATA,
+JOBC_CITY, JOBC_H_ADDRESS_STREET, JOBC_H_ADDRESS_ZIP } from '../actions/jobCreation';
 import { SESSION_REMOVE } from '../actions/session';
 
 const initialState = {
@@ -19,6 +20,11 @@ const initialState = {
   helperDate: {
     date: '',
     time: '10:00',
+  },
+  helperAddress: {
+    street: '',
+    zip: '',
+    country: 'Sweden',
   },
 };
 
@@ -98,6 +104,40 @@ export default function (state = initialState, action) {
     return {
       ...state,
       skill_ids: action.payload,
+    };
+  }
+  if (action.type === JOBC_CITY) {
+    return {
+      ...state,
+      city: action.payload,
+    };
+  }
+  if (action.type === JOBC_H_ADDRESS_STREET) {
+    const zip = state.helperAddress.zip;
+    const country = state.helperAddress.country;
+    const actualAddress = `${action.payload}, ${zip}, ${country}`;
+    return {
+      ...state,
+      full_street_address: actualAddress,
+      helperAddress: {
+        street: action.payload,
+        zip,
+        country,
+      },
+    };
+  }
+  if (action.type === JOBC_H_ADDRESS_ZIP) {
+    const street = state.helperAddress.street;
+    const country = state.helperAddress.country;
+    const actualAddress = `${street}, ${action.payload}, ${country}`;
+    return {
+      ...state,
+      full_street_address: actualAddress,
+      helperAddress: {
+        street,
+        zip: action.payload,
+        country,
+      },
     };
   }
   if (action.type === SESSION_REMOVE

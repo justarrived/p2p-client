@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
+import { Container, Content, List } from 'native-base';
 import JobTypeCard from './jobTypeCard';
 import GlobalStyle from '../../common/globalStyle';
 import { imageProp } from '../../common/propTypes';
