@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Thumbnail, Grid, Icon, Col, Row, Text } from 'native-base';
 import WorkerProfileStyles from './workerProfileStyles';
 import { imageProp } from '../../common/propTypes';
@@ -16,43 +16,42 @@ export default class ProfileHeader extends Component {
 
   render() {
     return (
-      <View>
-        <Grid>
-          <Row style={StyleSheet.flatten(WorkerProfileStyles.topRow)}>
-            <Col style={StyleSheet.flatten(WorkerProfileStyles.topLeftCol)} />
-            <Col style={StyleSheet.flatten(WorkerProfileStyles.topMidCol)}>
-              <Thumbnail
-                style={StyleSheet.flatten(WorkerProfileStyles.logo)}
-                source={this.props.picture}
+      <Grid>
+        <Row>
+          <Col style={StyleSheet.flatten(WorkerProfileStyles.topLeftCol)} />
+          <Col style={StyleSheet.flatten(WorkerProfileStyles.topMidCol)}>
+            <Thumbnail
+              style={StyleSheet.flatten(WorkerProfileStyles.logo)}
+              source={this.props.picture}
+            />
+          </Col>
+          <Col style={StyleSheet.flatten(WorkerProfileStyles.topRightCol)}>
+            <Row style={StyleSheet.flatten(WorkerProfileStyles.starRow)}>
+              <Text
+                style={StyleSheet.flatten(WorkerProfileStyles.ratingStyle)}
+              >{this.props.rating}</Text>
+              <Icon
+                style={StyleSheet.flatten(WorkerProfileStyles.starStyle)}
+                active name="star"
               />
-            </Col>
-            <Col style={StyleSheet.flatten(WorkerProfileStyles.topRightCol)}>
-              <Row>
-                <Text
-                  style={StyleSheet.flatten(WorkerProfileStyles.ratingStyle)}
-                >{this.props.rating}</Text>
-                <Icon
-                  style={StyleSheet.flatten(WorkerProfileStyles.starStyle)}
-                  active name="star"
-                />
-              </Row>
-              <Row style={StyleSheet.flatten(WorkerProfileStyles.priceRow)}>
-                <Text
-                  style={StyleSheet.flatten(WorkerProfileStyles.priceStyle)}
-                >{this.props.priceTot} Kr</Text>
-              </Row>
-              <Row>
-                <Text
-                  style={StyleSheet.flatten(WorkerProfileStyles.priceStyle)}
-                >{this.props.priceHr} Kr/h</Text>
-              </Row>
-            </Col>
-          </Row>
-          <Text style={StyleSheet.flatten(WorkerProfileStyles.nameText)}>
-            {this.props.name}
-          </Text>
-        </Grid>
-      </View>
+            </Row>
+            <Row style={StyleSheet.flatten(WorkerProfileStyles.priceRow)}>
+              <Text
+                style={StyleSheet.flatten(WorkerProfileStyles.totPriceStyle)}
+              >{this.props.priceTot}</Text>
+            </Row>
+            <Row>
+              <Text
+                note
+                style={StyleSheet.flatten(WorkerProfileStyles.priceStyle)}
+              >{this.props.priceHr}</Text>
+            </Row>
+          </Col>
+        </Row>
+        <Text style={StyleSheet.flatten(WorkerProfileStyles.nameText)}>
+          {this.props.name}
+        </Text>
+      </Grid>
     );
   }
 }

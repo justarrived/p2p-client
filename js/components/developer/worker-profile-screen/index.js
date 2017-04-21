@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Content, Card } from 'native-base';
+import { View, StyleSheet } from 'react-native';
+import { Container, Content, Card, Col, CardItem } from 'native-base';
 import GlobalStyle from '../../common/globalStyle';
 import I18n from '../../../i18n';
-import PreviousWork from './prevWork';
-import Education from './education';
-import Languages from './language';
-import Presentation from './presentation';
+import WorkerProfileStyles from './workerProfileStyles';
 import ProfileHeader from './profileHeader';
+import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
 
 const NAME = 'John Doe';
 
@@ -19,31 +18,43 @@ export default class WorkerInfoScreen extends Component {
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
           <Card>
-            <ProfileHeader
-              picture={{
-                uri: 'https://facebook.github.io/react/img/logo_og.png',
-              }}
-              name={'John Doe'}
-              priceTot={'500'}
-              priceHr={'100'}
-              rating={'4'}
-            />
-            <Presentation
-              title={I18n.t('worker_profile.presentation')}
-              presentation={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed ligula euismod, vestibulum turpis eu, viverra risus.'}
-            />
-            <Languages
-              title={I18n.t('worker_profile.language')}
-              language={'Svenska, Engelska'}
-            />
-            <Education
-              title={I18n.t('worker_profile.education')}
-              education={'Nationalekonomi'}
-            />
-            <PreviousWork
-              title={I18n.t('worker_profile.prev_work')}
-              prevWork={'Banktjänsteman'}
-            />
+            <CardItem bordered>
+              <ProfileHeader
+                picture={{
+                  uri: 'https://facebook.github.io/react/img/logo_og.png',
+                }}
+                name={'John Doe'}
+                priceTot={'500 kr'}
+                priceHr={'100 kr/h'}
+                rating={'4'}
+              />
+            </CardItem>
+            <Col style={StyleSheet.flatten(WorkerProfileStyles.viewStyle)}>
+              <CardItem bordered>
+                <TextWithStackedNote
+                  note={I18n.t('worker_profile.presentation')}
+                  text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed ligula euismod, vestibulum turpis eu, viverra risus.'}
+                />
+              </CardItem>
+              <CardItem bordered>
+                <TextWithStackedNote
+                  note={I18n.t('worker_profile.language')}
+                  text={'Svenska, Engelska'}
+                />
+              </CardItem>
+              <CardItem bordered>
+                <TextWithStackedNote
+                  note={I18n.t('worker_profile.education')}
+                  text={'Nationalekonomi'}
+                />
+              </CardItem>
+              <CardItem bordered>
+                <TextWithStackedNote
+                  note={I18n.t('worker_profile.prev_work')}
+                  text={'Banktjänsteman'}
+                />
+              </CardItem>
+            </Col>
           </Card>
         </Content>
       </Container>

@@ -2,17 +2,6 @@ import { StyleSheet } from 'react-native';
 import { BLACK, MAIN_CERISE } from '../../common/colors';
 
 const styles = StyleSheet.create({
-  infoContainer: {
-    paddingLeft: 8,
-    paddingRight: 8,
-    paddingTop: 8,
-    paddingBottom: 8,
-  },
-  topRow: {
-    paddingTop: 8,
-    paddingRight: 8,
-    paddingLeft: 8,
-  },
   topLeftCol: {
     flex: 1,
   },
@@ -31,10 +20,18 @@ const styles = StyleSheet.create({
   ratingStyle: {
     fontSize: 30,
   },
+  totPriceStyle: {
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
   priceStyle: {
-    fontSize: 15,
+    fontSize: 14,
   },
   priceRow: {
+    marginTop: 10,
+    flex: 0,
+  },
+  starRow: {
     flex: 0,
   },
   nameText: {
