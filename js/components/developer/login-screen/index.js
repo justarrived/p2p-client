@@ -3,6 +3,7 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, Content, Card, Container, CheckBox, Form, Thumbnail, ListItem, Button, Body, Col, Grid } from 'native-base';
 import { connect } from 'react-redux';
 import EmailInput from '../../common/email-input';
+import JAHeader from '../../common/ja-header';
 import JAButton from '../../common/ja-button';
 import {JA_BUTTON} from '../../common/constants';
 import PasswordInput from '../../common/password-input';
@@ -79,6 +80,9 @@ class LoginScreen extends Component {
 
     return (
       <Container>
+
+      {/* Header */}
+      <JAHeader/>
         {/* Full height scroll view */}
         <Content
           onLayout={(event) => { // Invoked on mount and device orientation change.

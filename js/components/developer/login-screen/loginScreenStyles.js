@@ -12,7 +12,7 @@ const loginScreenStyles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingTop: 120,
+    paddingTop: 60,
     paddingBottom: 14,
   },
 
@@ -63,7 +63,7 @@ const loginScreenStyles = StyleSheet.create({
 
   footerStyling: {
     backgroundColor: '#F0F0F0',
-    left: 0, 
+    left: 0,
     right: 0,
     bottom: 0,
     padding: 12
