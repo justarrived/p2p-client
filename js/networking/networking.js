@@ -70,6 +70,15 @@ export function postJson(url, json, onSuccess, onError) {
   postJsonStatus(url, json, 201, onSuccess, onError);
 }
 
+// POST Auth JSON data to url and handle 201 JSON response
+export function postAuthJson(url, token, json, onSuccess, onError) {
+  fetch(url, createAuthJsonRequest(methods.POST, token, json))
+    .then(response => handleJsonStatusResponse(response, 201))
+    .then(responseJson => onSuccess(responseJson))
+    .catch(error => onError(error))
+    .done();
+}
+
 // DELETE url and handle 204 response
 export function deleteRequest(url, onSuccess, onError) {
   fetch(url, createDeleteRequest())

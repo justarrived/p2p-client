@@ -95,10 +95,10 @@ export function requestGetJobs(token) {
 }
 
 // Create a new job through API
-export function requestPostJob(requestJson) {
+export function requestPostJob(requestJson, token) {
   return (dispatch) => {
     dispatch(createJob());
-    postJob(requestJson,
+    postJob(requestJson, token,
       (responseJson) => {
         dispatch(receiveJob(
           responseJson.data.id,

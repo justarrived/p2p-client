@@ -6,7 +6,6 @@ import CardHeader from '../../common/card-header/cardHeader';
 import I18n from '../../../i18n';
 import { setHStreet, setHZip, setCity } from '../../../actions/jobCreation';
 
-// Temporary constants. These will be moved and implemented in another way in the future!
 const ADDRESS_STRING = I18n.t('account.address');
 const CITY_STRING = I18n.t('account.city');
 const ZIP_CODE_STRING = I18n.t('account.postal_code');

@@ -1,4 +1,4 @@
-import { getAuthJson, patchAuthJson, postJson } from './networking';
+import { getAuthJson, patchAuthJson, postAuthJson } from './networking';
 import BASE_URL from './url';
 /*
 Class with methods for manipulating user info against API.
@@ -49,6 +49,6 @@ export function patchJob(jobId, token, json, onSuccess, onError) {
 
 // TODO test
 // Post a new job
-export function postJob(json, onSuccess, onError) {
-  postJson(JOBS_PATH, json, onSuccess, onError);
+export function postJob(jobJson, token, onSuccess, onError) {
+  postAuthJson(JOBS_PATH, token, jobJson, onSuccess, onError);
 }

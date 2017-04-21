@@ -61,6 +61,7 @@ export default function (state = initialState, action) {
     };
   }
   if (action.type === JOBC_H_START_DATE) {
+    // Add date when job starts
     // TODO set correct end date
     const time = state.helperDate.time;
     const actualDate = `${action.payload}T${time}`;
@@ -75,6 +76,7 @@ export default function (state = initialState, action) {
     };
   }
   if (action.type === JOBC_H_START_TIME) {
+    // Add time of day when job starts
     // TODO set correct end date
     const date = state.helperDate.date;
     const actualDate = `${date}T${action.payload}`;
@@ -113,6 +115,7 @@ export default function (state = initialState, action) {
     };
   }
   if (action.type === JOBC_H_ADDRESS_STREET) {
+    // Add street
     const zip = state.helperAddress.zip;
     const country = state.helperAddress.country;
     const actualAddress = `${action.payload}, ${zip}, ${country}`;
@@ -127,6 +130,7 @@ export default function (state = initialState, action) {
     };
   }
   if (action.type === JOBC_H_ADDRESS_ZIP) {
+    // Add zip code
     const street = state.helperAddress.street;
     const country = state.helperAddress.country;
     const actualAddress = `${street}, ${action.payload}, ${country}`;
