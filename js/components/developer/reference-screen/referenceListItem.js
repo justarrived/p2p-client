@@ -36,7 +36,7 @@ export default class referenceListItem extends Component {
             <View>
               <Text
                 style={StyleSheet.flatten(ReferenceStyles.textStyle)}
-              >{'- '}{this.props.author}
+              >{this.props.author}
               </Text>
             </View>
           </View>
