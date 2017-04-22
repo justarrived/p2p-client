@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { PRIMARY_THEME_COLOR, WHITE } from './components/common/colors';
+import { PRIMARY_THEME_COLOR, WHITE, GRAY } from './components/common/colors';
+
+const ACTIVE_TINT_COLOR = PRIMARY_THEME_COLOR;
+const INACTIVE_TINT_COLOR = GRAY;
 
 const TabBarStyles = StyleSheet.create({
   label: {
-    color: PRIMARY_THEME_COLOR,
     fontSize: 10,
-    fontWeight: 'bold',
   },
   tabBar: {
     backgroundColor: WHITE,
@@ -15,4 +16,4 @@ const TabBarStyles = StyleSheet.create({
   },
 });
 
-module.exports = TabBarStyles;
+module.exports = { TabBarStyles, ACTIVE_TINT_COLOR, INACTIVE_TINT_COLOR };
