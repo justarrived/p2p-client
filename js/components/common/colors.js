@@ -1,9 +1,7 @@
 // Theme colors
 export const TITLE_COLOR = '#171A20';
-export const MAIN_CERISE = '#EB370B';
 export const SECONDARY_GRAY = '#383F4E';
 export const SECONDARY_BLUE = '#0069D2';
-export const PRIMARY = '#EB370B';
 
 export const PRIMARY_THEME_COLOR = '#FF3A00';
 export const GRADIENT_ORANGE_COLOR = '#FF7F00';

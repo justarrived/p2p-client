@@ -1,6 +1,6 @@
 import color from 'color';
 import { Platform, Dimensions, PixelRatio } from 'react-native';
-import { PRIMARY, BLACK, WHITE } from '../../components/common/colors';
+import { PRIMARY_THEME_COLOR, BLACK, WHITE } from '../../components/common/colors';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
@@ -16,7 +16,7 @@ export default {
   androidRippleColorDark: 'rgba(0, 0, 0, 0.15)',
 
     // Badge
-  badgeBg: PRIMARY,
+  badgeBg: PRIMARY_THEME_COLOR,
   badgeColor: WHITE,
     // New Variable
   badgePadding: (platform === 'ios') ? 3 : 0,
@@ -35,17 +35,17 @@ export default {
   CheckboxIconMarginTop: (platform === 'ios') ? undefined : 1,
   CheckboxFontSize: (platform === 'ios') ? 21 : 18,
   DefaultFontSize: 17,
-  checkboxBgColor: PRIMARY,
+  checkboxBgColor: PRIMARY_THEME_COLOR,
   checkboxSize: 20,
   checkboxTickColor: WHITE,
 
   // Segment
-  segmentBackgroundColor: PRIMARY,
-  segmentActiveBackgroundColor: PRIMARY,
+  segmentBackgroundColor: PRIMARY_THEME_COLOR,
+  segmentActiveBackgroundColor: PRIMARY_THEME_COLOR,
   segmentTextColor: WHITE,
-  segmentActiveTextColor: PRIMARY,
+  segmentActiveTextColor: PRIMARY_THEME_COLOR,
   segmentBorderColor: WHITE,
-  segmentBorderColorMain: PRIMARY,
+  segmentBorderColorMain: PRIMARY_THEME_COLOR,
 
     // New Variable
   get defaultTextColor() {
@@ -112,8 +112,8 @@ export default {
 
 
       // Color
-  brandPrimary: PRIMARY,
-  brandInfo: PRIMARY,
+  brandPrimary: PRIMARY_THEME_COLOR,
+  brandInfo: PRIMARY_THEME_COLOR,
   brandSuccess: '#5cb85c',
   brandDanger: '#d9534f',
   brandWarning: '#f0ad4e',
@@ -137,37 +137,37 @@ export default {
 
     // Footer
   footerHeight: 55,
-  footerDefaultBg: PRIMARY,
+  footerDefaultBg: PRIMARY_THEME_COLOR,
 
 
     // FooterTab
-  tabBarTextColor: PRIMARY,
+  tabBarTextColor: PRIMARY_THEME_COLOR,
   tabBarTextSize: (platform === 'ios') ? 14 : 11,
   activeTab: WHITE,
-  sTabBarActiveTextColor: PRIMARY,
+  sTabBarActiveTextColor: PRIMARY_THEME_COLOR,
   tabBarActiveTextColor: WHITE,
   tabActiveBgColor: undefined,
 
     // Tab
   tabDefaultBg: WHITE,
-  topTabBarTextColor: PRIMARY,
-  topTabBarActiveTextColor: PRIMARY,
+  topTabBarTextColor: PRIMARY_THEME_COLOR,
+  topTabBarActiveTextColor: PRIMARY_THEME_COLOR,
   topTabActiveBgColor: undefined,
-  topTabBarBorderColor: PRIMARY,
-  topTabBarActiveBorderColor: PRIMARY,
+  topTabBarBorderColor: PRIMARY_THEME_COLOR,
+  topTabBarActiveBorderColor: PRIMARY_THEME_COLOR,
 
 
     // Header
   toolbarBtnColor: WHITE,
-  toolbarDefaultBg: PRIMARY,
+  toolbarDefaultBg: PRIMARY_THEME_COLOR,
   toolbarHeight: (platform === 'ios') ? 76 : 56,
   toolbarIconSize: (platform === 'ios') ? 20 : 22,
   toolbarSearchIconSize: (platform === 'ios') ? 20 : 23,
-  toolbarInputColor: PRIMARY,
+  toolbarInputColor: PRIMARY_THEME_COLOR,
   searchBarHeight: (platform === 'ios') ? 30 : 40,
   toolbarInverseBg: '#222',
-  toolbarTextColor: PRIMARY,
-  toolbarDefaultBorder: PRIMARY,
+  toolbarTextColor: PRIMARY_THEME_COLOR,
+  toolbarDefaultBorder: PRIMARY_THEME_COLOR,
   iosStatusbar: 'light-content',
   get statusBarColor() {
     return color(this.toolbarDefaultBg).darken(0.2).hex();
@@ -229,13 +229,13 @@ export default {
 
 
     // Progress Bar
-  defaultProgressColor: PRIMARY,
+  defaultProgressColor: PRIMARY_THEME_COLOR,
   inverseProgressColor: '#1A191B',
 
 
     // Radio Button
   radioBtnSize: (platform === 'ios') ? 25 : 23,
-  radioSelectedColorAndroid: PRIMARY,
+  radioSelectedColorAndroid: PRIMARY_THEME_COLOR,
 
     // New Variable
   radioBtnLineHeight: (platform === 'ios') ? 29 : 24,
@@ -248,7 +248,7 @@ export default {
 
 
     // Spinner
-  defaultSpinnerColor: PRIMARY,
+  defaultSpinnerColor: PRIMARY_THEME_COLOR,
   inverseSpinnerColor: '#1A191B',
 
 

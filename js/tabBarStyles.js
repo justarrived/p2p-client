@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { PRIMARY, WHITE } from './components/common/colors';
+import { PRIMARY_THEME_COLOR, WHITE } from './components/common/colors';
 
 const TabBarStyles = StyleSheet.create({
   label: {
-    color: PRIMARY,
+    color: PRIMARY_THEME_COLOR,
     fontSize: 10,
     fontWeight: 'bold',
   },
@@ -11,7 +11,7 @@ const TabBarStyles = StyleSheet.create({
     backgroundColor: WHITE,
   },
   indicator: {
-    backgroundColor: PRIMARY,
+    backgroundColor: PRIMARY_THEME_COLOR,
   },
 });
 
