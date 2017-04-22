@@ -7,6 +7,13 @@ const deviceWidth = Dimensions.get('window').width;
 const platform = Platform.OS;
 const platformStyle = 'material';
 
+/**
+  Native Base material design preset theme file.
+  Custom brand colors are read and applied from the colors file.
+
+  Note that this is a standard Native Base file/theme that has been ejected:
+  https://docs.nativebase.io/CUSTOMIZE.html#Theming_NativeBase_Apps
+**/
 export default {
   platformStyle,
   platform,
