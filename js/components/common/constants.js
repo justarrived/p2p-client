@@ -3,3 +3,8 @@ export const JOB_STATUS = {
   UNASSIGNED: 'Ej tilldelad',
   FINISHED: 'Avslutad',
 };
+
+export const JA_BUTTON = {
+  PRIMARY: 1,
+  FACEBOOK: 2,
+};
