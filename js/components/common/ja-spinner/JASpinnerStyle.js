@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { PRIMARY } from '../../common/colors';
+import { PRIMARY_THEME_COLOR } from '../../common/colors';
 
-const JASpinnerColor = PRIMARY;
+const JASpinnerColor = PRIMARY_THEME_COLOR;
 
 const JASpinnerStyle = StyleSheet.create({
   container: {

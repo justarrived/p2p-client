@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import AuthenticationScreen from '../authentication-screen';
-import JASpinner from '../../common/spinner/JASpinner';
+import JASpinner from '../../common/ja-spinner/JASpinner';
 
 /*
   Renders children components if the user is authenticated.
