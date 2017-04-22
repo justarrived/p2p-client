@@ -92,8 +92,9 @@
   },
   "navigation_tabs": {
     "create_job": "Create Job",
-    "my_job": "My Jobs",
-    "my_profile": "My Profile"
+    "my_jobs": "My Jobs",
+    "my_profile": "My Profile",
+    "developer": "Developer"
   },
   "login": {
     "sign_in_button": "Log in to your account",
