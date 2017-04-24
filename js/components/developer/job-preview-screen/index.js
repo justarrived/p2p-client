@@ -43,22 +43,9 @@ class JobPreviewScreen extends Component {
   }
 
   postJob() {
+    // jobPreview same as required attributes
     const data = this.props.jobPreview;
-    const jobJson = createJsonDataAttributes({
-      hours: data.hours,
-      name: data.name,
-      description: data.description,
-      owner_user_id: data.owner_user_id,
-      job_date: data.job_date,
-      job_end_date: data.job_end_date,
-      language_id: data.language_id,
-      category_id: data.category_id,
-      hourly_pay_id: data.hourly_pay_id,
-      skills: data.skill_ids,
-      city: data.city,
-      street: data.street,
-      zip: data.zip,
-    });
+    const jobJson = createJsonDataAttributes(data);
     this.props.createJob(jobJson, this.props.token);
   }
 
@@ -102,7 +89,7 @@ class JobPreviewScreen extends Component {
               }}
             />
             <CardItemButton
-              text={'create job'}
+              text={I18n.t('job.create_job_button')}
               onPress={() => this.postJob()}
             />
           </Card>

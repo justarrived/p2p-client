@@ -17,14 +17,6 @@ class CalendarCard extends Component {
 
   // TODO check date and time format!
   // format= 2016-02-18T01:01:01.000+01:00"
-  setDate(date) {
-    this.props.setDate(date);
-  }
-
-  // Format= 01:01
-  setTime(time) {
-    this.props.setTime(time);
-  }
 
   render() {
     return (
@@ -42,7 +34,7 @@ class CalendarCard extends Component {
                   keyboardType="numeric"
                   maxLength={10}
                   value={this.props.date}
-                  onChangeText={date => this.setDate(date)}
+                  onChangeText={date => this.props.setDate(date)}
                 />
               </Item>
             </Col>
@@ -53,7 +45,7 @@ class CalendarCard extends Component {
                   keyboardType="numeric"
                   maxLength={5}
                   value={this.props.time}
-                  onChangeText={time => this.setTime(time)}
+                  onChangeText={time => this.props.setTime(time)}
                 />
               </Item>
             </Col>

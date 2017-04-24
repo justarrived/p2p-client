@@ -14,7 +14,7 @@ const initialState = {
   language_id: 38, // TODO handle languages
   category_id: 8212, // TODO handle categories
   hourly_pay_id: 1, // TODO handle hourly pay
-  skill_ids: [1], // TODO handle skills
+  skills: [1], // TODO handle skills
   city: '',
   street: '',
   zip: '',
@@ -101,7 +101,7 @@ export default function (state = initialState, action) {
   if (action.type === JOBC_SKILLS) {
     return {
       ...state,
-      skill_ids: action.payload,
+      skills: action.payload,
     };
   }
   if (action.type === JOBC_CITY) {

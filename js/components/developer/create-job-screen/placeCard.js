@@ -4,7 +4,7 @@ import { Grid, Col, Form, Item, Label, Input, Card, CardItem } from 'native-base
 
 import CardHeader from '../../common/card-header/cardHeader';
 import I18n from '../../../i18n';
-import { setHStreet, setHZip, setCity } from '../../../actions/jobCreation';
+import { setStreet, setZip, setCity } from '../../../actions/jobCreation';
 
 const ADDRESS_STRING = I18n.t('account.address');
 const CITY_STRING = I18n.t('account.city');
@@ -12,16 +12,6 @@ const ZIP_CODE_STRING = I18n.t('account.postal_code');
 
 // Card with input fields to specify the location of the job.
 class PlaceCard extends Component {
-
-  setCity(city) {
-    this.props.setCity(city);
-  }
-  setStreet(street) {
-    this.props.setStreet(street);
-  }
-  setZip(zip) {
-    this.props.setZip(zip);
-  }
 
   render() {
     return (
@@ -35,7 +25,7 @@ class PlaceCard extends Component {
             <Label>{ADDRESS_STRING}</Label>
             <Input
               value={this.props.street}
-              onChangeText={street => this.setStreet(street)}
+              onChangeText={street => this.props.setStreet(street)}
             />
           </Item>
           <Grid>
@@ -45,7 +35,7 @@ class PlaceCard extends Component {
                 <Input
                   keyboardType="numeric"
                   value={this.props.zip}
-                  onChangeText={zip => this.setZip(zip)}
+                  onChangeText={zip => this.props.setZip(zip)}
                 />
               </Item>
             </Col>
@@ -54,7 +44,7 @@ class PlaceCard extends Component {
                 <Label>{CITY_STRING}</Label>
                 <Input
                   value={this.props.city}
-                  onChangeText={city => this.setCity(city)}
+                  onChangeText={city => this.props.setCity(city)}
                 />
               </Item>
             </Col>
@@ -84,8 +74,8 @@ const mapStateToProps = state => ({
 function bindAction(dispatch) {
   return {
     setCity: city => dispatch(setCity(city)),
-    setStreet: street => dispatch(setHStreet(street)),
-    setZip: zip => dispatch(setHZip(zip)),
+    setStreet: street => dispatch(setStreet(street)),
+    setZip: zip => dispatch(setZip(zip)),
   };
 }
 
