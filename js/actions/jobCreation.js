@@ -9,14 +9,14 @@ export const JOBC_LANGUAGE = 'JOBC_LANGUAGE';
 export const JOBC_HOURLY_PAY = 'JOBC_HOURLY_PAY';
 export const JOBC_SKILLS = 'JOBC_SKILLS';
 export const JOBC_CITY = 'JOBC_CITY';
+export const JOBC_STREET = 'JOBC_STREET';
+export const JOBC_ZIP = 'JOBC_ZIP';
 
 // Edit helper variables
 export const JOBC_H_START_DATE = 'JOBC_HIDDEN_STAR_DATE';
 export const JOBC_H_START_TIME = 'JOBC_HIDDEN_STAR_TIME';
 // export const JOBC_H_END_DATE = 'JOBC_HIDDEN_STAR_DATE';
 // export const JOBC_H_END_TIME = 'JOBC_HIDDEN_STAR_DATE';
-export const JOBC_H_ADDRESS_STREET = 'JOBC_HIDDEN_ADDRESS_STREET';
-export const JOBC_H_ADDRESS_ZIP = 'JOBC_HIDDEN_ADDRESS_ZIP';
 
 export const JOBC_CLEAR_DATA = 'JOBC_CLEAR_DATA';
 
@@ -72,11 +72,11 @@ export function setCity(city) {
 }
 
 export function setHStreet(street) {
-  return getDispatchAction(JOBC_H_ADDRESS_STREET, street);
+  return getDispatchAction(JOBC_STREET, street);
 }
 
 export function setHZip(zip) {
-  return getDispatchAction(JOBC_H_ADDRESS_ZIP, zip);
+  return getDispatchAction(JOBC_ZIP, zip);
 }
 
 export function clearData() {

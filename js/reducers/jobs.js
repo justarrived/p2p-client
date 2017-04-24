@@ -10,7 +10,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  console.log(`previous jobs state:\n${JSON.stringify(state, null, 4)}`);
+  // console.log(`previous jobs state:\n${JSON.stringify(state, null, 4)}`);
   if (action.type === JOB_REQUEST) {
     // A request for a job has been sent
     return {

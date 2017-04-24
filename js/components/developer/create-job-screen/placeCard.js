@@ -77,8 +77,8 @@ PlaceCard.propTypes = {
 
 const mapStateToProps = state => ({
   city: state.jobCreation.city,
-  street: state.jobCreation.helperAddress.street,
-  zip: state.jobCreation.helperAddress.zip,
+  street: state.jobCreation.street,
+  zip: state.jobCreation.zip,
 });
 
 function bindAction(dispatch) {

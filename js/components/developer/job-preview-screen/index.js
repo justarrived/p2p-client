@@ -41,13 +41,13 @@ class JobPreviewScreen extends Component {
       job_end_date: data.job_end_date,
       language_id: data.language_id,
       category_id: data.category_id,
-      hourly_pay_id: data.hourly_pay_id1,
-      skill_ids: data.skill_ids,
+      hourly_pay_id: data.hourly_pay_id,
+      skills: data.skill_ids,
       city: data.city,
-      full_street_address: data.full_street_address,
+      street: data.street,
+      zip: data.zip,
     });
-    console.log(`Request JSON:\n ${JSON.stringify(jobJson, null, 4)}`);
-    // this.props.createJob(jobJson, this.props.token);
+    this.props.createJob(jobJson, this.props.token);
   }
 
   // TODO revamp how job duration is handled
@@ -56,7 +56,6 @@ class JobPreviewScreen extends Component {
     if (this.props.loading) {
       return <Spinner color="blue" />;
     }
-    const addressData = this.props.jobPreview.helperAddress;
     const dateData = this.props.jobPreview.helperDate;
     return (
       <Container>
@@ -81,8 +80,8 @@ class JobPreviewScreen extends Component {
             />
             <PlaceCardPreview
               data={{
-                address: addressData.street,
-                zip: addressData.zip,
+                address: this.props.jobPreview.street,
+                zip: this.props.jobPreview.zip,
                 city: this.props.jobPreview.city,
               }}
             />
@@ -105,7 +104,7 @@ const mapStateToProps = state => ({
 
 function bindAction(dispatch) {
   return {
-    createJob: jobJson => dispatch(requestPostJob(jobJson)),
+    createJob: (jobJson, token) => dispatch(requestPostJob(jobJson, token)),
   };
 }
 

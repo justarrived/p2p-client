@@ -1,7 +1,7 @@
 import { JOBC_NAME, JOBC_DESCRIPTION, JOBC_OWNER_ID, JOBC_CATEGORY,
 JOBC_HOURS, JOBC_H_START_DATE, JOBC_H_START_TIME, JOBC_LANGUAGE,
 JOBC_HOURLY_PAY, JOBC_SKILLS, JOBC_CLEAR_DATA,
-JOBC_CITY, JOBC_H_ADDRESS_STREET, JOBC_H_ADDRESS_ZIP } from '../actions/jobCreation';
+JOBC_CITY, JOBC_STREET, JOBC_ZIP } from '../actions/jobCreation';
 import { SESSION_REMOVE } from '../actions/session';
 
 const initialState = {
@@ -16,20 +16,16 @@ const initialState = {
   hourly_pay_id: 1, // TODO handle hourly pay
   skill_ids: [1], // TODO handle skills
   city: '',
-  full_street_address: '',
+  street: '',
+  zip: '',
   helperDate: {
     date: '',
     time: '10:00',
   },
-  helperAddress: {
-    street: '',
-    zip: '',
-    country: 'Sweden',
-  },
 };
 
 export default function (state = initialState, action) {
-  console.log(`previous create job state:\n${JSON.stringify(state, null, 4)}`);
+  // console.log(`previous create job state:\n${JSON.stringify(state, null, 4)}`);
   if (action.type === JOBC_NAME) {
     return {
       ...state,
@@ -114,34 +110,16 @@ export default function (state = initialState, action) {
       city: action.payload,
     };
   }
-  if (action.type === JOBC_H_ADDRESS_STREET) {
-    // Add street
-    const zip = state.helperAddress.zip;
-    const country = state.helperAddress.country;
-    const actualAddress = `${action.payload}, ${zip}, ${country}`;
+  if (action.type === JOBC_STREET) {
     return {
       ...state,
-      full_street_address: actualAddress,
-      helperAddress: {
-        street: action.payload,
-        zip,
-        country,
-      },
+      street: action.payload,
     };
   }
-  if (action.type === JOBC_H_ADDRESS_ZIP) {
-    // Add zip code
-    const street = state.helperAddress.street;
-    const country = state.helperAddress.country;
-    const actualAddress = `${street}, ${action.payload}, ${country}`;
+  if (action.type === JOBC_ZIP) {
     return {
       ...state,
-      full_street_address: actualAddress,
-      helperAddress: {
-        street,
-        zip: action.payload,
-        country,
-      },
+      zip: action.payload,
     };
   }
   if (action.type === SESSION_REMOVE
