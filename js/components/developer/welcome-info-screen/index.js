@@ -4,7 +4,7 @@ import { Container, Content, Thumbnail, Button, Text as NBText } from 'native-ba
 import styles from './style';
 import globalStyle from '../../common/globalStyle';
 
-const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
+const PICTURE = require('./picture.png');
 
 export default class WelcomeInfoScreen extends Component {
 
@@ -14,7 +14,7 @@ export default class WelcomeInfoScreen extends Component {
         <Content contentContainerStyle={styles.padder}>
           <View style={styles.logoContainer}>
             <Thumbnail
-              style={StyleSheet.flatten(styles.logo)} source={{ uri: LOGO_URL }}
+              style={StyleSheet.flatten(styles.logo)} source={PICTURE}
             />
           </View>
           <View>

@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
     paddingTop: PADDING * 2,
+    paddingLeft: 5,
+    paddingRight: 5,
   },
 
   buttonContainer2: {
