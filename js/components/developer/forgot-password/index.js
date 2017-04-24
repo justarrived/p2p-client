@@ -1,35 +1,26 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import {
-  Container, Content, Grid, Input,
+  Container, Content, Input,
   Item, Button, Label, Text as NBText } from 'native-base';
 import styles from './style';
 import I18n from '../../../i18n';
+import globalStyle from '../../common/globalStyle';
 
-const WHITE = 'white';
 
 export default class ForgotPassword extends Component {
 
-  pressLoginButton = () => {
-    const { navigate, state } = this.props.navigation;
-    if (state.params !== undefined && state.params.nextScreen !== undefined) {
-      navigate(state.params.nextScreen);
-    } else {
-      navigate('LoginScreen');
-    }
-  }
-
   render() {
     return (
-      <Container style={{ backgroundColor: WHITE }}>
+      <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>
         <Content contentContainerStyle={styles.padder}>
           <View>
-            <Text style={StyleSheet.flatten(styles.text1)}>
+            <Text style={StyleSheet.flatten(styles.title)}>
               {I18n.t('login.forgot_your_password')}
             </Text>
           </View>
           <View>
-            <Text style={StyleSheet.flatten(styles.text2)}>
+            <Text style={StyleSheet.flatten(styles.description)}>
               {I18n.t('login.forgot_your_password_info')}
             </Text>
           </View>
@@ -37,11 +28,10 @@ export default class ForgotPassword extends Component {
             <Label>{I18n.t('account.email')}</Label>
             <Input />
           </Item>
-          <Grid />
           <View style={styles.buttonContainer}>
             <Button
               style={StyleSheet.flatten(styles.button)}
-              rounded primary onPress={() => this.pressLoginButton()}
+              rounded primary
             >
               <NBText>{I18n.t('button_actions.send')}</NBText>
             </Button>

@@ -4,21 +4,15 @@ const PADDING = 10;
 
 const styles = StyleSheet.create({
 
-  text1: {
+  title: {
     paddingTop: PADDING * 6,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
 
-  text2: {
+  description: {
     paddingTop: PADDING * 2,
-    fontSize: 12,
-    textAlign: 'center',
-  },
-
-  text2view: {
-    padding: PADDING * 2,
     fontSize: 12,
     textAlign: 'center',
   },
