@@ -1,5 +1,9 @@
 import { StackNavigator, TabNavigator, TabView } from 'react-navigation';
 
+import I18n from './i18n';
+import { TabBarStyles, ACTIVE_TINT_COLOR, INACTIVE_TINT_COLOR } from './tabBarStyles';
+import JATabIcon from './components/common/ja-tab-icon/JATabIcon';
+
 import DeveloperScreen from './components/developer/developer-screen';
 import CreateJobScreen from './components/developer/create-job-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
@@ -18,10 +22,7 @@ import RateWorkScreen from './components/developer/rate-work-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
-import JATabIcon from './components/common/ja-tab-icon/JATabIcon';
-import I18n from './i18n';
-
-import { TabBarStyles, ACTIVE_TINT_COLOR, INACTIVE_TINT_COLOR } from './tabBarStyles';
+import ForgotPassword from './components/developer/forgot-password';
 
 const CreateJobTab = StackNavigator({
   ChooseJobTypeScreen: {
@@ -124,6 +125,9 @@ const DeveloperTab = StackNavigator({
   },
   ChooseWorkerScreen: {
     screen: ChooseWorkerScreen,
+  },
+  ForgotPassword: {
+    screen: ForgotPassword,
   },
   JobInfoScreen: {
     screen: JobInfoScreen,

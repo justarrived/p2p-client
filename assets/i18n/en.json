@@ -96,6 +96,10 @@
     "my_profile": "My Profile",
     "developer": "Developer"
   },
+  "forgot_password": {
+    "forgot_your_password": "Forgot your password?",
+    "forgot_your_password_info": "No worries! Type your email address in the box below and then check your inbox",
+  },
   "login": {
     "sign_in_button": "Log in to your account",
     "remember_me": "Remember me",
@@ -119,6 +123,7 @@
   "button_actions": {
     "done": "Done",
     "edit": "Edit",
+    "send": "Send",
     "save": "Save",
     "cancel": "Cancel",
     "next": "Next"
