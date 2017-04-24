@@ -62,14 +62,14 @@ class JobPreviewScreen extends Component {
     this.props.createJob(jobJson, this.props.token);
   }
 
-  // TODO revamp how job duration is handled
+  // TODO revamp how job duration is handled...
 
   render() {
     if (this.props.loading) {
       return <Spinner color="blue" />;
     }
     if (this.props.jobError != null) {
-      // TODO handle errors
+      // TODO Implement proper error handling
       // console.warn(JSON.stringify(this.props.jobError));
     }
     const dateData = this.props.jobPreview.helperDate;

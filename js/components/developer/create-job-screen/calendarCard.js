@@ -16,12 +16,12 @@ class CalendarCard extends Component {
   };
 
   // TODO check date and time format!
-  // "2016-02-18T01:01:01.000+01:00"
+  // format= 2016-02-18T01:01:01.000+01:00"
   setDate(date) {
     this.props.setDate(date);
   }
 
-  // TODO add time to the date!
+  // Format= 01:01
   setTime(time) {
     this.props.setTime(time);
   }
