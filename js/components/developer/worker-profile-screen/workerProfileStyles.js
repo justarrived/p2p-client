@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BLACK, MAIN_CERISE } from '../../common/colors';
+import { BLACK, PRIMARY_THEME_COLOR } from '../../common/colors';
 
 const styles = StyleSheet.create({
   topLeftCol: {
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   starStyle: {
     marginLeft: 2,
     fontSize: 40,
-    color: MAIN_CERISE,
+    color: PRIMARY_THEME_COLOR,
   },
   unRatedStyle: {
     fontSize: 18,

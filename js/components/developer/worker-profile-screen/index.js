@@ -23,7 +23,7 @@ export default class WorkerInfoScreen extends Component {
                 picture={{
                   uri: 'https://facebook.github.io/react/img/logo_og.png',
                 }}
-                name={'John Doe'}
+                name={NAME}
                 priceTot={'500 kr'}
                 priceHr={'100 kr/h'}
                 rating={'4'}
