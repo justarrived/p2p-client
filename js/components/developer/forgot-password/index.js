@@ -16,12 +16,12 @@ export default class ForgotPassword extends Component {
         <Content contentContainerStyle={styles.padder}>
           <View>
             <Text style={StyleSheet.flatten(styles.title)}>
-              {I18n.t('login.forgot_your_password')}
+              {I18n.t('forgot_password.forgot_your_password')}
             </Text>
           </View>
           <View>
             <Text style={StyleSheet.flatten(styles.description)}>
-              {I18n.t('login.forgot_your_password_info')}
+              {I18n.t('forgot_password.forgot_your_password_info')}
             </Text>
           </View>
           <Item floatingLabel>

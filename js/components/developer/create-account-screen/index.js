@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { Container, Content, Form, Col, Row, Grid, Button, Card, CardItem, Text } from 'native-base';
 import styles from './style';
 import I18n from '../../../i18n';
-
+import { requestCreateUser } from '../../../actions/user';
+import { createJsonDataAttributes } from '../../../networking/json';
 import {
   changeFirstName, changeLastName, changeAddress, changePostCode, changePostArea,
   changePhoneNumber, changeEmail, changePassword, toggleCheckBox,
@@ -17,6 +18,19 @@ import TextInput from '../../common/text-input';
 import PostcodeInput from '../../common/post-code-input';
 import CheckBoxPUL from '../../common/checkbox-with-text';
 import GlobalStyle from '../../common/globalStyle';
+
+// TODO Replace these standard values with real values.
+// These are used during development only.
+function getCreateUserJson(email, password) {
+  return createJsonDataAttributes({
+    email,
+    password,
+    consent: true,
+    system_language_id: 38,
+    first_name: 'SomeName',
+    last_name: 'SomeLastName',
+  });
+}
 
 class CreateAccountScreen extends Component {
   static navigationOptions = {
@@ -45,33 +59,12 @@ class CreateAccountScreen extends Component {
       userAgreement: React.PropTypes.bool,
       disabled: React.PropTypes.boolean,
     }).isRequired,
+    goToLogin: React.PropTypes.func.isRequired,
+    signUp: React.PropTypes.func.isRequired,
   }
 
-  pressedRegister() {
-    const a = this.props.account;
-    alert(
-          ` Förnamn: ${a.firstName}`
-        + `\n Efternamn: ${a.lastName}`
-        + `\n Adress: ${a.address}`
-        + `\n postnummer: ${a.postCode}`
-        + `\n Ort: ${a.postArea}`
-        + `\n Telefonnumer: ${a.phoneNumber}`
-        + `\n Epost: ${a.email}`
-        + `\n checked: ${a.userAgreement}`,
-        +` Lösenord: ${a.password}`,
-      );
-  }
-
-  // nextScreen is either jobPreview or personalInfo
-  pressRegisterButton() {
-    const { navigate, state } = this.props.navigation;
-    navigate(state.params.nextScreen);
-  }
-
-  // Navigates to LoginScreen with nextScreen param as either jobPreview or personalInfo
-  pressAlreadyGotAccountButton() {
-    const { navigate, state } = this.props.navigation;
-    navigate('LoginScreen', { nextScreen: state.params.nextScreen });
+  createAccount() {
+    this.props.signUp(getCreateUserJson(this.props.account.email, this.props.account.password));
   }
 
   render() {
@@ -139,7 +132,7 @@ class CreateAccountScreen extends Component {
                 <Row style={StyleSheet.flatten(styles.fullFlex)}>
                   <Button
                     block
-                    onPress={() => this.pressRegisterButton()}
+                    onPress={() => this.createAccount()}
                     style={StyleSheet.flatten(styles.fullFlex)}
                   >
                     <Text style={StyleSheet.flatten(styles.regButtonText)}>
@@ -150,7 +143,7 @@ class CreateAccountScreen extends Component {
                 <Row style={StyleSheet.flatten(styles.fullFlex)}>
                   <Button
                     small block bordered
-                    onPress={() => this.pressAlreadyGotAccountButton()}
+                    onPress={() => this.props.goToLogin()}
                     style={StyleSheet.flatten(styles.secondButtonPadding)}
                   >
                     <Text>
@@ -178,6 +171,7 @@ function bindAction(dispatch) {
     changeEmail: input => dispatch(changeEmail(input)),
     changePassword: input => dispatch(changePassword(input)),
     toggleCheckBox: () => dispatch(toggleCheckBox()),
+    signUp: (user, password) => dispatch(requestCreateUser(user, password)),
   };
 }
 

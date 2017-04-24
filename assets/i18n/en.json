@@ -1,4 +1,8 @@
 {
+
+  "common": {
+    "or": "OR",
+  },
   "job": {
     "job_details": "Job details",
     "applications": "Applications",
@@ -91,16 +95,19 @@
     "my_job": "My Jobs",
     "my_profile": "My Profile",
   },
-  "login": {
-    "sign_in_button": "Sign in",
-    "remember_me": "Remember me",
-    "forgot_password_button": "Forgot password",
-    "create_account_button": "Create account",
+  "forgot_password": {
     "forgot_your_password": "Forgot your password?",
     "forgot_your_password_info": "No worries! Type your email address in the box below and then check your inbox",
   },
+  "login": {
+    "sign_in_button": "Log in to your account",
+    "remember_me": "Remember me",
+    "forgot_password_button": "Forgot password",
+    "create_account_button": "Create account",
+  },
   "sign_up": {
     "sign_up_button": "Sign up",
+    "need_account": "Do you need an account?",
     "already_have_an_account_button": "Already have an account - Sign in",
     "accept_pul_and_terms": "I accept the PUL and Terms of Use"
   },
@@ -134,5 +141,8 @@
   },
   "language": {
     "select_display_language": "Select app display language"
-  }
+  },
+  "social": {
+    "facebook": "Log in with Facebook"
+  },
 }
