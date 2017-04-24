@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Container, Content, Card, Col, CardItem } from 'native-base';
 import GlobalStyle from '../../common/globalStyle';
 import I18n from '../../../i18n';

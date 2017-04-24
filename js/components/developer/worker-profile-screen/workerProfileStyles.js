@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: MAIN_CERISE,
   },
+  unRatedStyle: {
+    fontSize: 18,
+  },
   ratingStyle: {
     fontSize: 30,
   },
