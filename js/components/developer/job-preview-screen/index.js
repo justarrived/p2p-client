@@ -28,7 +28,19 @@ class JobPreviewScreen extends Component {
     token: React.PropTypes.string.isRequired,
     createJob: React.PropTypes.func.isRequired,
     loading: React.PropTypes.bool.isRequired,
+    jobError: React.PropTypes.objectOf(React.PropTypes.any),
   };
+  static defaultProps = {
+    jobError: null,
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.loading && !nextProps.loading && nextProps.jobError === null) {
+      // Successfully created a job. Navigate!
+      // TODO reset 'create job' navigation stack
+      this.props.navigation.navigate('MyJobsScreen');
+    }
+  }
 
   postJob() {
     const data = this.props.jobPreview;
@@ -55,6 +67,10 @@ class JobPreviewScreen extends Component {
   render() {
     if (this.props.loading) {
       return <Spinner color="blue" />;
+    }
+    if (this.props.jobError != null) {
+      // TODO handle errors
+      // console.warn(JSON.stringify(this.props.jobError));
     }
     const dateData = this.props.jobPreview.helperDate;
     return (
@@ -100,6 +116,7 @@ const mapStateToProps = state => ({
   token: state.session.token,
   jobPreview: state.jobCreation,
   loading: state.jobs.jobLoading,
+  jobError: state.jobs.error,
 });
 
 function bindAction(dispatch) {
