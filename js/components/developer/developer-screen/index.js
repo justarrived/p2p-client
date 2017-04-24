@@ -35,6 +35,7 @@ export default class DeveloperScreen extends React.Component {
           <Button onPress={() => navigate('RateWorkScreen')} title="Rate work screen" />
           <Button onPress={() => navigate('MyJobsScreen')} title="Go to my jobs screen" />
           <Button onPress={() => navigate('ChooseLanguageScreen')} title="Choose Language" />
+          <Button onPress={() => navigate('ForgotPassword')} title="Forgot Password" />
         </Content>
       </Container>
     );

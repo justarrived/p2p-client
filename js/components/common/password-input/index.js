@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Item, Label, Input } from 'native-base';
 import styles from './style';
+import I18n from '../../../i18n';
 
 export default class PasswordInput extends Component {
 
   static propTypes = {
-    title: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string,
     onChange: React.PropTypes.func.isRequired,
     disabled: React.PropTypes.bool,
     defaultValue: React.PropTypes.string,
   }
 
   static defaultProps = {
+    title: I18n.t('account.password'),
     disabled: false,
     defaultValue: '',
   }

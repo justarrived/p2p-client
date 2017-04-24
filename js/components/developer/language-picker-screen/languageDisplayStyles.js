@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { TITLE_COLOR, MAIN_CERISE, SECONDARY_GRAY } from '../../common/colors';
+import { TITLE_COLOR, PRIMARY_THEME_COLOR, SECONDARY_GRAY } from '../../common/colors';
 
 const languageDisplayStyles = StyleSheet.create({
   cardItemTitle: {
@@ -19,7 +19,7 @@ const languageDisplayStyles = StyleSheet.create({
     padding: 5,
     borderRadius: 20,
     borderWidth: 2,
-    borderColor: MAIN_CERISE,
+    borderColor: PRIMARY_THEME_COLOR,
   },
   rowListItemText: {
     fontSize: 15,
@@ -36,7 +36,7 @@ const languageDisplayStyles = StyleSheet.create({
     fontWeight: 'bold',
     color: TITLE_COLOR,
     borderBottomWidth: 2,
-    borderBottomColor: MAIN_CERISE,
+    borderBottomColor: PRIMARY_THEME_COLOR,
   },
 });
 

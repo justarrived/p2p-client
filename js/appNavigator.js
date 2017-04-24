@@ -1,12 +1,14 @@
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabView } from 'react-navigation';
+
+import I18n from './i18n';
+import { TabBarStyles, ACTIVE_TINT_COLOR, INACTIVE_TINT_COLOR } from './tabBarStyles';
+import JATabIcon from './components/common/ja-tab-icon/JATabIcon';
 
 import DeveloperScreen from './components/developer/developer-screen';
 import CreateJobScreen from './components/developer/create-job-screen';
-import LoginScreen from './components/developer/login-screen';
 import ReduxSampleScreen from './components/developer/redux-sample-screen';
 import NetworkingScreen from './components/developer/networking-screen';
 import NetworkingLoginScreen from './components/developer/networking-login-screen';
-import CreateAccountScreen from './components/developer/create-account-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 import LanguagePickerScreen from './components/developer/language-picker-screen';
@@ -21,9 +23,7 @@ import FirebaseExampleScreen from './components/developer/firebase-example-scree
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
 import WorkerInfoScreen from './components/developer/worker-profile-screen';
-import I18n from './i18n';
-
-import TabBarStyles from './tabBarStyles';
+import ForgotPassword from './components/developer/forgot-password';
 
 const CreateJobTab = StackNavigator({
   ChooseJobTypeScreen: {
@@ -35,20 +35,16 @@ const CreateJobTab = StackNavigator({
   JobPreviewScreen: {
     screen: JobPreviewScreen,
   },
-  LoginScreen: {
-    screen: LoginScreen,
-  },
-  CreateAccountScreen: {
-    screen: CreateAccountScreen,
-  },
 }, {
   navigationOptions: {
     tabBar: {
-      label: I18n.t('screen_titles.create_job'),
+      label: I18n.t('navigation_tabs.create_job'),
+      icon: ({ tintColor }) => JATabIcon({ name: 'home', tintColor, count: 0 }),
     },
   },
 });
 
+// TODO Replace sample badge count with real value.
 const MyJobTab = StackNavigator({
   MyJobsScreen: {
     screen: MyJobsScreen,
@@ -59,25 +55,21 @@ const MyJobTab = StackNavigator({
 }, {
   navigationOptions: {
     tabBar: {
-      label: I18n.t('screen_titles.my_jobs'),
+      label: I18n.t('navigation_tabs.my_jobs'),
+      icon: ({ tintColor }) => JATabIcon({ name: 'briefcase', tintColor, count: 5 }),
     },
   },
 });
 
 const MyProfileTab = StackNavigator({
-  LoginScreen: {
-    screen: LoginScreen,
-  },
   MyProfileScreen: {
     screen: MyProfileScreen,
-  },
-  CreateAccountScreen: {
-    screen: CreateAccountScreen,
   },
 }, {
   navigationOptions: {
     tabBar: {
-      label: I18n.t('screen_titles.my_profile'),
+      label: I18n.t('navigation_tabs.my_profile'),
+      icon: ({ tintColor }) => JATabIcon({ name: 'person', tintColor, count: 0 }),
     },
   },
 });
@@ -89,9 +81,6 @@ const DeveloperTab = StackNavigator({
   },
   CreateJobScreen: {
     screen: CreateJobScreen,
-  },
-  LoginScreen: {
-    screen: LoginScreen,
   },
   FirebaseExampleScreen: {
     screen: FirebaseExampleScreen,
@@ -132,14 +121,14 @@ const DeveloperTab = StackNavigator({
   JobPreviewScreen: {
     screen: JobPreviewScreen,
   },
-  CreateAccountScreen: {
-    screen: CreateAccountScreen,
-  },
   RateWorkScreen: {
     screen: RateWorkScreen,
   },
   ChooseWorkerScreen: {
     screen: ChooseWorkerScreen,
+  },
+  ForgotPassword: {
+    screen: ForgotPassword,
   },
   JobInfoScreen: {
     screen: JobInfoScreen,
@@ -150,7 +139,8 @@ const DeveloperTab = StackNavigator({
 }, {
   navigationOptions: {
     tabBar: {
-      label: 'Developer',
+      label: I18n.t('navigation_tabs.developer'),
+      icon: ({ tintColor }) => JATabIcon({ name: 'code', tintColor, count: 0 }),
     },
   },
 });
@@ -170,11 +160,14 @@ const AppNavigator = TabNavigator({
     screen: DeveloperTab,
   },
 }, {
+  tabBarComponent: TabView.TabBarBottom,
   tabBarPosition: 'bottom',
   tabBarOptions: {
     labelStyle: TabBarStyles.label,
     style: TabBarStyles.tabBar,
     indicatorStyle: TabBarStyles.indicator,
+    activeTintColor: ACTIVE_TINT_COLOR,
+    inactiveTintColor: INACTIVE_TINT_COLOR,
   },
   swipeEnabled: false,
 });
