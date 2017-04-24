@@ -11,22 +11,22 @@ const styles = StyleSheet.create({
     paddingRight: PADDING * 2,
   },
 
-  logoContainer: {
+  pictureContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
-  logo: {
-    width: 140,
-    height: 140,
-    borderRadius: 70,
+  picture: {
+    width: 250,
+    height: 250,
+    borderRadius: 75,
     alignItems: 'center',
     margin: PADDING * 2,
   },
 
   title: {
-    paddingTop: PADDING * 6,
+    paddingTop: PADDING,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',

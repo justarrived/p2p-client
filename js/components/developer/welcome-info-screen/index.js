@@ -12,9 +12,9 @@ export default class WelcomeInfoScreen extends Component {
     return (
       <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>
         <Content contentContainerStyle={styles.padder}>
-          <View style={styles.logoContainer}>
+          <View style={styles.pictureContainer}>
             <Thumbnail
-              style={StyleSheet.flatten(styles.logo)} source={PICTURE}
+              style={StyleSheet.flatten(styles.picture)} source={PICTURE}
             />
           </View>
           <View>
