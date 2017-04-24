@@ -1,6 +1,5 @@
 // Theme colors
 export const TITLE_COLOR = '#171A20';
-export const MAIN_CERISE = '#E5007D';
 export const SECONDARY_GRAY = '#383F4E';
 export const SECONDARY_BLUE = '#0069D2';
 
@@ -22,3 +21,5 @@ export const GRAY = '#938989';
 export const BADGE_COLOR_ACTIVE = 'seagreen';
 export const BADGE_COLOR_UNASSIGNED = 'goldenrod';
 export const BADGE_COLOR_DEFAULT = 'grey';
+export const BADGE_COLOR_RED = '#D50000';
+export const BADGE_TEXT_SHADOW = 'rgba(0, 0, 0, 0.1)';

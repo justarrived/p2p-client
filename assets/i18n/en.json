@@ -92,8 +92,9 @@
   },
   "navigation_tabs": {
     "create_job": "Create Job",
-    "my_job": "My Jobs",
+    "my_jobs": "My Jobs",
     "my_profile": "My Profile",
+    "developer": "Developer"
   },
   "forgot_password": {
     "forgot_your_password": "Forgot your password?",
@@ -102,8 +103,8 @@
   "login": {
     "sign_in_button": "Log in to your account",
     "remember_me": "Remember me",
-    "forgot_password_button": "Forgot password",
-    "create_account_button": "Create account",
+    "forgot_password_button": "Forgot password?",
+    "create_account_button": "Create account"
   },
   "sign_up": {
     "sign_up_button": "Sign up",

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
+import { getTheme, StyleProvider } from 'native-base';
 import AppNavigator from './appNavigator';
 import Secure from './components/developer/secure/secure';
+import material from './resources/theme/material';
 
 /*
   Main navigation with navigation helpers for Redux.
@@ -23,16 +25,18 @@ class AppNavigatorWithHelpers extends Component {
   render() {
     const { dispatch, navigationState } = this.props;
     return (
-      <Secure>
-        <AppNavigator
-          navigation={
+      <StyleProvider style={getTheme(material)}>
+        <Secure>
+          <AppNavigator
+            navigation={
           addNavigationHelpers({
             dispatch,
             state: navigationState,
           })
         }
-        />
-      </Secure>
+          />
+        </Secure>
+      </StyleProvider>
     );
   }
 }

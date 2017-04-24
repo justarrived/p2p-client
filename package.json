@@ -7,8 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "color": "^1.0.3",
     "firebase": "^3.7.3",
-    "native-base": "^2.0.7",
+    "native-base": "2.1.0",
     "react": "15.4.2",
     "react-native": "0.41.2",
     "react-native-i18n": "^1.0.0",
