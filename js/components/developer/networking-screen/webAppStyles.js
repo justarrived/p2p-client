@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const TITLE_COLOR = '#171A20';
-const MAIN_CERISE = '#E5007D';
+const PRIMARY_THEME_COLOR = '#E5007D';
 const SECONDARY_GRAY = '#383F4E';
 // const SECONDARY_BLUE = '#0069D2';
 
@@ -14,7 +14,7 @@ const webAppStyles = StyleSheet.create({
   },
   textCompany: {
     fontWeight: 'bold',
-    color: MAIN_CERISE,
+    color: PRIMARY_THEME_COLOR,
   },
   textContent: {
     paddingBottom: 10,
@@ -23,7 +23,7 @@ const webAppStyles = StyleSheet.create({
   textMoney: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: MAIN_CERISE,
+    color: PRIMARY_THEME_COLOR,
   },
   textCurrency: {
     fontSize: 20,

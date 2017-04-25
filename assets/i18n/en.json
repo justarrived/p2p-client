@@ -1,4 +1,7 @@
 {
+  "common": {
+    "or": "OR",
+  },
   "job": {
     "job_details": "Job details",
     "applications": "Applications",
@@ -61,6 +64,10 @@
     "archived_jobs": "Completed jobs",
     "unassigned_jobs": "Unassigned jobs"
   },
+  "wizard": {
+    "welcome_to_people": "Welcome To People!",
+    "welcome_to_people_description": "People by JustArrived is an initiative to connect newcomers with local people in the Swedish community"
+  },
   "account": {
     "first_name": "First name",
     "last_name": "Last name",
@@ -89,17 +96,23 @@
   },
   "navigation_tabs": {
     "create_job": "Create Job",
-    "my_job": "My Jobs",
-    "my_profile": "My Profile"
+    "my_jobs": "My Jobs",
+    "my_profile": "My Profile",
+    "developer": "Developer"
+  },
+  "forgot_password": {
+    "forgot_your_password": "Forgot your password?",
+    "forgot_your_password_info": "No worries! Type your email address in the box below and then check your inbox",
   },
   "login": {
-    "sign_in_button": "Sign in",
+    "sign_in_button": "Log in to your account",
     "remember_me": "Remember me",
-    "forgot_password_button": "Forgot password",
+    "forgot_password_button": "Forgot password?",
     "create_account_button": "Create account"
   },
   "sign_up": {
     "sign_up_button": "Sign up",
+    "need_account": "Do you need an account?",
     "already_have_an_account_button": "Already have an account - Sign in",
     "accept_pul_and_terms": "I accept the PUL and Terms of Use"
   },
@@ -114,9 +127,11 @@
   "button_actions": {
     "done": "Done",
     "edit": "Edit",
+    "send": "Send",
     "save": "Save",
     "cancel": "Cancel",
-    "next": "Next"
+    "next": "Next",
+    "skip": "Skip",
   },
   "card": {
     "card_holder": "Card holder",
@@ -132,5 +147,8 @@
   },
   "language": {
     "select_display_language": "Select app display language"
-  }
+  },
+  "social": {
+    "facebook": "Log in with Facebook"
+  },
 }

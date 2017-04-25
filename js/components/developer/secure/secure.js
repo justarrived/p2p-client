@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import AuthenticationScreen from '../authentication-screen';
+import JASpinner from '../../common/ja-spinner/JASpinner';
 
 /*
   Renders children components if the user is authenticated.
@@ -24,7 +24,9 @@ class Secure extends Component {
 
     // Display loading spinner while authenticating
     if (loading) {
-      return <Spinner color="blue" />;
+      return (
+        <JASpinner />
+      );
     }
 
     // Else open the authentication screen
