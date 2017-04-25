@@ -19,7 +19,7 @@ const PLACEHOLDER = {
 };
 
 // Screen shown during job creation, with a preview of the job.
-const JobInspectScreen = () =>
+const jobDetails = () =>
   <Container>
     <Content contentContainerStyle={GlobalStyle.padder}>
       <PreviewJobCard
@@ -28,4 +28,4 @@ const JobInspectScreen = () =>
     </Content>
   </Container>;
 
-export default JobInspectScreen;
+export default jobDetails;

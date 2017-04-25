@@ -10,7 +10,8 @@ import I18n from '../../../i18n';
 // Temporary constants. These will be moved and implemented in another way in the future!
 const EXAMPLE_IMAGE_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
-// Screen shown during job creation, with a preview of the job.
+// Preview screen displaying information about a job
+// footerNode can be any react elements, for example a button.
 const PreviewJobCard = ({ jobJson, duration, cost, footerNode }) =>
   <Card>
     <PreviewHeaderView
