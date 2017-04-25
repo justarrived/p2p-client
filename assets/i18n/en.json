@@ -7,6 +7,7 @@
     "applications": "Applications",
     "when_will_the_job_be_performed": "When will the job be performed?",
     "create_job": "Create job",
+    "create_job_button": "Create Job",
     "location": "Location",
     "where_will_the_job_be_performed": "Where will the job be performed?",
     "approximate_duration": "What's the approximate duration?",
