@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Content, Spinner } from 'native-base';
+import { Container, Content } from 'native-base';
+import JASpinner from '../../common/ja-spinner/JASpinner';
 
 import PreviewJobCard from '../../common/preview-job-card/previewJobCard';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
@@ -52,7 +53,7 @@ class JobPreviewScreen extends Component {
 
   render() {
     if (this.props.loading) {
-      return <Spinner color="blue" />;
+      return <JASpinner />;
     }
     if (this.props.jobError != null) {
       // TODO Implement proper error handling
