@@ -80,9 +80,6 @@ class LoginScreen extends Component {
 
     return (
       <Container>
-
-      {/* Header */}
-      <JAHeader/>
         {/* Full height scroll view */}
         <Content
           onLayout={(event) => { // Invoked on mount and device orientation change.
@@ -91,74 +88,57 @@ class LoginScreen extends Component {
           }} contentContainerStyle={[fullHeightContentStyle.fullHeight, LoginScreenStyles.padder]}
         >
 
-            {/* Login Header */}
-              <Text style={StyleSheet.flatten(LoginScreenStyles.loginHeader)}>
-                Log in
-              </Text>
-              <Text style={StyleSheet.flatten(LoginScreenStyles.loginDescription)}>
-                Use your username and password
-              </Text>
+          {/* Header */}
+          <JAHeader />
 
-            {/* Input fields */}
-            <Form style={ StyleSheet.flatten(LoginScreenStyles.inputFields) }>
-              <EmailInput
-                onChange={email => this.setState({ email })}
-                defaultValue={this.state.email}
-                style={StyleSheet.flatten(LoginScreenStyles.inputField)}
-              />
-              <PasswordInput
-                onChange={password => this.setState({ password })}
-                defaultValue={this.state.password}
-                style={StyleSheet.flatten(LoginScreenStyles.inputField)}
-              />
-            </Form>
+          {/* Input fields */}
+          <Form style={StyleSheet.flatten(LoginScreenStyles.inputFields)}>
+            <EmailInput
+              onChange={email => this.setState({ email })}
+              defaultValue={this.state.email}
+              style={StyleSheet.flatten(LoginScreenStyles.inputField)}
+            />
+            <PasswordInput
+              onChange={password => this.setState({ password })}
+              defaultValue={this.state.password}
+              style={StyleSheet.flatten(LoginScreenStyles.inputField)}
+            />
+          </Form>
 
-            {/* Remember password checkbox
-              <ListItem>
-                <CheckBox
-                  checked={this.state.rememberPassword}
-                  onPress={() => this.toggleCheckbox()}
-                />
-                <Body>
-                  <Text>{REMEMBER_ME_STRING}</Text>
-                </Body>
-              </ListItem>
-              */}
-
-            {/* Forgot password clickable text */}
-            {/*TODO: Create forgot password view and link there*/}
-            <TouchableOpacity
-              onPress={() => this.props.goToRegister() }>
-              <Text style={ StyleSheet.flatten(LoginScreenStyles.forgotPassword) }>
+          {/* Forgot password clickable text */}
+          {/* TODO: Create forgot password view and link there */}
+          <TouchableOpacity onPress={() => this.props.goToRegister()}>
+            <Text style={StyleSheet.flatten(LoginScreenStyles.forgotPassword)}>
               {FORGOT_PASSWORD_STRING}
-              </Text>
-            </TouchableOpacity>
+            </Text>
+          </TouchableOpacity>
 
-            {/* Button container */}
-            <View style={LoginScreenStyles.buttonContainer}>
-              {/* Login button */}
-              <JAButton
-                content={LOGIN_BUTTON_STRING}
-                actionOnClick={() => this.logIn()}
-                typeOfButton={JA_BUTTON.PRIMARY}
-              />
-              <Text style={StyleSheet.flatten(LoginScreenStyles.textBetweenButtons)}>
-                {OR}
-              </Text>
-              {/* TODO: Either remove button or add facebook login support :) */}
-              <JAButton
-                content={FACEBOOK_BUTTON_STRING}
-                actionOnClick={() => this.logIn()}
-                typeOfButton={JA_BUTTON.FACEBOOK}
-              />
-            </View>
+          {/* Button container */}
+          <View style={LoginScreenStyles.buttonContainer}>
+            {/* Login button */}
+            <JAButton
+              content={LOGIN_BUTTON_STRING}
+              actionOnClick={() => this.logIn()}
+              typeOfButton={JA_BUTTON.PRIMARY}
+            />
+            <Text style={StyleSheet.flatten(LoginScreenStyles.textBetweenButtons)}>
+              {OR}
+            </Text>
+            {/* TODO: Either remove button or add facebook login support :) */}
+            <JAButton
+              content={FACEBOOK_BUTTON_STRING}
+              actionOnClick={() => this.logIn()}
+              typeOfButton={JA_BUTTON.FACEBOOK}
+            />
+          </View>
         </Content>
 
         {/* Footer */}
-        <TouchableOpacity
-          onPress={() => this.props.goToRegister() }>
+        <TouchableOpacity onPress={() => this.props.goToRegister()}>
           <View style={LoginScreenStyles.footerStyling}>
-            <Text style={StyleSheet.flatten(LoginScreenStyles.footerText)}>{NEED_ACCOUNT_STRING}</Text>
+            <Text style={StyleSheet.flatten(LoginScreenStyles.footerText)}>
+              {NEED_ACCOUNT_STRING}
+            </Text>
           </View>
         </TouchableOpacity>
       </Container>

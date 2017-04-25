@@ -8,23 +8,8 @@ const loginScreenStyles = StyleSheet.create({
     padding: PADDING,
   },
 
-  loginHeader: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingTop: 60,
-    paddingBottom: 14,
-  },
-
   inputFields: {
-    paddingTop:30,
-  },
-
-  loginDescription: {
-    fontSize: 14,
-    color: GRAY,
-    textAlign: 'center',
-    fontWeight: 'bold',
+    paddingTop: 30,
   },
 
   inputField: {
