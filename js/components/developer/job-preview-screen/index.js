@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, Spinner } from 'native-base';
 
-import PreviewJobCard from './previewJobCard';
+import PreviewJobCard from '../../common/preview-job-card/previewJobCard';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 import GlobalStyle from '../../common/globalStyle';
 import I18n from '../../../i18n';
@@ -36,20 +36,18 @@ class JobPreviewScreen extends Component {
     }
   }
 
+  getPreviewFooter() {
+    return (<CardItemButton
+      text={I18n.t('job.create_job_button')}
+      onPress={() => this.postJob()}
+    />);
+  }
+
   postJob() {
     // jobPreview same as required attributes
     const data = this.props.jobPreview;
     const jobJson = createJsonDataAttributes(data);
     this.props.createJob(jobJson, this.props.token);
-  }
-
-  previewFooter() {
-    return [
-      <CardItemButton
-        key={1}
-        text={I18n.t('job.create_job_button')}
-        onPress={() => this.postJob()}
-      />];
   }
 
   render() {
@@ -65,7 +63,7 @@ class JobPreviewScreen extends Component {
         <Content contentContainerStyle={GlobalStyle.padder}>
           <PreviewJobCard
             jobJson={this.props.jobPreview}
-            footerNode={this.previewFooter()}
+            footerNode={this.getPreviewFooter()}
           />
         </Content>
       </Container>
