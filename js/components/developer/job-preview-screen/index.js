@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Content, Card, Spinner } from 'native-base';
+import { Container, Content, Spinner } from 'native-base';
 
-import JobTypeCardPreview from './jobTypeCardPreview';
-import TimeCardPreview from './timeCardPreview';
-import PlaceCardPreview from './placeCardPreview';
-import CalendarCardPreview from './calendarCardPreview';
+import PreviewJobCard from './previewJobCard';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
 import GlobalStyle from '../../common/globalStyle';
 import I18n from '../../../i18n';
 
 import { createJsonDataAttributes } from '../../../networking/json';
 import { requestPostJob } from '../../../actions/jobs';
-
-// Temporary constants. These will be moved and implemented in another way in the future!
-const EXAMPLE_IMAGE_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 // Screen shown during job creation, with a preview of the job.
 class JobPreviewScreen extends Component {
@@ -49,7 +43,14 @@ class JobPreviewScreen extends Component {
     this.props.createJob(jobJson, this.props.token);
   }
 
-  // TODO revamp how job duration is handled...
+  previewFooter() {
+    return [
+      <CardItemButton
+        key={1}
+        text={I18n.t('job.create_job_button')}
+        onPress={() => this.postJob()}
+      />];
+  }
 
   render() {
     if (this.props.loading) {
@@ -59,40 +60,13 @@ class JobPreviewScreen extends Component {
       // TODO Implement proper error handling
       // console.warn(JSON.stringify(this.props.jobError));
     }
-    const dateData = this.props.jobPreview.helperDate;
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
-          <Card>
-            <JobTypeCardPreview
-              title={this.props.jobPreview.name}
-              subtitle={this.props.jobPreview.description}
-              cover={{ uri: EXAMPLE_IMAGE_URL }}
-              icon={{ uri: EXAMPLE_IMAGE_URL }}
-            />
-            <TimeCardPreview
-              data={{
-                duration: I18n.t('size.small.estimated_duration'),
-                cost: I18n.t('size.small.cost') }}
-            />
-            <CalendarCardPreview
-              data={{
-                date: dateData.date,
-                time: dateData.time,
-              }}
-            />
-            <PlaceCardPreview
-              data={{
-                address: this.props.jobPreview.street,
-                zip: this.props.jobPreview.zip,
-                city: this.props.jobPreview.city,
-              }}
-            />
-            <CardItemButton
-              text={I18n.t('job.create_job_button')}
-              onPress={() => this.postJob()}
-            />
-          </Card>
+          <PreviewJobCard
+            jobJson={this.props.jobPreview}
+            footerNode={this.previewFooter()}
+          />
         </Content>
       </Container>
     );
