@@ -38,10 +38,12 @@ class JobPreviewScreen extends Component {
   }
 
   getPreviewFooter() {
-    return (<CardItemButton
-      text={I18n.t('job.create_job_button')}
-      onPress={() => this.postJob()}
-    />);
+    return (
+      <CardItemButton
+        text={I18n.t('job.create_job_button')}
+        onPress={() => this.postJob()}
+      />
+    );
   }
 
   postJob() {

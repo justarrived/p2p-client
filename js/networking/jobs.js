@@ -24,15 +24,15 @@ export function getJobs(token, onSuccess, onError) {
   getAuthJson(JOBS_PATH, token, onSuccess, onError);
 }
 
-export function getJobsUser(jobId, userId, token, onSuccess, onError) {
+export function getJobUser(jobId, userId, token, onSuccess, onError) {
   getAuthJson(`${getJobUserPath(jobId, userId)}/job-user`, token, onSuccess, onError);
 }
 
-export function getJobsUserMissingTraits(jobId, userId, token, onSuccess, onError) {
+export function getJobUserMissingTraits(jobId, userId, token, onSuccess, onError) {
   getAuthJson(`${getJobUserPath(jobId, userId)}/missing-traits`, token, onSuccess, onError);
 }
 
-export function getJobsUsersMatching(jobId, token, onSuccess, onError) {
+export function getJobUsersMatching(jobId, token, onSuccess, onError) {
   getAuthJson(`${getJobPath(jobId)}/matching_users`, token, onSuccess, onError);
 }
 
