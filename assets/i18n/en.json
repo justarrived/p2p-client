@@ -1,5 +1,4 @@
 {
-
   "common": {
     "or": "OR",
   },
@@ -64,6 +63,10 @@
     "archived_jobs": "Completed jobs",
     "unassigned_jobs": "Unassigned jobs"
   },
+  "wizard": {
+    "welcome_to_people": "Welcome To People!",
+    "welcome_to_people_description": "People by JustArrived is an initiative to connect newcomers with local people in the Swedish community"
+  },
   "account": {
     "first_name": "First name",
     "last_name": "Last name",
@@ -125,7 +128,8 @@
     "send": "Send",
     "save": "Save",
     "cancel": "Cancel",
-    "next": "Next"
+    "next": "Next",
+    "skip": "Skip",
   },
   "card": {
     "card_holder": "Card holder",

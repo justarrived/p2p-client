@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   picture: {
     width: 250,
     height: 250,
-    borderRadius: 75,
     alignItems: 'center',
     margin: PADDING * 2,
   },
