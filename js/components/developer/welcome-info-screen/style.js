@@ -37,20 +37,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-  buttonContainer: {
+  nextButtonContainer: {
     alignItems: 'center',
     paddingTop: PADDING * 2,
     paddingLeft: 5,
     paddingRight: 5,
   },
 
-  buttonContainer2: {
+  skipButtonContainer: {
     alignItems: 'center',
     paddingTop: PADDING,
   },
 
-  button: {
+  alignButtonCenter: {
     alignSelf: 'center',
+    paddingRight: 70,
+    paddingLeft: 70,
   },
 
 });

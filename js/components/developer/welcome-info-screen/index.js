@@ -29,13 +29,13 @@ export default class WelcomeInfoScreen extends Component {
               {I18n.t('wizard.welcome_to_people_description')}
             </Text>
           </View>
-          <View style={styles.buttonContainer}>
-            <Button style={StyleSheet.flatten(styles.button)} rounded primary>
+          <View style={styles.nextButtonContainer}>
+            <Button style={StyleSheet.flatten(styles.alignButtonCenter)} rounded primary>
               <NBText>{I18n.t('button_actions.next')}</NBText>
             </Button>
           </View>
-          <View style={styles.buttonContainer2}>
-            <Button light transparent style={StyleSheet.flatten(styles.button)} rounded>
+          <View style={styles.skipButtonContainer}>
+            <Button light transparent style={StyleSheet.flatten(styles.alignButtonCenter)} rounded>
               <Text>{I18n.t('button_actions.skip')}</Text>
             </Button>
           </View>
