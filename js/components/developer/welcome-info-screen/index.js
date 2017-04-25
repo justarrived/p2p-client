@@ -5,7 +5,7 @@ import styles from './style';
 import globalStyle from '../../common/globalStyle';
 import I18n from '../../../i18n';
 
-const PICTURE = require('../../../../assets/images/picture.png');
+const PICTURE = require('../../../../assets/images/people.png');
 
 export default class WelcomeInfoScreen extends Component {
 
@@ -31,7 +31,7 @@ export default class WelcomeInfoScreen extends Component {
           </View>
           <View style={styles.buttonContainer}>
             <Button style={StyleSheet.flatten(styles.button)} rounded primary>
-              <NBText>{I18n.t('button_actions.skip')}</NBText>
+              <NBText>{I18n.t('button_actions.next')}</NBText>
             </Button>
           </View>
           <View style={styles.buttonContainer2}>

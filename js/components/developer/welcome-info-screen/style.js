@@ -18,14 +18,14 @@ const styles = StyleSheet.create({
   },
 
   picture: {
-    width: 250,
+    width: 350,
     height: 250,
     alignItems: 'center',
     margin: PADDING * 2,
   },
 
   title: {
-    paddingTop: PADDING,
+    paddingTop: 4,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
