@@ -23,6 +23,7 @@ import FirebaseExampleScreen from './components/developer/firebase-example-scree
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
 import ForgotPassword from './components/developer/forgot-password';
+import WelcomeInfoScreen from './components/developer/welcome-info-screen';
 
 const CreateJobTab = StackNavigator({
   ChooseJobTypeScreen: {
@@ -77,6 +78,9 @@ const MyProfileTab = StackNavigator({
 const DeveloperTab = StackNavigator({
   DeveloperScreen: {
     screen: DeveloperScreen,
+  },
+  WelcomeInfoScreen: {
+    screen: WelcomeInfoScreen,
   },
   CreateJobScreen: {
     screen: CreateJobScreen,
