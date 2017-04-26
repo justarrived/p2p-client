@@ -1,24 +1,22 @@
 import React, { Component, PropTypes } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Text, Content, Card, Container, CheckBox, Form, Thumbnail, ListItem, Button, Body, Col, Grid } from 'native-base';
+import { Text, Content, Container, Form } from 'native-base';
 import { connect } from 'react-redux';
 import EmailInput from '../../common/email-input';
 import JAHeader from '../../common/ja-header';
 import JAButton from '../../common/ja-button';
-import {JA_BUTTON} from '../../common/constants';
+import { JA_BUTTON } from '../../common/constants';
 import PasswordInput from '../../common/password-input';
 import { requestSignIn } from '../../../actions/session';
 import LoginScreenStyles from './loginScreenStyles';
 import I18n from '../../../i18n';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
-const REMEMBER_ME_STRING = I18n.t('login.remember_me');
 const LOGIN_BUTTON_STRING = I18n.t('login.sign_in_button');
 const FACEBOOK_BUTTON_STRING = I18n.t('social.facebook');
 const FORGOT_PASSWORD_STRING = I18n.t('login.forgot_password_button');
 const NEED_ACCOUNT_STRING = I18n.t('sign_up.need_account');
 const OR = I18n.t('common.or');
-const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 // Setting default values so they do not have to be entered every time
 // TODO Store email input value in Redux
