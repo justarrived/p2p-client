@@ -17,14 +17,15 @@
       "history": "History",
     },
     "rating": {
-      "rate": "Rate",
-      "how_did_the_worker_perform_the_job": "Please rate the worker and write a short review",
+      "rate": "Submit",
+      "how_did_the_worker_perform_the_job": "We hope you enjoyed your experience, please write what you think about the experience you had using People",
       "communication": "Communication",
-      "work_quality": "Work quality",
+      "work_quality": "Quality of service",
       "punctuality": "Punctuality",
-      "write_review_here": "Write your review here",
+      "write_review_here": "Write here",
       "no_rating_yet": "No rating yet",
-      "thank_you": "Thank you!"
+      "thank_you": "Thank you!",
+      "recommendation": "Write a recommendation"
     }
   },
   "categories": {

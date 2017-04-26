@@ -1,14 +1,25 @@
-import React from 'react';
-import { Input, Item } from 'native-base';
+import React, { Component } from 'react';
+import { View, StyleSheet } from 'react-native';
 import I18n from '../../../i18n';
+import AutoExpandingTextInput from '../../common/auto-expanding-text-input/autoExpandingTextInput';
+import RatingScreenStyles from './rateWorkStyles';
 
-const RecommendationTextbox = () =>
-  <Item regular>
-    <Input
-      multiline
-      maxLength={500}
-      placeholder={I18n.t('job.rating.write_review_here')}
-    />
-  </Item>;
+export default class RateWorkScreen extends Component {
 
-export default RecommendationTextbox;
+  static propTypes = {
+    placeholder: React.PropTypes.string.isRequired,
+  }
+
+  render() {
+    return (
+
+      // TODO Fix the keyboard covering new lines
+      <View style={StyleSheet.flatten(RatingScreenStyles.viewBorder)}>
+        <AutoExpandingTextInput
+          returnKeyType="done"
+          placeholder={this.props.placeholder}
+        />
+      </View>
+    );
+  }
+}
