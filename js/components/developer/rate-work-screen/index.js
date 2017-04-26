@@ -21,7 +21,9 @@ export default class RateWorkScreen extends Component {
   render() {
     return (
       <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>
-        <Content style={StyleSheet.flatten(RatingScreenStyles.contentContainerStyle)}>
+        <Content
+          contentContainerStyle={StyleSheet.flatten(RatingScreenStyles.contentContainerStyle)}
+        >
           <RatingLogo
             icon={LOGO}
           />
@@ -54,9 +56,9 @@ export default class RateWorkScreen extends Component {
             />
           </View>
           <View style={StyleSheet.flatten(RatingScreenStyles.buttonStyle)}>
+            {/* TODO add actionOnClick functionality*/}
             <JAButton
               content={I18n.t('job.rating.rate')}
-              actionOnClick={() => this.logIn()}
               typeOfButton={JA_BUTTON.PRIMARY}
             />
           </View>

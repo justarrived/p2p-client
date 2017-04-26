@@ -5,7 +5,7 @@ const PADDING = 10;
 const ratingScreenStyles = StyleSheet.create({
 
   contentContainerStyle: {
-    margin: 10,
+    padding: PADDING,
   },
   logoContainer: {
     flex: 1,
