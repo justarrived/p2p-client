@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Tab, Tabs } from 'native-base';
 import { connect } from 'react-redux';
+import { Tab, Tabs } from 'native-base';
 import MyJobsTab from './myJobsTab';
 
 import I18n from '../../../i18n';
@@ -14,7 +14,6 @@ class MyJobsScreen extends Component {
   static propTypes = {
     userId: React.PropTypes.number.isRequired,
     token: React.PropTypes.string.isRequired,
-    loading: React.PropTypes.bool.isRequired,
     getOwnedJobs: React.PropTypes.func.isRequired,
     userJobs: React.PropTypes.arrayOf(React.PropTypes.shape).isRequired,
   };
@@ -46,7 +45,6 @@ class MyJobsScreen extends Component {
       <Tabs>
         <Tab heading={I18n.t('job.headings.current')}>
           <MyJobsTab
-            loading={this.props.loading}
             onRefresh={() => this.downloadJobs()}
             data={temporaryActive}
             toNextScreen={() => this.navigateToNextScreen()}
@@ -54,7 +52,6 @@ class MyJobsScreen extends Component {
         </Tab>
         <Tab heading={I18n.t('job.headings.history')}>
           <MyJobsTab
-            loading={this.props.loading}
             onRefresh={() => this.downloadJobs()}
             data={temporaryArchived}
             toNextScreen={() => this.navigateToNextScreen()}
@@ -67,7 +64,6 @@ class MyJobsScreen extends Component {
 
 const mapStateToProps = state => ({
   userJobs: state.ownedJobs.data,
-  loading: state.ownedJobs.loading,
   token: state.session.token,
   userId: state.session.userId,
 });

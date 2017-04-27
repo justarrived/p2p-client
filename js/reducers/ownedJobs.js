@@ -1,10 +1,12 @@
-import { JOB_O_RECEIVE, JOBS_O_REQUEST, JOBS_O_RECEIVE } from '../actions/ownedJobs';
+import { JOB_O_RECEIVE, JOBS_O_REQUEST,
+  JOBS_O_RECEIVE, JOBS_O_SELECT } from '../actions/ownedJobs';
 import { SESSION_REMOVE } from '../actions/session';
 
 const initialState = {
   data: [],
   loading: false,
   error: null,
+  selectedJob: null,
 };
 
 function getErrorState(state, action) {
@@ -64,6 +66,20 @@ export default function (state = initialState, action) {
       ...state,
       loading: true,
       error: null,
+    };
+  }
+  if (action.type === JOBS_O_SELECT) {
+    // Select a specific job for inspection
+    const job = action.jobJson;
+    const dateRegex = /^\d{4}-\d{2}-\d{2}/;
+    const timeRegex = /\d{2}:\d{2}/;
+    job.attributes.helperDate = {
+      date: (job.attributes.job_date.match(dateRegex) || ['missing'])[0],
+      time: (job.attributes.job_date.match(timeRegex) || ['missing'])[0],
+    };
+    return {
+      ...state,
+      selectedJob: job,
     };
   }
   if (action.type === SESSION_REMOVE) {
