@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Container, Content, Card, Col, CardItem } from 'native-base';
 import GlobalStyle from '../../common/globalStyle';
 import I18n from '../../../i18n';
-import WorkerProfileStyles from './workerProfileStyles';
+import WorkerInfoStyles from './workerInfoStyles';
 import ProfileHeader from './profileHeader';
 import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
 
@@ -11,9 +11,7 @@ import TextWithStackedNote from '../../common/text-with-stacked-note/textWithSta
 const NAME = 'John Doe';
 
 export default class WorkerInfoScreen extends Component {
-  static navigationOptions = {
-    title: I18n.t('screen_titles.worker_profile', { name: NAME }),
-  };
+
   render() {
     return (
       <Container>
@@ -30,7 +28,7 @@ export default class WorkerInfoScreen extends Component {
                 rating={'4'}
               />
             </CardItem>
-            <Col style={StyleSheet.flatten(WorkerProfileStyles.viewStyle)}>
+            <Col style={StyleSheet.flatten(WorkerInfoStyles.viewStyle)}>
               <CardItem bordered>
                 <TextWithStackedNote
                   note={I18n.t('worker_profile.presentation')}
