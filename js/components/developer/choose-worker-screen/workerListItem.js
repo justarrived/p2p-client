@@ -15,10 +15,12 @@ export default class WorkerListItem extends Component {
       React.PropTypes.number.isRequired,
       React.PropTypes.shape({ uri: React.PropTypes.string.isRequired }),
     ]).isRequired,
+    goToWorkerProfile: React.PropTypes.func,
   }
 
   static defaultProps = {
     rating: noRatingString,
+    goToWorkerProfile: undefined,
   }
 
   render() {
@@ -29,7 +31,7 @@ export default class WorkerListItem extends Component {
     }
 
     return (
-      <ListItem onPress={() => alert(this.props.author)}>
+      <ListItem onPress={this.props.goToWorkerProfile}>
         <Left>
           <Thumbnail
             style={StyleSheet.flatten(ChooseWorkerStyles.pictureStyle)} source={this.props.icon}
