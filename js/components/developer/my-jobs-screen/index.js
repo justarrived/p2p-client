@@ -67,7 +67,7 @@ class MyJobsScreen extends Component {
 
 const mapStateToProps = state => ({
   userJobs: state.ownedJobs.data,
-  loading: state.ownedJobs.ownedJobsLoading,
+  loading: state.ownedJobs.loading,
   token: state.session.token,
   userId: state.session.userId,
 });
