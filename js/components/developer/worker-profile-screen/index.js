@@ -7,6 +7,7 @@ import WorkerProfileStyles from './workerProfileStyles';
 import ProfileHeader from './profileHeader';
 import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
 
+// @TODO Replace temporary data with data from Redux/API
 const NAME = 'John Doe';
 
 export default class WorkerInfoScreen extends Component {

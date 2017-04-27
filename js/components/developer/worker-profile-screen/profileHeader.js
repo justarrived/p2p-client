@@ -5,7 +5,7 @@ import WorkerProfileStyles from './workerProfileStyles';
 import { imageProp } from '../../common/propTypes';
 import I18n from '../../../i18n';
 
-const noRatingString = I18n.t('job.rating.no_rating_yet_short');
+const noRatingString = I18n.t('job.rating.unrated');
 
 export default class ProfileHeader extends Component {
 
@@ -25,12 +25,14 @@ export default class ProfileHeader extends Component {
     let starIconIfRating = [];
     let textIfRating =
       (<Text style={StyleSheet.flatten(WorkerProfileStyles.unRatedStyle)}>
-        {this.props.rating}</Text>);
+        {this.props.rating}
+      </Text>);
 
     if (this.props.rating !== noRatingString) {
       textIfRating =
         (<Text style={StyleSheet.flatten(WorkerProfileStyles.ratingStyle)}>
-          {this.props.rating}</Text>);
+          {this.props.rating}
+        </Text>);
       starIconIfRating =
         <Icon style={StyleSheet.flatten(WorkerProfileStyles.starStyle)} active name="star" />;
     }
@@ -51,15 +53,14 @@ export default class ProfileHeader extends Component {
               {starIconIfRating}
             </Row>
             <Row style={StyleSheet.flatten(WorkerProfileStyles.priceRow)}>
-              <Text
-                style={StyleSheet.flatten(WorkerProfileStyles.totPriceStyle)}
-              >{this.props.priceTot}</Text>
+              <Text style={StyleSheet.flatten(WorkerProfileStyles.totPriceStyle)}>
+                {this.props.priceTot}
+              </Text>
             </Row>
             <Row>
-              <Text
-                note
-                style={StyleSheet.flatten(WorkerProfileStyles.priceStyle)}
-              >{this.props.priceHr}</Text>
+              <Text note style={StyleSheet.flatten(WorkerProfileStyles.priceStyle)}>
+                {this.props.priceHr}
+              </Text>
             </Row>
           </Col>
         </Row>
