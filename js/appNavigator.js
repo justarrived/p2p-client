@@ -46,12 +46,15 @@ const CreateJobTab = StackNavigator({
 });
 
 // TODO Replace sample badge count with real value.
-const MyJobTab = StackNavigator({
+const MyJobsTab = StackNavigator({
   MyJobsScreen: {
     screen: MyJobsScreen,
   },
   JobInfoScreen: {
     screen: JobInfoScreen,
+  },
+  WorkerInfoScreen: {
+    screen: WorkerInfoScreen,
   },
 }, {
   navigationOptions: {
@@ -155,7 +158,7 @@ const AppNavigator = TabNavigator({
     screen: CreateJobTab,
   },
   MyJobsTab: {
-    screen: MyJobTab,
+    screen: MyJobsTab,
   },
   MyProfileTab: {
     screen: MyProfileTab,

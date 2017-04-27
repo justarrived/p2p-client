@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Content, List } from 'native-base';
+import { connect } from 'react-redux';
+import { navigate } from '../../../actions/navigation';
 import WorkerListItem from './workerListItem';
 import I18n from '../../../i18n';
 
@@ -11,15 +13,21 @@ const REFERENCES = [
   { author: 'John Deo', rating: '2', price: '150 kr', icon: ICON },
 ];
 
-export default class ChooseWorkerScreen extends Component {
+class ChooseWorkerScreen extends Component {
   static navigationOptions = {
     title: I18n.t('screen_titles.choose_worker'),
   };
 
+  static propTypes = {
+    navigate: React.PropTypes.func.isRequired,
+  }
+
+  // TODO Navigate to WorkerInfoScreen and display the correct information for the selected worker
   renderRow = reference =>
     <WorkerListItem
       author={reference.author} rating={reference.rating}
       price={reference.price} icon={reference.icon}
+      goToWorkerProfile={() => this.props.navigate('WorkerInfoScreen')}
     />
 
   render() {
@@ -32,3 +40,13 @@ export default class ChooseWorkerScreen extends Component {
     );
   }
 }
+
+function bindAction(dispatch) {
+  return {
+    navigate: (routeName, params) => dispatch(navigate(routeName, params)),
+  };
+}
+
+const mapStateToProps = state => ({ navigation: state.navigation });
+
+export default connect(mapStateToProps, bindAction)(ChooseWorkerScreen);
