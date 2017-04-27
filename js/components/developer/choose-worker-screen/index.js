@@ -22,12 +22,12 @@ class ChooseWorkerScreen extends Component {
     navigate: React.PropTypes.func.isRequired,
   }
 
-  // TODO Navigate to WorkerInfoScreen and display the correct information for the selected worker
+  // TODO Navigate to WorkerProfileScreen and display correct information for the selected worker
   renderRow = reference =>
     <WorkerListItem
       author={reference.author} rating={reference.rating}
       price={reference.price} icon={reference.icon}
-      goToWorkerProfile={() => this.props.navigate('WorkerInfoScreen')}
+      goToWorkerProfile={() => this.props.navigate('WorkerProfileScreen')}
     />
 
   render() {

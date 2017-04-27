@@ -22,7 +22,7 @@ import RateWorkScreen from './components/developer/rate-work-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
-import WorkerInfoScreen from './components/developer/worker-profile-screen';
+import WorkerProfileScreen from './components/developer/worker-profile-screen';
 import ForgotPassword from './components/developer/forgot-password';
 import WelcomeInfoScreen from './components/developer/welcome-info-screen';
 
@@ -53,8 +53,8 @@ const MyJobsTab = StackNavigator({
   JobInfoScreen: {
     screen: JobInfoScreen,
   },
-  WorkerInfoScreen: {
-    screen: WorkerInfoScreen,
+  WorkerProfileScreen: {
+    screen: WorkerProfileScreen,
   },
 }, {
   navigationOptions: {
@@ -140,8 +140,8 @@ const DeveloperTab = StackNavigator({
   JobInfoScreen: {
     screen: JobInfoScreen,
   },
-  WorkerInfoScreen: {
-    screen: WorkerInfoScreen,
+  WorkerProfileScreen: {
+    screen: WorkerProfileScreen,
   },
 }, {
   navigationOptions: {
