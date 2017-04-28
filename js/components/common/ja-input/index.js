@@ -33,7 +33,7 @@ export default class PasswordInput extends Component {
     secureInput is a boolen, if true hides the input. Used for passwords.
     keyboardTypeUsed changes the type of keyboard displayed.
       The following values work crossplatform: default, numeric, email-address, phone-pad
-    numberOfCharatcersPromitted sets the limit of characters promitted to used in an inputfield.
+    numberOfCharactersPermitted sets the limit of characters promitted to used in an inputfield.
   */
 
   render() {
@@ -42,7 +42,7 @@ export default class PasswordInput extends Component {
     let secureInput = false;
     let keyboardTypeUsed = 'default';
     // leaving this empty gives you unlimited characters
-    let numberOfCharatcersPromitted;
+    let numberOfCharactersPermitted;
 
     switch (this.props.typeOfInput) {
       case 'firstName':
@@ -60,7 +60,7 @@ export default class PasswordInput extends Component {
       case 'postalCode':
         placeholderTitle = I18n.t('account.postal_code');
         keyboardTypeUsed = 'numeric';
-        numberOfCharatcersPromitted = 5;
+        numberOfCharactersPermitted = 5;
         break;
 
       case 'city':
@@ -87,7 +87,7 @@ export default class PasswordInput extends Component {
 
       default:
         /* Gives a input with no placeholderTitle or icon. and default values for
-        secureInput, keyboardType, and numberOfCharatcersPromitted */
+        secureInput, keyboardType, and numberOfCharactersPermitted */
         break;
     }
     return (
@@ -98,7 +98,7 @@ export default class PasswordInput extends Component {
           secureTextEntry={secureInput}
           keyboardType={keyboardTypeUsed}
           returnKeyType="next"
-          maxLength={numberOfCharatcersPromitted}
+          maxLength={numberOfCharactersPermitted}
           defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
           onChangeText={this.props.onChange}
