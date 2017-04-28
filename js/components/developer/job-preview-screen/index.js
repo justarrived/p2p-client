@@ -5,7 +5,7 @@ import JASpinner from '../../common/ja-spinner/JASpinner';
 
 import PreviewJobCard from '../../common/preview-job-card/previewJobCard';
 import CardItemButton from '../../common/card-item-button/cardItemButton';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 
 import { createJsonDataAttributes } from '../../../networking/json';

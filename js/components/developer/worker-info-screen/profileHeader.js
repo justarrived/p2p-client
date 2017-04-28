@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Thumbnail, Grid, Icon, Col, Row, Text } from 'native-base';
-import WorkerProfileStyles from './workerProfileStyles';
-import { imageProp } from '../../common/propTypes';
+import WorkerInfoStyles from './workerInfoStyles';
+import { imageProp } from '../../../resources/propTypes';
 import I18n from '../../../i18n';
 
 const noRatingString = I18n.t('job.rating.unrated');
@@ -24,47 +24,47 @@ export default class ProfileHeader extends Component {
   render() {
     let starIconIfRating = [];
     let textIfRating =
-      (<Text style={StyleSheet.flatten(WorkerProfileStyles.unRatedStyle)}>
+      (<Text style={StyleSheet.flatten(WorkerInfoStyles.unRatedStyle)}>
         {this.props.rating}
       </Text>);
 
     if (this.props.rating !== noRatingString) {
       textIfRating =
-        (<Text style={StyleSheet.flatten(WorkerProfileStyles.ratingStyle)}>
+        (<Text style={StyleSheet.flatten(WorkerInfoStyles.ratingStyle)}>
           {this.props.rating}
         </Text>);
       starIconIfRating =
-        <Icon style={StyleSheet.flatten(WorkerProfileStyles.starStyle)} active name="star" />;
+        <Icon style={StyleSheet.flatten(WorkerInfoStyles.starStyle)} active name="star" />;
     }
 
     return (
       <Grid>
         <Row>
-          <Col style={StyleSheet.flatten(WorkerProfileStyles.topLeftCol)} />
-          <Col style={StyleSheet.flatten(WorkerProfileStyles.topMidCol)}>
+          <Col style={StyleSheet.flatten(WorkerInfoStyles.topLeftCol)} />
+          <Col style={StyleSheet.flatten(WorkerInfoStyles.topMidCol)}>
             <Thumbnail
-              style={StyleSheet.flatten(WorkerProfileStyles.logo)}
+              style={StyleSheet.flatten(WorkerInfoStyles.logo)}
               source={this.props.picture}
             />
           </Col>
-          <Col style={StyleSheet.flatten(WorkerProfileStyles.topRightCol)}>
-            <Row style={StyleSheet.flatten(WorkerProfileStyles.starRow)}>
+          <Col style={StyleSheet.flatten(WorkerInfoStyles.topRightCol)}>
+            <Row style={StyleSheet.flatten(WorkerInfoStyles.starRow)}>
               {textIfRating}
               {starIconIfRating}
             </Row>
-            <Row style={StyleSheet.flatten(WorkerProfileStyles.priceRow)}>
-              <Text style={StyleSheet.flatten(WorkerProfileStyles.totPriceStyle)}>
+            <Row style={StyleSheet.flatten(WorkerInfoStyles.priceRow)}>
+              <Text style={StyleSheet.flatten(WorkerInfoStyles.totPriceStyle)}>
                 {this.props.priceTot}
               </Text>
             </Row>
             <Row>
-              <Text note style={StyleSheet.flatten(WorkerProfileStyles.priceStyle)}>
+              <Text note style={StyleSheet.flatten(WorkerInfoStyles.priceStyle)}>
                 {this.props.priceHr}
               </Text>
             </Row>
           </Col>
         </Row>
-        <Text style={StyleSheet.flatten(WorkerProfileStyles.nameText)}>
+        <Text style={StyleSheet.flatten(WorkerInfoStyles.nameText)}>
           {this.props.name}
         </Text>
       </Grid>

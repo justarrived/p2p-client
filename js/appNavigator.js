@@ -1,4 +1,4 @@
-import { StackNavigator, TabNavigator, TabView } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import I18n from './i18n';
 import { TabBarStyles, ACTIVE_TINT_COLOR, INACTIVE_TINT_COLOR } from './tabBarStyles';
@@ -22,7 +22,7 @@ import RateWorkScreen from './components/developer/rate-work-screen';
 import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
-import WorkerInfoScreen from './components/developer/worker-profile-screen';
+import WorkerProfileScreen from './components/developer/worker-profile-screen';
 import ForgotPassword from './components/developer/forgot-password';
 import WelcomeInfoScreen from './components/developer/welcome-info-screen';
 
@@ -38,10 +38,8 @@ const CreateJobTab = StackNavigator({
   },
 }, {
   navigationOptions: {
-    tabBar: {
-      label: I18n.t('navigation_tabs.create_job'),
-      icon: ({ tintColor }) => JATabIcon({ name: 'home', tintColor, count: 0 }),
-    },
+    tabBarLabel: I18n.t('navigation_tabs.create_job'),
+    tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'home', tintColor, count: 0 }),
   },
 });
 
@@ -53,15 +51,13 @@ const MyJobsTab = StackNavigator({
   JobInfoScreen: {
     screen: JobInfoScreen,
   },
-  WorkerInfoScreen: {
-    screen: WorkerInfoScreen,
+  WorkerProfileScreen: {
+    screen: WorkerProfileScreen,
   },
 }, {
   navigationOptions: {
-    tabBar: {
-      label: I18n.t('navigation_tabs.my_jobs'),
-      icon: ({ tintColor }) => JATabIcon({ name: 'briefcase', tintColor, count: 5 }),
-    },
+    tabBarLabel: I18n.t('navigation_tabs.my_jobs'),
+    tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'briefcase', tintColor, count: 5 }),
   },
 });
 
@@ -71,10 +67,8 @@ const MyProfileTab = StackNavigator({
   },
 }, {
   navigationOptions: {
-    tabBar: {
-      label: I18n.t('navigation_tabs.my_profile'),
-      icon: ({ tintColor }) => JATabIcon({ name: 'person', tintColor, count: 0 }),
-    },
+    tabBarLabel: I18n.t('navigation_tabs.my_profile'),
+    tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'person', tintColor, count: 0 }),
   },
 });
 
@@ -140,15 +134,13 @@ const DeveloperTab = StackNavigator({
   JobInfoScreen: {
     screen: JobInfoScreen,
   },
-  WorkerInfoScreen: {
-    screen: WorkerInfoScreen,
+  WorkerProfileScreen: {
+    screen: WorkerProfileScreen,
   },
 }, {
   navigationOptions: {
-    tabBar: {
-      label: I18n.t('navigation_tabs.developer'),
-      icon: ({ tintColor }) => JATabIcon({ name: 'code', tintColor, count: 0 }),
-    },
+    tabBarLabel: I18n.t('navigation_tabs.developer'),
+    tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'code', tintColor, count: 0 }),
   },
 });
 
@@ -167,7 +159,7 @@ const AppNavigator = TabNavigator({
     screen: DeveloperTab,
   },
 }, {
-  tabBarComponent: TabView.TabBarBottom,
+  tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
   tabBarOptions: {
     labelStyle: TabBarStyles.label,

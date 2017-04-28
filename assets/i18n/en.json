@@ -79,7 +79,8 @@
     "email": "Email",
     "password": "Password",
     "profile_info": "Profile info",
-    "payment_info": "Payment info"
+    "payment_info": "Payment info",
+    "references": "References"
   },
   "worker_profile": {
     "presentation": "Presentation",

@@ -2,16 +2,17 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, List } from 'native-base';
 import JobTypeCard from './jobTypeCard';
-import GlobalStyle from '../../common/globalStyle';
-import { imageProp } from '../../common/propTypes';
+import JATagline from '../../common/ja-tagline';
+import GlobalStyle from '../../../resources/globalStyle';
+import { imageProp } from '../../../resources/propTypes';
 import { clearData, setName, setDescription, setOwner } from '../../../actions/jobCreation';
-import I18n from '../../../i18n';
+
 
 const { shape, arrayOf, string, func, number } = PropTypes;
 
 class ChooseJobTypeScreen extends Component {
   static navigationOptions = {
-    title: I18n.t('screen_titles.choose_job_type'),
+    header: null,
   };
 
   static propTypes = {
@@ -46,6 +47,7 @@ class ChooseJobTypeScreen extends Component {
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
+          <JATagline />
           <List dataArray={this.props.jobTypes.data} renderRow={this.renderRow} />
         </Content>
       </Container>
