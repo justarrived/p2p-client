@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Container, Content, List } from 'native-base';
 import JobTypeCard from './jobTypeCard';
 import JATagline from '../../common/ja-tagline';
-import GlobalStyle from '../../common/globalStyle';
-import { imageProp } from '../../common/propTypes';
+import GlobalStyle from '../../../resources/globalStyle';
+import { imageProp } from '../../../resources/propTypes';
 import { clearData, setName, setDescription, setOwner } from '../../../actions/jobCreation';
 
 

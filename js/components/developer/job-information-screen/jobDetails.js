@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Content } from 'native-base';
 
 import PreviewJobCard from '../../common/preview-job-card/previewJobCard';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 
 // TODO Display real data
 const PLACEHOLDER = {

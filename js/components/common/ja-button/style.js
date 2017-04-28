@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { WHITE, PRIMARY_THEME_COLOR, GRADIENT_ORANGE_COLOR } from '../../common/colors';
+import { WHITE, PRIMARY_THEME_COLOR, GRADIENT_ORANGE_COLOR } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   linearGradient: {

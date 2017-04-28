@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Content, Card, Col, CardItem } from 'native-base';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 import WorkerInfoStyles from './workerInfoStyles';
 import ProfileHeader from './profileHeader';

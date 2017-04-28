@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ICON } from '../../common/colors';
+import { ICON } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   iconWrapper: {

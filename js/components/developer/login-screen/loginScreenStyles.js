@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { GRAY, DARK_GRAY } from '../../common/colors';
+import { GRAY, DARK_GRAY } from '../../../resources/colors';
 
 const PADDING = 10;
 
