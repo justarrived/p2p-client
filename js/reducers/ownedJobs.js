@@ -45,9 +45,9 @@ export default function (state = initialState, action) {
     if (action.jobJson.data != null) {
       action.jobJson.data.forEach(
         (job) => {
-          // TODO sort by date instead of upcoming
-          if (job.upcoming) {
-            if (job.filled) {
+          // TODO sort by date instead of upcoming!
+          if (job.attributes.upcoming) {
+            if (job.attributes.filled) {
               assigned.push(job);
             } else {
               unassigned.push(job);
@@ -76,7 +76,8 @@ export default function (state = initialState, action) {
     const assigned = removeMatchingJob(state.assigned, newJob);
     const unassigned = removeMatchingJob(state.unassigned, newJob);
     const historic = removeMatchingJob(state.historic, newJob);
-    if (newJob.upcoming) {
+    // TODO sort by date instead of upcoming!
+    if (newJob.attributes.upcoming) {
       if (newJob.filled) {
         assigned.push(newJob);
       } else {
