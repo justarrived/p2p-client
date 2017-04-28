@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Container, Content, Thumbnail } from 'native-base';
+import { Container, Content } from 'native-base';
 import styles from './style';
 import globalStyle from '../../common/globalStyle';
-import JAHeader from '../../common/ja-header';
-import I18n from '../../../i18n';
-
-const PICTURE = require('../../../../assets/images/logo.png');
+import JALogo from '../../common/ja-logo';
+import JATagline from '../../common/ja-tagline';
 
 export default class SplashScreen extends Component {
 
@@ -15,12 +13,11 @@ export default class SplashScreen extends Component {
       <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>
         <Content contentContainerStyle={styles.padder}>
           <View style={styles.logoContainer}>
-            <Thumbnail
-              resizeMode="contain"
-              style={StyleSheet.flatten(styles.logo)} source={PICTURE}
-            />
+            <JALogo />
           </View>
-          <JAHeader style={styles.logoContainer} />
+          <View>
+            <JATagline />
+          </View>
         </Content>
       </Container>
     );

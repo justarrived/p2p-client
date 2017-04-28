@@ -5,32 +5,18 @@ const PADDING = 10;
 const styles = StyleSheet.create({
 
   padder: {
-    paddingTop: PADDING * 7,
+    paddingTop: PADDING * 8,
     paddingBottom: PADDING,
     paddingLeft: PADDING * 2,
     paddingRight: PADDING * 2,
   },
 
   logoContainer: {
+    paddingBottom: PADDING * 3,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-
-  logo: {
-    width: 300,
-    height: 200,
-    alignItems: 'center',
-    margin: PADDING * 2,
-  },
-
-  title: {
-    paddingTop: 4,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-
 });
 
 module.exports = styles;
