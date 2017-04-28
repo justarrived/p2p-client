@@ -4,6 +4,7 @@ import { Item, Input } from 'native-base';
 import styles from './style';
 import I18n from '../../../i18n';
 import JAInputIcon from '../ja-input-icon';
+import { JA_INPUT } from '../../common/constants';
 
 /*
 The available types of ja-input is firstName, lastName, address, postalCode, city,
@@ -17,13 +18,15 @@ export default class JAInput extends Component {
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
     defaultValue: PropTypes.string,
-    typeOfInput: PropTypes.string.isRequired,
+    typeOfInput: PropTypes.oneOfType(JA_INPUT),
+
   }
 
   static defaultProps = {
     disabled: false,
     defaultValue: '',
     onChange: undefined,
+    typeOfInput: undefined,
   }
 
   /*
@@ -45,41 +48,41 @@ export default class JAInput extends Component {
     let numberOfCharactersPermitted;
 
     switch (this.props.typeOfInput) {
-      case 'firstName':
+      case JA_INPUT.FIRST_NAME:
         placeholderTitle = I18n.t('account.first_name');
         break;
 
-      case 'lastName':
+      case JA_INPUT.LAST_NAME:
         placeholderTitle = I18n.t('account.last_name');
         break;
 
-      case 'address':
+      case JA_INPUT.ADDRESS:
         placeholderTitle = I18n.t('account.address');
         break;
 
-      case 'postalCode':
+      case JA_INPUT.POSTAL_CODE:
         placeholderTitle = I18n.t('account.postal_code');
         keyboardTypeUsed = 'numeric';
         numberOfCharactersPermitted = 5;
         break;
 
-      case 'city':
+      case JA_INPUT.CITY:
         placeholderTitle = I18n.t('account.city');
         break;
 
-      case 'phoneNumber':
+      case JA_INPUT.PHONE_NUMBER:
         placeholderTitle = I18n.t('account.phone_number');
         keyboardTypeUsed = 'numeric';
         icon = <JAInputIcon name="call" />;
         break;
 
-      case 'password':
+      case JA_INPUT.PASSWORD:
         placeholderTitle = I18n.t('account.password');
         icon = <JAInputIcon name="lock" />;
         secureInput = true;
         break;
 
-      case 'email':
+      case JA_INPUT.EMAIL:
         placeholderTitle = I18n.t('account.email');
         icon = <JAInputIcon name="mail" />;
         keyboardTypeUsed = 'email-address';
