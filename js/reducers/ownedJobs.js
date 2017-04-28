@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { JOB_O_RECEIVE, JOBS_O_REQUEST,
   JOBS_O_RECEIVE, JOBS_O_SELECT } from '../actions/ownedJobs';
 import { SESSION_REMOVE } from '../actions/session';
@@ -32,6 +33,11 @@ function removeMatchingJob(array, job) {
   return array;
 }
 
+// Return true if the 'day' is before current day
+function historicDate(dateString) {
+  return moment(dateString).isBefore(moment(), 'day');
+}
+
 export default function (state = initialState, action) {
   // console.log(`previous owned jobs state:\n${JSON.stringify(state, null, 4)}`);
   if (action.type === JOBS_O_RECEIVE) {
@@ -45,15 +51,12 @@ export default function (state = initialState, action) {
     if (action.jobJson.data != null) {
       action.jobJson.data.forEach(
         (job) => {
-          // TODO sort by date instead of upcoming!
-          if (job.attributes.upcoming) {
-            if (job.attributes.filled) {
-              assigned.push(job);
-            } else {
-              unassigned.push(job);
-            }
-          } else {
+          if (historicDate(job.attributes.job_date)) {
             historic.push(job);
+          } else if (job.attributes.filled) {
+            assigned.push(job);
+          } else {
+            unassigned.push(job);
           }
         });
     }
@@ -76,15 +79,12 @@ export default function (state = initialState, action) {
     const assigned = removeMatchingJob(state.assigned, newJob);
     const unassigned = removeMatchingJob(state.unassigned, newJob);
     const historic = removeMatchingJob(state.historic, newJob);
-    // TODO sort by date instead of upcoming!
-    if (newJob.attributes.upcoming) {
-      if (newJob.filled) {
-        assigned.push(newJob);
-      } else {
-        unassigned.push(newJob);
-      }
-    } else {
+    if (historicDate(newJob.attributes.job_date)) {
       historic.push(newJob);
+    } else if (newJob.filled) {
+      assigned.push(newJob);
+    } else {
+      unassigned.push(newJob);
     }
     return {
       ...state,
