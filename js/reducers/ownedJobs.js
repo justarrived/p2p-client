@@ -2,8 +2,13 @@ import { JOB_O_RECEIVE, JOBS_O_REQUEST,
   JOBS_O_RECEIVE, JOBS_O_SELECT } from '../actions/ownedJobs';
 import { SESSION_REMOVE } from '../actions/session';
 
+import { parseDateInfo } from '../networking/json';
+
 const initialState = {
   data: [],
+  assigned: [],
+  unassigned: [],
+  historic: [],
   loading: false,
   error: null,
   selectedJob: null,
@@ -17,17 +22,47 @@ function getErrorState(state, action) {
   };
 }
 
+function removeMatchingJob(array, job) {
+  array.forEach(
+    (arrayJob, index, oldArray) => {
+      if (arrayJob.id === job.data.id) {
+        oldArray.splice(index, 1);
+      }
+    });
+  return array;
+}
+
 export default function (state = initialState, action) {
   // console.log(`previous owned jobs state:\n${JSON.stringify(state, null, 4)}`);
   if (action.type === JOBS_O_RECEIVE) {
-    // Reveice all owned jobs
+    // Receice all owned jobs
     if (action.error != null) {
       return getErrorState(state, action);
     }
-    // TODO separate jobs depending on status
+    const assigned = [];
+    const unassigned = [];
+    const historic = [];
+    if (action.jobJson.data != null) {
+      action.jobJson.data.forEach(
+        (job) => {
+          // TODO sort by date instead of upcoming
+          if (job.upcoming) {
+            if (job.filled) {
+              assigned.push(job);
+            } else {
+              unassigned.push(job);
+            }
+          } else {
+            historic.push(job);
+          }
+        });
+    }
     return {
       ...state,
       data: action.jobJson.data,
+      assigned,
+      unassigned,
+      historic,
       loading: false,
       error: null,
     };
@@ -37,25 +72,24 @@ export default function (state = initialState, action) {
     if (action.error != null) {
       return getErrorState(state, action);
     }
-    let newData;
-    if (state.data === null || state.data.length === 0) {
-      // If no other jobs exists in state
-      newData = [action.jobJson.data];
+    const newJob = action.jobJson.data;
+    const assigned = removeMatchingJob(state.assigned, newJob);
+    const unassigned = removeMatchingJob(state.unassigned, newJob);
+    const historic = removeMatchingJob(state.historic, newJob);
+    if (newJob.upcoming) {
+      if (newJob.filled) {
+        assigned.push(newJob);
+      } else {
+        unassigned.push(newJob);
+      }
     } else {
-      // There are other jobs in state.
-      // First remove any old version of the job
-      state.data.forEach(
-        (oldJob, index, oldArray) => {
-          if (oldJob.id === action.jobJson.data.id) {
-            oldArray.splice(index, 1);
-          }
-        });
-      // add the new job
-      newData = [...state.data, action.jobJson.data];
+      historic.push(newJob);
     }
     return {
       ...state,
-      data: newData,
+      assigned,
+      unassigned,
+      historic,
       loading: false,
       error: null,
     };
@@ -70,16 +104,11 @@ export default function (state = initialState, action) {
   }
   if (action.type === JOBS_O_SELECT) {
     // Select a specific job for inspection
-    const job = action.jobJson;
-    const dateRegex = /^\d{4}-\d{2}-\d{2}/;
-    const timeRegex = /\d{2}:\d{2}/;
-    job.attributes.helperDate = {
-      date: (job.attributes.job_date.match(dateRegex) || ['missing'])[0],
-      time: (job.attributes.job_date.match(timeRegex) || ['missing'])[0],
-    };
+    const selectedJob = action.jobJson;
+    selectedJob.attributes.helperDate = parseDateInfo(selectedJob.attributes.job_date);
     return {
       ...state,
-      selectedJob: job,
+      selectedJob,
     };
   }
   if (action.type === SESSION_REMOVE) {

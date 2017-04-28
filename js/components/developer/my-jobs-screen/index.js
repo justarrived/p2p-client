@@ -15,7 +15,9 @@ class MyJobsScreen extends Component {
     userId: React.PropTypes.number.isRequired,
     token: React.PropTypes.string.isRequired,
     getOwnedJobs: React.PropTypes.func.isRequired,
-    userJobs: React.PropTypes.arrayOf(React.PropTypes.shape).isRequired,
+    jobsAssigned: React.PropTypes.arrayOf(React.PropTypes.shape).isRequired,
+    jobsUnassigned: React.PropTypes.arrayOf(React.PropTypes.shape).isRequired,
+    jobsHistoric: React.PropTypes.arrayOf(React.PropTypes.shape).isRequired,
   };
 
   // Download owned jobs when compoent mounts
@@ -32,14 +34,13 @@ class MyJobsScreen extends Component {
   );
 
   render() {
-    // TODO Replace placeholder data with real data from API.
     const temporaryActive = {
-      'section_headings.assigned_jobs': this.props.userJobs,
-      'section_headings.unassigned_jobs': this.props.userJobs,
+      'section_headings.assigned_jobs': this.props.jobsAssigned,
+      'section_headings.unassigned_jobs': this.props.jobsUnassigned,
     };
 
     const temporaryArchived = {
-      'section_headings.archived_jobs': this.props.userJobs,
+      'section_headings.archived_jobs': this.props.jobsHistoric,
     };
     return (
       <Tabs>
@@ -63,7 +64,9 @@ class MyJobsScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-  userJobs: state.ownedJobs.data,
+  jobsAssigned: state.ownedJobs.assigned,
+  jobsUnassigned: state.ownedJobs.unassigned,
+  jobsHistoric: state.ownedJobs.historic,
   token: state.session.token,
   userId: state.session.userId,
 });
