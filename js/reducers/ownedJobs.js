@@ -1,12 +1,11 @@
 import moment from 'moment';
 import { JOB_O_RECEIVE, JOBS_O_REQUEST,
-  JOBS_O_RECEIVE, JOBS_O_SELECT } from '../actions/ownedJobs';
+  JOBS_O_RECEIVE, JOB_O_SELECT } from '../actions/ownedJobs';
 import { SESSION_REMOVE } from '../actions/session';
 
 import { parseDateInfo } from '../networking/json';
 
 const initialState = {
-  data: [],
   assigned: [],
   unassigned: [],
   historic: [],
@@ -49,8 +48,10 @@ export default function (state = initialState, action) {
     const unassigned = [];
     const historic = [];
     if (action.jobJson.data != null) {
+      // Loop through all the jobs
       action.jobJson.data.forEach(
         (job) => {
+          // Add each job to appropriate collection
           if (historicDate(job.attributes.job_date)) {
             historic.push(job);
           } else if (job.attributes.filled) {
@@ -62,7 +63,6 @@ export default function (state = initialState, action) {
     }
     return {
       ...state,
-      data: action.jobJson.data,
       assigned,
       unassigned,
       historic,
@@ -76,9 +76,11 @@ export default function (state = initialState, action) {
       return getErrorState(state, action);
     }
     const newJob = action.jobJson.data;
+    // Remove the job if it existed previously
     const assigned = removeMatchingJob(state.assigned, newJob);
     const unassigned = removeMatchingJob(state.unassigned, newJob);
     const historic = removeMatchingJob(state.historic, newJob);
+    // Add the job in correct collection
     if (historicDate(newJob.attributes.job_date)) {
       historic.push(newJob);
     } else if (newJob.filled) {
@@ -96,14 +98,14 @@ export default function (state = initialState, action) {
     };
   }
   if (action.type === JOBS_O_REQUEST) {
-    // Complete refresh requested
+    // starting to fetch data requested
     return {
       ...state,
       loading: true,
       error: null,
     };
   }
-  if (action.type === JOBS_O_SELECT) {
+  if (action.type === JOB_O_SELECT) {
     // Select a specific job for inspection
     const selectedJob = action.jobJson;
     selectedJob.attributes.helperDate = parseDateInfo(selectedJob.attributes.job_date);

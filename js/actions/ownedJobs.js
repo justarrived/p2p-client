@@ -4,7 +4,7 @@ import { getUserJobs } from '../networking/user';
 export const JOB_O_RECEIVE = 'JOB_OWNED_RECEIVE';
 export const JOBS_O_REQUEST = 'JOBS_OWNED_REQUEST';
 export const JOBS_O_RECEIVE = 'JOBS_OWNED_RECEIVE';
-export const JOBS_O_SELECT = 'JOBS_OWNED_SELECT';
+export const JOB_O_SELECT = 'JOBS_OWNED_SELECT';
 
 // Used to set state waiting for owned job
 function requestOwnedJobs() {
@@ -34,7 +34,7 @@ export function receiveOwnedJob(jobJson, error) {
 // Used to set a selected job
 export function selectOwnedJob(jobJson) {
   return {
-    type: JOBS_O_SELECT,
+    type: JOB_O_SELECT,
     jobJson,
   };
 }
