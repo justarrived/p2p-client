@@ -27,13 +27,13 @@ export default class JAInput extends Component {
   }
 
   /*
-    placeholderTitle is used text used for a placeholder value
+    placeholderTitle is the text used for a placeholder value
     icon is set to a JAInputIcon if one should be used.
-      List of avilable icons can be found at : http://ionicframework.com/docs/ionicons
-    secureInput is a boolen, if true hides the input. Used for passwords.
+      List of available icons can be found at: http://ionicframework.com/docs/ionicons
+    secureInput is a boolean, if true hides the input. Used for passwords.
     keyboardTypeUsed changes the type of keyboard displayed.
-      The following values work crossplatform: default, numeric, email-address, phone-pad
-    numberOfCharactersPermitted sets the limit of characters promitted to used in an inputfield.
+      The following values work cross-platform: default, numeric, email-address, phone-pad
+    numberOfCharactersPermitted sets the limit of characters permitted to be used in an inputfield.
   */
 
   render() {
@@ -86,7 +86,7 @@ export default class JAInput extends Component {
         break;
 
       default:
-        /* Gives a input with no placeholderTitle or icon. and default values for
+        /* Gives an input with no placeholderTitle or icon and default values for
         secureInput, keyboardType, and numberOfCharactersPermitted */
         break;
     }
