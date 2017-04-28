@@ -1,16 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
+import { Container, Content, List } from 'native-base';
 import JobTypeCard from './jobTypeCard';
+import JATagline from '../../common/ja-tagline';
 import GlobalStyle from '../../common/globalStyle';
 import { imageProp } from '../../common/propTypes';
-import I18n from '../../../i18n';
+import { clearData, setName, setDescription, setOwner } from '../../../actions/jobCreation';
 
-const { shape, arrayOf, string } = PropTypes;
+
+const { shape, arrayOf, string, func, number } = PropTypes;
 
 class ChooseJobTypeScreen extends Component {
   static navigationOptions = {
-    title: I18n.t('screen_titles.choose_job_type'),
+    header: null,
   };
 
   static propTypes = {
@@ -24,6 +26,8 @@ class ChooseJobTypeScreen extends Component {
         }).isRequired,
       ).isRequired,
     }).isRequired,
+    userId: number.isRequired,
+    initiateCreateJob: func.isRequired,
   };
 
   navigateToNextScreen = () => this.props.navigation.navigate('CreateJobScreen');
@@ -32,7 +36,10 @@ class ChooseJobTypeScreen extends Component {
     <JobTypeCard
       title={jobType.title} subtitle={jobType.description}
       cover={jobType.image} icon={jobType.icon}
-      toNextScreen={() => this.navigateToNextScreen()}
+      toNextScreen={() => {
+        this.props.initiateCreateJob(jobType.title, jobType.description, this.props.userId);
+        this.navigateToNextScreen();
+      }}
     />
   );
 
@@ -40,6 +47,7 @@ class ChooseJobTypeScreen extends Component {
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
+          <JATagline />
           <List dataArray={this.props.jobTypes.data} renderRow={this.renderRow} />
         </Content>
       </Container>
@@ -47,6 +55,20 @@ class ChooseJobTypeScreen extends Component {
   }
 }
 
-const mapStateToProps = state => ({ jobTypes: state.jobTypes });
+const mapStateToProps = state => ({
+  jobTypes: state.jobTypes,
+  userId: state.session.userId,
+});
 
-export default connect(mapStateToProps)(ChooseJobTypeScreen);
+function bindAction(dispatch) {
+  return {
+    initiateCreateJob: (name, description, userId) => {
+      dispatch(clearData());
+      dispatch(setName(name));
+      dispatch(setDescription(description));
+      dispatch(setOwner(userId));
+    },
+  };
+}
+
+export default connect(mapStateToProps, bindAction)(ChooseJobTypeScreen);

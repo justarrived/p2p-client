@@ -55,7 +55,7 @@ export function requestGetUser(userId, token) {
       },
       (error) => {
         // Dispatch the received error
-        dispatch(receiveUser(null, error));
+        dispatch(receiveUser(null, null, error));
       },
     );
   };

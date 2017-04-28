@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Grid, Col, Form, Item, Label, Input, Card, CardItem } from 'native-base';
-
 import CardHeader from '../../common/card-header/cardHeader';
+
+import { setHStartDate, setHStartTime } from '../../../actions/jobCreation';
 import I18n from '../../../i18n';
 
-// Temporary constants. These will be moved and implemented in another way in the future!
-const DATE_STRING = I18n.t('date_and_time.date');
-const TIME_STRING = I18n.t('date_and_time.time');
-
 // Card with input fields to specify when the job should be started.
-export default class CalendarCard extends Component {
+class CalendarCard extends Component {
+  static propTypes = {
+    setDate: React.PropTypes.func.isRequired,
+    setTime: React.PropTypes.func.isRequired,
+    date: React.PropTypes.string.isRequired,
+    time: React.PropTypes.string.isRequired,
+  };
+
+  // TODO check date and time format!
+  // format= 2016-02-18T01:01:01.000+01:00"
+
   render() {
     return (
       <Card>
@@ -21,14 +29,24 @@ export default class CalendarCard extends Component {
           <Grid>
             <Col>
               <Item floatingLabel>
-                <Label>{DATE_STRING}</Label>
-                <Input keyboardType="numeric" />
+                <Label>{I18n.t('date_and_time.date')}</Label>
+                <Input
+                  keyboardType="numeric"
+                  maxLength={10}
+                  value={this.props.date}
+                  onChangeText={date => this.props.setDate(date)}
+                />
               </Item>
             </Col>
             <Col>
               <Item floatingLabel>
-                <Label>{TIME_STRING}</Label>
-                <Input keyboardType="numeric" />
+                <Label>{I18n.t('date_and_time.time')}</Label>
+                <Input
+                  keyboardType="numeric"
+                  maxLength={5}
+                  value={this.props.time}
+                  onChangeText={time => this.props.setTime(time)}
+                />
               </Item>
             </Col>
           </Grid>
@@ -38,3 +56,17 @@ export default class CalendarCard extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  date: state.jobCreation.helperDate.date,
+  time: state.jobCreation.helperDate.time,
+});
+
+function bindAction(dispatch) {
+  return {
+    setDate: hours => dispatch(setHStartDate(hours)),
+    setTime: time => dispatch(setHStartTime(time)),
+  };
+}
+
+export default connect(mapStateToProps, bindAction)(CalendarCard);
