@@ -9,7 +9,6 @@ export const JA_BUTTON = {
   FACEBOOK: 2,
 };
 
-
 export const JA_INPUT = {
   FIRST_NAME: 'FIRST_NAME',
   LAST_NAME: 'LAST_NAME',
