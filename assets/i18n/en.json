@@ -24,6 +24,7 @@
       "punctuality": "Punctuality",
       "write_review_here": "Write your review here",
       "no_rating_yet": "No rating yet",
+      "unrated": "Unrated",
       "thank_you": "Thank you!"
     }
   },
@@ -78,7 +79,14 @@
     "email": "Email",
     "password": "Password",
     "profile_info": "Profile info",
-    "payment_info": "Payment info"
+    "payment_info": "Payment info",
+    "references": "References"
+  },
+  "worker_profile": {
+    "presentation": "Presentation",
+    "language": "Language",
+    "education": "Education",
+    "prev_work": "Previous Work"
   },
   "screen_titles": {
     "choose_job_type": "Choose Job Type",
@@ -92,7 +100,8 @@
     "rate_worker": "Rate Worker",
     "choose_language": "Choose Language",
     "payment_information": "Payment Information",
-    "choose_worker": "Choose Worker"
+    "choose_worker": "Choose Worker",
+    "worker_profile": "Profile of {{name}}"
   },
   "navigation_tabs": {
     "create_job": "Create Job",

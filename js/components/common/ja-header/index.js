@@ -1,24 +1,16 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
+import JALogo from '../ja-logo';
+import JATagline from '../ja-tagline';
 import styles from './style';
 
-{/*
-  Brand header used in several views.
-  */}
-class JAHeader extends Component {
+// Brand header used in several views
+const JAHeader = () => (
+  <View style={styles.container}>
+    <JALogo />
+    <JATagline />
+  </View>
+);
 
-  render = () => {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.mainTitle}>
-          People
-        </Text>
-        <Text style={styles.subTitle}>
-          by Just Arrived
-        </Text>
-      </View>
-    )
-  }
-}
 
 export default JAHeader;

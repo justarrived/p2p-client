@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 
+const LOGO_SIZE = 120;
+
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 30,
-    flexDirection: 'column',
-    alignItems: 'center',
+  logoSize: {
+    width: LOGO_SIZE,
+    height: LOGO_SIZE,
   },
 });
 
