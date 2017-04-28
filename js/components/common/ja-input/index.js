@@ -11,7 +11,7 @@ phoneNumber, email, and password.
 if no type is give a default inputfield will be returned.
 */
 
-export default class PasswordInput extends Component {
+export default class JAInput extends Component {
 
   static propTypes = {
     onChange: PropTypes.func,
