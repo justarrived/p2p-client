@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { WHITE, BADGE_COLOR_RED, BADGE_TEXT_SHADOW } from '../colors';
+import { WHITE, BADGE_COLOR_RED, BADGE_TEXT_SHADOW } from '../../../resources/colors';
 
 const TAB_ICON_SIZE = 24;
 

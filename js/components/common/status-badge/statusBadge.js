@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Badge from '../badge/badge';
-import { JOB_STATUS } from '../../common/constants';
+import { JOB_STATUS } from '../../../resources/constants';
 import {
   BADGE_COLOR_ACTIVE,
   BADGE_COLOR_UNASSIGNED,
   BADGE_COLOR_DEFAULT,
-} from '../../common/colors';
+} from '../../../resources/colors';
 
 // Uses information about the status of a job to return a Badge with a suitable background
 export default class StatusBadge extends Component {

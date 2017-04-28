@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Card } from 'native-base';
 import CardImageHeader from '../../common/card-image-header/cardImageHeader';
 import SimpleCardBody from '../../common/simple-card-body/simpleCardBody';
-import { imageProp } from '../../common/propTypes';
+import { imageProp } from '../../../resources/propTypes';
 
 export default class JobTypeCard extends Component {
   static propTypes = {

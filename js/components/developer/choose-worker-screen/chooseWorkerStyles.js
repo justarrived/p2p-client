@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { PRIMARY_THEME_COLOR } from '../../common/colors';
+import { PRIMARY_THEME_COLOR } from '../../../resources/colors';
 
 const chooseWorkerStyles = StyleSheet.create({
   starStyle: {

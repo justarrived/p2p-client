@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { WHITE } from '../../common/colors';
+import { WHITE } from '../../../resources/colors';
 
 const badgeStyles = StyleSheet.create({
   badge: {

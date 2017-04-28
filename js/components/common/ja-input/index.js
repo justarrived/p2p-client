@@ -4,7 +4,7 @@ import { Item, Input } from 'native-base';
 import styles from './style';
 import I18n from '../../../i18n';
 import JAInputIcon from '../ja-input-icon';
-import { JA_INPUT } from '../../common/constants';
+import { JA_INPUT } from '../../../resources/constants';
 
 /*
 The available types of ja-input is firstName, lastName, address, postalCode, city,

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BLACK, PRIMARY_THEME_COLOR } from '../../common/colors';
+import { BLACK, PRIMARY_THEME_COLOR } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   topLeftCol: {
