@@ -8,33 +8,32 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  // console.log(`previous session state:\n${JSON.stringify(state, null, 4)}`);
-  if (action.type === SESSION_REQUEST) {
-    return {
-      ...state,
-      userId: null,
-      token: null,
-      sessionLoading: true,
-      error: null,
-    };
+  switch (action.type) {
+    case SESSION_REQUEST:
+      return {
+        ...state,
+        userId: null,
+        token: null,
+        sessionLoading: true,
+        error: null,
+      };
+    case SESSION_RECEIVE:
+      return {
+        ...state,
+        userId: action.userId,
+        token: action.token,
+        sessionLoading: false,
+        error: action.error,
+      };
+    case SESSION_REMOVE:
+      return {
+        ...state,
+        userId: null,
+        token: null,
+        sessionLoading: !action.removed && (action.error === null),
+        error: action.error,
+      };
+    default:
+      return state;
   }
-  if (action.type === SESSION_RECEIVE) {
-    return {
-      ...state,
-      userId: action.userId,
-      token: action.token,
-      sessionLoading: false,
-      error: action.error,
-    };
-  }
-  if (action.type === SESSION_REMOVE) {
-    return {
-      ...state,
-      userId: null,
-      token: null,
-      sessionLoading: !action.removed && (action.error === null),
-      error: action.error,
-    };
-  }
-  return state;
 }
