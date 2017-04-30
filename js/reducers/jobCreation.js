@@ -34,22 +34,22 @@ export default function (state = initialState, action) {
     case JOBC_DESCRIPTION:
       return {
         ...state,
-        name: action.payload,
+        description: action.payload,
       };
     case JOBC_OWNER_ID:
       return {
         ...state,
-        name: action.payload,
+        owner_user_id: action.payload,
       };
     case JOBC_CATEGORY:
       return {
         ...state,
-        name: action.payload,
+        category_id: action.payload,
       };
     case JOBC_HOURS:
       return {
         ...state,
-        name: action.payload,
+        hours: action.payload,
       };
     case JOBC_H_START_DATE: {
       // Add date when job starts
