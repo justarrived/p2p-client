@@ -8,7 +8,7 @@ import { JA_BUTTON } from '../../common/constants';
 import globalStyle from '../../common/globalStyle';
 import I18n from '../../../i18n';
 
-const PICTURE = require('../../../../assets/images/people.png');
+const PICTURE = require('../../../../assets/images/confirmation.png');
 
 export default class ConfirmationScreen extends Component {
 
