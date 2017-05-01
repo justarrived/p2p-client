@@ -94,7 +94,7 @@ export default class JAInput extends Component {
         break;
     }
     return (
-      <Item style={StyleSheet.flatten([this.props.disabled && styles.disabled])}>
+      <Item style={StyleSheet.flatten([styles.topPadding, this.props.disabled && styles.disabled])}>
         {icon}
         <Input
           placeholder={placeholderTitle}

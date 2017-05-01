@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
   disabled: {
     borderColor: TRANSPARENT,
   },
+  topPadding: {
+    paddingTop: 10,
+  },
 });
 
 module.exports = styles;
