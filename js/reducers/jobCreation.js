@@ -25,107 +25,96 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  // console.log(`previous create job state:\n${JSON.stringify(state, null, 4)}`);
-  if (action.type === JOBC_NAME) {
-    return {
-      ...state,
-      name: action.payload,
-    };
+  switch (action.type) {
+    case JOBC_NAME:
+      return {
+        ...state,
+        name: action.payload,
+      };
+    case JOBC_DESCRIPTION:
+      return {
+        ...state,
+        description: action.payload,
+      };
+    case JOBC_OWNER_ID:
+      return {
+        ...state,
+        owner_user_id: action.payload,
+      };
+    case JOBC_CATEGORY:
+      return {
+        ...state,
+        category_id: action.payload,
+      };
+    case JOBC_HOURS:
+      return {
+        ...state,
+        hours: action.payload,
+      };
+    case JOBC_H_START_DATE: {
+      // Add date when job starts
+      // TODO set correct end date
+      const time = state.helperDate.time;
+      const actualDate = `${action.payload}T${time}`;
+      return {
+        ...state,
+        job_date: actualDate,
+        job_end_date: actualDate,
+        helperDate: {
+          date: action.payload,
+          time,
+        },
+      };
+    }
+    case JOBC_H_START_TIME: {
+      // Add time of day when job starts
+      // TODO set correct end date
+      const date = state.helperDate.date;
+      const actualDate = `${date}T${action.payload}`;
+      return {
+        ...state,
+        job_date: actualDate,
+        job_end_date: actualDate,
+        helperDate: {
+          date,
+          time: action.payload,
+        },
+      };
+    }
+    case JOBC_LANGUAGE:
+      return {
+        ...state,
+        language_id: action.payload,
+      };
+    case JOBC_HOURLY_PAY:
+      return {
+        ...state,
+        hourly_pay_id: action.payload,
+      };
+    case JOBC_SKILLS:
+      return {
+        ...state,
+        skills: action.payload,
+      };
+    case JOBC_CITY:
+      return {
+        ...state,
+        city: action.payload,
+      };
+    case JOBC_STREET:
+      return {
+        ...state,
+        street: action.payload,
+      };
+    case JOBC_ZIP:
+      return {
+        ...state,
+        zip: action.payload,
+      };
+    case (SESSION_REMOVE || JOBC_CLEAR_DATA):
+      // Clear local data
+      return initialState;
+    default:
+      return state;
   }
-  if (action.type === JOBC_DESCRIPTION) {
-    return {
-      ...state,
-      description: action.payload,
-    };
-  }
-  if (action.type === JOBC_OWNER_ID) {
-    return {
-      ...state,
-      owner_user_id: action.payload,
-    };
-  }
-  if (action.type === JOBC_CATEGORY) {
-    return {
-      ...state,
-      category_id: action.payload,
-    };
-  }
-  if (action.type === JOBC_HOURS) {
-    return {
-      ...state,
-      hours: action.payload,
-    };
-  }
-  if (action.type === JOBC_H_START_DATE) {
-    // Add date when job starts
-    // TODO set correct end date
-    const time = state.helperDate.time;
-    const actualDate = `${action.payload}T${time}`;
-    return {
-      ...state,
-      job_date: actualDate,
-      job_end_date: actualDate,
-      helperDate: {
-        date: action.payload,
-        time,
-      },
-    };
-  }
-  if (action.type === JOBC_H_START_TIME) {
-    // Add time of day when job starts
-    // TODO set correct end date
-    const date = state.helperDate.date;
-    const actualDate = `${date}T${action.payload}`;
-    return {
-      ...state,
-      job_date: actualDate,
-      job_end_date: actualDate,
-      helperDate: {
-        date,
-        time: action.payload,
-      },
-    };
-  }
-  if (action.type === JOBC_LANGUAGE) {
-    return {
-      ...state,
-      language_id: action.payload,
-    };
-  }
-  if (action.type === JOBC_HOURLY_PAY) {
-    return {
-      ...state,
-      hourly_pay_id: action.payload,
-    };
-  }
-  if (action.type === JOBC_SKILLS) {
-    return {
-      ...state,
-      skills: action.payload,
-    };
-  }
-  if (action.type === JOBC_CITY) {
-    return {
-      ...state,
-      city: action.payload,
-    };
-  }
-  if (action.type === JOBC_STREET) {
-    return {
-      ...state,
-      street: action.payload,
-    };
-  }
-  if (action.type === JOBC_ZIP) {
-    return {
-      ...state,
-      zip: action.payload,
-    };
-  }
-  if (action.type === SESSION_REMOVE
-    || action.type === JOBC_CLEAR_DATA) {
-    // Clear local data
-    return initialState;
-  }
-  return state;
 }
