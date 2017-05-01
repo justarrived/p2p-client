@@ -23,13 +23,14 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Android/IntelliJ
+# Android/IntelliJ/VSCode
 #
 build/
 .idea
 .gradle
 local.properties
 *.iml
+.vscode
 
 # node.js
 #
