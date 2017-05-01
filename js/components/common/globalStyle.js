@@ -8,6 +8,10 @@ const globalStyle = StyleSheet.create({
   padder: {
     padding: PADDING,
   },
+  modalPadder: {
+    paddingLeft: 40,
+    paddingRight: 40,
+  },
   rowMargin: {
     marginTop: ROW_MARGIN,
   },
