@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Container, Content, Thumbnail, Button, Text as NBText } from 'native-base';
 import styles from './style';
-import globalStyle from '../../common/globalStyle';
+import globalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 
 const PICTURE = require('../../../../assets/images/people.png');

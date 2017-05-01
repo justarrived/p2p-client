@@ -5,7 +5,7 @@ import {
   Item, Button, Label, Text as NBText } from 'native-base';
 import styles from './style';
 import I18n from '../../../i18n';
-import globalStyle from '../../common/globalStyle';
+import globalStyle from '../../../resources/globalStyle';
 
 
 export default class ForgotPassword extends Component {

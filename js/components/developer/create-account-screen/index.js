@@ -5,7 +5,7 @@ import { Container, Content, Col, Grid } from 'native-base';
 
 // styles
 import styles from './style';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 
 import I18n from '../../../i18n';
 import { requestCreateUser } from '../../../actions/user';
@@ -16,12 +16,11 @@ import {
 
 import JATagline from '../../common/ja-tagline';
 import JAButton from '../../common/ja-button';
-import { JA_BUTTON, JA_INPUT } from '../../common/constants';
+import { JA_BUTTON, JA_INPUT } from '../../../resources//constants';
 import JAInput from '../../common/ja-input';
 import CheckBoxPUL from '../../common/checkbox-with-text';
 import LanguageDropdown from '../../common/language-dropdown/languageDropdown';
 import Footer from '../../common/footer/footer';
-
 
 // TODO Replace these standard values with real values.
 // These are used during development only.

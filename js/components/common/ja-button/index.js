@@ -5,8 +5,8 @@ import { PRIMARY_THEME_COLOR,
          GRADIENT_ORANGE_COLOR,
          FACEBOOK_COLOR,
          FACEBOOK_GRADIENT_COLOR,
-         WHITE } from '../../common/colors';
-import { JA_BUTTON } from '../../common/constants';
+         WHITE } from '../../../resources/colors';
+import { JA_BUTTON } from '../../../resources/constants';
 import styles from './style';
 
 const primaryButtonColor = [

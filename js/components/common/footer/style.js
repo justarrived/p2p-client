@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { WHITE_SMOKE, NOTE } from '../../common/colors';
+import { WHITE_SMOKE, NOTE } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   footerView: {

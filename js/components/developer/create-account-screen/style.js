@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { PRIMARY_TEXT } from '../../common/colors';
+
+import { PRIMARY_TEXT } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   colPadding: {
