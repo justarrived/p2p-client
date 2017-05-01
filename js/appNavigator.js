@@ -25,6 +25,7 @@ import JobInfoScreen from './components/developer/job-information-screen';
 import WorkerProfileScreen from './components/developer/worker-profile-screen';
 import ForgotPassword from './components/developer/forgot-password';
 import WelcomeInfoScreen from './components/developer/welcome-info-screen';
+import ConfirmationScreen from './components/developer/confirmation-screen';
 
 const CreateJobTab = StackNavigator({
   ChooseJobTypeScreen: {
@@ -76,6 +77,9 @@ const MyProfileTab = StackNavigator({
 const DeveloperTab = StackNavigator({
   DeveloperScreen: {
     screen: DeveloperScreen,
+  },
+  ConfirmationScreen: {
+    screen: ConfirmationScreen,
   },
   WelcomeInfoScreen: {
     screen: WelcomeInfoScreen,
