@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import AppNavigatorWithHelpers from './app';
+// import AppNavigatorWithHelpers from './app';
+import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 import configureStore from './store/configureStore';
 
 function setup() : React.Component {
@@ -17,7 +18,7 @@ function setup() : React.Component {
     render() {
       return (
         <Provider store={this.state.store}>
-          <AppNavigatorWithHelpers />
+          <ChooseJobTypeScreen />
         </Provider>
       );
     }

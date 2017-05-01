@@ -4,19 +4,18 @@ import LinearGradient from 'react-native-linear-gradient';
 import { PRIMARY_THEME_COLOR,
          GRADIENT_ORANGE_COLOR,
          FACEBOOK_COLOR,
-         FACEBOOK_GRADIENT_COLOR,
-         WHITE } from '../../../resources/colors';
+         FACEBOOK_GRADIENT_COLOR } from '../../../resources/colors';
 import { JA_BUTTON } from '../../../resources/constants';
 import styles from './style';
 
 const primaryButtonColor = [
   PRIMARY_THEME_COLOR,
-  GRADIENT_ORANGE_COLOR
+  GRADIENT_ORANGE_COLOR,
 ];
 
 const facebookButtonColor = [
   FACEBOOK_COLOR,
-  FACEBOOK_GRADIENT_COLOR
+  FACEBOOK_GRADIENT_COLOR,
 ];
 
 {/*
@@ -33,39 +32,32 @@ class JAButton extends Component {
 
   render = () => {
 
-    const {
-      content,
-      actionOnClick
-    } = this.props;
-
+    const { content, actionOnClick } = this.props;
+    const smallButton = this.props.typeOfButton === JA_BUTTON.READ_MORE;
     //Set the button color depending on what type is passed in to the component
     let buttonColor;
     switch (this.props.typeOfButton) {
-
       case JA_BUTTON.PRIMARY:
+      case JA_BUTTON.READ_MORE:
         buttonColor = primaryButtonColor;
         break;
-
       case JA_BUTTON.FACEBOOK:
         buttonColor = facebookButtonColor;
         break;
-
       default:
-        console.log('default');
-        break;
+        buttonColor = primaryButtonColor;
     }
 
     return (
-      <TouchableOpacity
-        onPress={() => actionOnClick()}>
+      <TouchableOpacity onPress={() => actionOnClick()}>
         <LinearGradient
           start={{x: 0.0, y: 0.5}} end={{x: 1.0, y: 0.5}}
           colors={buttonColor}
           style={styles.linearGradient}
         >
-        <Text style={styles.buttonText}>
-          {content}
-        </Text>
+          <Text style={[styles.textProperties, smallButton ? styles.smallFont : styles.mediumFont]}>
+            {content}
+          </Text>
         </LinearGradient>
       </TouchableOpacity>
     )

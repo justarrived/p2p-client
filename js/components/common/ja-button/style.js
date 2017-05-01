@@ -1,18 +1,23 @@
 import { StyleSheet } from 'react-native';
-import { WHITE, PRIMARY_THEME_COLOR, GRADIENT_ORANGE_COLOR } from '../../../resources/colors';
+import { WHITE, TRANSPARENT } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-    borderRadius: 25
+    borderRadius: 25,
   },
-  buttonText: {
+  mediumFont: {
     fontSize: 16,
+  },
+  smallFont: {
+    fontSize: 12,
+  },
+  textProperties: {
     fontWeight: 'bold',
     textAlign: 'center',
     margin: 14,
     color: WHITE,
-    backgroundColor: 'transparent',
+    backgroundColor: TRANSPARENT,
   },
 });
 

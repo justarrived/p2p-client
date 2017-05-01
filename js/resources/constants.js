@@ -7,6 +7,7 @@ export const JOB_STATUS = {
 export const JA_BUTTON = {
   PRIMARY: 1,
   FACEBOOK: 2,
+  READ_MORE: 3,
 };
 
 export const JA_INPUT = {
