@@ -73,6 +73,6 @@ export function toggleCheckBox() {
 
 export function toggleInputDisabled() {
   return {
-    type: TOOGLE_INPUT_DISABLED,
+    type: TOGGLE_INPUT_DISABLED,
   };
 }
