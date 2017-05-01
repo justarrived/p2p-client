@@ -1,12 +1,12 @@
 import {
   ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE,
   ACCOUNT_POSTAREA, ACCOUNT_PHONENUMBER, ACCOUNT_EMAIL, ACCOUNT_PASSWORD,
-  TOOGLE_INPUT_DISABLED, ACCOUNT_USER_AGREEMENT,
+  TOOGLE_INPUT_DISABLED, ACCOUNT_USER_AGREEMENT, ACCOUNT_APP_LANGUAGE,
 } from '../actions/account';
 
 const initialState = {
-  firstName: 'Anton',
-  lastName: 'Smith',
+  firstName: '',
+  lastName: '',
   address: ' ',
   postCode: '',
   postArea: '',
@@ -15,6 +15,7 @@ const initialState = {
   password: '',
   userAgreement: false,
   disabled: true,
+  appLanguage: '',
 };
 
 export default function (state = initialState, action) {
@@ -67,7 +68,6 @@ export default function (state = initialState, action) {
     };
   }
   if (action.type === TOOGLE_INPUT_DISABLED) {
-    console.log('DISABLE');
     return {
       ...state,
       disabled: !state.disabled,
@@ -77,6 +77,12 @@ export default function (state = initialState, action) {
     return {
       ...state,
       userAgreement: !state.userAgreement,
+    };
+  }
+  if (action.type === ACCOUNT_APP_LANGUAGE) {
+    return {
+      ...state,
+      appLanguage: action.payload,
     };
   }
   return state;

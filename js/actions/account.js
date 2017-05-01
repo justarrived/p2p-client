@@ -8,6 +8,8 @@ export const ACCOUNT_EMAIL = 'ACCOUNT_EMAIL';
 export const ACCOUNT_PASSWORD = 'ACCOUNT_PASSWORD';
 export const TOOGLE_INPUT_DISABLED = 'TOOGLE_INPUT_DISABLED';
 export const ACCOUNT_USER_AGREEMENT = 'ACCOUNT_USER_AGREEMENT';
+export const ACCOUNT_APP_LANGUAGE = 'ACCOUNT_APP_LANGUAGE';
+
 
 export function changeFirstName(firstName) {
   return {
@@ -62,6 +64,13 @@ export function changePassword(password) {
   return {
     type: ACCOUNT_PASSWORD,
     payload: password,
+  };
+}
+
+export function changeAppLanguage(appLanguage) {
+  return {
+    type: ACCOUNT_APP_LANGUAGE,
+    payload: appLanguage,
   };
 }
 
