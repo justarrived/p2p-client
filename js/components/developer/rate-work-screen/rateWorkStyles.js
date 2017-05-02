@@ -4,15 +4,6 @@ import { BLACK } from '../../../resources/colors';
 const PADDING = 10;
 const ratingScreenStyles = StyleSheet.create({
 
-  contentContainerStyle: {
-    padding: PADDING,
-  },
-  logoContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: PADDING,
-  },
   alignCenter: {
     flex: 1,
     justifyContent: 'center',
