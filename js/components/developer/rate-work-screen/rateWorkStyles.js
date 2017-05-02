@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BLACK } from '../../common/colors';
+import { BLACK } from '../../../resources/colors';
 
 const PADDING = 10;
 const ratingScreenStyles = StyleSheet.create({
@@ -13,11 +13,7 @@ const ratingScreenStyles = StyleSheet.create({
     alignItems: 'center',
     margin: PADDING,
   },
-  logo: {
-    width: 100,
-    height: 100,
-  },
-  textContainer: {
+  alignCenter: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

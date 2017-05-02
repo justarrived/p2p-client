@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Container, Content } from 'native-base';
 import { Text, View, StyleSheet } from 'react-native';
-import RatingLogo from './logo';
 import RatingScreenStyles from './rateWorkStyles';
 import RatingBar from './ratingBar';
 import JAButton from '../../common/ja-button';
-import { JA_BUTTON } from '../../common/constants';
+import { JA_BUTTON } from '../../../resources/constants';
+import JALogo from '../../common/ja-logo';
 import RecommendationTextbox from './recommendationTextbox';
 import I18n from '../../../i18n';
-import globalStyle from '../../common/globalStyle';
+import globalStyle from '../../../resources/globalStyle';
 
-const LOGO = require('../../../../assets/images/logo.png');
 
 export default class RateWorkScreen extends Component {
 
@@ -22,12 +21,12 @@ export default class RateWorkScreen extends Component {
     return (
       <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>
         <Content
-          contentContainerStyle={StyleSheet.flatten(RatingScreenStyles.contentContainerStyle)}
+          contentContainerStyle={StyleSheet.flatten(globalStyle.padder)}
         >
-          <RatingLogo
-            icon={LOGO}
-          />
-          <View style={RatingScreenStyles.textContainer}>
+          <View style={RatingScreenStyles.alignCenter}>
+            <JALogo />
+          </View>
+          <View style={RatingScreenStyles.alignCenter}>
             <Text
               style={RatingScreenStyles.headerText}
             >{I18n.t('job.rating.thank_you')}</Text>
