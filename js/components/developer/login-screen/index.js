@@ -1,24 +1,22 @@
 import React, { Component, PropTypes } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Text, Content, Card, Container, CheckBox, Form, Thumbnail, ListItem, Button, Body, Col, Grid } from 'native-base';
+import { Text, Content, Container, Form } from 'native-base';
 import { connect } from 'react-redux';
 import EmailInput from '../../common/email-input';
 import JAHeader from '../../common/ja-header';
 import JAButton from '../../common/ja-button';
-import {JA_BUTTON} from '../../common/constants';
+import { JA_BUTTON } from '../../../resources/constants';
 import PasswordInput from '../../common/password-input';
 import { requestSignIn } from '../../../actions/session';
 import LoginScreenStyles from './loginScreenStyles';
 import I18n from '../../../i18n';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
-const REMEMBER_ME_STRING = I18n.t('login.remember_me');
 const LOGIN_BUTTON_STRING = I18n.t('login.sign_in_button');
 const FACEBOOK_BUTTON_STRING = I18n.t('social.facebook');
 const FORGOT_PASSWORD_STRING = I18n.t('login.forgot_password_button');
 const NEED_ACCOUNT_STRING = I18n.t('sign_up.need_account');
 const OR = I18n.t('common.or');
-const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 // Setting default values so they do not have to be entered every time
 // TODO Store email input value in Redux
@@ -80,9 +78,6 @@ class LoginScreen extends Component {
 
     return (
       <Container>
-
-      {/* Header */}
-      <JAHeader/>
         {/* Full height scroll view */}
         <Content
           onLayout={(event) => { // Invoked on mount and device orientation change.
@@ -91,74 +86,57 @@ class LoginScreen extends Component {
           }} contentContainerStyle={[fullHeightContentStyle.fullHeight, LoginScreenStyles.padder]}
         >
 
-            {/* Login Header */}
-              <Text style={StyleSheet.flatten(LoginScreenStyles.loginHeader)}>
-                Log in
-              </Text>
-              <Text style={StyleSheet.flatten(LoginScreenStyles.loginDescription)}>
-                Use your username and password
-              </Text>
+          {/* Header */}
+          <JAHeader />
 
-            {/* Input fields */}
-            <Form style={ StyleSheet.flatten(LoginScreenStyles.inputFields) }>
-              <EmailInput
-                onChange={email => this.setState({ email })}
-                defaultValue={this.state.email}
-                style={StyleSheet.flatten(LoginScreenStyles.inputField)}
-              />
-              <PasswordInput
-                onChange={password => this.setState({ password })}
-                defaultValue={this.state.password}
-                style={StyleSheet.flatten(LoginScreenStyles.inputField)}
-              />
-            </Form>
+          {/* Input fields */}
+          <Form style={StyleSheet.flatten(LoginScreenStyles.inputFields)}>
+            <EmailInput
+              onChange={email => this.setState({ email })}
+              defaultValue={this.state.email}
+              style={StyleSheet.flatten(LoginScreenStyles.inputField)}
+            />
+            <PasswordInput
+              onChange={password => this.setState({ password })}
+              defaultValue={this.state.password}
+              style={StyleSheet.flatten(LoginScreenStyles.inputField)}
+            />
+          </Form>
 
-            {/* Remember password checkbox
-              <ListItem>
-                <CheckBox
-                  checked={this.state.rememberPassword}
-                  onPress={() => this.toggleCheckbox()}
-                />
-                <Body>
-                  <Text>{REMEMBER_ME_STRING}</Text>
-                </Body>
-              </ListItem>
-              */}
-
-            {/* Forgot password clickable text */}
-            {/*TODO: Create forgot password view and link there*/}
-            <TouchableOpacity
-              onPress={() => this.props.goToRegister() }>
-              <Text style={ StyleSheet.flatten(LoginScreenStyles.forgotPassword) }>
+          {/* Forgot password clickable text */}
+          {/* TODO: Create forgot password view and link there */}
+          <TouchableOpacity onPress={() => this.props.goToRegister()}>
+            <Text style={StyleSheet.flatten(LoginScreenStyles.forgotPassword)}>
               {FORGOT_PASSWORD_STRING}
-              </Text>
-            </TouchableOpacity>
+            </Text>
+          </TouchableOpacity>
 
-            {/* Button container */}
-            <View style={LoginScreenStyles.buttonContainer}>
-              {/* Login button */}
-              <JAButton
-                content={LOGIN_BUTTON_STRING}
-                actionOnClick={() => this.logIn()}
-                typeOfButton={JA_BUTTON.PRIMARY}
-              />
-              <Text style={StyleSheet.flatten(LoginScreenStyles.textBetweenButtons)}>
-                {OR}
-              </Text>
-              {/* TODO: Either remove button or add facebook login support :) */}
-              <JAButton
-                content={FACEBOOK_BUTTON_STRING}
-                actionOnClick={() => this.logIn()}
-                typeOfButton={JA_BUTTON.FACEBOOK}
-              />
-            </View>
+          {/* Button container */}
+          <View style={LoginScreenStyles.buttonContainer}>
+            {/* Login button */}
+            <JAButton
+              content={LOGIN_BUTTON_STRING}
+              actionOnClick={() => this.logIn()}
+              typeOfButton={JA_BUTTON.PRIMARY}
+            />
+            <Text style={StyleSheet.flatten(LoginScreenStyles.textBetweenButtons)}>
+              {OR}
+            </Text>
+            {/* TODO: Either remove button or add facebook login support :) */}
+            <JAButton
+              content={FACEBOOK_BUTTON_STRING}
+              actionOnClick={() => this.logIn()}
+              typeOfButton={JA_BUTTON.FACEBOOK}
+            />
+          </View>
         </Content>
 
         {/* Footer */}
-        <TouchableOpacity
-          onPress={() => this.props.goToRegister() }>
+        <TouchableOpacity onPress={() => this.props.goToRegister()}>
           <View style={LoginScreenStyles.footerStyling}>
-            <Text style={StyleSheet.flatten(LoginScreenStyles.footerText)}>{NEED_ACCOUNT_STRING}</Text>
+            <Text style={StyleSheet.flatten(LoginScreenStyles.footerText)}>
+              {NEED_ACCOUNT_STRING}
+            </Text>
           </View>
         </TouchableOpacity>
       </Container>

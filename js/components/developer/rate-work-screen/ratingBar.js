@@ -1,6 +1,6 @@
 import StarRating from 'react-native-star-rating';
 import React, { Component } from 'react';
-import { PRIMARY_THEME_COLOR } from '../../common/colors';
+import { PRIMARY_THEME_COLOR } from '../../../resources/colors';
 
 class GeneralStarExample extends Component {
 

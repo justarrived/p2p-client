@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import BadgeStyles from './badgeStyles';
-import { BADGE_COLOR_DEFAULT } from '../../common/colors';
+import { BADGE_COLOR_DEFAULT } from '../../../resources/colors';
 
 // Badge component. A color can be specified optionally as a prop.
 export default class Badge extends Component {

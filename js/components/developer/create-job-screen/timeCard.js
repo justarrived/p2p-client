@@ -1,54 +1,61 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import { Card, CardItem } from 'native-base';
 import CardHeader from '../../common/card-header/cardHeader';
 import RadioWithNote from './radioWithNote';
+
+import { setHours } from '../../../actions/jobCreation';
 import I18n from '../../../i18n';
 
-// Temporary data, will be moved and handled in another way in the future.
+// Temporary data, should be handled differently in the future.
 const radioContent = [
   { title: I18n.t('size.small.estimated_duration'),
     note: I18n.t('size.small.cost'),
-    key: 'SMALL' },
+    actualHours: 2 },
   { title: I18n.t('size.medium.estimated_duration'),
     note: I18n.t('size.medium.cost'),
-    key: 'MEDIUM' },
+    actualHours: 3 },
   { title: I18n.t('size.large.estimated_duration'),
     note: I18n.t('size.large.cost'),
-    key: 'BIG' },
+    actualHours: 4 },
 ];
 
 // Card with radio buttons to specify the duration of a job.
-export default class TimeCard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: 0,
-    };
-  }
-
-  selectRadio = (index) => {
-    this.setState({
-      selected: index,
-    });
-  }
-
-  render() {
-    const radioButtons = [];
-    radioContent.forEach((content, i) => {
-      radioButtons.push(
-        <RadioWithNote
-          key={content.key} title={content.title} note={content.note}
-          selected={this.state.selected === i} onPress={() => this.selectRadio(i)}
-        />,
+const TimeCard = ({ hours, setJobHours }) => {
+  const radioButtons = [];
+  radioContent.forEach((content) => {
+    radioButtons.push(
+      <RadioWithNote
+        key={content.actualHours}
+        title={content.title}
+        note={content.note}
+        selected={content.actualHours === hours}
+        onPress={() => setJobHours(content.actualHours)}
+      />,
       );
-    });
+  });
+  return (
+    <Card>
+      <CardHeader icon="time" title={I18n.t('date_and_time.time')} subtitle={I18n.t('job.approximate_duration')} />
+      {radioButtons}
+      <CardItem footer />
+    </Card>
+  );
+};
 
-    return (
-      <Card>
-        <CardHeader icon="time" title={I18n.t('date_and_time.time')} subtitle={I18n.t('job.approximate_duration')} />
-        {radioButtons}
-        <CardItem footer />
-      </Card>
-    );
-  }
+TimeCard.propTypes = {
+  hours: React.PropTypes.number.isRequired,
+  setJobHours: React.PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  hours: state.jobCreation.hours,
+});
+
+function bindAction(dispatch) {
+  return {
+    setJobHours: hours => dispatch(setHours(hours)),
+  };
 }
+
+export default connect(mapStateToProps, bindAction)(TimeCard);

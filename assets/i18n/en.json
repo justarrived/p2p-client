@@ -1,5 +1,4 @@
 {
-
   "common": {
     "or": "OR",
   },
@@ -8,6 +7,7 @@
     "applications": "Applications",
     "when_will_the_job_be_performed": "When will the job be performed?",
     "create_job": "Create job",
+    "create_job_button": "Create Job",
     "location": "Location",
     "where_will_the_job_be_performed": "Where will the job be performed?",
     "approximate_duration": "What's the approximate duration?",
@@ -24,7 +24,9 @@
       "write_review_here": "Write here",
       "no_rating_yet": "No rating yet",
       "thank_you": "Thank you!",
-      "recommendation": "Write a recommendation"
+      "recommendation": "Write a recommendation",
+      "unrated": "Unrated",
+      "thank_you": "Thank you!"
     }
   },
   "categories": {
@@ -64,6 +66,10 @@
     "archived_jobs": "Completed jobs",
     "unassigned_jobs": "Unassigned jobs"
   },
+  "wizard": {
+    "welcome_to_people": "Welcome To People!",
+    "welcome_to_people_description": "People by JustArrived is an initiative to connect newcomers with local people in the Swedish community"
+  },
   "account": {
     "first_name": "First name",
     "last_name": "Last name",
@@ -74,7 +80,14 @@
     "email": "Email",
     "password": "Password",
     "profile_info": "Profile info",
-    "payment_info": "Payment info"
+    "payment_info": "Payment info",
+    "references": "References"
+  },
+  "worker_profile": {
+    "presentation": "Presentation",
+    "language": "Language",
+    "education": "Education",
+    "prev_work": "Previous Work"
   },
   "screen_titles": {
     "choose_job_type": "Choose Job Type",
@@ -88,7 +101,8 @@
     "rate_worker": "Rate Worker",
     "choose_language": "Choose Language",
     "payment_information": "Payment Information",
-    "choose_worker": "Choose Worker"
+    "choose_worker": "Choose Worker",
+    "worker_profile": "Profile of {{name}}"
   },
   "navigation_tabs": {
     "create_job": "Create Job",
@@ -127,7 +141,8 @@
     "send": "Send",
     "save": "Save",
     "cancel": "Cancel",
-    "next": "Next"
+    "next": "Next",
+    "skip": "Skip",
   },
   "card": {
     "card_holder": "Card holder",

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Body } from 'native-base';
+import { Text, Col } from 'native-base';
 
 export default class TextWithStackedNote extends Component {
   static propTypes = {
@@ -9,10 +9,10 @@ export default class TextWithStackedNote extends Component {
 
   render() {
     return (
-      <Body>
+      <Col>
         <Text note>{this.props.note}</Text>
         <Text>{this.props.text}</Text>
-      </Body>
+      </Col>
     );
   }
 }

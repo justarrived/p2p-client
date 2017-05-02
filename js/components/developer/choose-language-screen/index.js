@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Card, Thumbnail, Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 import chooseLanguageStyles from './chooseLanguageStyles';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 import CardHeader from '../../common/card-header/cardHeader';
 import SingleRowListItem from '../../common/single-row-list-item/singleRowListItem';
 import I18n from '../../../i18n';

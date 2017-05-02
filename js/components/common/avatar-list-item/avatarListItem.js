@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Text, Left, Right, ListItem, Body, Thumbnail } from 'native-base';
 import AvatarListItemStyles from './avatarListItemStyles';
 import StatusBadge from '../status-badge/statusBadge';
-import { JOB_STATUS } from '../../common/constants';
+import { JOB_STATUS } from '../../../resources/constants';
 
 export default class AvatarListItem extends Component {
   static propTypes = {
