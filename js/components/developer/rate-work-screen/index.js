@@ -25,8 +25,6 @@ export default class RateWorkScreen extends Component {
         >
           <View style={RatingScreenStyles.alignCenter}>
             <JALogo />
-          </View>
-          <View style={RatingScreenStyles.alignCenter}>
             <Text
               style={RatingScreenStyles.headerText}
             >{I18n.t('job.rating.thank_you')}</Text>
