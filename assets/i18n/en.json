@@ -17,7 +17,6 @@
       "history": "History",
     },
     "rating": {
-      "rate": "Submit",
       "how_did_the_worker_perform_the_job": "We hope you enjoyed your experience, please write what you think about the experience you had using People",
       "communication": "Communication",
       "work_quality": "Quality of service",
@@ -122,6 +121,7 @@
     "calendar": "Calendar"
   },
   "button_actions": {
+    "submit": "Submit",
     "done": "Done",
     "edit": "Edit",
     "send": "Send",

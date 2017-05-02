@@ -29,10 +29,10 @@ export default class RateWorkScreen extends Component {
           />
           <View style={RatingScreenStyles.textContainer}>
             <Text
-              style={RatingScreenStyles.header1Text}
+              style={RatingScreenStyles.headerText}
             >{I18n.t('job.rating.thank_you')}</Text>
             <Text
-              style={RatingScreenStyles.header2Text}
+              style={RatingScreenStyles.bodyText}
             >{I18n.t('job.rating.how_did_the_worker_perform_the_job')}</Text>
             <Text
               style={RatingScreenStyles.ratingText}
@@ -58,7 +58,7 @@ export default class RateWorkScreen extends Component {
           <View style={StyleSheet.flatten(RatingScreenStyles.buttonStyle)}>
             {/* TODO add actionOnClick functionality*/}
             <JAButton
-              content={I18n.t('job.rating.rate')}
+              content={I18n.t('button_actions.submit')}
               typeOfButton={JA_BUTTON.PRIMARY}
             />
           </View>

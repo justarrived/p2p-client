@@ -13,8 +13,8 @@ export default class RateWorkScreen extends Component {
   render() {
     return (
 
-      // TODO Fix the keyboard covering new lines
-      <View style={StyleSheet.flatten(RatingScreenStyles.viewBorder)}>
+      // TODO Fix keyboard covering new lines
+      <View>
         <AutoExpandingTextInput
           returnKeyType="done"
           placeholder={this.props.placeholder}

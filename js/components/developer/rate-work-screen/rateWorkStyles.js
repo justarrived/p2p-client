@@ -13,27 +13,22 @@ const ratingScreenStyles = StyleSheet.create({
     alignItems: 'center',
     margin: PADDING,
   },
-  viewBorder: {
-    borderColor: BLACK,
-    borderBottomWidth: 1,
-  },
   logo: {
     width: 100,
     height: 100,
-    borderRadius: 70,
   },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  header1Text: {
+  headerText: {
     color: BLACK,
     fontSize: 20,
     fontWeight: 'bold',
     margin: PADDING / 2,
   },
-  header2Text: {
+  bodyText: {
     fontSize: 14,
     fontWeight: 'bold',
     margin: PADDING,

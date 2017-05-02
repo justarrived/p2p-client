@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { BLACK } from '../../common/colors';
 
-const avatarListItemStyles = StyleSheet.create({
+const autoExpandingTextStyles = StyleSheet.create({
   default: {
-    maxHeight: 100,
+    borderBottomWidth: 0.5,
+    flex: 1,
+    fontSize: 13,
+    padding: 4,
   },
 });
 
-module.exports = avatarListItemStyles;
+module.exports = autoExpandingTextStyles;
