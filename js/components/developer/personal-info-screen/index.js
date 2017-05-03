@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Col, Row, Thumbnail, Card, CardItem, Button, Text } from 'native-base';
 import styles from './style';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 import EmailInput from '../../common/email-input';
 import PhoneInput from '../../common/numeric-input';
 import PasswordInput from '../../common/password-input';
@@ -12,6 +12,7 @@ import PostcodeInput from '../../common/post-code-input';
 import Buttons from './personalInfoButtons';
 import I18n from '../../../i18n';
 import { changeAddress, changePostCode, changePostArea, changePhoneNumber, changeEmail, changePassword, toggleInputDisabled } from '../../../actions/account';
+import { requestSignOut } from '../../../actions/session';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
@@ -37,21 +38,12 @@ class PersonalInfoScreen extends React.Component {
       userAgreement: React.PropTypes.bool,
       disabled: React.PropTypes.boolean,
     }).isRequired,
+    signOut: React.PropTypes.func.isRequired,
+    token: React.PropTypes.string.isRequired,
   }
 
-  pressedRegister() {
-    const a = this.props.account;
-    alert(
-          ` Förnamn: ${a.firstName}`
-        + `\n Efternamn: ${a.lastName}`
-        + `\n Adress: ${a.address}`
-        + `\n postnummer: ${a.postCode}`
-        + `\n Ort: ${a.postArea}`
-        + `\n Telefonnumer: ${a.phoneNumber}`
-        + `\n Epost: ${a.email}`
-        + `\n checked: ${a.userAgreement}`,
-        +`\n Lösenord: ${a.password}`,
-      );
+  signOut() {
+    this.props.signOut(this.props.token);
   }
 
   render() {
@@ -125,7 +117,7 @@ class PersonalInfoScreen extends React.Component {
                 <Button
                   small block bordered
                   style={StyleSheet.flatten(styles.logoutButton)}
-                  onPress={() => alert('Du loggas ut')}
+                  onPress={() => this.signOut()}
                 >
                   <Text>{I18n.t('sign_out.sign_out_button')}</Text>
                 </Button>
@@ -138,6 +130,11 @@ class PersonalInfoScreen extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  account: state.account,
+  token: state.session.token,
+});
+
 function bindAction(dispatch) {
   return {
     changeAddress: input => dispatch(changeAddress(input)),
@@ -147,9 +144,8 @@ function bindAction(dispatch) {
     changeEmail: input => dispatch(changeEmail(input)),
     changePassword: input => dispatch(changePassword(input)),
     toggleInputDisabled: () => dispatch(toggleInputDisabled()),
+    signOut: token => dispatch(requestSignOut(token)),
   };
 }
-
-const mapStateToProps = state => ({ account: state.account });
 
 export default connect(mapStateToProps, bindAction)(PersonalInfoScreen);

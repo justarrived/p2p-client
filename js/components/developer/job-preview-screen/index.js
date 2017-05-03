@@ -1,45 +1,90 @@
 import React, { Component } from 'react';
-import { Container, Content, Card } from 'native-base';
+import { connect } from 'react-redux';
+import { Container, Content } from 'native-base';
+import JASpinner from '../../common/ja-spinner/JASpinner';
 
-import JobTypeCardPreview from './jobTypeCardPreview';
-import TimeCardPreview from './timeCardPreview';
-import PlaceCardPreview from './placeCardPreview';
-import CalendarCardPreview from './calendarCardPreview';
-import GlobalStyle from '../../common/globalStyle';
+import PreviewJobCard from '../../common/preview-job-card/previewJobCard';
+import CardItemButton from '../../common/card-item-button/cardItemButton';
+import GlobalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 
-// Temporary constants. These will be moved and implemented in another way in the future!
-const EXAMPLE_IMAGE_URL = 'https://facebook.github.io/react/img/logo_og.png';
+import { createJsonDataAttributes } from '../../../networking/json';
+import { requestPostJob } from '../../../actions/jobs';
 
 // Screen shown during job creation, with a preview of the job.
-export default class JobPreviewScreen extends Component {
+class JobPreviewScreen extends Component {
 
   static navigationOptions = {
     title: I18n.t('screen_titles.job_preview'),
   };
 
+  static propTypes = {
+    jobPreview: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+    token: React.PropTypes.string.isRequired,
+    createJob: React.PropTypes.func.isRequired,
+    loading: React.PropTypes.bool.isRequired,
+    jobError: React.PropTypes.objectOf(React.PropTypes.any),
+  };
+  static defaultProps = {
+    jobError: null,
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.loading && !nextProps.loading && nextProps.jobError === null) {
+      // Successfully created a job. Navigate!
+      // TODO reset 'create job' navigation stack
+      this.props.navigation.navigate('MyJobsScreen');
+    }
+  }
+
+  getPreviewFooter() {
+    return (
+      <CardItemButton
+        text={I18n.t('job.create_job_button')}
+        onPress={() => this.postJob()}
+      />
+    );
+  }
+
+  postJob() {
+    // jobPreview same as required attributes
+    const data = this.props.jobPreview;
+    const jobJson = createJsonDataAttributes(data);
+    this.props.createJob(jobJson, this.props.token);
+  }
+
   render() {
+    if (this.props.loading) {
+      return <JASpinner />;
+    }
+    if (this.props.jobError != null) {
+      // TODO Implement proper error handling
+      // console.warn(JSON.stringify(this.props.jobError));
+    }
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
-          <Card>
-            <JobTypeCardPreview
-              title={I18n.t('categories.shoveling.title')} subtitle={I18n.t('categories.shoveling.description')}
-              cover={{ uri: EXAMPLE_IMAGE_URL }} icon={{ uri: EXAMPLE_IMAGE_URL }}
-            />
-            <TimeCardPreview
-              data={{ duration: I18n.t('size.small.estimated_duration'),
-                cost: I18n.t('size.small.cost') }}
-            />
-            <CalendarCardPreview
-              data={{ date: '23 April 2017', time: '16:00' }}
-            />
-            <PlaceCardPreview
-              data={{ address: 'Sample Street 46', zip: '12345', city: 'Sample City' }}
-            />
-          </Card>
+          <PreviewJobCard
+            jobJson={this.props.jobPreview}
+            footerNode={this.getPreviewFooter()}
+          />
         </Content>
       </Container>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  token: state.session.token,
+  jobPreview: state.jobCreation,
+  loading: state.jobs.jobLoading,
+  jobError: state.jobs.error,
+});
+
+function bindAction(dispatch) {
+  return {
+    createJob: (jobJson, token) => dispatch(requestPostJob(jobJson, token)),
+  };
+}
+
+export default connect(mapStateToProps, bindAction)(JobPreviewScreen);

@@ -1,68 +1,75 @@
-import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Container, Content, CheckBox, Form, Item, Thumbnail, Card, Input, ListItem, Button, Body, Col, Grid, Text } from 'native-base';
+import React, { Component, PropTypes } from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, Content, Container, Form } from 'native-base';
+import { connect } from 'react-redux';
+import EmailInput from '../../common/email-input';
+import JAHeader from '../../common/ja-header';
+import JAButton from '../../common/ja-button';
+import { JA_BUTTON } from '../../../resources/constants';
+import PasswordInput from '../../common/password-input';
+import { requestSignIn } from '../../../actions/session';
 import LoginScreenStyles from './loginScreenStyles';
 import I18n from '../../../i18n';
 
 // Temporary constants. These will be moved and implemented in another way in the future!
-const EMAIL_STRING = I18n.t('account.email');
-const PASSWORD_STRING = I18n.t('account.password');
-const REMEMBER_ME_STRING = I18n.t('login.remember_me');
 const LOGIN_BUTTON_STRING = I18n.t('login.sign_in_button');
+const FACEBOOK_BUTTON_STRING = I18n.t('social.facebook');
 const FORGOT_PASSWORD_STRING = I18n.t('login.forgot_password_button');
-const SIGN_UP_BUTTON_STRING = I18n.t('sign_up.sign_up_button');
-const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
+const NEED_ACCOUNT_STRING = I18n.t('sign_up.need_account');
+const OR = I18n.t('common.or');
 
-export default class LoginScreen extends Component {
+// Setting default values so they do not have to be entered every time
+// TODO Store email input value in Redux
+const USER = 'noname@nomail.nope';
+const PASSWORD = 'password';
+
+class LoginScreen extends Component {
   static navigationOptions = {
     title: I18n.t('screen_titles.login'),
   };
 
-  constructor() {
-    super();
-    /*
-      Used to set minHeight of Content (which is a scroll view).
-      This mimics the behaviour of flex: 1 in a scroll view,
-      but in addition preserves the the ability to scroll if needed.
-    */
+  static propTypes = {
+    goToRegister: PropTypes.func.isRequired,
+    signIn: PropTypes.func.isRequired,
+    sessionError: PropTypes.objectOf(PropTypes.any),
+    userError: PropTypes.objectOf(PropTypes.any),
+  };
+
+  static defaultProps = {
+    sessionError: null,
+    userError: null,
+  };
+
+  constructor(props) {
+    super(props);
     this.state = {
+      email: USER,
+      password: PASSWORD,
+      /*
+        Used to set minHeight of Content (which is a scroll view).
+        This mimics the behaviour of flex: 1 in a scroll view,
+        but in addition preserves the the ability to scroll if needed.
+      */
       minContentHeight: 0,  // This is instantly updated upon mount/render.
       rememberPassword: true,
     };
   }
 
-  // if nextscreen is passed into the navigation as payload,
-  // We navigate to the provided nextScreen
-  // else MyProfileScreen is used as default for nextScreen
-  pressLoginButton = () => {
-    const { navigate, state } = this.props.navigation;
-    if (state.params !== undefined && state.params.nextScreen !== undefined) {
-      navigate(state.params.nextScreen);
-    } else {
-      navigate('MyProfileScreen');
-    }
-  }
-
-  /*
-    If nextscreen is passed into the navigation as payload,
-    we navigate to CreateAccountScreen and pass the nextScreen
-    received along as nextScreen for CreateAccountScreen
-
-    else MyProfileScreen is used as default for nextScreen
-    with no nextScreen
-  */
-  pressCreateAccountButton() {
-    const { navigate, state } = this.props.navigation;
-    if (state.params !== undefined && state.params.nextScreen !== undefined) {
-      navigate('CreateAccountScreen', { nextScreen: state.params.nextScreen });
-    } else {
-      navigate('CreateAccountScreen', { nextScreen: 'MyProfileScreen' });
-    }
+  logIn() {
+    this.props.signIn(this.state.email, this.state.password);
   }
 
   toggleCheckbox = () => this.setState({ rememberPassword: !this.state.rememberPassword })
 
+  // TODO Implement proper error handling
   render() {
+    if (this.props.sessionError != null) {
+      // console.warn(JSON.stringify(this.props.sessionError));
+    }
+    if (this.props.userError != null) {
+      // console.warn(JSON.stringify(this.props.userError));
+    }
+
     const fullHeightContentStyle = StyleSheet.create({
       fullHeight: {
         minHeight: this.state.minContentHeight, // The height of the Content component.
@@ -78,66 +85,77 @@ export default class LoginScreen extends Component {
             this.setState({ minContentHeight: height });
           }} contentContainerStyle={[fullHeightContentStyle.fullHeight, LoginScreenStyles.padder]}
         >
-          {/* Logo container */}
-          <View style={LoginScreenStyles.logoContainer}>
-            <Thumbnail
-              style={StyleSheet.flatten(LoginScreenStyles.logo)} source={{ uri: LOGO_URL }}
+
+          {/* Header */}
+          <JAHeader />
+
+          {/* Input fields */}
+          <Form style={StyleSheet.flatten(LoginScreenStyles.inputFields)}>
+            <EmailInput
+              onChange={email => this.setState({ email })}
+              defaultValue={this.state.email}
+              style={StyleSheet.flatten(LoginScreenStyles.inputField)}
+            />
+            <PasswordInput
+              onChange={password => this.setState({ password })}
+              defaultValue={this.state.password}
+              style={StyleSheet.flatten(LoginScreenStyles.inputField)}
+            />
+          </Form>
+
+          {/* Forgot password clickable text */}
+          {/* TODO: Create forgot password view and link there */}
+          <TouchableOpacity onPress={() => this.props.goToRegister()}>
+            <Text style={StyleSheet.flatten(LoginScreenStyles.forgotPassword)}>
+              {FORGOT_PASSWORD_STRING}
+            </Text>
+          </TouchableOpacity>
+
+          {/* Button container */}
+          <View style={LoginScreenStyles.buttonContainer}>
+            {/* Login button */}
+            <JAButton
+              content={LOGIN_BUTTON_STRING}
+              actionOnClick={() => this.logIn()}
+              typeOfButton={JA_BUTTON.PRIMARY}
+            />
+            <Text style={StyleSheet.flatten(LoginScreenStyles.textBetweenButtons)}>
+              {OR}
+            </Text>
+            {/* TODO: Either remove button or add facebook login support :) */}
+            <JAButton
+              content={FACEBOOK_BUTTON_STRING}
+              actionOnClick={() => this.logIn()}
+              typeOfButton={JA_BUTTON.FACEBOOK}
             />
           </View>
-
-          {/* Login card form */}
-          <Card style={StyleSheet.flatten(LoginScreenStyles.cardForm)}>
-
-            {/* Input fields */}
-            <Form>
-              <Item underline>
-                <Input placeholder={EMAIL_STRING} />
-              </Item>
-              <Item underline>
-                <Input secureTextEntry placeholder={PASSWORD_STRING} />
-              </Item>
-            </Form>
-
-            {/* Remember password checkbox */}
-            <ListItem>
-              <CheckBox
-                checked={this.state.rememberPassword}
-                onPress={() => this.toggleCheckbox()}
-              />
-              <Body>
-                <Text>{REMEMBER_ME_STRING}</Text>
-              </Body>
-            </ListItem>
-
-            {/* Button container */}
-            <View style={LoginScreenStyles.buttonContainer}>
-
-              {/* Login button */}
-              <Button block primary onPress={() => this.pressLoginButton()}>
-                <Text>{LOGIN_BUTTON_STRING}</Text>
-              </Button>
-
-              {/* Secondary buttons container */}
-              <Grid style={StyleSheet.flatten(LoginScreenStyles.secondaryButtonsContainer)}>
-
-                {/* Forgot password button container */}
-                <Col style={StyleSheet.flatten(LoginScreenStyles.secondaryButtonSpacing)} >
-                  <Button small block bordered >
-                    <Text>{FORGOT_PASSWORD_STRING}</Text>
-                  </Button>
-                </Col>
-
-                {/* Create account button container */}
-                <Col>
-                  <Button small block bordered onPress={() => this.pressCreateAccountButton()}>
-                    <Text>{SIGN_UP_BUTTON_STRING}</Text>
-                  </Button>
-                </Col>
-              </Grid>
-            </View>
-          </Card>
         </Content>
+
+        {/* Footer */}
+        <TouchableOpacity onPress={() => this.props.goToRegister()}>
+          <View style={LoginScreenStyles.footerStyling}>
+            <Text style={StyleSheet.flatten(LoginScreenStyles.footerText)}>
+              {NEED_ACCOUNT_STRING}
+            </Text>
+          </View>
+        </TouchableOpacity>
       </Container>
     );
   }
 }
+
+// props tied together with Redux state
+const mapStateToProps = state => ({
+  sessionError: state.session.error,
+  userError: state.user.error,
+});
+
+// props tied together with Redux methods
+function bindAction(dispatch) {
+  return {
+    signIn: (user, password) => dispatch(requestSignIn(user, password)),
+  };
+}
+
+// Connect class with Redux and export
+export default connect(mapStateToProps, bindAction)(LoginScreen);

@@ -1,9 +1,13 @@
 {
+  "common": {
+    "or": "OR",
+  },
   "job": {
     "job_details": "Job details",
     "applications": "Applications",
     "when_will_the_job_be_performed": "When will the job be performed?",
     "create_job": "Create job",
+    "create_job_button": "Create Job",
     "location": "Location",
     "where_will_the_job_be_performed": "Where will the job be performed?",
     "approximate_duration": "What's the approximate duration?",
@@ -20,6 +24,7 @@
       "punctuality": "Punctuality",
       "write_review_here": "Write your review here",
       "no_rating_yet": "No rating yet",
+      "unrated": "Unrated",
       "thank_you": "Thank you!"
     }
   },
@@ -60,6 +65,10 @@
     "archived_jobs": "Completed jobs",
     "unassigned_jobs": "Unassigned jobs"
   },
+  "wizard": {
+    "welcome_to_people": "Welcome To People!",
+    "welcome_to_people_description": "People by JustArrived is an initiative to connect newcomers with local people in the Swedish community"
+  },
   "account": {
     "first_name": "First name",
     "last_name": "Last name",
@@ -70,7 +79,14 @@
     "email": "Email",
     "password": "Password",
     "profile_info": "Profile info",
-    "payment_info": "Payment info"
+    "payment_info": "Payment info",
+    "references": "References"
+  },
+  "worker_profile": {
+    "presentation": "Presentation",
+    "language": "Language",
+    "education": "Education",
+    "prev_work": "Previous Work"
   },
   "screen_titles": {
     "choose_job_type": "Choose Job Type",
@@ -85,21 +101,28 @@
     "choose_language": "Choose Language",
     "payment_information": "Payment Information",
     "choose_worker": "Choose Worker",
-    "reference": "Reference List"
+    "reference": "Reference List",
+    "worker_profile": "Profile of {{name}}"
   },
   "navigation_tabs": {
     "create_job": "Create Job",
-    "my_job": "My Jobs",
-    "my_profile": "My Profile"
+    "my_jobs": "My Jobs",
+    "my_profile": "My Profile",
+    "developer": "Developer"
+  },
+  "forgot_password": {
+    "forgot_your_password": "Forgot your password?",
+    "forgot_your_password_info": "No worries! Type your email address in the box below and then check your inbox",
   },
   "login": {
-    "sign_in_button": "Sign in",
+    "sign_in_button": "Log in to your account",
     "remember_me": "Remember me",
-    "forgot_password_button": "Forgot password",
+    "forgot_password_button": "Forgot password?",
     "create_account_button": "Create account"
   },
   "sign_up": {
     "sign_up_button": "Sign up",
+    "need_account": "Do you need an account?",
     "already_have_an_account_button": "Already have an account - Sign in",
     "accept_pul_and_terms": "I accept the PUL and Terms of Use"
   },
@@ -114,9 +137,11 @@
   "button_actions": {
     "done": "Done",
     "edit": "Edit",
+    "send": "Send",
     "save": "Save",
     "cancel": "Cancel",
-    "next": "Next"
+    "next": "Next",
+    "skip": "Skip",
   },
   "card": {
     "card_holder": "Card holder",
@@ -132,5 +157,8 @@
   },
   "language": {
     "select_display_language": "Select app display language"
-  }
+  },
+  "social": {
+    "facebook": "Log in with Facebook"
+  },
 }

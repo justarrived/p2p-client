@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { MAIN_CERISE } from '../../common/colors';
+import { PRIMARY_THEME_COLOR } from '../../../resources/colors';
 
 const chooseWorkerStyles = StyleSheet.create({
   starStyle: {
     marginLeft: 2,
     fontSize: 18,
-    color: MAIN_CERISE,
+    color: PRIMARY_THEME_COLOR,
   },
   priceGridStyle: {
     flexDirection: 'row',
