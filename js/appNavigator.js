@@ -20,6 +20,7 @@ import ReferenceScreen from './components/developer/reference-screen';
 import WorkerProfileScreen from './components/developer/worker-profile-screen';
 import ForgotPassword from './components/developer/forgot-password';
 import WelcomeInfoScreen from './components/developer/welcome-info-screen';
+import SplashScreen from './components/developer/splash-screen';
 
 const CreateJobTab = StackNavigator({
   ChooseJobTypeScreen: {
@@ -77,6 +78,9 @@ const DeveloperTab = StackNavigator({
   },
   CreateJobScreen: {
     screen: CreateJobScreen,
+  },
+  SplashScreen: {
+    screen: SplashScreen,
   },
   MyProfileScreen: {
     screen: MyProfileScreen,
