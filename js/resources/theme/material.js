@@ -1,6 +1,6 @@
 import color from 'color';
 import { Platform, Dimensions, PixelRatio } from 'react-native';
-import { PRIMARY_THEME_COLOR, BLACK, WHITE } from '../../components/common/colors';
+import { PRIMARY_THEME_COLOR, BLACK, WHITE } from '../../resources/colors';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;

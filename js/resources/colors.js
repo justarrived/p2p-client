@@ -23,3 +23,4 @@ export const BADGE_COLOR_UNASSIGNED = 'goldenrod';
 export const BADGE_COLOR_DEFAULT = 'grey';
 export const BADGE_COLOR_RED = '#D50000';
 export const BADGE_TEXT_SHADOW = 'rgba(0, 0, 0, 0.1)';
+export const ICON = '#757575';

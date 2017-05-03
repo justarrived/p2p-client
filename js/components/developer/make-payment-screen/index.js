@@ -5,7 +5,7 @@ import {
   Item, CheckBox, Button, Body, Label, Card, CardItem,
 } from 'native-base';
 import styles from './style';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 
 export default class MakePaymentScreen extends Component {

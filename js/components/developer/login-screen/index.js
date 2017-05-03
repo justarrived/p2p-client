@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import EmailInput from '../../common/email-input';
 import JAHeader from '../../common/ja-header';
 import JAButton from '../../common/ja-button';
-import { JA_BUTTON } from '../../common/constants';
+import { JA_BUTTON } from '../../../resources/constants';
 import PasswordInput from '../../common/password-input';
 import { requestSignIn } from '../../../actions/session';
 import LoginScreenStyles from './loginScreenStyles';

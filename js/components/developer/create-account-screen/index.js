@@ -17,7 +17,7 @@ import PasswordInput from '../../common/password-input';
 import TextInput from '../../common/text-input';
 import PostcodeInput from '../../common/post-code-input';
 import CheckBoxPUL from '../../common/checkbox-with-text';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 
 // TODO Replace these standard values with real values.
 // These are used during development only.

@@ -1,7 +1,7 @@
 import {
   ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE,
   ACCOUNT_POSTAREA, ACCOUNT_PHONENUMBER, ACCOUNT_EMAIL, ACCOUNT_PASSWORD,
-  TOOGLE_INPUT_DISABLED, ACCOUNT_USER_AGREEMENT,
+  TOGGLE_INPUT_DISABLED, ACCOUNT_USER_AGREEMENT,
 } from '../actions/account';
 
 const initialState = {
@@ -18,66 +18,58 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  if (action.type === ACCOUNT_FIRSTNAME) {
-    return {
-      ...state,
-      firstName: action.payload,
-    };
+  switch (action.type) {
+    case ACCOUNT_FIRSTNAME:
+      return {
+        ...state,
+        firstName: action.payload,
+      };
+    case ACCOUNT_LASTNAME:
+      return {
+        ...state,
+        lastName: action.payload,
+      };
+    case ACCOUNT_ADDRESS:
+      return {
+        ...state,
+        address: action.payload,
+      };
+    case ACCOUNT_POSTCODE:
+      return {
+        ...state,
+        postCode: action.payload,
+      };
+    case ACCOUNT_POSTAREA:
+      return {
+        ...state,
+        postArea: action.payload,
+      };
+    case ACCOUNT_PHONENUMBER:
+      return {
+        ...state,
+        phoneNumber: action.payload,
+      };
+    case ACCOUNT_EMAIL:
+      return {
+        ...state,
+        email: action.payload,
+      };
+    case ACCOUNT_PASSWORD:
+      return {
+        ...state,
+        email: action.payload,
+      };
+    case TOGGLE_INPUT_DISABLED:
+      return {
+        ...state,
+        disabled: !state.disabled,
+      };
+    case ACCOUNT_USER_AGREEMENT:
+      return {
+        ...state,
+        disabled: !state.userAgreement,
+      };
+    default:
+      return state;
   }
-  if (action.type === ACCOUNT_LASTNAME) {
-    return {
-      ...state,
-      lastName: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_ADDRESS) {
-    return {
-      ...state,
-      address: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_POSTCODE) {
-    return {
-      ...state,
-      postCode: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_POSTAREA) {
-    return {
-      ...state,
-      postArea: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_PHONENUMBER) {
-    return {
-      ...state,
-      phoneNumber: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_EMAIL) {
-    return {
-      ...state,
-      email: action.payload,
-    };
-  }
-  if (action.type === ACCOUNT_PASSWORD) {
-    return {
-      ...state,
-      password: action.payload,
-    };
-  }
-  if (action.type === TOOGLE_INPUT_DISABLED) {
-    console.log('DISABLE');
-    return {
-      ...state,
-      disabled: !state.disabled,
-    };
-  }
-  if (action.type === ACCOUNT_USER_AGREEMENT) {
-    return {
-      ...state,
-      userAgreement: !state.userAgreement,
-    };
-  }
-  return state;
 }
