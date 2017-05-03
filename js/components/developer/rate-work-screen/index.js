@@ -20,9 +20,7 @@ export default class RateWorkScreen extends Component {
   render() {
     return (
       <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>
-        <Content
-          contentContainerStyle={StyleSheet.flatten(globalStyle.padder)}
-        >
+        <Content contentContainerStyle={StyleSheet.flatten(globalStyle.padder)}>
           <View style={RatingScreenStyles.alignCenter}>
             <JALogo />
             <Text
@@ -48,9 +46,7 @@ export default class RateWorkScreen extends Component {
             >{I18n.t('job.rating.recommendation')}</Text>
           </View>
           <View style={RatingScreenStyles.textBox}>
-            <RecommendationTextbox
-              placeholder={I18n.t('job.rating.write_review_here')}
-            />
+            <RecommendationTextbox placeholder={I18n.t('job.rating.write_review_here')} />
           </View>
           <View style={StyleSheet.flatten(RatingScreenStyles.buttonStyle)}>
             {/* TODO add actionOnClick functionality*/}
