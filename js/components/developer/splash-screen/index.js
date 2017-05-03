@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Container } from 'native-base';
 import styles from './style';
-import globalStyle from '../../common/globalStyle';
+import globalStyle from '../../../resources/globalStyle';
 import JALogo from '../../common/ja-logo';
 import JATagline from '../../common/ja-tagline';
 
