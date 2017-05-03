@@ -17,8 +17,6 @@ import RateWorkScreen from './components/developer/rate-work-screen';
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
 import ReferenceScreen from './components/developer/reference-screen';
-import I18n from './i18n';
-import TabBarStyles from './tabBarStyles';
 import WorkerProfileScreen from './components/developer/worker-profile-screen';
 import ForgotPassword from './components/developer/forgot-password';
 import WelcomeInfoScreen from './components/developer/welcome-info-screen';
@@ -113,13 +111,11 @@ const DeveloperTab = StackNavigator({
   JobInfoScreen: {
     screen: JobInfoScreen,
   },
-<<<<<<< HEAD
   ReferenceScreen: {
     screen: ReferenceScreen,
-=======
+  },
   WorkerProfileScreen: {
     screen: WorkerProfileScreen,
->>>>>>> refs/remotes/origin/develop
   },
 }, {
   navigationOptions: {

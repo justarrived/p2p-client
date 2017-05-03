@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { Thumbnail, ListItem, Icon } from 'native-base';
+import { Thumbnail, ListItem, Icon, Body, Right } from 'native-base';
 import ReferenceStyles from './referenceStyles';
-
+import JAListItem from '../../common/ja-list-item/JAListItem';
 
 export default class referenceListItem extends Component {
 
@@ -19,45 +19,30 @@ export default class referenceListItem extends Component {
 
   render() {
     return (
-      <ListItem style={StyleSheet.flatten(ReferenceStyles.listItemStyle)}>
-        <View style={StyleSheet.flatten(ReferenceStyles.listItemViewStyle)}>
+      <JAListItem avatar>
+        <Body style={StyleSheet.flatten(ReferenceStyles.iconContainer)}>
           <Thumbnail
             style={StyleSheet.flatten(ReferenceStyles.pictureStyle)} source={this.props.icon}
           />
-          <View style={ReferenceStyles.midColSize}>
-            <View>
-              <Text
-                multiline
-                numberOfLines={4}
-                style={StyleSheet.flatten(ReferenceStyles.textStyle)}
-              >{this.props.reference}
-              </Text>
-            </View>
-            <View>
-              <Text
-                note
-                style={StyleSheet.flatten(ReferenceStyles.secondaryTextStyle)}
-              >{this.props.author}
-              </Text>
-            </View>
-          </View>
-          <View style={ReferenceStyles.rightColStyle}>
-            <Text
-              note
-              style={StyleSheet.flatten(ReferenceStyles.secondaryTextStyle)}
-            >{this.props.date}
+        </Body>
+        <Body>
+          <Text multiline numberOfLines={4} style={ReferenceStyles.textStyle}>
+            {this.props.reference}
+          </Text>
+          <Text note style={ReferenceStyles.secondaryTextStyle}>
+            {this.props.author}
+          </Text>
+        </Body>
+        <Right>
+          <Text note>{this.props.date}</Text>
+          <View style={ReferenceStyles.ratingRowStyle}>
+            <Text note style={ReferenceStyles.ratingStyle}>
+              {this.props.rating}
             </Text>
-            <View style={ReferenceStyles.ratingRowStyle}>
-              <Text
-                note
-                style={StyleSheet.flatten(ReferenceStyles.ratingStyle)}
-              >{this.props.rating}
-              </Text>
-              <Icon style={StyleSheet.flatten(ReferenceStyles.starStyle)} active name="star" />
-            </View>
+            <Icon style={StyleSheet.flatten(ReferenceStyles.starStyle)} active name="star" />
           </View>
-        </View>
-      </ListItem>
+        </Right>
+      </JAListItem>
     );
   }
 }
