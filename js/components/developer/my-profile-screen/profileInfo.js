@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Content, Form, Col, Row, Thumbnail, Card, CardItem, Button, Text } from 'native-base';
+import JASpinner from '../../common/ja-spinner/JASpinner';
 import style from './profileInfoStyle';
 import GlobalStyle from '../../../resources/globalStyle';
 import EmailInput from '../../common/email-input';
@@ -11,7 +12,10 @@ import TextInput from '../../common/text-input';
 import PostcodeInput from '../../common/post-code-input';
 import EditButtons from './editButtons';
 import I18n from '../../../i18n';
-import { setAddress, setPostCode, setPostArea, setPhoneNumber, setEmail, setPassword, toggleInputDisabled } from '../../../actions/userEdit';
+import { setAddress, setPostCode, setPostArea, setPhoneNumber,
+  setEmail, setPassword, toggleInputDisabled } from '../../../actions/userEdit';
+import { createJsonDataAttributes } from '../../../networking/json';
+import { requestGetUser, requestPatchUser } from '../../../actions/user';
 import { requestSignOut } from '../../../actions/session';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
@@ -19,6 +23,7 @@ const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 class ProfileInfo extends React.Component {
 
   static propTypes = {
+    userId: React.PropTypes.number.isRequired,
     toggleInputDisabled: PropTypes.func.isRequired,
     setAddress: PropTypes.func.isRequired,
     setPostCode: PropTypes.func.isRequired,
@@ -29,7 +34,24 @@ class ProfileInfo extends React.Component {
     attributes: PropTypes.objectOf(PropTypes.any).isRequired,
     editDisabled: PropTypes.bool.isRequired,
     signOut: PropTypes.func.isRequired,
+    requestGetUser: PropTypes.func.isRequired,
+    requestPatchUser: PropTypes.func.isRequired,
     token: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+  }
+
+  componentDidMount() {
+    this.props.requestGetUser(this.props.userId, this.props.token, true);
+  }
+
+  saveEdit() {
+    const json = createJsonDataAttributes(this.props.attributes);
+    this.props.requestPatchUser(this.props.userId, this.props.token, json, true);
+  }
+
+  cancelEdit() {
+    this.props.toggleInputDisabled();
+    // TODO reset redux state
   }
 
   signOut() {
@@ -37,6 +59,9 @@ class ProfileInfo extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <JASpinner />;
+    }
     return (
       <Content contentContainerStyle={GlobalStyle.padder}>
         <Card>
@@ -102,8 +127,8 @@ class ProfileInfo extends React.Component {
               <EditButtons
                 disabled={this.props.editDisabled}
                 onEdit={() => this.props.toggleInputDisabled()}
-                onCancel={() => this.props.toggleInputDisabled()}
-                onSave={() => console.log('save change...')}
+                onCancel={() => this.cancelEdit()}
+                onSave={() => this.saveEdit()}
               />
               <Button
                 small block bordered
@@ -124,6 +149,8 @@ const mapStateToProps = state => ({
   attributes: state.userEdit.attributes,
   editDisabled: state.userEdit.disabled,
   token: state.session.token,
+  userId: state.session.userId,
+  loading: !state.userEdit.initialized || state.user.userLoading,
 });
 
 function bindAction(dispatch) {
@@ -135,6 +162,9 @@ function bindAction(dispatch) {
     setEmail: input => dispatch(setEmail(input)),
     setPassword: input => dispatch(setPassword(input)),
     toggleInputDisabled: () => dispatch(toggleInputDisabled()),
+    requestGetUser: (userId, token) => dispatch(requestGetUser(userId, token, true)),
+    requestPatchUser: (userId, token, json) =>
+      dispatch(requestPatchUser(userId, token, json, true)),
     signOut: token => dispatch(requestSignOut(token)),
   };
 }

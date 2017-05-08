@@ -1,4 +1,5 @@
 import { getUser, postUser, patchUser } from '../networking/user';
+import { setAttributes } from './userEdit';
 
 export const USER_REQUEST = 'USER_REQUEST';
 export const USER_RECEIVE = 'USER_RECEIVE';
@@ -39,7 +40,7 @@ function updateUser(userId) {
 }
 
 // Get existing user from API
-export function requestGetUser(userId, token) {
+export function requestGetUser(userId, token, localUser = false) {
   // dispatch = method that sends state to store
   return (dispatch) => {
     // dispatch user token has been requested
@@ -52,6 +53,9 @@ export function requestGetUser(userId, token) {
           userJson.data.id,
           userJson,
           null));
+        if (localUser) {
+          dispatch(setAttributes(userJson.data.attributes));
+        }
       },
       (error) => {
         // Dispatch the received error
@@ -80,7 +84,7 @@ export function requestCreateUser(requestJson) {
 }
 
 // update existing user
-export function requestPatchUser(userId, token, json) {
+export function requestPatchUser(userId, token, json, localUser = false) {
   return (dispatch) => {
     dispatch(updateUser(userId));
     patchUser(userId, token, json,
@@ -89,6 +93,9 @@ export function requestPatchUser(userId, token, json) {
           userJson.data.id,
           userJson,
           null));
+        if (localUser) {
+          dispatch(setAttributes(userJson.data.attributes));
+        }
       },
       (error) => {
         dispatch(receiveUser(null, null, error));

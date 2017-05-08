@@ -1,7 +1,7 @@
 import {
-  ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE,
-  ACCOUNT_POSTAREA, ACCOUNT_PHONENUMBER, ACCOUNT_EMAIL, ACCOUNT_PASSWORD,
-  TOGGLE_INPUT_DISABLED, ACCOUNT_USER_AGREEMENT,
+  USER_E_FIRSTNAME, USER_E_LASTNAME, USER_E_STREET, USER_E_ZIP,
+  USER_E_CITY, USER_E_PHONE, USER_E_EMAIL, USER_E_PASSWORD,
+  USER_E_CONSENT, USER_E_ATTRIBUTES, USER_E_TOGGLE_INPUT,
 } from '../actions/userEdit';
 import { SESSION_REMOVE } from '../actions/session';
 
@@ -22,56 +22,91 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+  // console.log(`User edit state action: '${action.type}`);
+  // console.log(`User edit state:\n'${JSON.stringify(state, null, 4)}`);
   switch (action.type) {
-    case ACCOUNT_FIRSTNAME:
+    case USER_E_ATTRIBUTES:
       return {
         ...state,
-        first_name: action.payload,
+        attributes: action.payload,
+        initialized: true,
       };
-    case ACCOUNT_LASTNAME:
+    case USER_E_FIRSTNAME:
       return {
         ...state,
-        last_name: action.payload,
+        attributes: {
+          ...state.attributes,
+          first_name: action.payload,
+        },
       };
-    case ACCOUNT_ADDRESS:
+    case USER_E_LASTNAME:
       return {
         ...state,
-        street: action.payload,
+        attributes: {
+          ...state.attributes,
+          last_name: action.payload,
+        },
       };
-    case ACCOUNT_POSTCODE:
+    case USER_E_STREET:
       return {
         ...state,
-        zip: action.payload,
+        attributes: {
+          ...state.attributes,
+          street: action.payload,
+        },
       };
-    case ACCOUNT_POSTAREA:
+    case USER_E_ZIP:
       return {
         ...state,
-        city: action.payload,
+        attributes: {
+          ...state.attributes,
+          zip: action.payload,
+        },
       };
-    case ACCOUNT_PHONENUMBER:
+    case USER_E_CITY:
       return {
         ...state,
-        phone: action.payload,
+        attributes: {
+          ...state.attributes,
+          city: action.payload,
+        },
       };
-    case ACCOUNT_EMAIL:
+    case USER_E_PHONE:
       return {
         ...state,
-        email: action.payload,
+        attributes: {
+          ...state.attributes,
+          phone: action.payload,
+        },
       };
-    case ACCOUNT_PASSWORD:
+    case USER_E_EMAIL:
       return {
         ...state,
-        password: action.payload,
+        attributes: {
+          ...state.attributes,
+          email: action.payload,
+        },
       };
-    case TOGGLE_INPUT_DISABLED:
+    case USER_E_PASSWORD:
+      return {
+        ...state,
+        attributes: {
+          ...state.attributes,
+          password: action.payload,
+        },
+      };
+    case USER_E_CONSENT:
+      return {
+        ...state,
+        attributes: {
+          ...state.attributes,
+          consent: !state.attributes.consent,
+        },
+      };
+    case USER_E_TOGGLE_INPUT:
       return {
         ...state,
         disabled: !state.disabled,
-      };
-    case ACCOUNT_USER_AGREEMENT:
-      return {
-        ...state,
-        consent: !state.consent,
       };
     case SESSION_REMOVE:
       // Remove local data when user signs out

@@ -1,79 +1,89 @@
-export const ACCOUNT_FIRSTNAME = 'ACCOUNT_FIRSTNAME';
-export const ACCOUNT_LASTNAME = 'ACCOUNT_LASTNAME';
-export const ACCOUNT_ADDRESS = 'ACCOUNT_ADDRESS';
-export const ACCOUNT_POSTCODE = 'ACCOUNT_POSTCODE';
-export const ACCOUNT_POSTAREA = 'ACCOUNT_POSTAREA';
-export const ACCOUNT_PHONENUMBER = 'ACCOUNT_PHONENUMBER';
-export const ACCOUNT_EMAIL = 'ACCOUNT_EMAIL';
-export const ACCOUNT_PASSWORD = 'ACCOUNT_PASSWORD';
-export const ACCOUNT_USER_AGREEMENT = 'ACCOUNT_USER_AGREEMENT';
+// Used to set all user attributes
+export const USER_E_ATTRIBUTES = 'USER_EDIT_ATTRIBUTES';
+// Used to set individual user attributes
+export const USER_E_FIRSTNAME = 'USER_EDIT_FIRSTNAME';
+export const USER_E_LASTNAME = 'USER_EDIT_LASTNAME';
+export const USER_E_STREET = 'USER_EDIT_STREET';
+export const USER_E_ZIP = 'USER_EDIT_ZIP';
+export const USER_E_CITY = 'USER_EDIT_CITY';
+export const USER_E_PHONE = 'USER_EDIT_PHONE';
+export const USER_E_EMAIL = 'USER_EDIT_EMAIL';
+export const USER_E_PASSWORD = 'USER_EDIT_PASSWORD';
+export const USER_E_CONSENT = 'USER_EDIT_CONSENT';
+// Helper values
+export const USER_E_TOGGLE_INPUT = 'USER_EDIT_TOGGLE_INPUT';
 
-export const TOGGLE_INPUT_DISABLED = 'TOGGLE_INPUT_DISABLED';
+export function setAttributes(attributes) {
+  return {
+    type: USER_E_ATTRIBUTES,
+    payload: attributes,
+  };
+}
 
 export function setFirstName(firstName) {
   return {
-    type: ACCOUNT_FIRSTNAME,
+    type: USER_E_FIRSTNAME,
     payload: firstName,
   };
 }
 
 export function setLastName(LastName) {
   return {
-    type: ACCOUNT_LASTNAME,
+    type: USER_E_LASTNAME,
     payload: LastName,
   };
 }
 
 export function setAddress(address) {
   return {
-    type: ACCOUNT_ADDRESS,
+    type: USER_E_STREET,
     payload: address,
   };
 }
 
 export function setPostCode(postCode) {
   return {
-    type: ACCOUNT_POSTCODE,
+    type: USER_E_ZIP,
     payload: postCode,
   };
 }
 
 export function setPostArea(postArea) {
   return {
-    type: ACCOUNT_POSTAREA,
+    type: USER_E_CITY,
     payload: postArea,
   };
 }
 
 export function setPhoneNumber(phoneNumber) {
   return {
-    type: ACCOUNT_PHONENUMBER,
+    type: USER_E_PHONE,
     payload: phoneNumber,
   };
 }
 
 export function setEmail(email) {
   return {
-    type: ACCOUNT_EMAIL,
+    type: USER_E_EMAIL,
     payload: email,
   };
 }
 
 export function setPassword(password) {
   return {
-    type: ACCOUNT_PASSWORD,
+    type: USER_E_PASSWORD,
     payload: password,
   };
 }
 
 export function toggleCheckBox() {
   return {
-    type: ACCOUNT_USER_AGREEMENT,
+    type: USER_E_CONSENT,
   };
 }
 
 export function toggleInputDisabled() {
   return {
-    type: TOGGLE_INPUT_DISABLED,
+    type: USER_E_TOGGLE_INPUT,
   };
 }
