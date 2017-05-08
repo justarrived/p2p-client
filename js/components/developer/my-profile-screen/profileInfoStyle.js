@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { BLACK } from '../../../resources/colors';
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
   form: {
     flex: 1,
     marginRight: 16,
@@ -37,18 +37,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
-  secondaryButtonGroup: {
-    marginRight: 10,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonFlex: {
-    flex: 1,
-  },
   logoutButton: {
     marginTop: 20,
   },
 });
 
-module.exports = styles;
+module.exports = style;
