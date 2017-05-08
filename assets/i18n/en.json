@@ -44,6 +44,10 @@
     "gardening": {
       "title": "Gardening",
       "description": "Get help with gardening!"
+    },
+    "lawn_mowing": {
+      "title": "Lawn mowing",
+      "description": "Get help with the lawn!"
     }
   },
   "size": {
