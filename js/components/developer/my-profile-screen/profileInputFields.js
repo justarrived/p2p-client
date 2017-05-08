@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Form, Col, Row, CardItem } from 'native-base';
-import style from './profileInfoStyle';
+import style from './profileInputFieldsStyle';
 import EmailInput from '../../common/email-input';
 import PhoneInput from '../../common/numeric-input';
 import TextInput from '../../common/text-input';

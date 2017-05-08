@@ -8,7 +8,7 @@ import style from './profileInfoStyle';
 import GlobalStyle from '../../../resources/globalStyle';
 import EditButtons from './editButtons';
 import I18n from '../../../i18n';
-import { toggleEditDisabled } from '../../../actions/userEdit';
+import { toggleEditDisabled, setAttributes } from '../../../actions/userEdit';
 import { createJsonDataAttributes } from '../../../networking/json';
 import { requestGetUser, requestPatchUser } from '../../../actions/user';
 import { requestSignOut } from '../../../actions/session';
@@ -20,43 +20,59 @@ class ProfileInfo extends Component {
   static propTypes = {
     userId: React.PropTypes.number.isRequired,
     toggleEditDisabled: PropTypes.func.isRequired,
+    setAttributes: PropTypes.func.isRequired,
     attributes: PropTypes.objectOf(PropTypes.any).isRequired,
     editDisabled: PropTypes.bool.isRequired,
     signOut: PropTypes.func.isRequired,
-    requestGetUser: PropTypes.func.isRequired,
-    requestPatchUser: PropTypes.func.isRequired,
+    getUser: PropTypes.func.isRequired,
+    patchUser: PropTypes.func.isRequired,
     token: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
     userError: React.PropTypes.objectOf(React.PropTypes.any),
+    userJson: React.PropTypes.objectOf(React.PropTypes.any),
   }
   static defaultProps = {
     userError: null,
+    userJson: null,
   }
 
   componentDidMount() {
     if (this.props.loading) {
-      this.props.requestGetUser(this.props.userId, this.props.token);
+      // If not initialized get data
+      this.getUserDate();
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.loading && !nextProps.loading
       && nextProps.userError === null) {
-      // loading done with no error
+      // loading done with no error => edit done
       this.props.toggleEditDisabled(true);
     }
   }
 
+  // Download profile data from API
+  getUserDate() {
+    this.props.getUser(this.props.userId, this.props.token);
+  }
+
+  // method called to save local change towards the API
   saveEdit() {
     const json = createJsonDataAttributes(this.props.attributes);
-    this.props.requestPatchUser(this.props.userId, this.props.token, json);
+    this.props.patchUser(this.props.userId, this.props.token, json);
   }
 
+  // Method called to stop editing and reset local change
   cancelEdit() {
-    this.props.toggleEditDisabled(true);
-    // TODO reset redux state
+    if (this.props.userJson != null) {
+      this.props.setAttributes(this.props.userJson.data.attributes);
+      this.props.toggleEditDisabled(true);
+    } else {
+      this.getUserDate();
+    }
   }
 
+  // User signs off and local data is removed
   signOut() {
     this.props.signOut(this.props.token);
   }
@@ -113,13 +129,15 @@ const mapStateToProps = state => ({
   userId: state.session.userId,
   loading: !state.userEdit.initialized || state.user.userLoading,
   userError: state.user.error,
+  userJson: state.user.userJson,
 });
 
 function bindAction(dispatch) {
   return {
     toggleEditDisabled: enable => dispatch(toggleEditDisabled(enable)),
-    requestGetUser: (userId, token) => dispatch(requestGetUser(userId, token, true)),
-    requestPatchUser: (userId, token, json) =>
+    setAttributes: attributes => dispatch(setAttributes(attributes)),
+    getUser: (userId, token) => dispatch(requestGetUser(userId, token, true)),
+    patchUser: (userId, token, json) =>
       dispatch(requestPatchUser(userId, token, json, true)),
     signOut: token => dispatch(requestSignOut(token)),
   };
