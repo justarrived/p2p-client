@@ -15,7 +15,7 @@ export default class ConfirmationScreen extends Component {
   render() {
     return (
       <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>
-        <Content contentContainerStyle={styles.padder}>
+        <Content contentContainerStyle={globalStyle.modalPadder}>
           <JATagline />
           <View style={styles.pictureContainer}>
             <Thumbnail
@@ -28,29 +28,27 @@ export default class ConfirmationScreen extends Component {
               {'The task is completed!'}
             </Text>
           </View>
-          <View>
+          <View View style={styles.textCon}>
             <Text style={StyleSheet.flatten(styles.description)}>
-              {'Thank you for using People by just arrived'}
+              {'Thank you for using People by Just Arrived'}
             </Text>
-          </View>
-          <View>
             <Text style={StyleSheet.flatten(styles.description)}>
-              {'Invite a friend and get bonus'}
+              {'Invite a friend to the app and get 15% of on your next service'}
             </Text>
           </View>
           <View style={styles.nextButtonContainer}>
-            <Button style={StyleSheet.flatten(styles.alignButtonCenter)} rounded primary>
-              <NBText>{'Invite by sms'}</NBText>
-            </Button>
+            <JAButton
+              content={'Invite with SMS'}
+              typeOfButton={JA_BUTTON.PRIMARY}
+            />
           </View>
           <JAButton
             content={'Invite with Facebook'}
-            actionOnClick={() => this.logIn()}
             typeOfButton={JA_BUTTON.FACEBOOK}
           />
           <View style={styles.skipButtonContainer}>
             <Button light transparent style={StyleSheet.flatten(styles.alignButtonCenter)} rounded>
-              <Text>{'Skip Invite'}</Text>
+              <Text Text style={StyleSheet.flatten(styles.skipInvite)}>{'Skip Invite'}</Text>
             </Button>
           </View>
         </Content>

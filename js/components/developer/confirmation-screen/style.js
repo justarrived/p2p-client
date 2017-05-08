@@ -21,12 +21,17 @@ const styles = StyleSheet.create({
     width: 250,
     height: 150,
     alignItems: 'center',
-    margin: PADDING * 2,
+    margin: PADDING,
+  },
+
+  textCon: {
+    paddingLeft: PADDING,
+    paddingRight: PADDING,
   },
 
   title: {
     paddingTop: 4,
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -34,26 +39,26 @@ const styles = StyleSheet.create({
   description: {
     paddingTop: PADDING,
     fontSize: 12,
+    fontWeight: 'bold',
     textAlign: 'center',
+  },
+  skipInvite: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 
   nextButtonContainer: {
-    alignItems: 'center',
-    paddingTop: PADDING * 2,
+    paddingTop: PADDING * 4,
     paddingBottom: PADDING,
-    paddingLeft: 10,
-    paddingRight: 10,
   },
 
   skipButtonContainer: {
     alignItems: 'center',
-    paddingTop: PADDING * 4,
+    paddingTop: PADDING * 6,
   },
 
   alignButtonCenter: {
     alignSelf: 'center',
-    paddingRight: 70,
-    paddingLeft: 70,
   },
 
 });
