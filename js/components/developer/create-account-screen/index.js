@@ -7,9 +7,9 @@ import I18n from '../../../i18n';
 import { requestCreateUser } from '../../../actions/user';
 import { createJsonDataAttributes } from '../../../networking/json';
 import {
-  changeFirstName, changeLastName, changeAddress, changePostCode, changePostArea,
-  changePhoneNumber, changeEmail, changePassword, toggleCheckBox,
-} from '../../../actions/account';
+  setFirstName, setLastName, setAddress, setPostCode, setPostArea,
+  setPhoneNumber, setEmail, setPassword, toggleCheckBox,
+} from '../../../actions/userEdit';
 
 import EmailInput from '../../common/email-input';
 import PhoneInput from '../../common/numeric-input';
@@ -38,14 +38,14 @@ class CreateAccountScreen extends Component {
   };
 
   static propTypes = {
-    changeFirstName: React.PropTypes.func.isRequired,
-    changeLastName: React.PropTypes.func.isRequired,
-    changeAddress: React.PropTypes.func.isRequired,
-    changePostCode: React.PropTypes.func.isRequired,
-    changePostArea: React.PropTypes.func.isRequired,
-    changePhoneNumber: React.PropTypes.func.isRequired,
-    changeEmail: React.PropTypes.func.isRequired,
-    changePassword: React.PropTypes.func.isRequired,
+    setFirstName: React.PropTypes.func.isRequired,
+    setLastName: React.PropTypes.func.isRequired,
+    setAddress: React.PropTypes.func.isRequired,
+    setPostCode: React.PropTypes.func.isRequired,
+    setPostArea: React.PropTypes.func.isRequired,
+    setPhoneNumber: React.PropTypes.func.isRequired,
+    setEmail: React.PropTypes.func.isRequired,
+    setPassword: React.PropTypes.func.isRequired,
     toggleCheckBox: React.PropTypes.func.isRequired,
     account: React.PropTypes.shape({
       firstName: React.PropTypes.string,
@@ -79,46 +79,46 @@ class CreateAccountScreen extends Component {
                     <Col>
                       <TextInput
                         title={I18n.t('account.first_name')}
-                        onChange={input => this.props.changeFirstName(input)}
+                        onChange={input => this.props.setFirstName(input)}
                       />
                     </Col>
                     <Col>
                       <TextInput
                         title={I18n.t('account.last_name')}
-                        onChange={input => this.props.changeLastName(input)}
+                        onChange={input => this.props.setLastName(input)}
                       />
                     </Col>
                   </Row>
                   <TextInput
                     title={I18n.t('account.address')}
-                    onChange={input => this.props.changeAddress(input)}
+                    onChange={input => this.props.setAddress(input)}
                   />
                   <Row>
                     <Col>
                       <PostcodeInput
                         title={I18n.t('account.postal_code')}
-                        onChange={input => this.props.changePostCode(input)}
+                        onChange={input => this.props.setPostCode(input)}
                       />
                     </Col>
                     <Col>
                       <TextInput
                         title={I18n.t('account.city')}
-                        onChange={input => this.props.changePostArea(input)}
+                        onChange={input => this.props.setPostArea(input)}
                       />
                     </Col>
                   </Row>
                 </Grid>
                 <PhoneInput
                   title={I18n.t('account.phone_number')}
-                  onChange={input => this.props.changePhoneNumber(input)}
+                  onChange={input => this.props.setPhoneNumber(input)}
                 />
                 <EmailInput
                   title={I18n.t('account.email')}
-                  onChange={input => this.props.changeEmail(input)}
+                  onChange={input => this.props.setEmail(input)}
                 />
                 <PasswordInput
                   title={I18n.t('account.password')}
-                  onChange={input => this.props.changePassword(input)}
+                  onChange={input => this.props.setPassword(input)}
                 />
                 <CheckBoxPUL
                   title={I18n.t('sign_up.accept_pul_and_terms')}
@@ -162,19 +162,19 @@ class CreateAccountScreen extends Component {
 
 function bindAction(dispatch) {
   return {
-    changeFirstName: input => dispatch(changeFirstName(input)),
-    changeLastName: input => dispatch(changeLastName(input)),
-    changeAddress: input => dispatch(changeAddress(input)),
-    changePostCode: input => dispatch(changePostCode(input)),
-    changePostArea: input => dispatch(changePostArea(input)),
-    changePhoneNumber: input => dispatch(changePhoneNumber(input)),
-    changeEmail: input => dispatch(changeEmail(input)),
-    changePassword: input => dispatch(changePassword(input)),
+    setFirstName: input => dispatch(setFirstName(input)),
+    setLastName: input => dispatch(setLastName(input)),
+    setAddress: input => dispatch(setAddress(input)),
+    setPostCode: input => dispatch(setPostCode(input)),
+    setPostArea: input => dispatch(setPostArea(input)),
+    setPhoneNumber: input => dispatch(setPhoneNumber(input)),
+    setEmail: input => dispatch(setEmail(input)),
+    setPassword: input => dispatch(setPassword(input)),
     toggleCheckBox: () => dispatch(toggleCheckBox()),
     signUp: (user, password) => dispatch(requestCreateUser(user, password)),
   };
 }
 
-const mapStateToProps = state => ({ account: state.account });
+const mapStateToProps = state => ({ account: state.userEdit.attributes });
 
 export default connect(mapStateToProps, bindAction)(CreateAccountScreen);

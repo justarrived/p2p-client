@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import account from './account';
+import userEdit from './userEdit';
 import languages from './languages';
 import jobCreation from './jobCreation';
 import jobTypes from './jobTypes';
@@ -12,7 +12,7 @@ import session from './session';
 import user from './user';
 
 export default combineReducers({
-  account,
+  userEdit,
   languages,
   navigation,
   jobCreation,

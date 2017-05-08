@@ -2,18 +2,22 @@ import {
   ACCOUNT_FIRSTNAME, ACCOUNT_LASTNAME, ACCOUNT_ADDRESS, ACCOUNT_POSTCODE,
   ACCOUNT_POSTAREA, ACCOUNT_PHONENUMBER, ACCOUNT_EMAIL, ACCOUNT_PASSWORD,
   TOGGLE_INPUT_DISABLED, ACCOUNT_USER_AGREEMENT,
-} from '../actions/account';
+} from '../actions/userEdit';
+import { SESSION_REMOVE } from '../actions/session';
 
 const initialState = {
-  firstName: 'Anton',
-  lastName: 'Smith',
-  address: ' ',
-  postCode: '',
-  postArea: '',
-  phoneNumber: '',
-  email: '',
-  password: '',
-  userAgreement: false,
+  attributes: {
+    first_name: '',
+    last_name: '',
+    street: '',
+    zip: '',
+    city: '',
+    phone: '',
+    email: '',
+    password: '',
+    consent: false, // User accepts terms
+  },
+  initialized: false,
   disabled: true,
 };
 
@@ -22,32 +26,32 @@ export default function (state = initialState, action) {
     case ACCOUNT_FIRSTNAME:
       return {
         ...state,
-        firstName: action.payload,
+        first_name: action.payload,
       };
     case ACCOUNT_LASTNAME:
       return {
         ...state,
-        lastName: action.payload,
+        last_name: action.payload,
       };
     case ACCOUNT_ADDRESS:
       return {
         ...state,
-        address: action.payload,
+        street: action.payload,
       };
     case ACCOUNT_POSTCODE:
       return {
         ...state,
-        postCode: action.payload,
+        zip: action.payload,
       };
     case ACCOUNT_POSTAREA:
       return {
         ...state,
-        postArea: action.payload,
+        city: action.payload,
       };
     case ACCOUNT_PHONENUMBER:
       return {
         ...state,
-        phoneNumber: action.payload,
+        phone: action.payload,
       };
     case ACCOUNT_EMAIL:
       return {
@@ -57,7 +61,7 @@ export default function (state = initialState, action) {
     case ACCOUNT_PASSWORD:
       return {
         ...state,
-        email: action.payload,
+        password: action.payload,
       };
     case TOGGLE_INPUT_DISABLED:
       return {
@@ -67,8 +71,11 @@ export default function (state = initialState, action) {
     case ACCOUNT_USER_AGREEMENT:
       return {
         ...state,
-        disabled: !state.userAgreement,
+        consent: !state.consent,
       };
+    case SESSION_REMOVE:
+      // Remove local data when user signs out
+      return initialState;
     default:
       return state;
   }
