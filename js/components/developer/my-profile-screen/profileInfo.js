@@ -7,13 +7,12 @@ import style from './profileInfoStyle';
 import GlobalStyle from '../../../resources/globalStyle';
 import EmailInput from '../../common/email-input';
 import PhoneInput from '../../common/numeric-input';
-import PasswordInput from '../../common/password-input';
 import TextInput from '../../common/text-input';
 import PostcodeInput from '../../common/post-code-input';
 import EditButtons from './editButtons';
 import I18n from '../../../i18n';
 import { setAddress, setPostCode, setPostArea, setPhoneNumber,
-  setEmail, setPassword, toggleInputDisabled } from '../../../actions/userEdit';
+  setEmail, toggleInputDisabled } from '../../../actions/userEdit';
 import { createJsonDataAttributes } from '../../../networking/json';
 import { requestGetUser, requestPatchUser } from '../../../actions/user';
 import { requestSignOut } from '../../../actions/session';
@@ -30,7 +29,6 @@ class ProfileInfo extends React.Component {
     setPostArea: PropTypes.func.isRequired,
     setPhoneNumber: PropTypes.func.isRequired,
     setEmail: PropTypes.func.isRequired,
-    setPassword: PropTypes.func.isRequired,
     attributes: PropTypes.objectOf(PropTypes.any).isRequired,
     editDisabled: PropTypes.bool.isRequired,
     signOut: PropTypes.func.isRequired,
@@ -41,12 +39,16 @@ class ProfileInfo extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestGetUser(this.props.userId, this.props.token, true);
+    if (this.props.loading) {
+      this.props.requestGetUser(this.props.userId, this.props.token);
+    }
   }
 
   saveEdit() {
     const json = createJsonDataAttributes(this.props.attributes);
-    this.props.requestPatchUser(this.props.userId, this.props.token, json, true);
+    this.props.requestPatchUser(this.props.userId, this.props.token, json);
+    // TODO only toggle if success
+    this.props.toggleInputDisabled();
   }
 
   cancelEdit() {
@@ -114,12 +116,6 @@ class ProfileInfo extends React.Component {
                 disabled={this.props.editDisabled}
                 defaultValue={this.props.attributes.email}
               />
-              <PasswordInput
-                title={I18n.t('account.password')}
-                onChange={input => this.props.setPassword(input)}
-                disabled={this.props.editDisabled}
-                defaultValue={this.props.attributes.password}
-              />
             </Form>
           </CardItem>
           <CardItem bordered style={StyleSheet.flatten(style.buttonContainer)}>
@@ -160,7 +156,6 @@ function bindAction(dispatch) {
     setPostArea: input => dispatch(setPostArea(input)),
     setPhoneNumber: input => dispatch(setPhoneNumber(input)),
     setEmail: input => dispatch(setEmail(input)),
-    setPassword: input => dispatch(setPassword(input)),
     toggleInputDisabled: () => dispatch(toggleInputDisabled()),
     requestGetUser: (userId, token) => dispatch(requestGetUser(userId, token, true)),
     requestPatchUser: (userId, token, json) =>

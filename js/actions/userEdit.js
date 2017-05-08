@@ -13,6 +13,7 @@ export const USER_E_CONSENT = 'USER_EDIT_CONSENT';
 // Helper values
 export const USER_E_TOGGLE_INPUT = 'USER_EDIT_TOGGLE_INPUT';
 
+// Used to set all attributes preferably using an existing user
 export function setAttributes(attributes) {
   return {
     type: USER_E_ATTRIBUTES,
