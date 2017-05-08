@@ -106,7 +106,7 @@ export default function (state = initialState, action) {
     case USER_E_TOGGLE_INPUT:
       return {
         ...state,
-        disabled: !state.disabled,
+        disabled: action.payload,
       };
     case SESSION_REMOVE:
       // Remove local data when user signs out

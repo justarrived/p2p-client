@@ -83,8 +83,9 @@ export function toggleCheckBox() {
   };
 }
 
-export function toggleInputDisabled() {
+export function toggleEditDisabled(enabled) {
   return {
     type: USER_E_TOGGLE_INPUT,
+    payload: enabled,
   };
 }

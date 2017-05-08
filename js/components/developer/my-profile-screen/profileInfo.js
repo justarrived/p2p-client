@@ -1,34 +1,25 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { Content, Form, Col, Row, Thumbnail, Card, CardItem, Button, Text } from 'native-base';
+import { Content, Col, Thumbnail, Card, CardItem, Button, Text } from 'native-base';
+import ProfileInputFields from './profileInputFields';
 import JASpinner from '../../common/ja-spinner/JASpinner';
 import style from './profileInfoStyle';
 import GlobalStyle from '../../../resources/globalStyle';
-import EmailInput from '../../common/email-input';
-import PhoneInput from '../../common/numeric-input';
-import TextInput from '../../common/text-input';
-import PostcodeInput from '../../common/post-code-input';
 import EditButtons from './editButtons';
 import I18n from '../../../i18n';
-import { setAddress, setPostCode, setPostArea, setPhoneNumber,
-  setEmail, toggleInputDisabled } from '../../../actions/userEdit';
+import { toggleEditDisabled } from '../../../actions/userEdit';
 import { createJsonDataAttributes } from '../../../networking/json';
 import { requestGetUser, requestPatchUser } from '../../../actions/user';
 import { requestSignOut } from '../../../actions/session';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
-class ProfileInfo extends React.Component {
+class ProfileInfo extends Component {
 
   static propTypes = {
     userId: React.PropTypes.number.isRequired,
-    toggleInputDisabled: PropTypes.func.isRequired,
-    setAddress: PropTypes.func.isRequired,
-    setPostCode: PropTypes.func.isRequired,
-    setPostArea: PropTypes.func.isRequired,
-    setPhoneNumber: PropTypes.func.isRequired,
-    setEmail: PropTypes.func.isRequired,
+    toggleEditDisabled: PropTypes.func.isRequired,
     attributes: PropTypes.objectOf(PropTypes.any).isRequired,
     editDisabled: PropTypes.bool.isRequired,
     signOut: PropTypes.func.isRequired,
@@ -36,6 +27,10 @@ class ProfileInfo extends React.Component {
     requestPatchUser: PropTypes.func.isRequired,
     token: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
+    userError: React.PropTypes.objectOf(React.PropTypes.any),
+  }
+  static defaultProps = {
+    userError: null,
   }
 
   componentDidMount() {
@@ -44,15 +39,21 @@ class ProfileInfo extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.loading && !nextProps.loading
+      && nextProps.userError === null) {
+      // loading done with no error
+      this.props.toggleEditDisabled(true);
+    }
+  }
+
   saveEdit() {
     const json = createJsonDataAttributes(this.props.attributes);
     this.props.requestPatchUser(this.props.userId, this.props.token, json);
-    // TODO only toggle if success
-    this.props.toggleInputDisabled();
   }
 
   cancelEdit() {
-    this.props.toggleInputDisabled();
+    this.props.toggleEditDisabled(true);
     // TODO reset redux state
   }
 
@@ -61,6 +62,9 @@ class ProfileInfo extends React.Component {
   }
 
   render() {
+    if (this.props.userError != null) {
+      // TODO handle errors
+    }
     if (this.props.loading) {
       return <JASpinner />;
     }
@@ -78,51 +82,12 @@ class ProfileInfo extends React.Component {
               </Text>
             </View>
           </CardItem>
-          <CardItem bordered style={StyleSheet.flatten(style.formContainer)}>
-            <Form style={StyleSheet.flatten(style.form)}>
-              <TextInput
-                title={I18n.t('account.address')}
-                onChange={input => this.props.setAddress(input)}
-                disabled={this.props.editDisabled}
-                defaultValue={this.props.attributes.street}
-              />
-              <Row>
-                <Col>
-                  <PostcodeInput
-                    title={I18n.t('account.postal_code')}
-                    onChange={input => this.props.setPostCode(input)}
-                    disabled={this.props.editDisabled}
-                    defaultValue={this.props.attributes.zip}
-                  />
-                </Col>
-                <Col>
-                  <TextInput
-                    title={I18n.t('account.city')}
-                    onChange={input => this.props.setPostArea(input)}
-                    disabled={this.props.editDisabled}
-                    defaultValue={this.props.attributes.city}
-                  />
-                </Col>
-              </Row>
-              <PhoneInput
-                title={I18n.t('account.phone_number')}
-                onChange={input => this.props.setPhoneNumber(input)}
-                disabled={this.props.editDisabled}
-                defaultValue={this.props.attributes.phone}
-              />
-              <EmailInput
-                title={I18n.t('account.email')}
-                onChange={input => this.props.setEmail(input)}
-                disabled={this.props.editDisabled}
-                defaultValue={this.props.attributes.email}
-              />
-            </Form>
-          </CardItem>
+          <ProfileInputFields />
           <CardItem bordered style={StyleSheet.flatten(style.buttonContainer)}>
             <Col>
               <EditButtons
                 disabled={this.props.editDisabled}
-                onEdit={() => this.props.toggleInputDisabled()}
+                onEdit={() => this.props.toggleEditDisabled(false)}
                 onCancel={() => this.cancelEdit()}
                 onSave={() => this.saveEdit()}
               />
@@ -147,16 +112,12 @@ const mapStateToProps = state => ({
   token: state.session.token,
   userId: state.session.userId,
   loading: !state.userEdit.initialized || state.user.userLoading,
+  userError: state.user.error,
 });
 
 function bindAction(dispatch) {
   return {
-    setAddress: input => dispatch(setAddress(input)),
-    setPostCode: input => dispatch(setPostCode(input)),
-    setPostArea: input => dispatch(setPostArea(input)),
-    setPhoneNumber: input => dispatch(setPhoneNumber(input)),
-    setEmail: input => dispatch(setEmail(input)),
-    toggleInputDisabled: () => dispatch(toggleInputDisabled()),
+    toggleEditDisabled: enable => dispatch(toggleEditDisabled(enable)),
     requestGetUser: (userId, token) => dispatch(requestGetUser(userId, token, true)),
     requestPatchUser: (userId, token, json) =>
       dispatch(requestPatchUser(userId, token, json, true)),
