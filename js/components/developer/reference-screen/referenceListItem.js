@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { Thumbnail, ListItem, Icon, Body, Right } from 'native-base';
+import { Thumbnail, Icon, Body, Right } from 'native-base';
 import ReferenceStyles from './referenceStyles';
 import JAListItem from '../../common/ja-list-item/JAListItem';
 

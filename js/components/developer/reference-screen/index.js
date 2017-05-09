@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Content, List } from 'native-base';
+import { Container, Content, List } from 'native-base';
 import ReferenceListItem from './referenceListItem';
 import I18n from '../../../i18n';
 
@@ -28,11 +28,11 @@ export default class ReferenceScreen extends Component {
 
   render() {
     return (
-      <Content>
-        <Form>
+      <Container>
+        <Content>
           <List dataArray={REFERENCES} renderRow={this.renderRow} />
-        </Form>
-      </Content>
+        </Content>
+      </Container>
     );
   }
 }

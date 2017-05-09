@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native';
 
 import JAListItemStyles from './JAListItemStyles';
 
-
 export default class JAListItem extends Component {
 
   static propTypes = {
