@@ -3,18 +3,16 @@ import { StyleSheet, View, Text } from 'react-native';
 import { Thumbnail, Icon, Body, Right } from 'native-base';
 import ReferenceStyles from './referenceStyles';
 import JAListItem from '../../common/ja-list-item/JAListItem';
+import { imageProp } from '../../../resources/propTypes';
 
-export default class referenceListItem extends Component {
+export default class ReferenceListItem extends Component {
 
   static propTypes = {
     reference: React.PropTypes.string.isRequired,
     author: React.PropTypes.string.isRequired,
     date: React.PropTypes.string.isRequired,
     rating: React.PropTypes.string.isRequired,
-    icon: React.PropTypes.oneOfType([
-      React.PropTypes.number.isRequired,
-      React.PropTypes.shape({ uri: React.PropTypes.string.isRequired }),
-    ]).isRequired,
+    icon: imageProp.isRequired,
   }
 
   render() {
