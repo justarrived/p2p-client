@@ -6,19 +6,18 @@ import PreviewDurationAndCostCardItem from './previewDurationAndCostCardItem';
 import PreviewLocationCardItem from './previewLocationCardItem';
 import PreviewDateCardItem from './previewDateCardItem';
 import I18n from '../../../i18n';
-
-// Temporary constants. These will be moved and implemented in another way in the future!
-const EXAMPLE_IMAGE_URL = 'https://facebook.github.io/react/img/logo_og.png';
+import { getTaskImage, getTaskIcon } from '../../../util/task-graphics-getter';
 
 // Preview screen displaying information about a job
 // footerNode can be any react elements, for example a button.
+// TODO Replace getTaskImage() and getTaskIcon() when API supports receiving task graphics.
 const PreviewJobCard = ({ jobJson, duration, cost, footerNode }) =>
   <Card>
     <PreviewHeaderView
       title={jobJson.name}
       subtitle={jobJson.description}
-      cover={{ uri: EXAMPLE_IMAGE_URL }}
-      icon={{ uri: EXAMPLE_IMAGE_URL }}
+      cover={getTaskImage(jobJson.name)}
+      icon={getTaskIcon(jobJson.name)}
     />
     <PreviewDurationAndCostCardItem
       duration={duration}
