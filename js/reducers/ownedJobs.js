@@ -106,11 +106,9 @@ export default function (state = initialState, action) {
       };
     case JOB_O_SELECT: {
       // Select a specific job for inspection
-      const selectedJob = action.jobJson;
-      selectedJob.attributes.helperDate = parseDateInfo(selectedJob.attributes.job_date);
       return {
         ...state,
-        selectedJob,
+        selectedJob: action.jobJson,
       };
     }
     case SESSION_REMOVE:
