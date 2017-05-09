@@ -13,8 +13,6 @@ import { createJsonDataAttributes } from '../../../networking/json';
 import { requestGetUser, requestPatchUser } from '../../../actions/userProfile';
 import { requestSignOut } from '../../../actions/session';
 
-const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
-
 class ProfileInfo extends Component {
 
   static propTypes = {
@@ -97,7 +95,7 @@ class ProfileInfo extends Component {
             <View>
               <Thumbnail
                 style={StyleSheet.flatten(style.logo)}
-                source={{ uri: LOGO_URL }}
+                source={{ uri: `https://api.adorable.io/avatars/140/${this.props.attributes.email}` }}
               />
               <Text style={StyleSheet.flatten(style.nameText)}>
                 <Text>{this.props.attributes.first_name} {this.props.attributes.last_name}</Text>
