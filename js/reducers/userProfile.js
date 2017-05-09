@@ -1,4 +1,4 @@
-import { USER_REQUEST, USER_RECEIVE, USER_CREATE, USER_UPDATE } from '../actions/user';
+import { USER_P_REQUEST, USER_P_RECEIVE, USER_P_CREATE, USER_P_UPDATE } from '../actions/userProfile';
 import { SESSION_REMOVE } from '../actions/session';
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case USER_REQUEST:
+    case USER_P_REQUEST:
       // A request for the user has been sent
       return {
         ...state,
@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
         userLoading: true,
         error: null,
       };
-    case USER_RECEIVE:
+    case USER_P_RECEIVE:
       // Receive and save a user object
       return {
         ...state,
@@ -28,7 +28,7 @@ export default function (state = initialState, action) {
         userLoading: false,
         error: action.error,
       };
-    case USER_CREATE:
+    case USER_P_CREATE:
       // Request for user to be created has been sent
       return {
         ...state,
@@ -37,7 +37,7 @@ export default function (state = initialState, action) {
         userLoading: true,
         error: null,
       };
-    case USER_UPDATE:
+    case USER_P_UPDATE:
       // Request for user to be updated has been sent
       return {
         ...state,
