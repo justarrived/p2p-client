@@ -6,11 +6,10 @@ import WorkerListItem from './workerListItem';
 import I18n from '../../../i18n';
 
 // Temporary data. Will be handled in another way in the future.
-const ICON = { uri: 'https://facebook.github.io/react/img/logo_og.png' };
 const REFERENCES = [
-  { author: 'John Doe', price: '500 kr', icon: ICON },
-  { author: 'Jhon Doe', rating: '3', price: '350 kr', icon: ICON },
-  { author: 'John Deo', rating: '2', price: '150 kr', icon: ICON },
+  { author: 'Jake Weary', price: '500 kr' },
+  { author: 'Samuel Serif', rating: '3', price: '350 kr' },
+  { author: 'Ruby von Rails', rating: '2', price: '150 kr' },
 ];
 
 class ChooseWorkerScreen extends Component {
@@ -26,7 +25,7 @@ class ChooseWorkerScreen extends Component {
   renderRow = reference =>
     <WorkerListItem
       author={reference.author} rating={reference.rating}
-      price={reference.price} icon={reference.icon}
+      price={reference.price} icon={{ uri: `https://api.adorable.io/avatars/80/${reference.author}` }}
       goToWorkerProfile={() => this.props.navigate('WorkerProfileScreen')}
     />
 
