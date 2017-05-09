@@ -10,7 +10,7 @@ import EditButtons from './editButtons';
 import I18n from '../../../i18n';
 import { toggleEditDisabled, setAttributes } from '../../../actions/userEdit';
 import { createJsonDataAttributes } from '../../../networking/json';
-import { requestGetUser, requestPatchUser } from '../../../actions/user';
+import { requestGetUser, requestPatchUser } from '../../../actions/userProfile';
 import { requestSignOut } from '../../../actions/session';
 
 const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
@@ -39,7 +39,7 @@ class ProfileInfo extends Component {
   componentDidMount() {
     if (this.props.loading) {
       // If not initialized get data
-      this.getUserDate();
+      this.getApiUserData();
     }
   }
 
@@ -51,8 +51,17 @@ class ProfileInfo extends Component {
     }
   }
 
+  getApiUserData() {
+    if (this.props.userJson != null) {
+      this.props.setAttributes(this.props.userJson.data.attributes);
+      this.props.toggleEditDisabled(true);
+    } else {
+      this.getUserData();
+    }
+  }
+
   // Download profile data from API
-  getUserDate() {
+  getUserData() {
     this.props.getUser(this.props.userId, this.props.token);
   }
 
@@ -64,12 +73,7 @@ class ProfileInfo extends Component {
 
   // Method called to stop editing and reset local change
   cancelEdit() {
-    if (this.props.userJson != null) {
-      this.props.setAttributes(this.props.userJson.data.attributes);
-      this.props.toggleEditDisabled(true);
-    } else {
-      this.getUserDate();
-    }
+    this.getApiUserData();
   }
 
   // User signs off and local data is removed
@@ -127,18 +131,18 @@ const mapStateToProps = state => ({
   editDisabled: state.userEdit.disabled,
   token: state.session.token,
   userId: state.session.userId,
-  loading: !state.userEdit.initialized || state.user.userLoading,
-  userError: state.user.error,
-  userJson: state.user.userJson,
+  loading: !state.userEdit.initialized || state.userProfile.userLoading,
+  userError: state.userProfile.error,
+  userJson: state.userProfile.userJson,
 });
 
 function bindAction(dispatch) {
   return {
     toggleEditDisabled: enable => dispatch(toggleEditDisabled(enable)),
     setAttributes: attributes => dispatch(setAttributes(attributes)),
-    getUser: (userId, token) => dispatch(requestGetUser(userId, token, true)),
+    getUser: (userId, token) => dispatch(requestGetUser(userId, token)),
     patchUser: (userId, token, json) =>
-      dispatch(requestPatchUser(userId, token, json, true)),
+      dispatch(requestPatchUser(userId, token, json)),
     signOut: token => dispatch(requestSignOut(token)),
   };
 }

@@ -9,7 +9,7 @@ import ownedJobs from './ownedJobs';
 import creditCards from './creditCards';
 import navigation from './navigation';
 import session from './session';
-import user from './user';
+import userProfile from './userProfile';
 
 export default combineReducers({
   userEdit,
@@ -21,5 +21,5 @@ export default combineReducers({
   ownedJobs,
   creditCards,
   session,
-  user,
+  userProfile,
 });

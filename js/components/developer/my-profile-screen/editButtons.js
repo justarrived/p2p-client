@@ -20,7 +20,7 @@ const EditButtons = ({ disabled, onEdit, onCancel, onSave }) => {
       </Button>
     );
   }
-  // If not disabled return the cancel or save
+  // If not disabled return the cancel or save buttons
   return (
     <Grid>
       <Col>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Container, Content, Form, Col, Row, Grid, Button, Card, CardItem, Text } from 'native-base';
 import styles from './style';
 import I18n from '../../../i18n';
-import { requestCreateUser } from '../../../actions/user';
+import { requestCreateUser } from '../../../actions/userProfile';
 import { createJsonDataAttributes } from '../../../networking/json';
 import {
   setFirstName, setLastName, setAddress, setPostCode, setPostArea,

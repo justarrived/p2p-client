@@ -147,7 +147,7 @@ class LoginScreen extends Component {
 // props tied together with Redux state
 const mapStateToProps = state => ({
   sessionError: state.session.error,
-  userError: state.user.error,
+  userError: state.userProfile.error,
 });
 
 // props tied together with Redux methods
