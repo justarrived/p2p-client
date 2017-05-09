@@ -39,7 +39,7 @@ class ProfileInfo extends Component {
   componentDidMount() {
     if (this.props.loading) {
       // If not initialized get data
-      this.getApiUserData();
+      this.initializeUserData();
     }
   }
 
@@ -51,18 +51,20 @@ class ProfileInfo extends Component {
     }
   }
 
-  getApiUserData() {
-    if (this.props.userJson != null) {
-      this.props.setAttributes(this.props.userJson.data.attributes);
-      this.props.toggleEditDisabled(true);
-    } else {
-      this.getUserData();
-    }
-  }
-
   // Download profile data from API
   getUserData() {
     this.props.getUser(this.props.userId, this.props.token);
+  }
+
+  initializeUserData() {
+    if (this.props.userJson != null) {
+      // If local data exists use it
+      this.props.setAttributes(this.props.userJson.data.attributes);
+      this.props.toggleEditDisabled(true);
+    } else {
+      // Fetch data from API
+      this.getUserData();
+    }
   }
 
   // method called to save local change towards the API
@@ -73,7 +75,7 @@ class ProfileInfo extends Component {
 
   // Method called to stop editing and reset local change
   cancelEdit() {
-    this.getApiUserData();
+    this.initializeUserData();
   }
 
   // User signs off and local data is removed
