@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { Container, Content, Thumbnail, Button, Text as NBText } from 'native-base';
+import { Container, Content, Thumbnail, Button } from 'native-base';
 import styles from './style';
 import JAButton from '../../common/ja-button';
 import JATagline from '../../common/ja-tagline';
@@ -8,7 +8,7 @@ import { JA_BUTTON } from '../../common/constants';
 import globalStyle from '../../common/globalStyle';
 import I18n from '../../../i18n';
 
-const PICTURE = require('../../../../assets/images/confirmation.png');
+const CHECK_MARK = require('../../../../assets/images/check-mark.png');
 
 export default class ConfirmationScreen extends Component {
 
@@ -17,26 +17,22 @@ export default class ConfirmationScreen extends Component {
       <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>
         <Content contentContainerStyle={globalStyle.modalPadder}>
           <JATagline />
-          <View style={styles.pictureContainer}>
-            <Thumbnail
-              resizeMode="contain"
-              style={StyleSheet.flatten(styles.picture)} source={PICTURE}
-            />
-          </View>
-          <View>
-            <Text style={StyleSheet.flatten(styles.title)}>
-              {'The task is completed!'}
+          <Thumbnail
+            resizeMode="contain"
+            style={StyleSheet.flatten(styles.picture)} source={CHECK_MARK}
+          />
+          <Text style={styles.title}>
+            {'The task is completed!'}
+          </Text>
+          <View style={styles.descriptionContainer}>
+            <Text style={[styles.description, styles.marginBottom]}>
+              {'Thank you for using People by Just Arrived!'}
+            </Text>
+            <Text style={styles.description}>
+              {'Invite a friend to the app and get 15% of on your next service.'}
             </Text>
           </View>
-          <View View style={styles.textCon}>
-            <Text style={StyleSheet.flatten(styles.description)}>
-              {'Thank you for using People by Just Arrived'}
-            </Text>
-            <Text style={StyleSheet.flatten(styles.description)}>
-              {'Invite a friend to the app and get 15% of on your next service'}
-            </Text>
-          </View>
-          <View style={styles.nextButtonContainer}>
+          <View style={styles.buttonPadder}>
             <JAButton
               content={'Invite with SMS'}
               typeOfButton={JA_BUTTON.PRIMARY}
@@ -46,11 +42,9 @@ export default class ConfirmationScreen extends Component {
             content={'Invite with Facebook'}
             typeOfButton={JA_BUTTON.FACEBOOK}
           />
-          <View style={styles.skipButtonContainer}>
-            <Button light transparent style={StyleSheet.flatten(styles.alignButtonCenter)} rounded>
-              <Text Text style={StyleSheet.flatten(styles.skipInvite)}>{'Skip Invite'}</Text>
-            </Button>
-          </View>
+          <Button transparent style={StyleSheet.flatten(styles.skipInviteButton)}>
+            <Text style={styles.skipInvite}>{'Skip Invite'}</Text>
+          </Button>
         </Content>
       </Container>
     );

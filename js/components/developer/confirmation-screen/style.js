@@ -1,64 +1,50 @@
 import { StyleSheet } from 'react-native';
+import { TITLE_COLOR } from '../../common/colors';
 
 const PADDING = 10;
 
 const styles = StyleSheet.create({
 
-  padder: {
-    paddingTop: PADDING,
-    paddingBottom: PADDING,
-    paddingLeft: PADDING * 2,
-    paddingRight: PADDING * 2,
-  },
-
-  pictureContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
   picture: {
-    width: 250,
-    height: 150,
-    alignItems: 'center',
+    width: 140,
+    height: 140,
     margin: PADDING,
-  },
-
-  textCon: {
-    paddingLeft: PADDING,
-    paddingRight: PADDING,
+    alignSelf: 'center',
   },
 
   title: {
-    paddingTop: 4,
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: TITLE_COLOR,
+  },
+
+  descriptionContainer: {
+    padding: PADDING,
   },
 
   description: {
-    paddingTop: PADDING,
     fontSize: 12,
-    fontWeight: 'bold',
     textAlign: 'center',
-  },
-  skipInvite: {
-    fontSize: 16,
     fontWeight: 'bold',
   },
 
-  nextButtonContainer: {
-    paddingTop: PADDING * 4,
+  marginBottom: {
+    marginBottom: PADDING,
+  },
+
+  buttonPadder: {
+    paddingTop: PADDING,
     paddingBottom: PADDING,
   },
 
-  skipButtonContainer: {
-    alignItems: 'center',
-    paddingTop: PADDING * 6,
+  skipInviteButton: {
+    margin: PADDING,
+    alignSelf: 'center',
   },
 
-  alignButtonCenter: {
-    alignSelf: 'center',
+  skipInvite: {
+    fontWeight: 'bold',
   },
 
 });
