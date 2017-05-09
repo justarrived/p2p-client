@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Tab, Tabs, Text } from 'native-base';
+import { Container, Tab, Tabs } from 'native-base';
 import WorkerInfoScreen from '../worker-info-screen';
+import ReferenceScreen from '../reference-screen';
 import I18n from '../../../i18n';
 
 // @TODO Replace temporary data with data from Redux/API
@@ -11,7 +12,7 @@ export default class WorkerProfileScreen extends Component {
     title: I18n.t('screen_titles.worker_profile', { name: NAME }),
   };
 
-  // TODO Replace reference placeholder text with reference screen.
+  // TODO Replace placeholder data in WorkerInfoScreen and ReferenceScreen
   render() {
     return (
       <Container>
@@ -20,7 +21,7 @@ export default class WorkerProfileScreen extends Component {
             <WorkerInfoScreen />
           </Tab>
           <Tab heading={I18n.t('account.references')}>
-            <Text>References screen goes here</Text>
+            <ReferenceScreen />
           </Tab>
         </Tabs>
       </Container>
