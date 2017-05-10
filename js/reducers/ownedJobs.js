@@ -1,6 +1,6 @@
 import moment from 'moment';
-import { JOB_O_RECEIVE, JOBS_O_REQUEST,
-  JOBS_O_RECEIVE, JOB_O_SELECT } from '../actions/ownedJobs';
+import { JOB_O_RECEIVE, JOBS_O_REQUEST, JOBS_O_RECEIVE,
+  JOB_O_SELECT, JOB_O_SELECT_DONE } from '../actions/ownedJobs';
 import { SESSION_REMOVE } from '../actions/session';
 
 import { parseDateInfo } from '../networking/json';
@@ -12,6 +12,7 @@ const initialState = {
   loading: false,
   error: null,
   selectedJob: null,
+  selectInitialized: false,
 };
 
 function getErrorState(state, action) {
@@ -111,8 +112,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         selectedJob,
+        selectInitialized: false,
       };
     }
+    case JOB_O_SELECT_DONE:
+      return {
+        ...state,
+        selectInitialized: true,
+      };
     case SESSION_REMOVE:
       // Remove local data when user signs out
       return initialState;

@@ -5,6 +5,7 @@ import languages from './languages';
 import jobCreation from './jobCreation';
 import jobTypes from './jobTypes';
 import jobs from './jobs';
+import jobUsers from './jobUsers';
 import ownedJobs from './ownedJobs';
 import creditCards from './creditCards';
 import navigation from './navigation';
@@ -18,6 +19,7 @@ export default combineReducers({
   jobCreation,
   jobTypes,
   jobs,
+  jobUsers,
   ownedJobs,
   creditCards,
   session,

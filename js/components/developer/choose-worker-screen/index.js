@@ -3,6 +3,8 @@ import { Form, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 import { navigate } from '../../../actions/navigation';
 import WorkerListItem from './workerListItem';
+import JASpinner from '../../common/ja-spinner/JASpinner';
+import { requestGetJobUsers } from '../../../actions/jobUsers';
 import I18n from '../../../i18n';
 
 // Temporary data. Will be handled in another way in the future.
@@ -19,6 +21,21 @@ class ChooseWorkerScreen extends Component {
 
   static propTypes = {
     navigate: React.PropTypes.func.isRequired,
+    initialized: React.PropTypes.bool.isRequired,
+    loading: React.PropTypes.bool.isRequired,
+    jobId: React.PropTypes.string.isRequired,
+    token: React.PropTypes.string.isRequired,
+    getJobUsers: React.PropTypes.func.isRequired,
+    jobUserError: React.PropTypes.objectOf(React.PropTypes.any),
+    jobUsers: React.PropTypes.objectOf(React.PropTypes.any),
+  }
+  static defaultProps = {
+    jobUserError: null,
+    jobUsers: [],
+  }
+
+  componentDidMount() {
+    this.props.getJobUsers(this.props.jobId, this.props.token);
   }
 
   // TODO Navigate to WorkerProfileScreen and display correct information for the selected worker
@@ -30,6 +47,13 @@ class ChooseWorkerScreen extends Component {
     />
 
   render() {
+    if (this.props.jobUserError != null) {
+      // TODO handle errors
+    }
+    if (this.props.loading || !this.props.initialized) {
+      return <JASpinner />;
+    }
+    // TODO remove console.log(this.props.jobUsers);
     return (
       <Content>
         <Form>
@@ -40,12 +64,21 @@ class ChooseWorkerScreen extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  jobId: state.ownedJobs.selectedJob.id,
+  token: state.session.token,
+  initialized: state.ownedJobs.selectInitialized,
+  loading: state.jobUsers.loading,
+  jobUsers: state.jobUsers.jobUserJson,
+  jobUserError: state.jobUsers.error,
+  navigation: state.navigation,
+});
+
 function bindAction(dispatch) {
   return {
     navigate: (routeName, params) => dispatch(navigate(routeName, params)),
+    getJobUsers: (jobId, token) => dispatch(requestGetJobUsers(jobId, token)),
   };
 }
-
-const mapStateToProps = state => ({ navigation: state.navigation });
 
 export default connect(mapStateToProps, bindAction)(ChooseWorkerScreen);
