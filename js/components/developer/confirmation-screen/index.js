@@ -22,28 +22,33 @@ export default class ConfirmationScreen extends Component {
             style={StyleSheet.flatten(styles.picture)} source={CHECK_MARK}
           />
           <Text style={styles.title}>
-            {'The task is completed!'}
+            {I18n.t('confirmation.the_task_is_completed')}
           </Text>
           <View style={styles.descriptionContainer}>
             <Text style={[styles.description, styles.marginBottom]}>
-              {'Thank you for using People by Just Arrived!'}
+              {I18n.t('confirmation.thank_you_for_using_people')}
             </Text>
             <Text style={styles.description}>
-              {'Invite a friend to the app and get 15% of on your next service.'}
+              {I18n.t('confirmation.invite_a_friend')}
             </Text>
           </View>
           <View style={styles.buttonPadder}>
             <JAButton
-              content={'Invite with SMS'}
+              actionOnClick={() => undefined}
+              content={I18n.t('confirmation.invite_with_sms')}
               typeOfButton={JA_BUTTON.PRIMARY}
             />
           </View>
           <JAButton
-            content={'Invite with Facebook'}
+            actionOnClick={() => undefined}
+            content={I18n.t('confirmation.invite_with_facebook')}
             typeOfButton={JA_BUTTON.FACEBOOK}
           />
-          <Button transparent style={StyleSheet.flatten(styles.skipInviteButton)}>
-            <Text style={styles.skipInvite}>{'Skip Invite'}</Text>
+          <Button
+            actionOnClick={() => undefined}
+            transparent style={StyleSheet.flatten(styles.skipInviteButton)}
+          >
+            <Text style={styles.skipInvite}>{I18n.t('confirmation.skip_invite')}</Text>
           </Button>
         </Content>
       </Container>
