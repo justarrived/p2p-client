@@ -36,5 +36,5 @@ export function postJob(jobJson, token, onSuccess, onError) {
 
 // Get the job users
 export function getJobUsers(jobId, token, onSuccess, onError) {
-  getAuthJson(`${getJobPath(jobId)}/users`, token, onSuccess, onError);
+  getAuthJson(`${getJobPath(jobId)}/users?include=user`, token, onSuccess, onError);
 }

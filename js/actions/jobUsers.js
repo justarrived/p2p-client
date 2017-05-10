@@ -35,13 +35,11 @@ export function requestGetJobUsers(jobId, token) {
   // dispatch = method that sends state to store
   return (dispatch) => {
     // dispatch requested has been sent
-    // TODO remove console.log(`requesting job users for job ${jobId}`);
     dispatch(requestJobUsers());
     // send and handle the request
     getJobUsers(jobId, token,
       (jobUserJson) => {
         // dispatch the received data
-        // TODO remove console.log(`received job users for job ${jobId}`);
         dispatch(receiveJobUsers(jobUserJson, null));
         dispatch(selectInitialized());
       },

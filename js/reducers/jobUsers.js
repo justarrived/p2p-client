@@ -2,7 +2,8 @@ import { JOBS_USER_REQUEST, JOBS_USER_RECEIVE, JOBS_USER_SELECT } from '../actio
 import { SESSION_REMOVE } from '../actions/session';
 
 const initialState = {
-  jobUserJson: null,
+  jobUsers: [],
+  users: [],
   loading: false,
   jobUserError: null,
   selectedUser: null,
@@ -14,16 +15,30 @@ export default function (state = initialState, action) {
       // starting to fetch data requested
       return {
         ...state,
+        jobUsers: [],
+        users: [],
         loading: true,
         jobUserError: null,
+        selectedUser: null,
       };
-    case JOBS_USER_RECEIVE:
+    case JOBS_USER_RECEIVE: {
+      if (action.jobUserError != null) {
+        return {
+          ...state,
+          jobUsers: [],
+          users: [],
+          loading: false,
+          jobUserError: action.jobUserError,
+        };
+      }
       return {
         ...state,
-        jobUserJson: action.jobUserJson,
+        jobUsers: action.jobUserJson.data,
+        users: action.jobUserJson.included,
         loading: false,
-        jobUserError: action.jobUserError,
+        jobUserError: null,
       };
+    }
     case JOBS_USER_SELECT:
       return {
         ...state,
