@@ -3,8 +3,6 @@ import { JOB_O_RECEIVE, JOBS_O_REQUEST,
   JOBS_O_RECEIVE, JOB_O_SELECT } from '../actions/ownedJobs';
 import { SESSION_REMOVE } from '../actions/session';
 
-import { parseDateInfo } from '../networking/json';
-
 const initialState = {
   assigned: [],
   unassigned: [],
@@ -106,11 +104,9 @@ export default function (state = initialState, action) {
       };
     case JOB_O_SELECT: {
       // Select a specific job for inspection
-      const selectedJob = action.jobJson;
-      selectedJob.attributes.helperDate = parseDateInfo(selectedJob.attributes.job_date);
       return {
         ...state,
-        selectedJob,
+        selectedJob: action.jobJson,
       };
     }
     case SESSION_REMOVE:

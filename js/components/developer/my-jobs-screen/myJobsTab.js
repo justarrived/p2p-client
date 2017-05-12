@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
 import { Container, Content } from 'native-base';
+import moment from 'moment';
 import AvatarListItem from '../../common/avatar-list-item/avatarListItem';
 import ListSectionHeader from '../../common/list-section-header/listSectionHeader';
 import JASpinner from '../../common/ja-spinner/JASpinner';
@@ -52,7 +53,7 @@ class MyJobsTab extends Component {
   renderRow = job =>
     <AvatarListItem
       title={job.attributes.name}
-      note={job.attributes.street}
+      note={moment(job.attributes.job_date).calendar()}
       status={'Aktiv'}
       icon={getTaskIcon(job.attributes.name)}
       toNextScreen={() => this.selectJob(job)}
