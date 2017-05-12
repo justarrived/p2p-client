@@ -8,7 +8,7 @@ import { requestGetUserJobs } from '../../../actions/ownedJobs';
 
 class MyJobsScreen extends Component {
   static navigationOptions = {
-    title: I18n.t('screen_titles.my_jobs'),
+    title: I18n.t('screen_titles.my_tasks'),
   };
 
   static propTypes = {
@@ -35,12 +35,12 @@ class MyJobsScreen extends Component {
 
   render() {
     const temporaryActive = {
-      'section_headings.assigned_jobs': this.props.jobsAssigned,
-      'section_headings.unassigned_jobs': this.props.jobsUnassigned,
+      'section_headings.assigned_tasks': this.props.jobsAssigned,
+      'section_headings.unassigned_tasks': this.props.jobsUnassigned,
     };
 
     const temporaryArchived = {
-      'section_headings.archived_jobs': this.props.jobsHistoric,
+      'section_headings.archived_tasks': this.props.jobsHistoric,
     };
     return (
       <Tabs>

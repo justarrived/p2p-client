@@ -7,7 +7,7 @@ const PreviewDurationAndCostCardItem = ({ duration, cost }) =>
   <CardItem bordered>
     <Grid>
       <Row>
-        <Text note>{I18n.t('job.job_duration')}</Text>
+        <Text note>{I18n.t('job.task_duration')}</Text>
       </Row>
       <Row>
         <Body>

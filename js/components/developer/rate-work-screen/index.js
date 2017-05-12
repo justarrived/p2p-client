@@ -28,7 +28,7 @@ export default class RateWorkScreen extends Component {
             >{I18n.t('job.rating.thank_you')}</Text>
             <Text
               style={RatingScreenStyles.bodyText}
-            >{I18n.t('job.rating.how_did_the_worker_perform_the_job')}</Text>
+            >{I18n.t('job.rating.how_did_the_worker_perform_the_task')}</Text>
             <Text
               style={RatingScreenStyles.ratingText}
             >{I18n.t('job.rating.punctuality')}</Text>
@@ -39,11 +39,11 @@ export default class RateWorkScreen extends Component {
             <RatingBar />
             <Text
               style={RatingScreenStyles.ratingText}
-            >{I18n.t('job.rating.work_quality')}</Text>
+            >{I18n.t('job.rating.quality_of_service')}</Text>
             <RatingBar />
             <Text
               style={RatingScreenStyles.ratingText}
-            >{I18n.t('job.rating.recommendation')}</Text>
+            >{I18n.t('job.rating.write_a_recommendation')}</Text>
           </View>
           <View style={RatingScreenStyles.textBox}>
             <RecommendationTextbox placeholder={I18n.t('job.rating.write_review_here')} />

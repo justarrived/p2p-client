@@ -18,7 +18,7 @@ class PlaceCard extends Component {
       <Card>
         <CardHeader
           icon="pin" title={I18n.t('job.location')}
-          subtitle={I18n.t('job.where_will_the_job_be_performed')}
+          subtitle={I18n.t('job.where_will_the_task_be_performed')}
         />
         <Form>
           <Item floatingLabel>

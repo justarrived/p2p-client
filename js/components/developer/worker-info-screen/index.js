@@ -47,7 +47,7 @@ export default class WorkerInfoScreen extends Component {
               </CardItem>
               <CardItem bordered>
                 <TextWithStackedNote
-                  note={I18n.t('worker_profile.prev_work')}
+                  note={I18n.t('worker_profile.previous_work')}
                   text={'Banktjänsteman'}
                 />
               </CardItem>
