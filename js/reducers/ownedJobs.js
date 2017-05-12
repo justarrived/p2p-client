@@ -3,8 +3,6 @@ import { JOB_O_RECEIVE, JOBS_O_REQUEST,
   JOBS_O_RECEIVE, JOB_O_SELECT } from '../actions/ownedJobs';
 import { SESSION_REMOVE } from '../actions/session';
 
-import { parseDateInfo } from '../networking/json';
-
 const initialState = {
   assigned: [],
   unassigned: [],
