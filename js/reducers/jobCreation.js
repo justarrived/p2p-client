@@ -12,7 +12,7 @@ const initialState = {
   job_date: '',
   job_end_date: '',
   language_id: 38, // TODO handle languages
-  category_id: 8212, // TODO handle categories
+  category_id: 8, // TODO handle categories
   hourly_pay_id: 1, // TODO handle hourly pay
   skills: [1], // TODO handle skills
   city: '',
