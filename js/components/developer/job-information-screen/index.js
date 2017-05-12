@@ -17,12 +17,12 @@ class JobInformationScreen extends Component {
     return (
       <Container>
         <Tabs>
-          <Tab heading={I18n.t('job.task_details')} >
+          <Tab heading={I18n.t('task.task_details')} >
             <JobDetails
               jobJson={this.props.jobJson}
             />
           </Tab>
-          <Tab heading={I18n.t('job.applications')}>
+          <Tab heading={I18n.t('task.applications')}>
             <ChooseWorkerScreen />
           </Tab>
         </Tabs>

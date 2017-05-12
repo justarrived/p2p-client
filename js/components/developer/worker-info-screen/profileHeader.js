@@ -5,7 +5,7 @@ import WorkerInfoStyles from './workerInfoStyles';
 import { imageProp } from '../../../resources/propTypes';
 import I18n from '../../../i18n';
 
-const noRatingString = I18n.t('job.rating.unrated');
+const noRatingString = I18n.t('task.rating.unrated');
 
 export default class ProfileHeader extends Component {
 

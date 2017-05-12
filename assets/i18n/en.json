@@ -2,7 +2,7 @@
   "common": {
     "or": "OR",
   },
-  "job": {
+  "task": {
     "task_details": "Task details",
     "applications": "Applications",
     "when_will_the_task_be_performed": "When will the task be performed?",

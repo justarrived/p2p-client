@@ -25,28 +25,28 @@ export default class RateWorkScreen extends Component {
             <JALogo />
             <Text
               style={RatingScreenStyles.headerText}
-            >{I18n.t('job.rating.thank_you')}</Text>
+            >{I18n.t('task.rating.thank_you')}</Text>
             <Text
               style={RatingScreenStyles.bodyText}
-            >{I18n.t('job.rating.how_did_the_worker_perform_the_task')}</Text>
+            >{I18n.t('task.rating.how_did_the_worker_perform_the_task')}</Text>
             <Text
               style={RatingScreenStyles.ratingText}
-            >{I18n.t('job.rating.punctuality')}</Text>
+            >{I18n.t('task.rating.punctuality')}</Text>
             <RatingBar />
             <Text
               style={RatingScreenStyles.ratingText}
-            >{I18n.t('job.rating.communication')}</Text>
+            >{I18n.t('task.rating.communication')}</Text>
             <RatingBar />
             <Text
               style={RatingScreenStyles.ratingText}
-            >{I18n.t('job.rating.quality_of_service')}</Text>
+            >{I18n.t('task.rating.quality_of_service')}</Text>
             <RatingBar />
             <Text
               style={RatingScreenStyles.ratingText}
-            >{I18n.t('job.rating.write_a_recommendation')}</Text>
+            >{I18n.t('task.rating.write_a_recommendation')}</Text>
           </View>
           <View style={RatingScreenStyles.textBox}>
-            <RecommendationTextbox placeholder={I18n.t('job.rating.write_review_here')} />
+            <RecommendationTextbox placeholder={I18n.t('task.rating.write_review_here')} />
           </View>
           <View style={StyleSheet.flatten(RatingScreenStyles.buttonStyle)}>
             {/* TODO add actionOnClick functionality*/}

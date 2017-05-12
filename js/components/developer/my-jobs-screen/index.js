@@ -44,14 +44,14 @@ class MyJobsScreen extends Component {
     };
     return (
       <Tabs>
-        <Tab heading={I18n.t('job.headings.current')}>
+        <Tab heading={I18n.t('task.headings.current')}>
           <MyJobsTab
             onRefresh={() => this.downloadJobs()}
             data={temporaryActive}
             toNextScreen={() => this.navigateToNextScreen()}
           />
         </Tab>
-        <Tab heading={I18n.t('job.headings.history')}>
+        <Tab heading={I18n.t('task.headings.history')}>
           <MyJobsTab
             onRefresh={() => this.downloadJobs()}
             data={temporaryArchived}
