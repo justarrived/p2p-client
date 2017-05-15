@@ -11,7 +11,9 @@ import I18n from '../../../i18n';
 const CHECK_MARK = require('../../../../assets/images/check-mark.png');
 
 export default class ConfirmationScreen extends Component {
-
+  static navigationOptions = {
+    header: null,
+  };
   render() {
     return (
       <Container style={StyleSheet.flatten(globalStyle.whiteBackgroundColor)}>

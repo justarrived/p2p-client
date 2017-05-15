@@ -6,6 +6,7 @@ const PADDING = 10;
 const styles = StyleSheet.create({
 
   picture: {
+    marginTop: 40,
     width: 140,
     height: 140,
     margin: PADDING,
