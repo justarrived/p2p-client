@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { navigate } from '../../../actions/navigation';
 import WorkerListItem from './workerListItem';
 import JASpinner from '../../common/ja-spinner/JASpinner';
-import { requestGetJobUsers } from '../../../actions/jobUsers';
+import { requestGetJobUsers, selectJobUser } from '../../../actions/jobUsers';
 import I18n from '../../../i18n';
 
 class ChooseWorkerScreen extends Component {
@@ -14,6 +14,7 @@ class ChooseWorkerScreen extends Component {
 
   static propTypes = {
     navigate: React.PropTypes.func.isRequired,
+    selectJobUser: React.PropTypes.func.isRequired,
     initialized: React.PropTypes.bool.isRequired,
     loading: React.PropTypes.bool.isRequired,
     jobId: React.PropTypes.string.isRequired,
@@ -38,14 +39,16 @@ class ChooseWorkerScreen extends Component {
     return foundUser !== undefined ? foundUser : { id: null, attributes: { first_name: 'missing' } };
   }
 
-  // TODO Navigate to WorkerProfileScreen and display correct information for the selected worker
   renderRow = (jobUser, user) =>
     <WorkerListItem
       author={`${user.attributes.first_name}`}
       rating={jobUser.rating_score}
       price={'350 kr'}
       icon={{ uri: `https://api.adorable.io/avatars/80/${user.id}` }}
-      goToWorkerProfile={() => this.props.navigate('WorkerProfileScreen')}
+      goToWorkerProfile={() => {
+        this.props.selectJobUser({ jobUser, user });
+        this.props.navigate('WorkerProfileScreen');
+      }}
     />;
 
   render() {
@@ -83,6 +86,7 @@ function bindAction(dispatch) {
   return {
     navigate: (routeName, params) => dispatch(navigate(routeName, params)),
     getJobUsers: (jobId, token) => dispatch(requestGetJobUsers(jobId, token)),
+    selectJobUser: user => dispatch(selectJobUser(user)),
   };
 }
 
