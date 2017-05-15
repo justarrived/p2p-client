@@ -34,8 +34,8 @@ const CreateJobTab = StackNavigator({
   },
 }, {
   navigationOptions: {
-    tabBarLabel: I18n.t('navigation_tabs.create_job'),
-    tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'home', tintColor, count: 0 }),
+    tabBarLabel: I18n.t('navigation_tabs.order_task'),
+    tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'add-circle', tintColor, count: 0 }),
   },
 });
 
@@ -52,7 +52,7 @@ const MyJobsTab = StackNavigator({
   },
 }, {
   navigationOptions: {
-    tabBarLabel: I18n.t('navigation_tabs.my_jobs'),
+    tabBarLabel: I18n.t('navigation_tabs.my_tasks'),
     tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'briefcase', tintColor, count: 5 }),
   },
 });

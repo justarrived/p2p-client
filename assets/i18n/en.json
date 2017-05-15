@@ -2,29 +2,29 @@
   "common": {
     "or": "OR",
   },
-  "job": {
-    "job_details": "Job details",
+  "task": {
+    "task_details": "Task details",
     "applications": "Applications",
-    "when_will_the_job_be_performed": "When will the job be performed?",
-    "create_job": "Create job",
-    "create_job_button": "Create Job",
+    "when_will_the_task_be_performed": "When will the task be performed?",
+    "order_task": "Order task",
+    "order_task_button": "Order Task",
     "location": "Location",
-    "where_will_the_job_be_performed": "Where will the job be performed?",
+    "where_will_the_task_be_performed": "Where will the task be performed?",
     "approximate_duration": "What's the approximate duration?",
-    "job_duration": "Job duration",
+    "task_duration": "Task duration",
     "headings": {
       "current": "Current",
       "history": "History",
     },
     "rating": {
-      "how_did_the_worker_perform_the_job": "We hope you enjoyed your experience, please write what you think about the experience you had using People",
+      "how_did_the_worker_perform_the_task": "We hope you enjoyed your experience, please write what you think about the experience you had using People",
       "communication": "Communication",
-      "work_quality": "Quality of service",
+      "quality_of_service": "Quality of service",
       "punctuality": "Punctuality",
       "write_review_here": "Write here",
       "no_rating_yet": "No rating yet",
       "thank_you": "Thank you!",
-      "recommendation": "Write a recommendation",
+      "write_a_recommendation": "Write a recommendation",
       "unrated": "Unrated",
       "thank_you": "Thank you!"
     }
@@ -66,13 +66,13 @@
     }
   },
   "section_headings": {
-    "assigned_jobs": "Assigned, awaiting completion",
-    "archived_jobs": "Completed jobs",
-    "unassigned_jobs": "Unassigned jobs"
+    "assigned_tasks": "Assigned, awaiting completion",
+    "archived_tasks": "Completed tasks",
+    "unassigned_tasks": "Unassigned tasks"
   },
   "wizard": {
     "welcome_to_people": "Welcome To People!",
-    "welcome_to_people_description": "People by JustArrived is an initiative to connect newcomers with local people in the Swedish community"
+    "welcome_to_people_description": "People by Just Arrived is an initiative to connect newcomers with local people in the Swedish community"
   },
   "account": {
     "first_name": "First name",
@@ -83,24 +83,24 @@
     "phone_number": "Phone number",
     "email": "Email",
     "password": "Password",
-    "profile_info": "Profile info",
-    "payment_info": "Payment info",
+    "profile_tab": "Profile",
+    "payment_details_tab": "Payment Details",
     "references": "References"
   },
   "worker_profile": {
     "presentation": "Presentation",
     "language": "Language",
     "education": "Education",
-    "prev_work": "Previous Work"
+    "previous_work": "Previous Work"
   },
   "screen_titles": {
-    "choose_job_type": "Choose Job Type",
-    "create_job": "Create Job",
+    "choose_task_type": "Choose Task Type",
+    "order_task": "Order Task",
     "login": "Login",
     "create_account": "Create Account",
-    "job_preview": "Job Preview",
-    "my_jobs": "My Jobs",
-    "job_info": "Job Info",
+    "task_preview": "Task Preview",
+    "my_tasks": "My Tasks",
+    "task_info": "Task Info",
     "my_profile": "My Profile",
     "rate_worker": "Rate Worker",
     "choose_language": "Choose Language",
@@ -110,9 +110,9 @@
     "worker_profile": "Profile of {{name}}"
   },
   "navigation_tabs": {
-    "create_job": "Create Job",
-    "my_jobs": "My Jobs",
-    "my_profile": "My Profile",
+    "order_task": "Order Task",
+    "my_tasks": "My Tasks",
+    "my_profile": "Profile",
     "developer": "Developer"
   },
   "forgot_password": {

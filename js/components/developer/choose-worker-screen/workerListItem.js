@@ -4,7 +4,7 @@ import { Text, Thumbnail, Body, Row, Left, ListItem, Icon, Right } from 'native-
 import ChooseWorkerStyles from './chooseWorkerStyles';
 import I18n from '../../../i18n';
 
-const noRatingString = I18n.t('job.rating.no_rating_yet');
+const noRatingString = I18n.t('task.rating.no_rating_yet');
 
 export default class WorkerListItem extends Component {
   static propTypes = {

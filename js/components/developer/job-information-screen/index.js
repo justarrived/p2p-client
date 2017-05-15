@@ -7,7 +7,7 @@ import I18n from '../../../i18n';
 
 class JobInformationScreen extends Component {
   static navigationOptions = {
-    title: I18n.t('screen_titles.my_jobs'),
+    title: I18n.t('screen_titles.my_tasks'),
   };
   static propTypes = {
     jobJson: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
@@ -17,12 +17,12 @@ class JobInformationScreen extends Component {
     return (
       <Container>
         <Tabs>
-          <Tab heading={I18n.t('job.job_details')} >
+          <Tab heading={I18n.t('task.task_details')} >
             <JobDetails
               jobJson={this.props.jobJson}
             />
           </Tab>
-          <Tab heading={I18n.t('job.applications')}>
+          <Tab heading={I18n.t('task.applications')}>
             <ChooseWorkerScreen />
           </Tab>
         </Tabs>

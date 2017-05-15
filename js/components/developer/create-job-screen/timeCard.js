@@ -36,7 +36,7 @@ const TimeCard = ({ hours, setJobHours }) => {
   });
   return (
     <Card>
-      <CardHeader icon="time" title={I18n.t('date_and_time.time')} subtitle={I18n.t('job.approximate_duration')} />
+      <CardHeader icon="time" title={I18n.t('date_and_time.time')} subtitle={I18n.t('task.approximate_duration')} />
       {radioButtons}
       <CardItem footer />
     </Card>
