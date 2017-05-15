@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { TITLE_COLOR } from '../../common/colors';
+import { TITLE_COLOR } from '../../../resources/globalStyle';
 
 const PADDING = 10;
 

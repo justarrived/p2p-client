@@ -4,8 +4,8 @@ import { Container, Content, Thumbnail, Button } from 'native-base';
 import styles from './style';
 import JAButton from '../../common/ja-button';
 import JATagline from '../../common/ja-tagline';
-import { JA_BUTTON } from '../../common/constants';
-import globalStyle from '../../common/globalStyle';
+import { JA_BUTTON } from '../../../resources/constants';
+import globalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 
 const CHECK_MARK = require('../../../../assets/images/check-mark.png');
