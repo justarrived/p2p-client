@@ -28,6 +28,13 @@
       "unrated": "Unrated",
       "thank_you": "Thank you!"
     }
+  }, "confirmation": {
+        "the_task_is_completed": "The task is completed!",
+        "thank_you_for_using_people": "Thank you for using People by Just Arrived!",
+        "invite_a_friend": "Invite a friend to the app and get 15% of on youre next service",
+        "invite_with_sms": "Invite with SMS",
+        "invite_with_facebook": "Invite with Facebook",
+        "skip_invite": "Skip invite",
   },
   "categories": {
     "shoveling": {
