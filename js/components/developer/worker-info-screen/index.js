@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Content, Card, Col, CardItem } from 'native-base';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 import WorkerInfoStyles from './workerInfoStyles';
 import ProfileHeader from './profileHeader';
@@ -19,9 +19,7 @@ export default class WorkerInfoScreen extends Component {
           <Card>
             <CardItem bordered>
               <ProfileHeader
-                picture={{
-                  uri: 'https://facebook.github.io/react/img/logo_og.png',
-                }}
+                picture={{ uri: `https://api.adorable.io/avatars/140/${NAME}` }}
                 name={NAME}
                 priceTot={'500 kr'}
                 priceHr={'100 kr/h'}

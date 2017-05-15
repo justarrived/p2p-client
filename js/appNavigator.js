@@ -6,26 +6,22 @@ import JATabIcon from './components/common/ja-tab-icon/JATabIcon';
 
 import DeveloperScreen from './components/developer/developer-screen';
 import CreateJobScreen from './components/developer/create-job-screen';
-import ReduxSampleScreen from './components/developer/redux-sample-screen';
-import NetworkingScreen from './components/developer/networking-screen';
-import NetworkingLoginScreen from './components/developer/networking-login-screen';
 import MyProfileScreen from './components/developer/my-profile-screen';
 import ChooseJobTypeScreen from './components/developer/choose-job-type-screen';
 import LanguagePickerScreen from './components/developer/language-picker-screen';
-import ModalCardScreen from './components/developer/modal-card-screen';
-import SearchListScreen from './components/developer/search-list-screen';
 import PaymentInfoScreen from './components/developer/payment-info-screen';
 import ChooseLanguageScreen from './components/developer/choose-language-screen';
 import MyJobsScreen from './components/developer/my-jobs-screen';
 import JobPreviewScreen from './components/developer/job-preview-screen';
 import RateWorkScreen from './components/developer/rate-work-screen';
-import FirebaseExampleScreen from './components/developer/firebase-example-screen';
 import ChooseWorkerScreen from './components/developer/choose-worker-screen';
 import JobInfoScreen from './components/developer/job-information-screen';
+import ReferenceScreen from './components/developer/reference-screen';
 import WorkerProfileScreen from './components/developer/worker-profile-screen';
 import ForgotPassword from './components/developer/forgot-password';
 import WelcomeInfoScreen from './components/developer/welcome-info-screen';
 import ConfirmationScreen from './components/developer/confirmation-screen';
+import SplashScreen from './components/developer/splash-screen';
 
 const CreateJobTab = StackNavigator({
   ChooseJobTypeScreen: {
@@ -87,14 +83,8 @@ const DeveloperTab = StackNavigator({
   CreateJobScreen: {
     screen: CreateJobScreen,
   },
-  FirebaseExampleScreen: {
-    screen: FirebaseExampleScreen,
-  },
-  NetworkingScreen: {
-    screen: NetworkingScreen,
-  },
-  NetworkingLoginScreen: {
-    screen: NetworkingLoginScreen,
+  SplashScreen: {
+    screen: SplashScreen,
   },
   MyProfileScreen: {
     screen: MyProfileScreen,
@@ -102,17 +92,8 @@ const DeveloperTab = StackNavigator({
   ChooseJobTypeScreen: {
     screen: ChooseJobTypeScreen,
   },
-  ReduxSampleScreen: {
-    screen: ReduxSampleScreen,
-  },
   LanguagePickerScreen: {
     screen: LanguagePickerScreen,
-  },
-  ModalCardScreen: {
-    screen: ModalCardScreen,
-  },
-  SearchListScreen: {
-    screen: SearchListScreen,
   },
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
@@ -137,6 +118,9 @@ const DeveloperTab = StackNavigator({
   },
   JobInfoScreen: {
     screen: JobInfoScreen,
+  },
+  ReferenceScreen: {
+    screen: ReferenceScreen,
   },
   WorkerProfileScreen: {
     screen: WorkerProfileScreen,

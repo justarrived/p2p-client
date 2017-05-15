@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import devTools from 'remote-redux-devtools';
 import { createStore, applyMiddleware, compose } from 'redux';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { persistStore } from 'redux-persist';
 
@@ -11,7 +11,7 @@ import promise from './promise';
 export default function configureStore(onCompletion : () => void) : any {
   // Midelware and devTools
   const enhancer = compose(
-    applyMiddleware(logger, thunk, promise),
+    applyMiddleware(/* logger,*/ thunk, promise),
     devTools({ name: 'justArrivedP2P', realtime: true }),
   );
 

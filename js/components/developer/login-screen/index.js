@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import EmailInput from '../../common/email-input';
 import JAHeader from '../../common/ja-header';
 import JAButton from '../../common/ja-button';
-import { JA_BUTTON } from '../../common/constants';
+import { JA_BUTTON } from '../../../resources/constants';
 import PasswordInput from '../../common/password-input';
 import { requestSignIn } from '../../../actions/session';
 import LoginScreenStyles from './loginScreenStyles';
@@ -147,7 +147,7 @@ class LoginScreen extends Component {
 // props tied together with Redux state
 const mapStateToProps = state => ({
   sessionError: state.session.error,
-  userError: state.user.error,
+  userError: state.userProfile.error,
 });
 
 // props tied together with Redux methods

@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 
-import account from './account';
-import person from './person';
+import userEdit from './userEdit';
 import languages from './languages';
 import jobCreation from './jobCreation';
 import jobTypes from './jobTypes';
@@ -10,11 +9,10 @@ import ownedJobs from './ownedJobs';
 import creditCards from './creditCards';
 import navigation from './navigation';
 import session from './session';
-import user from './user';
+import userProfile from './userProfile';
 
 export default combineReducers({
-  account,
-  person,
+  userEdit,
   languages,
   navigation,
   jobCreation,
@@ -23,5 +21,5 @@ export default combineReducers({
   ownedJobs,
   creditCards,
   session,
-  user,
+  userProfile,
 });

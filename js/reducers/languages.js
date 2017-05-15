@@ -120,21 +120,21 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  if (action.type === REMOVE_LANGUAGE) {
-    // console.log(`splice lang ${action.payload}`);
-    state.lang.splice(state.lang.indexOf(action.payload), 1);
-    // Have to create a new state in order for components to update correctly
-    return {
-      ...state,
-      lang: [...state.lang],
-    };
+  switch (action.type) {
+    case REMOVE_LANGUAGE:
+      state.lang.splice(state.lang.indexOf(action.payload), 1);
+      // Have to create a new state in order for components to update correctly
+      return {
+        ...state,
+        lang: [...state.lang],
+      };
+    case ADD_LANGUAGE:
+      // console.log(`push lang ${action.payload}`);
+      return {
+        ...state,
+        lang: [...state.lang, action.payload],
+      };
+    default:
+      return state;
   }
-  if (action.type === ADD_LANGUAGE) {
-    // console.log(`push lang ${action.payload}`);
-    return {
-      ...state,
-      lang: [...state.lang, action.payload],
-    };
-  }
-  return state;
 }

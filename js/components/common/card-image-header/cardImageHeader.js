@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Thumbnail, CardItem } from 'native-base';
+import LinearGradient from 'react-native-linear-gradient';
 import CardImageHeaderStyle from './cardImageHeaderStyle';
-import GlobalStyle from '../../common/globalStyle';
-import { imageProp } from '../../common/propTypes';
+import GlobalStyle from '../../../resources/globalStyle';
+import { imageProp } from '../../../resources/propTypes';
+import { CARD_IMAGE_HEADER_SHADOW, TRANSPARENT } from '../../../resources/colors';
 
 // Card header with image and icon.
 export default class CardImageHeader extends Component {
@@ -23,7 +25,13 @@ export default class CardImageHeader extends Component {
     let iconIfProvided = [];
     if (this.props.icon !== undefined) {
       iconIfProvided = (
-        <Thumbnail source={this.props.icon} />
+        <LinearGradient
+          start={{ x: 0.0, y: 0.0 }} end={{ x: 0.5, y: 0 }}
+          colors={[CARD_IMAGE_HEADER_SHADOW, TRANSPARENT]}
+          style={CardImageHeaderStyle.padder}
+        >
+          <Thumbnail source={this.props.icon} />
+        </LinearGradient>
       );
     }
 

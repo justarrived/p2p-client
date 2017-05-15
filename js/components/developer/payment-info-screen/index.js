@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { View } from 'react-native';
 import { Text, Content, Button, List } from 'native-base';
 import { connect } from 'react-redux';
-import paymentInfoScreenStyle from './paymentInfoScreenStyle';
+import style from './paymentInfoStyle';
 import AvatarListItem from '../../common/avatar-list-item/avatarListItem';
 import I18n from '../../../i18n';
 
@@ -22,7 +22,7 @@ class PaymentInfoScreen extends Component {
     return (
       <Content>
         <List dataArray={this.props.creditCards.data} renderRow={this.renderRow} />
-        <View style={paymentInfoScreenStyle.addCardButton}>
+        <View style={style.addCardButton}>
           <Button block>
             <Text>{I18n.t('card.add_credit_card')}</Text>
           </Button>

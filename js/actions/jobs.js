@@ -1,4 +1,5 @@
 import { getJob, getJobs, postJob, patchJob } from '../networking/jobs';
+import { receiveOwnedJob } from './ownedJobs';
 
 export const JOB_REQUEST = 'JOB_REQUEST';
 export const JOB_RECEIVE = 'JOB_RECEIVE';
@@ -104,6 +105,8 @@ export function requestPostJob(requestJson, token) {
           responseJson.data.id,
           responseJson,
           null));
+        // Created job is owned job
+        dispatch(receiveOwnedJob(responseJson));
       },
       (error) => {
         dispatch(receiveJob(null, null, error));

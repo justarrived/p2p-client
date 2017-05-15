@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { WHITE, SECONDARY_BLUE } from '../../common/colors';
+import { WHITE, SECONDARY_BLUE } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   form: {

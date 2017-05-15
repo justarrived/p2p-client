@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Col, CardItem, Row } from 'native-base';
 
 import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
-import GlobalStyle from '../../common/globalStyle';
+import GlobalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 
 const ADDRESS_STRING = I18n.t('account.address');

@@ -39,7 +39,7 @@ class Secure extends Component {
 // Props tied together with Redux state
 const mapStateToProps = state => ({
   authenticated: state.session.token != null,
-  loading: state.session.sessionLoading || state.user.userLoading,
+  loading: state.session.sessionLoading || state.userProfile.userLoading,
 });
 
 // Connect class with Redux and export

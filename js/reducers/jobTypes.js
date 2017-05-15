@@ -1,30 +1,29 @@
 import I18n from '../i18n';
+import { getTaskImage, getTaskIcon } from '../util/task-graphics-getter';
+
+const LAWN_MOWING = I18n.t('categories.lawn_mowing.title');
+const CLEANING = I18n.t('categories.cleaning.title');
+const GARDENING = I18n.t('categories.gardening.title');
 
 const initialState = {
   data: [
     {
-      title: I18n.t('categories.shoveling.title'),
-      description: I18n.t('categories.shoveling.description'),
-      icon: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
-      image: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
+      title: LAWN_MOWING,
+      description: I18n.t('categories.lawn_mowing.description'),
+      icon: getTaskIcon(LAWN_MOWING),
+      image: getTaskImage(LAWN_MOWING),
     },
     {
-      title: I18n.t('categories.raking.title'),
-      description: I18n.t('categories.raking.description'),
-      icon: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
-      image: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
-    },
-    {
-      title: I18n.t('categories.cleaning.title'),
+      title: CLEANING,
       description: I18n.t('categories.cleaning.description'),
-      icon: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
-      image: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
+      icon: getTaskIcon(CLEANING),
+      image: getTaskImage(CLEANING),
     },
     {
-      title: I18n.t('categories.gardening.title'),
+      title: GARDENING,
       description: I18n.t('categories.gardening.description'),
-      icon: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
-      image: { uri: 'https://facebook.github.io/react/img/logo_og.png' },
+      icon: getTaskIcon(GARDENING),
+      image: getTaskImage(GARDENING),
     },
   ],
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Thumbnail, Grid, Icon, Col, Row, Text } from 'native-base';
 import WorkerInfoStyles from './workerInfoStyles';
-import { imageProp } from '../../common/propTypes';
+import { imageProp } from '../../../resources/propTypes';
 import I18n from '../../../i18n';
 
 const noRatingString = I18n.t('job.rating.unrated');

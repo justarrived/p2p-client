@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { TRANSPARENT } from '../../common/colors';
+import { TRANSPARENT } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   textPadding: {
