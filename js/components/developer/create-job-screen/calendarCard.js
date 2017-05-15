@@ -23,7 +23,7 @@ class CalendarCard extends Component {
       <Card>
         <CardHeader
           icon="calendar" title={I18n.t('date_and_time.date')}
-          subtitle={I18n.t('job.when_will_the_job_be_performed')}
+          subtitle={I18n.t('task.when_will_the_task_be_performed')}
         />
         <Form >
           <Grid>

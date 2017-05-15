@@ -10,7 +10,7 @@ import I18n from '../../../i18n';
 export default class CreateJobScreen extends Component {
 
   static navigationOptions = {
-    title: I18n.t('job.create_job'),
+    title: I18n.t('task.order_task'),
   };
 
   goToJobPreview = () => (

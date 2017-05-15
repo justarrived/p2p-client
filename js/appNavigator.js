@@ -20,6 +20,7 @@ import ReferenceScreen from './components/developer/reference-screen';
 import WorkerProfileScreen from './components/developer/worker-profile-screen';
 import ForgotPassword from './components/developer/forgot-password';
 import WelcomeInfoScreen from './components/developer/welcome-info-screen';
+import ConfirmationScreen from './components/developer/confirmation-screen';
 import SplashScreen from './components/developer/splash-screen';
 
 const CreateJobTab = StackNavigator({
@@ -34,8 +35,8 @@ const CreateJobTab = StackNavigator({
   },
 }, {
   navigationOptions: {
-    tabBarLabel: I18n.t('navigation_tabs.create_job'),
-    tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'home', tintColor, count: 0 }),
+    tabBarLabel: I18n.t('navigation_tabs.order_task'),
+    tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'add-circle', tintColor, count: 0 }),
   },
 });
 
@@ -52,7 +53,7 @@ const MyJobsTab = StackNavigator({
   },
 }, {
   navigationOptions: {
-    tabBarLabel: I18n.t('navigation_tabs.my_jobs'),
+    tabBarLabel: I18n.t('navigation_tabs.my_tasks'),
     tabBarIcon: ({ tintColor }) => JATabIcon({ name: 'briefcase', tintColor, count: 5 }),
   },
 });
@@ -72,6 +73,9 @@ const MyProfileTab = StackNavigator({
 const DeveloperTab = StackNavigator({
   DeveloperScreen: {
     screen: DeveloperScreen,
+  },
+  ConfirmationScreen: {
+    screen: ConfirmationScreen,
   },
   WelcomeInfoScreen: {
     screen: WelcomeInfoScreen,

@@ -24,8 +24,7 @@ const PreviewJobCard = ({ jobJson, duration, cost, footerNode }) =>
       cost={cost}
     />
     <PreviewDateCardItem
-      date={jobJson.helperDate.date}
-      time={jobJson.helperDate.time}
+      date={jobJson.job_date}
     />
     <PreviewLocationCardItem
       street={jobJson.street}

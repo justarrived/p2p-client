@@ -13,10 +13,10 @@ export default class MyProfileScreen extends Component {
     return (
       <Container>
         <Tabs>
-          <Tab heading={I18n.t('account.profile_info')}>
+          <Tab heading={I18n.t('account.profile_tab')}>
             <ProfileInfo />
           </Tab>
-          <Tab heading={I18n.t('account.payment_info')}>
+          <Tab heading={I18n.t('account.payment_details_tab')}>
             <PaymentInfoScreen />
           </Tab>
         </Tabs>
