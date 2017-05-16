@@ -3,14 +3,9 @@ import { Form, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 import { navigate } from '../../../actions/navigation';
 import WorkerListItem from './workerListItem';
+import JASpinner from '../../common/ja-spinner/JASpinner';
+import { requestGetJobUsers, selectJobUser } from '../../../actions/jobUsers';
 import I18n from '../../../i18n';
-
-// Temporary data. Will be handled in another way in the future.
-const REFERENCES = [
-  { author: 'Jake Weary', price: '500 kr' },
-  { author: 'Samuel Serif', rating: '3', price: '350 kr' },
-  { author: 'Ruby von Rails', rating: '2', price: '150 kr' },
-];
 
 class ChooseWorkerScreen extends Component {
   static navigationOptions = {
@@ -19,33 +14,80 @@ class ChooseWorkerScreen extends Component {
 
   static propTypes = {
     navigate: React.PropTypes.func.isRequired,
+    selectJobUser: React.PropTypes.func.isRequired,
+    initialized: React.PropTypes.bool.isRequired,
+    loading: React.PropTypes.bool.isRequired,
+    jobId: React.PropTypes.string.isRequired,
+    token: React.PropTypes.string.isRequired,
+    getJobUsers: React.PropTypes.func.isRequired,
+    jobUserError: React.PropTypes.objectOf(React.PropTypes.any),
+    jobUsers: React.PropTypes.arrayOf(React.PropTypes.any),
+    users: React.PropTypes.arrayOf(React.PropTypes.any),
+  }
+  static defaultProps = {
+    jobUserError: null,
+    jobUsers: [],
+    users: [],
   }
 
-  // TODO Navigate to WorkerProfileScreen and display correct information for the selected worker
-  renderRow = reference =>
+  componentDidMount() {
+    this.props.getJobUsers(this.props.jobId, this.props.token);
+  }
+
+  getUser(jobUser) {
+    const foundUser = this.props.users.find(user => user.id === jobUser.relationships.user.data.id);
+    return foundUser !== undefined ? foundUser : { id: null, attributes: { first_name: 'missing' } };
+  }
+
+  renderRow = (jobUser, user) =>
     <WorkerListItem
-      author={reference.author} rating={reference.rating}
-      price={reference.price} icon={{ uri: `https://api.adorable.io/avatars/80/${reference.author}` }}
-      goToWorkerProfile={() => this.props.navigate('WorkerProfileScreen')}
-    />
+      author={`${user.attributes.first_name}`}
+      rating={jobUser.rating_score}
+      price={'350 kr'}
+      icon={{ uri: `https://api.adorable.io/avatars/80/${user.id}` }}
+      goToWorkerProfile={() => {
+        this.props.selectJobUser({ jobUser, user });
+        this.props.navigate('WorkerProfileScreen');
+      }}
+    />;
 
   render() {
+    if (this.props.jobUserError != null) {
+      // TODO handle errors
+    }
+    if (this.props.loading || !this.props.initialized) {
+      return <JASpinner />;
+    }
     return (
       <Content>
         <Form>
-          <List dataArray={REFERENCES} renderRow={this.renderRow} />
+          <List
+            dataArray={this.props.jobUsers}
+            renderRow={jobUser => this.renderRow(jobUser, this.getUser(jobUser))}
+          />
         </Form>
       </Content>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  jobId: state.ownedJobs.selectedJob.id,
+  token: state.session.token,
+  initialized: state.ownedJobs.selectInitialized,
+  loading: state.jobUsers.loading,
+  jobUsers: state.jobUsers.jobUsers,
+  users: state.jobUsers.users,
+  jobUserError: state.jobUsers.error,
+  navigation: state.navigation,
+});
+
 function bindAction(dispatch) {
   return {
     navigate: (routeName, params) => dispatch(navigate(routeName, params)),
+    getJobUsers: (jobId, token) => dispatch(requestGetJobUsers(jobId, token)),
+    selectJobUser: user => dispatch(selectJobUser(user)),
   };
 }
-
-const mapStateToProps = state => ({ navigation: state.navigation });
 
 export default connect(mapStateToProps, bindAction)(ChooseWorkerScreen);

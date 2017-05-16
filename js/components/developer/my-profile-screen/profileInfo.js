@@ -95,7 +95,7 @@ class ProfileInfo extends Component {
             <View>
               <Thumbnail
                 style={StyleSheet.flatten(style.logo)}
-                source={{ uri: `https://api.adorable.io/avatars/140/${this.props.attributes.email}` }}
+                source={{ uri: `https://api.adorable.io/avatars/140/${this.props.userId}` }}
               />
               <Text style={StyleSheet.flatten(style.nameText)}>
                 <Text>{this.props.attributes.first_name} {this.props.attributes.last_name}</Text>

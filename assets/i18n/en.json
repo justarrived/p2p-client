@@ -114,7 +114,7 @@
     "payment_information": "Payment Information",
     "choose_worker": "Choose Worker",
     "reference": "Reference List",
-    "worker_profile": "Profile of {{name}}"
+    "worker_profile": "Applicant Profile"
   },
   "navigation_tabs": {
     "order_task": "Order Task",
