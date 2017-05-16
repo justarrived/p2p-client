@@ -4,15 +4,12 @@ import WorkerInfoScreen from '../worker-info-screen';
 import ReferenceScreen from '../reference-screen';
 import I18n from '../../../i18n';
 
-// @TODO Replace temporary data with data from Redux/API
-const NAME = 'John Doe';
-
 export default class WorkerProfileScreen extends Component {
   static navigationOptions = {
-    title: I18n.t('screen_titles.worker_profile', { name: NAME }),
+    title: I18n.t('screen_titles.worker_profile'),
   };
 
-  // TODO Replace placeholder data in WorkerInfoScreen and ReferenceScreen
+  // TODO Replace placeholder data in ReferenceScreen
   render() {
     return (
       <Container>
