@@ -28,7 +28,7 @@ function getCreateUserJson(attributes) {
   return createJsonDataAttributes({
     email: attributes.email,
     password: attributes.password,
-    consent: true,
+    consent: attributes.consent,
     system_language_id: 38,
     first_name: attributes.first_name,
     last_name: attributes.last_name,
@@ -49,7 +49,7 @@ class CreateAccountScreen extends Component {
       email: React.PropTypes.string,
       password: React.PropTypes.string,
       appLanguage: React.PropTypes.string,
-      userAgreement: React.PropTypes.bool,
+      consent: React.PropTypes.bool,
     }).isRequired,
     goToLogin: PropTypes.func.isRequired,
     signUp: PropTypes.func.isRequired,
@@ -93,7 +93,7 @@ class CreateAccountScreen extends Component {
           }
           <CheckBoxPUL
             title={I18n.t('sign_up.accept_pul_and_terms')}
-            isChecked={this.props.account.userAgreement}
+            isChecked={this.props.account.consent}
             onClick={() => this.props.toggleCheckBox()}
           />
           <View style={styles.buttonContainer}>
