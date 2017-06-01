@@ -1,9 +1,7 @@
 import moment from 'moment';
-import { JOB_O_RECEIVE, JOBS_O_REQUEST,
-  JOBS_O_RECEIVE, JOB_O_SELECT } from '../actions/ownedJobs';
+import { JOB_O_RECEIVE, JOBS_O_REQUEST, JOBS_O_RECEIVE,
+  JOB_O_SELECT, JOB_O_SELECT_DONE } from '../actions/ownedJobs';
 import { SESSION_REMOVE } from '../actions/session';
-
-import { parseDateInfo } from '../networking/json';
 
 const initialState = {
   assigned: [],
@@ -12,6 +10,7 @@ const initialState = {
   loading: false,
   error: null,
   selectedJob: null,
+  selectInitialized: false,
 };
 
 function getErrorState(state, action) {
@@ -38,85 +37,89 @@ function historicDate(dateString) {
 }
 
 export default function (state = initialState, action) {
-  // console.log(`previous owned jobs state:\n${JSON.stringify(state, null, 4)}`);
-  if (action.type === JOBS_O_RECEIVE) {
-    // Receice all owned jobs
-    if (action.error != null) {
-      return getErrorState(state, action);
+  switch (action.type) {
+    case JOBS_O_RECEIVE: {
+      // Receice all owned jobs
+      if (action.error != null) {
+        return getErrorState(state, action);
+      }
+      const assigned = [];
+      const unassigned = [];
+      const historic = [];
+      if (action.jobJson.data != null) {
+        // Loop through all the jobs
+        action.jobJson.data.forEach(
+          (job) => {
+            // Add each job to appropriate collection
+            if (historicDate(job.attributes.job_date)) {
+              historic.push(job);
+            } else if (job.attributes.filled) {
+              assigned.push(job);
+            } else {
+              unassigned.push(job);
+            }
+          });
+      }
+      return {
+        ...state,
+        assigned,
+        unassigned,
+        historic,
+        loading: false,
+        error: null,
+      };
     }
-    const assigned = [];
-    const unassigned = [];
-    const historic = [];
-    if (action.jobJson.data != null) {
-      // Loop through all the jobs
-      action.jobJson.data.forEach(
-        (job) => {
-          // Add each job to appropriate collection
-          if (historicDate(job.attributes.job_date)) {
-            historic.push(job);
-          } else if (job.attributes.filled) {
-            assigned.push(job);
-          } else {
-            unassigned.push(job);
-          }
-        });
+    case JOB_O_RECEIVE: {
+      // Receive a single owned job
+      if (action.error != null) {
+        return getErrorState(state, action);
+      }
+      const newJob = action.jobJson.data;
+      // Remove the job if it existed previously
+      const assigned = removeMatchingJob(state.assigned, newJob);
+      const unassigned = removeMatchingJob(state.unassigned, newJob);
+      const historic = removeMatchingJob(state.historic, newJob);
+      // Add the job in correct collection
+      if (historicDate(newJob.attributes.job_date)) {
+        historic.push(newJob);
+      } else if (newJob.filled) {
+        assigned.push(newJob);
+      } else {
+        unassigned.push(newJob);
+      }
+      return {
+        ...state,
+        assigned,
+        unassigned,
+        historic,
+        loading: false,
+        error: null,
+      };
     }
-    return {
-      ...state,
-      assigned,
-      unassigned,
-      historic,
-      loading: false,
-      error: null,
-    };
-  }
-  if (action.type === JOB_O_RECEIVE) {
-    // Receive a single owned job
-    if (action.error != null) {
-      return getErrorState(state, action);
+    case JOBS_O_REQUEST:
+      // starting to fetch data requested
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case JOB_O_SELECT: {
+      // Select a specific job for inspection
+      return {
+        ...state,
+        selectedJob: action.jobJson,
+        selectInitialized: false,
+      };
     }
-    const newJob = action.jobJson.data;
-    // Remove the job if it existed previously
-    const assigned = removeMatchingJob(state.assigned, newJob);
-    const unassigned = removeMatchingJob(state.unassigned, newJob);
-    const historic = removeMatchingJob(state.historic, newJob);
-    // Add the job in correct collection
-    if (historicDate(newJob.attributes.job_date)) {
-      historic.push(newJob);
-    } else if (newJob.filled) {
-      assigned.push(newJob);
-    } else {
-      unassigned.push(newJob);
-    }
-    return {
-      ...state,
-      assigned,
-      unassigned,
-      historic,
-      loading: false,
-      error: null,
-    };
+    case JOB_O_SELECT_DONE:
+      return {
+        ...state,
+        selectInitialized: true,
+      };
+    case SESSION_REMOVE:
+      // Remove local data when user signs out
+      return initialState;
+    default:
+      return state;
   }
-  if (action.type === JOBS_O_REQUEST) {
-    // starting to fetch data requested
-    return {
-      ...state,
-      loading: true,
-      error: null,
-    };
-  }
-  if (action.type === JOB_O_SELECT) {
-    // Select a specific job for inspection
-    const selectedJob = action.jobJson;
-    selectedJob.attributes.helperDate = parseDateInfo(selectedJob.attributes.job_date);
-    return {
-      ...state,
-      selectedJob,
-    };
-  }
-  if (action.type === SESSION_REMOVE) {
-    // Remove local data when user signs out
-    return initialState;
-  }
-  return state;
 }

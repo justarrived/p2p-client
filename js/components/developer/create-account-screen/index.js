@@ -8,45 +8,42 @@ import styles from './style';
 import GlobalStyle from '../../../resources/globalStyle';
 
 import I18n from '../../../i18n';
-import { requestCreateUser } from '../../../actions/user';
+import { requestCreateUser } from '../../../actions/userProfile';
 import { createJsonDataAttributes } from '../../../networking/json';
-import {
-  changeFirstName, changeLastName, changeEmail, changePassword, toggleCheckBox, changeAppLanguage,
-} from '../../../actions/account';
+import { setFirstName, setLastName, setEmail, setPassword, toggleCheckBox } from '../../../actions/userEdit';
 
 import JATagline from '../../common/ja-tagline';
 import JAButton from '../../common/ja-button';
 import { JA_BUTTON, JA_INPUT } from '../../../resources//constants';
 import JAInput from '../../common/ja-input';
 import CheckBoxPUL from '../../common/checkbox-with-text';
-import LanguageDropdown from '../../common/language-dropdown/languageDropdown';
+// import LanguageDropdown from '../../common/language-dropdown/languageDropdown';
 import Footer from '../../common/footer/footer';
 
 // TODO Replace these standard values with real values.
 // These are used during development only.
 // LanguageDropdown shows one language when first rendered even though
 // no language is seleceted. Could lead to bugs
-function getCreateUserJson(email, password) {
+function getCreateUserJson(attributes) {
   return createJsonDataAttributes({
-    email,
-    password,
+    email: attributes.email,
+    password: attributes.password,
     consent: true,
     system_language_id: 38,
-    first_name: 'SomeName',
-    last_name: 'SomeLastName',
+    first_name: attributes.first_name,
+    last_name: attributes.last_name,
   });
 }
 
 class CreateAccountScreen extends Component {
 
   static propTypes = {
-    changeFirstName: PropTypes.func.isRequired,
-    changeLastName: PropTypes.func.isRequired,
-    changeEmail: PropTypes.func.isRequired,
-    changePassword: PropTypes.func.isRequired,
-    changeAppLanguage: PropTypes.func.isRequired,
-    toggleCheckBox: PropTypes.func.isRequired,
-    account: PropTypes.shape({
+    setFirstName: React.PropTypes.func.isRequired,
+    setLastName: React.PropTypes.func.isRequired,
+    setEmail: React.PropTypes.func.isRequired,
+    setPassword: React.PropTypes.func.isRequired,
+    toggleCheckBox: React.PropTypes.func.isRequired,
+    account: React.PropTypes.shape({
       firstName: React.PropTypes.string,
       lastName: React.PropTypes.string,
       email: React.PropTypes.string,
@@ -59,7 +56,7 @@ class CreateAccountScreen extends Component {
   }
 
   createAccount() {
-    this.props.signUp(getCreateUserJson(this.props.account.email, this.props.account.password));
+    this.props.signUp(getCreateUserJson(this.props.account));
   }
 
   render() {
@@ -72,25 +69,28 @@ class CreateAccountScreen extends Component {
             <Col style={StyleSheet.flatten(styles.colPadding)}>
               <JAInput
                 typeOfInput={JA_INPUT.FIRST_NAME}
-                onChange={text => this.props.changeFirstName(text)}
+                onChange={text => this.props.setFirstName(text)}
               />
             </Col>
             <Col>
               <JAInput
                 typeOfInput={JA_INPUT.LAST_NAME}
-                onChange={text => this.props.changeLastName(text)}
+                onChange={text => this.props.setLastName(text)}
               />
             </Col>
           </Grid>
           <JAInput
             typeOfInput={JA_INPUT.EMAIL}
-            onChange={text => this.props.changeEmail(text)}
+            onChange={text => this.props.setEmail(text)}
           />
           <JAInput
             typeOfInput={JA_INPUT.PASSWORD}
-            onChange={text => this.props.changePassword(text)}
+            onChange={text => this.props.setPassword(text)}
           />
-          <LanguageDropdown onChange={input => this.props.changeAppLanguage(input)} />
+          { /*
+              <LanguageDropdown onChange={input => this.props.changeAppLanguage(input)} />
+            */
+          }
           <CheckBoxPUL
             title={I18n.t('sign_up.accept_pul_and_terms')}
             isChecked={this.props.account.userAgreement}
@@ -115,16 +115,16 @@ class CreateAccountScreen extends Component {
 
 function bindAction(dispatch) {
   return {
-    changeFirstName: input => dispatch(changeFirstName(input)),
-    changeLastName: input => dispatch(changeLastName(input)),
-    changeEmail: input => dispatch(changeEmail(input)),
-    changePassword: input => dispatch(changePassword(input)),
+    setFirstName: input => dispatch(setFirstName(input)),
+    setLastName: input => dispatch(setLastName(input)),
+    setEmail: input => dispatch(setEmail(input)),
+    setPassword: input => dispatch(setPassword(input)),
     toggleCheckBox: () => dispatch(toggleCheckBox()),
-    changeAppLanguage: input => dispatch(changeAppLanguage(input)),
+    // changeAppLanguage: input => dispatch(changeAppLanguage(input)),
     signUp: (user, password) => dispatch(requestCreateUser(user, password)),
   };
 }
 
-const mapStateToProps = state => ({ account: state.account });
+const mapStateToProps = state => ({ account: state.userEdit.attributes });
 
 export default connect(mapStateToProps, bindAction)(CreateAccountScreen);

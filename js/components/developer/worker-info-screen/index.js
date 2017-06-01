@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
 import { Container, Content, Card, Col, CardItem } from 'native-base';
 import GlobalStyle from '../../../resources/globalStyle';
@@ -7,32 +8,35 @@ import WorkerInfoStyles from './workerInfoStyles';
 import ProfileHeader from './profileHeader';
 import TextWithStackedNote from '../../common/text-with-stacked-note/textWithStackedNote';
 
-// @TODO Replace temporary data with data from Redux/API
-const NAME = 'John Doe';
-
-export default class WorkerInfoScreen extends Component {
+class WorkerInfoScreen extends Component {
+  static propTypes = {
+    userInfo: React.PropTypes.objectOf(React.PropTypes.any),
+  }
+  static defaultProps = {
+    userInfo: null,
+  }
 
   render() {
+    const { jobUser, user } = this.props.userInfo;
+    // TODO get language data
     return (
       <Container>
         <Content contentContainerStyle={GlobalStyle.padder}>
           <Card>
             <CardItem bordered>
               <ProfileHeader
-                picture={{
-                  uri: 'https://facebook.github.io/react/img/logo_og.png',
-                }}
-                name={NAME}
+                picture={{ uri: `https://api.adorable.io/avatars/140/${user.id}` }}
+                name={user.attributes.first_name}
                 priceTot={'500 kr'}
                 priceHr={'100 kr/h'}
-                rating={'4'}
+                rating={jobUser.rating_score}
               />
             </CardItem>
             <Col style={StyleSheet.flatten(WorkerInfoStyles.viewStyle)}>
               <CardItem bordered>
                 <TextWithStackedNote
                   note={I18n.t('worker_profile.presentation')}
-                  text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed ligula euismod, vestibulum turpis eu, viverra risus.'}
+                  text={jobUser.attributes.apply_message}
                 />
               </CardItem>
               <CardItem bordered>
@@ -44,13 +48,13 @@ export default class WorkerInfoScreen extends Component {
               <CardItem bordered>
                 <TextWithStackedNote
                   note={I18n.t('worker_profile.education')}
-                  text={'Nationalekonomi'}
+                  text={user.attributes.education}
                 />
               </CardItem>
               <CardItem bordered>
                 <TextWithStackedNote
-                  note={I18n.t('worker_profile.prev_work')}
-                  text={'Banktjänsteman'}
+                  note={I18n.t('worker_profile.previous_work')}
+                  text={user.attributes.job_experience}
                 />
               </CardItem>
             </Col>
@@ -60,3 +64,9 @@ export default class WorkerInfoScreen extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  userInfo: state.jobUsers.selectedUser,
+});
+
+export default connect(mapStateToProps)(WorkerInfoScreen);

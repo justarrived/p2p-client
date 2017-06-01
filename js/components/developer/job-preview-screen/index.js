@@ -15,7 +15,7 @@ import { requestPostJob } from '../../../actions/jobs';
 class JobPreviewScreen extends Component {
 
   static navigationOptions = {
-    title: I18n.t('screen_titles.job_preview'),
+    title: I18n.t('screen_titles.task_preview'),
   };
 
   static propTypes = {
@@ -40,7 +40,7 @@ class JobPreviewScreen extends Component {
   getPreviewFooter() {
     return (
       <CardItemButton
-        text={I18n.t('job.create_job_button')}
+        text={I18n.t('task.order_task_button')}
         onPress={() => this.postJob()}
       />
     );

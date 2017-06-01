@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
 import { Container, Content } from 'native-base';
+import moment from 'moment';
 import AvatarListItem from '../../common/avatar-list-item/avatarListItem';
 import ListSectionHeader from '../../common/list-section-header/listSectionHeader';
 import JASpinner from '../../common/ja-spinner/JASpinner';
-
+import { getTaskIcon } from '../../../util/task-graphics-getter';
 import { selectOwnedJob } from '../../../actions/ownedJobs';
 import I18n from '../../../i18n';
-
-// Temporary logo, TODO replace with real icon.
-const LOGO_URL = 'https://facebook.github.io/react/img/logo_og.png';
 
 class MyJobsTab extends Component {
 
@@ -51,13 +49,13 @@ class MyJobsTab extends Component {
     this.props.toNextScreen();
   }
 
-  // TODO replace icon with actual icon.
+  // TODO Replace getTaskIcon() when API supports icons.
   renderRow = job =>
     <AvatarListItem
       title={job.attributes.name}
-      note={job.attributes.street}
+      note={moment(job.attributes.job_date).calendar()}
       status={'Aktiv'}
-      icon={{ uri: LOGO_URL }}
+      icon={getTaskIcon(job.attributes.name)}
       toNextScreen={() => this.selectJob(job)}
     />;
 

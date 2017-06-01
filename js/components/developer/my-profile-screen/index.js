@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Tab, Tabs } from 'native-base';
 import PaymentInfoScreen from '../payment-info-screen';
-import PersonalInfoScreen from '../personal-info-screen';
+import ProfileInfo from './profileInfo';
 import I18n from '../../../i18n';
 
 export default class MyProfileScreen extends Component {
@@ -13,10 +13,10 @@ export default class MyProfileScreen extends Component {
     return (
       <Container>
         <Tabs>
-          <Tab heading={I18n.t('account.profile_info')} >
-            <PersonalInfoScreen />
+          <Tab heading={I18n.t('account.profile_tab')}>
+            <ProfileInfo />
           </Tab>
-          <Tab heading={I18n.t('account.payment_info')}>
+          <Tab heading={I18n.t('account.payment_details_tab')}>
             <PaymentInfoScreen />
           </Tab>
         </Tabs>

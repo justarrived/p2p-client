@@ -5,6 +5,7 @@ export const JOB_O_RECEIVE = 'JOB_OWNED_RECEIVE';
 export const JOBS_O_REQUEST = 'JOBS_OWNED_REQUEST';
 export const JOBS_O_RECEIVE = 'JOBS_OWNED_RECEIVE';
 export const JOB_O_SELECT = 'JOBS_OWNED_SELECT';
+export const JOB_O_SELECT_DONE = 'JOBS_OWNED_SELECT_DONE';
 
 // Used to set state waiting for owned job
 function requestOwnedJobs() {
@@ -36,6 +37,13 @@ export function selectOwnedJob(jobJson) {
   return {
     type: JOB_O_SELECT,
     jobJson,
+  };
+}
+
+// Used to set data fetch complete for selected job
+export function selectInitialized() {
+  return {
+    type: JOB_O_SELECT_DONE,
   };
 }
 

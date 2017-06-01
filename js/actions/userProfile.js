@@ -1,14 +1,15 @@
 import { getUser, postUser, patchUser } from '../networking/user';
+import { setAttributes } from './userEdit';
 
-export const USER_REQUEST = 'USER_REQUEST';
-export const USER_RECEIVE = 'USER_RECEIVE';
-export const USER_CREATE = 'USER_CREATE';
-export const USER_UPDATE = 'USER_UPDATE';
+export const USER_P_REQUEST = 'USER_P_REQUEST';
+export const USER_P_RECEIVE = 'USER_P_RECEIVE';
+export const USER_P_CREATE = 'USER_P_CREATE';
+export const USER_P_UPDATE = 'USER_P_UPDATE';
 
 // Used to set state waiting for user
 function requestUser(userId) {
   return {
-    type: USER_REQUEST,
+    type: USER_P_REQUEST,
     userId,
   };
 }
@@ -16,7 +17,7 @@ function requestUser(userId) {
 // Used to set state with user
 function receiveUser(userId, userJson, error) {
   return {
-    type: USER_RECEIVE,
+    type: USER_P_RECEIVE,
     userId,
     userJson,
     error,
@@ -26,14 +27,14 @@ function receiveUser(userId, userJson, error) {
 // Used to set state with new user
 function createUser() {
   return {
-    type: USER_CREATE,
+    type: USER_P_CREATE,
   };
 }
 
 // Used to set state with updated user
 function updateUser(userId) {
   return {
-    type: USER_UPDATE,
+    type: USER_P_UPDATE,
     userId,
   };
 }
@@ -52,6 +53,7 @@ export function requestGetUser(userId, token) {
           userJson.data.id,
           userJson,
           null));
+        dispatch(setAttributes(userJson.data.attributes));
       },
       (error) => {
         // Dispatch the received error
@@ -66,11 +68,12 @@ export function requestCreateUser(requestJson) {
   return (dispatch) => {
     dispatch(createUser());
     postUser(requestJson,
-      (responseJson) => {
+      (userJson) => {
         dispatch(receiveUser(
-          responseJson.data.id,
-          responseJson,
+          userJson.data.id,
+          userJson,
           null));
+        dispatch(setAttributes(userJson.data.attributes));
       },
       (error) => {
         dispatch(receiveUser(null, null, error));
@@ -89,6 +92,7 @@ export function requestPatchUser(userId, token, json) {
           userJson.data.id,
           userJson,
           null));
+        dispatch(setAttributes(userJson.data.attributes));
       },
       (error) => {
         dispatch(receiveUser(null, null, error));
