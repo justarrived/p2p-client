@@ -1,4 +1,6 @@
 import { StyleSheet } from 'react-native';
+import { GRAY, WHITE } from '../../../resources/colors';
+
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -9,9 +11,9 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingRight: 16,
     paddingLeft: 16,
-    backgroundColor: 'white',
+    backgroundColor: WHITE,
     borderTopWidth: 0.3,
-    borderColor: 'grey',
+    borderColor: GRAY,
   },
   buttonStyle: {
     flex: 1,
