@@ -7,7 +7,7 @@ import I18n from '../../../i18n';
 
 export default class JADatePicker extends Component {
   static propTypes = {
-    typeOfInput: PropTypes.oneOfType(JA_DATEPICKER_TYPE).isRequired,
+    typeOfInput: PropTypes.oneOf(Object.values(JA_DATEPICKER_TYPE)).isRequired,
     onChange: PropTypes.func.isRequired,
     currentPickerValue: PropTypes.string,
   }
