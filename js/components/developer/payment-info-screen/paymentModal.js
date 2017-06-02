@@ -53,7 +53,7 @@ export default class PaymentModal extends Component {
                 style={StyleSheet.flatten(style.cancelPaymentButton)}
                 onPress={() => setModalVisible(false)}
               >
-                <Text>Cancel</Text>
+                <Text>{I18n.t('button_actions.cancel')}</Text>
               </Button>
             </CardItem>
           </Card>
