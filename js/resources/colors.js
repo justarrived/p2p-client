@@ -27,3 +27,4 @@ export const ICON = '#757575';
 
 // Misc
 export const CARD_IMAGE_HEADER_SHADOW = 'rgba(0, 0, 0, 0.75)';
+export const PAYMENT_MODAL_BACKGROUND_OVERLAY = 'rgba(0, 0, 0, 0.5)';
