@@ -10,14 +10,14 @@ import GlobalStyle from '../../../resources/globalStyle';
 import I18n from '../../../i18n';
 import { requestCreateUser } from '../../../actions/userProfile';
 import { createJsonDataAttributes } from '../../../networking/json';
-import { setFirstName, setLastName, setEmail, setPassword, toggleCheckBox } from '../../../actions/userEdit';
+import { setFirstName, setLastName, setEmail, setPassword, toggleCheckBox, setAppLanguage } from '../../../actions/userEdit';
 
 import JATagline from '../../common/ja-tagline';
 import JAButton from '../../common/ja-button';
 import { JA_BUTTON, JA_INPUT } from '../../../resources//constants';
 import JAInput from '../../common/ja-input';
 import CheckBoxPUL from '../../common/checkbox-with-text';
-// import LanguageDropdown from '../../common/language-dropdown/languageDropdown';
+import LanguageDropdown from '../../common/language-dropdown/languageDropdown';
 import Footer from '../../common/footer/footer';
 
 // TODO Replace these standard values with real values.
@@ -43,6 +43,7 @@ class CreateAccountScreen extends Component {
     setEmail: React.PropTypes.func.isRequired,
     setPassword: React.PropTypes.func.isRequired,
     toggleCheckBox: React.PropTypes.func.isRequired,
+    setAppLanguage: React.PropTypes.func.isRequired,
     account: React.PropTypes.shape({
       firstName: React.PropTypes.string,
       lastName: React.PropTypes.string,
@@ -87,10 +88,7 @@ class CreateAccountScreen extends Component {
             typeOfInput={JA_INPUT.PASSWORD}
             onChange={text => this.props.setPassword(text)}
           />
-          { /*
-              <LanguageDropdown onChange={input => this.props.changeAppLanguage(input)} />
-            */
-          }
+          <LanguageDropdown onChange={input => this.props.setAppLanguage(input)} />
           <CheckBoxPUL
             title={I18n.t('sign_up.accept_pul_and_terms')}
             isChecked={this.props.account.consent}
@@ -120,7 +118,7 @@ function bindAction(dispatch) {
     setEmail: input => dispatch(setEmail(input)),
     setPassword: input => dispatch(setPassword(input)),
     toggleCheckBox: () => dispatch(toggleCheckBox()),
-    // changeAppLanguage: input => dispatch(changeAppLanguage(input)),
+    setAppLanguage: input => dispatch(setAppLanguage(input)),
     signUp: (user, password) => dispatch(requestCreateUser(user, password)),
   };
 }
