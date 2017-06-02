@@ -10,11 +10,12 @@ import { JA_BUTTON } from '../../../resources/constants';
 import WorkerProfileStyle from './workerProfileStyle';
 import { navigate } from '../../../actions/navigation';
 
-
-  // TODO Replace placeholder name with actual name
-const NAME = 'John Doe';
-
 class WorkerProfileScreen extends Component {
+
+  // TODO Improve typechecking
+  static propTypes = {
+    userInfo: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  }
 
   static navigationOptions = {
     title: I18n.t('screen_titles.worker_profile'),
@@ -22,6 +23,8 @@ class WorkerProfileScreen extends Component {
 
   // TODO Replace placeholder data in ReferenceScreen
   render() {
+    const workerName = this.props.userInfo.user.attributes.first_name;
+
     return (
       <Container>
         <Tabs>
@@ -35,7 +38,7 @@ class WorkerProfileScreen extends Component {
         <View style={StyleSheet.flatten(WorkerProfileStyle.buttonContainer)}>
           <JAButton
             style={StyleSheet.flatten(WorkerProfileStyle.buttonStyle)}
-            content={I18n.t('button_actions.select', { name: NAME })}
+            content={I18n.t('button_actions.select', { name: workerName })}
             actionOnClick={() => this.props.navigate('PaymentInfoScreen')}
             typeOfButton={JA_BUTTON.PRIMARY}
           />
@@ -50,5 +53,9 @@ function bindAction(dispatch) {
   };
 }
 
-const mapStateToProps = state => ({ navigation: state.navigation });
+const mapStateToProps = state => ({
+  navigation: state.navigation,
+  userInfo: state.jobUsers.selectedUser,
+});
+
 export default connect(mapStateToProps, bindAction)(WorkerProfileScreen);
