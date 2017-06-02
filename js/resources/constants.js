@@ -18,6 +18,7 @@ export const JA_INPUT = {
   PHONE_NUMBER: 'PHONE_NUMBER',
   EMAIL: 'EMAIL',
   PASSWORD: 'PASSWORD',
+  CVC: 'CVC',
 };
 
 

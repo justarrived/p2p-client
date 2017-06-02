@@ -88,6 +88,14 @@ export default class JAInput extends Component {
         keyboardTypeUsed = 'email-address';
         break;
 
+      case JA_INPUT.CVC:
+        placeholderTitle = 'CVC';
+        icon = <JAInputIcon name="key" />;
+        secureInput = true;
+        keyboardTypeUsed = 'numeric';
+        numberOfCharactersPermitted = 3;
+        break;
+
       default:
         /* Gives an input with no placeholderTitle or icon and default values for
         secureInput, keyboardType, and numberOfCharactersPermitted */
