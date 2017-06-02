@@ -147,6 +147,7 @@
     "calendar": "Calendar"
   },
   "button_actions": {
+    "select": "Select {{name}}",
     "submit": "Submit",
     "done": "Done",
     "edit": "Edit",
