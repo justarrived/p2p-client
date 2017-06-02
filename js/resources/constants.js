@@ -20,3 +20,9 @@ export const JA_INPUT = {
   PASSWORD: 'PASSWORD',
   CVC: 'CVC',
 };
+
+
+export const JA_DATEPICKER_TYPE = {
+  DATE: 'DATE',
+  TIME: 'TIME',
+};

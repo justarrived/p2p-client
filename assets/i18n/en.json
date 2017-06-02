@@ -143,7 +143,9 @@
   "date_and_time": {
     "date": "Date",
     "time": "Time",
-    "calendar": "Calendar"
+    "calendar": "Calendar",
+    "select_date": "Select date",
+    "select_time": "Select time"
   },
   "button_actions": {
     "submit": "Submit",
@@ -153,7 +155,8 @@
     "save": "Save",
     "cancel": "Cancel",
     "next": "Next",
-    "skip": "Skip"
+    "skip": "Skip",
+    "confirm": "Confirm"
   },
   "card": {
     "card_holder": "Card holder",
