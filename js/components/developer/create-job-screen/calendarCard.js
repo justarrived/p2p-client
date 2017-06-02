@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Col, Form, Item, Label, Input, Card, CardItem } from 'native-base';
+import { Grid, Col, Form, Card, CardItem } from 'native-base';
 import CardHeader from '../../common/card-header/cardHeader';
 
 import { setHStartDate, setHStartTime } from '../../../actions/jobCreation';
 import I18n from '../../../i18n';
+import JADatePicker from '../../common/ja-date-picker/datePicker';
+import { JA_DATEPICKER_TYPE } from '../../../resources/constants';
 
 // Card with input fields to specify when the job should be started.
 class CalendarCard extends Component {
@@ -14,9 +16,6 @@ class CalendarCard extends Component {
     date: React.PropTypes.string.isRequired,
     time: React.PropTypes.string.isRequired,
   };
-
-  // TODO check date and time format!
-  // format= 2016-02-18T01:01:01.000+01:00"
 
   render() {
     return (
@@ -28,26 +27,18 @@ class CalendarCard extends Component {
         <Form >
           <Grid>
             <Col>
-              <Item floatingLabel>
-                <Label>{I18n.t('date_and_time.date')}</Label>
-                <Input
-                  keyboardType="numeric"
-                  maxLength={10}
-                  value={this.props.date}
-                  onChangeText={date => this.props.setDate(date)}
-                />
-              </Item>
+              <JADatePicker
+                typeOfInput={JA_DATEPICKER_TYPE.DATE}
+                onChange={this.props.setDate}
+                currentPickerValue={this.props.date}
+              />
             </Col>
             <Col>
-              <Item floatingLabel>
-                <Label>{I18n.t('date_and_time.time')}</Label>
-                <Input
-                  keyboardType="numeric"
-                  maxLength={5}
-                  value={this.props.time}
-                  onChangeText={time => this.props.setTime(time)}
-                />
-              </Item>
+              <JADatePicker
+                typeOfInput={JA_DATEPICKER_TYPE.TIME}
+                onChange={this.props.setTime}
+                currentPickerValue={this.props.time}
+              />
             </Col>
           </Grid>
         </Form>
