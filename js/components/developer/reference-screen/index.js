@@ -30,7 +30,10 @@ export default class ReferenceScreen extends Component {
     return (
       <Container>
         <Content>
-          <List dataArray={REFERENCES} renderRow={this.renderRow} />
+          <List
+            dataArray={REFERENCES} renderRow={this.renderRow}
+            removeClippedSubviews={false}
+          />
         </Content>
       </Container>
     );
