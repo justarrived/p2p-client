@@ -10,6 +10,8 @@ import { JA_BUTTON } from '../../../resources/constants';
 import WorkerProfileStyle from './workerProfileStyle';
 import { navigate } from '../../../actions/navigation';
 
+
+  // TODO Replace placeholder name with actual name
 const NAME = 'John Doe';
 
 class WorkerProfileScreen extends Component {
