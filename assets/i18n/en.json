@@ -149,6 +149,7 @@
     "select_time": "Select time"
   },
   "button_actions": {
+    "select": "Select {{name}}",
     "submit": "Submit",
     "done": "Done",
     "edit": "Edit",

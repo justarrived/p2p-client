@@ -59,7 +59,7 @@ class JAButton extends Component {
 
     return (
       <TouchableOpacity
-        onPress={actionOnClick}
+        onPress={actionOnClick} {...this.props}
       >
         <LinearGradient
           start={{ x: 0.0, y: 0.5 }} end={{ x: 1.0, y: 0.5 }}
