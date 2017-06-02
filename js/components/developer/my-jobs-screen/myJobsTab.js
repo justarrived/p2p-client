@@ -74,6 +74,7 @@ class MyJobsTab extends Component {
             dataSource={this.state.dataSource}
             renderRow={this.renderRow}
             renderSectionHeader={this.renderSectionHeader}
+            removeClippedSubviews={false}
           />
         </Content>
       </Container>

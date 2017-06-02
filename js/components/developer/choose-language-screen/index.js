@@ -36,7 +36,10 @@ class ChooseLanguageScreen extends Component {
           </View>
           <Card>
             <CardHeader title={I18n.t('screen_titles.choose_language')} subtitle={I18n.t('language.select_display_language')} icon="globe" />
-            <List dataArray={this.props.languages.languages.data} renderRow={this.renderRow} />
+            <List
+              dataArray={this.props.languages.languages.data}
+              renderRow={this.renderRow} removeClippedSubviews={false}
+            />
           </Card>
         </Content>
       </Container>
