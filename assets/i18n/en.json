@@ -1,6 +1,6 @@
 {
   "common": {
-    "or": "OR",
+    "or": "OR"
   },
   "task": {
     "task_details": "Task details",
@@ -14,7 +14,7 @@
     "task_duration": "Task duration",
     "headings": {
       "current": "Current",
-      "history": "History",
+      "history": "History"
     },
     "rating": {
       "how_did_the_worker_perform_the_task": "We hope you enjoyed your experience, please write what you think about the experience you had using People",
@@ -25,8 +25,7 @@
       "no_rating_yet": "No rating yet",
       "thank_you": "Thank you!",
       "write_a_recommendation": "Write a recommendation",
-      "unrated": "Unrated",
-      "thank_you": "Thank you!"
+      "unrated": "Unrated"
     }
   }, "confirmation": {
         "the_task_is_completed": "The task is completed!",
@@ -34,7 +33,7 @@
         "invite_a_friend": "Invite a friend to the app and get 15% of on youre next service",
         "invite_with_sms": "Invite with SMS",
         "invite_with_facebook": "Invite with Facebook",
-        "skip_invite": "Skip invite",
+        "skip_invite": "Skip invite"
   },
   "categories": {
     "shoveling": {
@@ -124,7 +123,7 @@
   },
   "forgot_password": {
     "forgot_your_password": "Forgot your password?",
-    "forgot_your_password_info": "No worries! Type your email address in the box below and then check your inbox",
+    "forgot_your_password_info": "No worries! Type your email address in the box below and then check your inbox"
   },
   "login": {
     "sign_in_button": "Log in to your account",
@@ -139,7 +138,7 @@
     "accept_pul_and_terms": "I accept the PUL and Terms of Use"
   },
   "sign_out": {
-    "sign_out_button": "Sign out",
+    "sign_out_button": "Sign out"
   },
   "date_and_time": {
     "date": "Date",
@@ -154,7 +153,7 @@
     "save": "Save",
     "cancel": "Cancel",
     "next": "Next",
-    "skip": "Skip",
+    "skip": "Skip"
   },
   "card": {
     "card_holder": "Card holder",
@@ -168,10 +167,15 @@
       "visa": "Visa"
     }
   },
+  "payment": {
+    "confirm_payment": "Confirm Payment",
+    "credit_card": "With credit card {{card_number}}.",
+    "pay_button": "Pay ({{amount}})"
+  },
   "language": {
     "select_display_language": "Select app display language"
   },
   "social": {
     "facebook": "Log in with Facebook"
-  },
+  }
 }
