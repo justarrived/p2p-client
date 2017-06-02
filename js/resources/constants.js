@@ -19,3 +19,9 @@ export const JA_INPUT = {
   EMAIL: 'EMAIL',
   PASSWORD: 'PASSWORD',
 };
+
+
+export const JA_DATEPICKER_TYPE = {
+  DATE: 'DATE',
+  TIME: 'TIME',
+};
