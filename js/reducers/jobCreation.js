@@ -20,7 +20,7 @@ const initialState = {
   zip: '',
   helperDate: {
     date: '',
-    time: '10:00',
+    time: '',
   },
 };
 
