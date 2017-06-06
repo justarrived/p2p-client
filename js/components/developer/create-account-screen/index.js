@@ -14,16 +14,12 @@ import { setFirstName, setLastName, setEmail, setPassword, toggleCheckBox, setAp
 
 import JATagline from '../../common/ja-tagline';
 import JAButton from '../../common/ja-button';
-import { JA_BUTTON, JA_INPUT } from '../../../resources//constants';
+import { JA_BUTTON, JA_INPUT } from '../../../resources/constants';
 import JAInput from '../../common/ja-input';
 import CheckBoxPUL from '../../common/checkbox-with-text';
 import LanguageDropdown from '../../common/language-dropdown/languageDropdown';
 import Footer from '../../common/footer/footer';
 
-// TODO Replace these standard values with real values.
-// These are used during development only.
-// LanguageDropdown shows one language when first rendered even though
-// no language is seleceted. Could lead to bugs
 function getCreateUserJson(attributes) {
   return createJsonDataAttributes({
     email: attributes.email,

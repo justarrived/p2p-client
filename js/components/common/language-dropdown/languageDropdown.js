@@ -22,7 +22,6 @@ class LanguageDropdown extends Component {
   onValueChange(value) {
     this.setNewLanguage(value);
     this.props.onChange(value);
-    console.log(value);
   }
 
   setNewLanguage(value: string) {
