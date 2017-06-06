@@ -54,6 +54,12 @@ const MyJobsTab = StackNavigator({
   PaymentInfoScreen: {
     screen: PaymentInfoScreen,
   },
+  RateWorkScreen: {
+    screen: RateWorkScreen,
+  },
+  ConfirmationScreen: {
+    screen: ConfirmationScreen,
+  },
 }, {
   navigationOptions: {
     tabBarLabel: I18n.t('navigation_tabs.my_tasks'),
