@@ -17,7 +17,7 @@ export default class CardImageHeader extends Component {
 
   static defaultProps = {
     icon: undefined,
-    toNextScreen: () => alert('hej!'),
+    toNextScreen: undefined,
   };
 
   render() {

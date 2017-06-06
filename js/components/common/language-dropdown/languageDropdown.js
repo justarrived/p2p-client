@@ -10,6 +10,7 @@ class LanguageDropdown extends Component {
 
   static propTypes = {
     onChange: PropTypes.func.isRequired,
+    languages: PropTypes.objectOf(PropTypes.any).isRequired,
   }
 
   constructor(props) {

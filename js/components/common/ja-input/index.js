@@ -18,7 +18,7 @@ export default class JAInput extends Component {
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
     defaultValue: PropTypes.string,
-    typeOfInput: PropTypes.oneOfType(JA_INPUT),
+    typeOfInput: PropTypes.oneOf(Object.values(JA_INPUT)),
 
   }
 

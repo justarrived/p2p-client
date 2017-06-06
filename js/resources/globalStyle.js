@@ -15,10 +15,6 @@ const globalStyle = StyleSheet.create({
   rowMargin: {
     marginTop: ROW_MARGIN,
   },
-  modalPadder: {
-    paddingLeft: 40,
-    paddingRight: 40,
-  },
   noPadding: {
     paddingLeft: 0,
     paddingRight: 0,

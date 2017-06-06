@@ -21,7 +21,7 @@ export default class AvatarListItem extends Component {
 
   static defaultProps = {
     status: undefined,
-    toNextScreen: () => alert('hej!'),
+    toNextScreen: undefined,
   }
 
   render() {
