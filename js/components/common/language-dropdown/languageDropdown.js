@@ -19,9 +19,10 @@ class LanguageDropdown extends Component {
     };
   }
 
-  onValueChange(value: string) {
+  onValueChange(value) {
     this.setNewLanguage(value);
     this.props.onChange(value);
+    console.log(value);
   }
 
   setNewLanguage(value: string) {
@@ -33,10 +34,11 @@ class LanguageDropdown extends Component {
   render() {
     const languagesList = [];
     this.props.languages.languages.data.forEach((language) => {
-      languagesList.push(language.attributes.local_name);
+      languagesList.push({ name: language.attributes.local_name, id: language.id });
     });
 
-    const languageItems = languagesList.map(s => <Picker.Item key={s}value={s} label={s} />);
+    const languageItems =
+      languagesList.map(s => <Picker.Item key={s.name} value={s.id} label={s.name} />);
 
     return (
       <View style={StyleSheet.flatten(styles.viewWrapper)}>

@@ -16,7 +16,7 @@ const initialState = {
     email: '',
     password: '',
     consent: false, // User accepts terms
-    appLanguage: '',
+    appLanguage: undefined,
   },
   initialized: false,
   disabled: true,
@@ -109,7 +109,7 @@ export default function (state = initialState, action) {
         ...state,
         attributes: {
           ...state.attributes,
-          password: action.payload,
+          appLanguage: action.payload,
         },
       };
     case USER_E_TOGGLE_INPUT:

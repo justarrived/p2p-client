@@ -29,7 +29,7 @@ function getCreateUserJson(attributes) {
     email: attributes.email,
     password: attributes.password,
     consent: attributes.consent,
-    system_language_id: 38,
+    system_language_id: attributes.appLanguage,
     first_name: attributes.first_name,
     last_name: attributes.last_name,
   });
