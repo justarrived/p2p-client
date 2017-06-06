@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Content } from 'native-base';
 import { Text, View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 import RatingScreenStyles from './rateWorkStyles';
 import RatingBar from './ratingBar';
 import JAButton from '../../common/ja-button';
@@ -10,11 +11,21 @@ import RecommendationTextbox from './recommendationTextbox';
 import I18n from '../../../i18n';
 import globalStyle from '../../../resources/globalStyle';
 
+import { navigate } from '../../../actions/navigation';
 
-export default class RateWorkScreen extends Component {
+
+class RateWorkScreen extends Component {
 
   static navigationOptions = {
     title: I18n.t('screen_titles.rate_worker'),
+  };
+
+  static propTypes = {
+    navigate: React.PropTypes.func,
+  };
+
+  static defaultProps = {
+    navigate: undefined,
   };
 
   render() {
@@ -53,11 +64,21 @@ export default class RateWorkScreen extends Component {
             <JAButton
               content={I18n.t('button_actions.submit')}
               typeOfButton={JA_BUTTON.PRIMARY}
+              actionOnClick={() => this.props.navigate('ConfirmationScreen')}
             />
           </View>
         </Content>
       </Container>
-
     );
   }
 }
+
+function bindAction(dispatch) {
+  return {
+    navigate: (routeName, params) => dispatch(navigate(routeName, params)),
+  };
+}
+
+const mapStateToProps = state => ({ navigation: state.navigation });
+
+export default connect(mapStateToProps, bindAction)(RateWorkScreen);
