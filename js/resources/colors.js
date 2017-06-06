@@ -16,6 +16,11 @@ export const TRANSPARENT = 'transparent';
 export const BLACK = '#000000';
 export const DARK_GRAY = '#453333';
 export const GRAY = '#938989';
+export const WHITE_SMOKE = '#f5f5f5';
+
+// Text colors
+export const PRIMARY_TEXT = '#212121';
+export const NOTE = '#757575';
 
 // Badge colors
 export const BADGE_COLOR_ACTIVE = 'seagreen';

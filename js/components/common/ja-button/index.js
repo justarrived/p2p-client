@@ -4,8 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { PRIMARY_THEME_COLOR,
          GRADIENT_ORANGE_COLOR,
          FACEBOOK_COLOR,
-         FACEBOOK_GRADIENT_COLOR,
-         WHITE } from '../../../resources/colors';
+         FACEBOOK_GRADIENT_COLOR } from '../../../resources/colors';
 import { JA_BUTTON } from '../../../resources/constants';
 import styles from './style';
 
@@ -19,20 +18,21 @@ const facebookButtonColor = [
   FACEBOOK_GRADIENT_COLOR,
 ];
 
-{ /*
+/*
   This component is supposed to be used as a generic button component throughout
   the app.
-*/ }
+*/
 
 class JAButton extends Component {
   static propTypes = {
     content: React.PropTypes.string.isRequired,
     actionOnClick: React.PropTypes.func,
-    typeOfButton: React.PropTypes.oneOfType(JA_BUTTON),
+    typeOfButton: React.PropTypes.oneOf(Object.values(JA_BUTTON)),
   }
 
   static defaultProps = {
     actionOnClick: undefined,
+    typeOfButton: JA_BUTTON.PRIMARY,
   }
   render = () => {
     const {
@@ -53,7 +53,6 @@ class JAButton extends Component {
         break;
 
       default:
-        console.log('default');
         break;
     }
 

@@ -1,7 +1,7 @@
 import {
   USER_E_FIRSTNAME, USER_E_LASTNAME, USER_E_STREET, USER_E_ZIP,
   USER_E_CITY, USER_E_PHONE, USER_E_EMAIL, USER_E_PASSWORD,
-  USER_E_CONSENT, USER_E_ATTRIBUTES, USER_E_TOGGLE_INPUT,
+  USER_E_CONSENT, USER_E_ATTRIBUTES, USER_E_TOGGLE_INPUT, USER_E_APP_LANGUAGE,
 } from '../actions/userEdit';
 import { SESSION_REMOVE } from '../actions/session';
 
@@ -16,6 +16,7 @@ const initialState = {
     email: '',
     password: '',
     consent: false, // User accepts terms
+    appLanguage: undefined,
   },
   initialized: false,
   disabled: true,
@@ -101,6 +102,14 @@ export default function (state = initialState, action) {
         attributes: {
           ...state.attributes,
           consent: !state.attributes.consent,
+        },
+      };
+    case USER_E_APP_LANGUAGE:
+      return {
+        ...state,
+        attributes: {
+          ...state.attributes,
+          appLanguage: action.payload,
         },
       };
     case USER_E_TOGGLE_INPUT:

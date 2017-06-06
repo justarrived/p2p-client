@@ -132,6 +132,7 @@
     "create_account_button": "Create account"
   },
   "sign_up": {
+    "create_account_title": "Create Account",
     "sign_up_button": "Sign up",
     "need_account": "Do you need an account?",
     "already_have_an_account_button": "Already have an account - Sign in",

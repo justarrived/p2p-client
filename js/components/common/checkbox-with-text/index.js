@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-import { ListItem, CheckBox, Text, Body } from 'native-base';
+import { StyleSheet, Text } from 'react-native';
+import { ListItem, CheckBox, Body } from 'native-base';
 import styles from './style';
 
 export default class CheckBoxWithText extends Component {

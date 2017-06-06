@@ -3,10 +3,11 @@ import { TRANSPARENT } from '../../../resources/colors';
 
 const styles = StyleSheet.create({
   textPadding: {
-    paddingLeft: 5,
+    paddingLeft: 10,
   },
   noUnderline: {
     borderColor: TRANSPARENT,
+    marginLeft: 0,
   },
 });
 

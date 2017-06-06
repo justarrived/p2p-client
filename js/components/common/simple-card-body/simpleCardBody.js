@@ -14,7 +14,7 @@ export default class SimpleCardBody extends Component {
 
   static defaultProps = {
     icon: undefined,
-    toNextScreen: () => alert('hej!'),
+    toNextScreen: undefined,
   };
 
   render() {

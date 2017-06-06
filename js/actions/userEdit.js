@@ -10,6 +10,8 @@ export const USER_E_PHONE = 'USER_EDIT_PHONE';
 export const USER_E_EMAIL = 'USER_EDIT_EMAIL';
 export const USER_E_PASSWORD = 'USER_EDIT_PASSWORD';
 export const USER_E_CONSENT = 'USER_EDIT_CONSENT';
+export const USER_E_APP_LANGUAGE = 'USER_E_APP_LANGUAGE';
+
 // Helper values
 export const USER_E_TOGGLE_INPUT = 'USER_EDIT_TOGGLE_INPUT';
 
@@ -80,6 +82,13 @@ export function setPassword(password) {
 export function toggleCheckBox() {
   return {
     type: USER_E_CONSENT,
+  };
+}
+
+export function setAppLanguage(appLanguage) {
+  return {
+    type: USER_E_APP_LANGUAGE,
+    payload: appLanguage,
   };
 }
 
