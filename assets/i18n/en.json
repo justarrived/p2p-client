@@ -157,7 +157,8 @@
     "cancel": "Cancel",
     "next": "Next",
     "skip": "Skip",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "mark_as_completed" : "Mark as completed"
   },
   "card": {
     "card_holder": "Card holder",
